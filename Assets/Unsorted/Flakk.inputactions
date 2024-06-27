@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "16fd90f6-248b-4dbc-bce0-0cb739e47518",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -273,6 +282,28 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db52c8b8-6b05-4fe9-8c54-093b0c9436ad",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a019bd8e-9944-49e0-9b8c-c682eb7c4e24",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -281,9 +312,18 @@
             "id": "c360c6fe-0f3b-4dcd-8a5a-84aafa5692b3",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Look",
+                    "type": "Value",
+                    "id": "de180be7-08a2-4cd2-92f6-ae6ce4ac1761",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ExitGun",
                     "type": "Button",
-                    "id": "7025bd3a-df8c-488c-85de-87ef8940fc3e",
+                    "id": "5422667b-03ca-4d9f-a2d3-9eb1a75ef51d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -293,12 +333,56 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "6c8a3510-1b0b-4229-b542-cd5532ce1a5c",
-                    "path": "",
+                    "id": "c5961d1f-0167-4bc7-9d73-32c53b141a38",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "295782aa-7174-477f-a856-b24c928938e3",
+                    "path": "<Pointer>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Touch",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "363a8043-921d-441f-bc06-dbecd6baa4cd",
+                    "path": "<Joystick>/{Hatswitch}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Joystick",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4fe31e6b-1e53-440a-bc1c-a066544e5847",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "ExitGun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8da34437-5609-4a8c-ac13-b0a3969b6784",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitGun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
