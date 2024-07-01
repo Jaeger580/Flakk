@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1178681012240504154}
   - component: {fileID: 6884059583885480428}
   m_Layer: 7
-  m_Name: Cube
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5306465448608308811}
+  m_Father: {fileID: 8624856190183370480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4425774570280817585
 MeshFilter:
@@ -234,6 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5306465448608308811}
+  - {fileID: 5606992202290475346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1866756195588211190
@@ -352,7 +353,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1632328668555436304}
-  - {fileID: 5606992202290475346}
   m_Father: {fileID: 8624856190183370480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &874947043473890065
