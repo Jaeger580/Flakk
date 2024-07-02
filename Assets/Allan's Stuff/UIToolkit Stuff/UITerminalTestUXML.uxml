@@ -1,0 +1,41 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Allan&apos;s%20Stuff/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="ScreenParent" class="screenParent">
+            <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors">
+                    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+                </ui:VisualElement>
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 60%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; background-color: rgb(53, 53, 53); height: 100%;">
+                    <ui:Label tabindex="-1" text="Damage:" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); border-bottom-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 0; padding-left: 10px; font-size: 64px; -unity-font-style: bold; letter-spacing: 10px;" />
+                    <ui:VisualElement style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; justify-content: space-between;">
+                        <ui:VisualElement style="flex-direction: column;">
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); padding-bottom: 5px; padding-top: 5px;">
+                                <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
+                                <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement style="flex-direction: row; justify-content: space-between; border-bottom-width: 1px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); padding-bottom: 5px; padding-top: 5px;">
+                                <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
+                                <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" style="color: rgb(255, 255, 255); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement>
+                            <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightAnchor" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
