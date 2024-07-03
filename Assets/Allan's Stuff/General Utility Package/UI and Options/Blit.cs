@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+#pragma warning disable CS0618
+
 namespace GeneralUtility
 {
 	/*
@@ -256,3 +258,5 @@ namespace GeneralUtility
 		}
 	}
 }
+
+#pragma warning restore CS0618
