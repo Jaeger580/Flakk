@@ -547,11 +547,27 @@ MonoBehaviour:
   gunBulletPoint: {fileID: 3934228305827563971}
   bulletPrefab: {fileID: 7646842544791493506, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
   sensitivity: 10
-  gunRotateSpeed: 4
-  baseDamage: 5
-  fireRate: 1
-  reloadTime: 0.5
+  gunRotateSpeed:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
+  baseDamage:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d00839767fae844acb673f82ca5dd241, type: 2}
+  fireRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
+  reloadTime:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 894eaed0c55c4474fbd5bf9862c91b8a, type: 2}
   clipSize: 10
   maxheat: 100
   coolDownSpeed: 30
   overHeatSpeed: 15
+  overheatRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}

@@ -1009,15 +1009,15 @@ GameObject:
   - component: {fileID: 1976953502}
   - component: {fileID: 1976953501}
   - component: {fileID: 1976953503}
-  - component: {fileID: 1976953504}
-  - component: {fileID: 1976953509}
-  - component: {fileID: 1976953508}
-  - component: {fileID: 1976953507}
-  - component: {fileID: 1976953506}
-  - component: {fileID: 1976953505}
   - component: {fileID: 1976953510}
+  - component: {fileID: 1976953512}
+  - component: {fileID: 1976953513}
+  - component: {fileID: 1976953511}
+  - component: {fileID: 1976953515}
+  - component: {fileID: 1976953516}
+  - component: {fileID: 1976953514}
   m_Layer: 5
-  m_Name: Quad
+  m_Name: Stat UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,114 +1152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monitorCam: {fileID: 2146439953}
   exitMonitorEvent: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
---- !u!114 &1976953504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: f83ec36aaa78e45a298a3a741e7706f7, type: 2}
-  amtToUpgradeBy: 5
-  statName: Damage
---- !u!114 &1976953505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
-  amtToUpgradeBy: 5
-  statName: OverheatRate
---- !u!114 &1976953506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
-  amtToUpgradeBy: 5
-  statName: GunTurnSpeed
---- !u!114 &1976953507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 894eaed0c55c4474fbd5bf9862c91b8a, type: 2}
-  amtToUpgradeBy: 5
-  statName: TurnSpeed
---- !u!114 &1976953508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
-  amtToUpgradeBy: 5
-  statName: FireRate
---- !u!114 &1976953509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976953496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790f48c1112874e5aaea4e960a71a467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statToUpgrade:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
-  amtToUpgradeBy: 5
-  statName: BulletSpeed
 --- !u!114 &1976953510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,6 +1164,126 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee9d4995fdcfe4022b6bc7cf6282cda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1976953511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff922daab55c4194872eaeaf47a1374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: FireRate
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
+  amtToUpgradeBy: -0.1
+  min: 0.2
+  max: 1
+--- !u!114 &1976953512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d705d2c575aae4a9b8345ffb392c64d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: Damage
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d00839767fae844acb673f82ca5dd241, type: 2}
+  amtToUpgradeBy: 5
+  min: 0
+  max: 25
+--- !u!114 &1976953513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff922daab55c4194872eaeaf47a1374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: BulletSpeed
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
+  amtToUpgradeBy: 20
+  min: 0
+  max: 200
+--- !u!114 &1976953514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff922daab55c4194872eaeaf47a1374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: OverheatRate
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
+  amtToUpgradeBy: -2.5
+  min: 0
+  max: 25
+--- !u!114 &1976953515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff922daab55c4194872eaeaf47a1374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: ReloadSpeed
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 894eaed0c55c4474fbd5bf9862c91b8a, type: 2}
+  amtToUpgradeBy: -0.1
+  min: 0.2
+  max: 1
+--- !u!114 &1976953516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976953496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff922daab55c4194872eaeaf47a1374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statName: GunTurnSpeed
+  statToUpgrade:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
+  amtToUpgradeBy: 2
+  min: 0
+  max: 20
 --- !u!1 &2146439951
 GameObject:
   m_ObjectHideFlags: 0
