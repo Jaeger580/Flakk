@@ -21,6 +21,8 @@ public class GunControl : MonoBehaviour
     private float currentHeat = 1f;
     private bool overHeating = false;
 
+    public delegate void OnHeatChange(float newHeat);
+    public OnHeatChange HeatChangeEvent;
 
 
     private bool isShooting = false;
@@ -56,7 +58,8 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     private int clipSize = 1;
     [SerializeField]
-    private float maxheat = 100f;
+    private float maxHeat = 100f;
+    public float MaxHeat => maxHeat;
     [SerializeField]
     private float coolDownSpeed = 1f;
     [SerializeField]
@@ -69,7 +72,10 @@ public class GunControl : MonoBehaviour
 
 
 
-
+    private void OnDisable()
+    {
+        HeatChangeEvent = null;
+    }
 
     private void Start()
     {
@@ -90,10 +96,12 @@ public class GunControl : MonoBehaviour
             if (currentHeat > 0 & !overHeating)
             {
                 currentHeat -= coolDownSpeed * Time.deltaTime;
+                HeatChangeEvent.Invoke(currentHeat);
             }
             else if (overHeating && currentHeat > 0) 
             {
                 currentHeat -= overHeatSpeed * Time.deltaTime;
+                HeatChangeEvent.Invoke(currentHeat);
             }
 
             if(currentHeat <= 0 && overHeating) 
@@ -201,8 +209,9 @@ public class GunControl : MonoBehaviour
 
         currentClip--;
         currentHeat += overheatRate.Value;
+        HeatChangeEvent.Invoke(currentHeat);
 
-        if(currentHeat >= maxheat) 
+        if (currentHeat >= maxHeat) 
         {
             overHeating = true;
             isShooting = false;
