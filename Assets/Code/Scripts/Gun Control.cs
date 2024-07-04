@@ -1,4 +1,5 @@
 using Cinemachine;
+using GeneralUtility.VariableObject;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.PlasticSCM.Editor.WebApi;
@@ -43,15 +44,15 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     private float sensitivity = 5f;
     [SerializeField]
-    private float gunRotateSpeed = 5f;
+    private FloatReference gunRotateSpeed;
 
     [Header("Gun Stats")]
     [SerializeField]
-    private int baseDamage = 5;
+    private IntReference baseDamage;
     [SerializeField]
-    private float fireRate = 1f;
+    private FloatReference fireRate;
     [SerializeField]
-    private float reloadTime = 1f;
+    private FloatReference reloadTime;
     [SerializeField]
     private int clipSize = 1;
     [SerializeField]
@@ -60,7 +61,8 @@ public class GunControl : MonoBehaviour
     private float coolDownSpeed = 1f;
     [SerializeField]
     private float overHeatSpeed = 1f;
-
+    [SerializeField]
+    private FloatReference overheatRate;
 
 
 
@@ -72,13 +74,13 @@ public class GunControl : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        fireRateTimer = fireRate;
+        fireRateTimer = fireRate.Value;
         currentClip = clipSize;
     }
 
     private void Update()
     {
-        if (fireRateTimer < fireRate)
+        if (fireRateTimer < fireRate.Value)
         {
             fireRateTimer += Time.deltaTime;
         }
@@ -106,14 +108,14 @@ public class GunControl : MonoBehaviour
         {
             HandleLook(mouseInput);
 
-            if (isShooting && fireRateTimer >= fireRate && currentClip > 0)
+            if (isShooting && fireRateTimer >= fireRate.Value && currentClip > 0)
             {
                 Fire();
             }
         }
         else if(isReloading)
         {
-            if(reloadTimer < reloadTime) 
+            if(reloadTimer < reloadTime.Value) 
             {
                 reloadTimer += Time.deltaTime;
             }
@@ -149,7 +151,7 @@ public class GunControl : MonoBehaviour
 
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed * Time.deltaTime * angle);
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
     }
 
     public void Look(InputAction.CallbackContext context)
@@ -195,10 +197,10 @@ public class GunControl : MonoBehaviour
 
         Vector3 camCenter = mainCamera.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
         GameObject bulletInstance = Instantiate(bulletPrefab, gunBulletPoint.transform.position, gunRotation);
-        bulletInstance.GetComponent<Bullet>().setDamage(baseDamage);
+        bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
         currentClip--;
-        currentHeat += 25;
+        currentHeat += overheatRate.Value;
 
         if(currentHeat >= maxheat) 
         {
