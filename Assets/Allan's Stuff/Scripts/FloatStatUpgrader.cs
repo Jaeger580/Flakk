@@ -37,8 +37,8 @@ public class FloatStatUpgrader : StatUpgrader
 
     override protected void UpdateUI()
     {
-        currentLabel.text = statToUpgrade.Value.ToString("#.##");
-        nextLabel.text = CalcStatUpgrade().ToString("#.##");
+        currentLabel.text = statToUpgrade.Value.ToString("0.##");
+        nextLabel.text = CalcStatUpgrade().ToString("0.##");
     }
 
     override public void ResetStat()
