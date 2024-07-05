@@ -21,6 +21,10 @@ public class GunControl : MonoBehaviour
     private float currentHeat = 1f;
     private bool overHeating = false;
 
+    public delegate void OnHeatChange(float newHeat);
+    public OnHeatChange HeatChangeEvent;
+    public delegate void OnAmmoChange(float newAmmo);
+    public OnAmmoChange AmmoChangeEvent;
 
 
     private bool isShooting = false;
@@ -55,8 +59,10 @@ public class GunControl : MonoBehaviour
     private FloatReference reloadTime;
     [SerializeField]
     private int clipSize = 1;
+    public int ClipSize => clipSize;
     [SerializeField]
-    private float maxheat = 100f;
+    private float maxHeat = 100f;
+    public float MaxHeat => maxHeat;
     [SerializeField]
     private float coolDownSpeed = 1f;
     [SerializeField]
@@ -69,13 +75,18 @@ public class GunControl : MonoBehaviour
 
 
 
-
+    private void OnDisable()
+    {
+        HeatChangeEvent = null;
+        AmmoChangeEvent = null;
+    }
 
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         fireRateTimer = fireRate.Value;
         currentClip = clipSize;
+        AmmoChangeEvent.Invoke(currentClip);
     }
 
     private void Update()
@@ -90,18 +101,18 @@ public class GunControl : MonoBehaviour
             if (currentHeat > 0 & !overHeating)
             {
                 currentHeat -= coolDownSpeed * Time.deltaTime;
+                HeatChangeEvent.Invoke(currentHeat);
             }
             else if (overHeating && currentHeat > 0) 
             {
                 currentHeat -= overHeatSpeed * Time.deltaTime;
+                HeatChangeEvent.Invoke(currentHeat);
             }
 
             if(currentHeat <= 0 && overHeating) 
             {
                 overHeating = false;
             }
-
-            Debug.Log(currentHeat);
         }
 
         if (!isReloading) 
@@ -123,15 +134,13 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
-                Debug.Log(currentClip);
+                AmmoChangeEvent.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
             {
                 isReloading = false;
             }
         }
-
-
     }
 
     // Starts off faster than slows down to normal pace as approaches center.
@@ -200,15 +209,15 @@ public class GunControl : MonoBehaviour
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
         currentClip--;
+        AmmoChangeEvent.Invoke(currentClip);
         currentHeat += overheatRate.Value;
+        HeatChangeEvent.Invoke(currentHeat);
 
-        if(currentHeat >= maxheat) 
+        if (currentHeat >= maxHeat) 
         {
             overHeating = true;
             isShooting = false;
         }
-
-        Debug.Log(currentClip);
 
         fireRateTimer = 0;
     }
