@@ -4,30 +4,9 @@ namespace GeneralUtility
 {
     namespace VariableObject
     {
-        [CreateAssetMenu]
-        public class BoolVariable : ScriptableObject
-        {
-            public bool Value;
-        }
-
+        [CreateAssetMenu(menuName = "Variable Objects/Bool Variable", fileName = "VV - ", order = 0)]
+        public class BoolVariable : VariableObject<bool> { }
         [Serializable]
-        public class BoolReference
-        {
-            public bool UseConstant = true;
-            public bool ConstantValue;
-            public BoolVariable Variable;
-
-            public bool Value
-            {
-                get { return UseConstant ? ConstantValue : Variable.Value; }
-                set
-                {
-                    if (UseConstant)
-                        ConstantValue = value;
-                    else
-                        Variable.Value = value;
-                }
-            }
-        }
+        public class BoolReference : VariableReference<bool> { }
     }
 }

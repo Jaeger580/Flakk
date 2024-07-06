@@ -1,33 +1,13 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 namespace GeneralUtility
 {
     namespace VariableObject
     {
-        [CreateAssetMenu]
-        public class AnimationCurveVariable : ScriptableObject
-        {
-            public AnimationCurve Value;
-        }
-
+        [CreateAssetMenu(menuName = "Variable Objects/Animation Curve Variable", fileName = "ACV - ", order = 1)]
+        public class AnimationCurveVariable : VariableObject<AnimationCurve> { }
         [Serializable]
-        public class AnimationCurveReference
-        {
-            public bool UseConstant = true;
-            public AnimationCurve ConstantValue;
-            public AnimationCurveVariable Variable;
-
-            public AnimationCurve Value
-            {
-                get { return UseConstant ? ConstantValue : Variable.Value; }
-                set
-                {
-                    if (UseConstant)
-                        ConstantValue = value;
-                    else
-                        Variable.Value = value;
-                }
-            }
-        }
+        public class AnimationCurveReference : VariableReference<AnimationCurve> { }
     }
 }

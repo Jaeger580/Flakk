@@ -1083,7 +1083,10 @@ MonoBehaviour:
   gunBase: {fileID: 3584752868943458985}
   gunBarrel: {fileID: 8154727801472925964}
   gunBulletPoint: {fileID: 3934228305827563971}
-  bulletPrefab: {fileID: 7646842544791493506, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
+  bulletPrefab:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: d08f20f8db0b8403dabf58b30d38b124, type: 2}
   sensitivity: 10
   gunRotateSpeed:
     UseConstant: 0
