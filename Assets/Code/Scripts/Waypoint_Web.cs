@@ -4,21 +4,54 @@ using UnityEngine;
 
 public class Waypoint_Web : MonoBehaviour
 {
-    public Transform[] waypoints;
+    public List<Transform> waypoints;
     public float nodeSize;
+    public Color32 nodeColor;
+    public Color32 webColor;
+
+    private void ChildCheck()
+    {
+        foreach (Transform child in transform)
+        {
+            if (!waypoints.Contains(child))
+            {
+                waypoints.Add(child);
+            }
+        }
+
+        foreach(Transform child in waypoints)
+        {
+            if(child == null)
+            {
+                waypoints.Remove(child);
+            }
+        }
+
+        if (transform.childCount < waypoints.Count)
+        {
+            int num = waypoints.Count - transform.childCount;
+
+            for (int i = 0; i < num; i++)
+            {
+                waypoints.RemoveAt(waypoints.Count - 1);
+            }
+        }
+    }
 
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = webColor;
+        ChildCheck();
 
-        foreach(Transform node in waypoints)
+        foreach (Transform node in waypoints)
         {
             node.localScale = new Vector3(nodeSize, nodeSize, nodeSize);
+            node.GetComponent<MeshRenderer>().sharedMaterial.color = nodeColor;
         }
 
-        for (int i = 0; i < waypoints.Length; i++)
+        for (int i = 0; i < waypoints.Count; i++)
         {
-            if(i == waypoints.Length - 1)
+            if(i == waypoints.Count - 1)
             {
                 waypoints[i].LookAt(waypoints[0].position);
                 float distance = Vector3.Distance(waypoints[i].position, waypoints[0].position);
