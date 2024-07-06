@@ -8,6 +8,6 @@ public class TargetPractice : MonoBehaviour, IDamagable
     public void TakeDamage(float _damage)
     {
         rend.material = hitMat;
-        Debug.Log($"{name} (parent: {transform.parent.name}) was hit!");
+        //Debug.Log($"{name} (parent: {transform.parent.name}) was hit!");
     }
 }
