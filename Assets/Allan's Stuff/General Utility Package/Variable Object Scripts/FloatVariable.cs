@@ -5,30 +5,9 @@ namespace GeneralUtility
 {
     namespace VariableObject
     {
-        [CreateAssetMenu]
-        public class FloatVariable : ScriptableObject
-        {
-            public float Value;
-        }
-
+        [CreateAssetMenu(menuName = "Variable Objects/Float Variable", fileName = "FV - ", order = 0)]
+        public class FloatVariable : VariableObject<float> { }
         [Serializable]
-        public class FloatReference
-        {
-            public bool UseConstant = true;
-            public float ConstantValue;
-            public FloatVariable Variable;
-
-            public float Value
-            {
-                get { return UseConstant ? ConstantValue : Variable.Value; }
-                set
-                {
-                    if (UseConstant)
-                        ConstantValue = value;
-                    else
-                        Variable.Value = value;
-                }
-            }
-        }
+        public class FloatReference : VariableReference<float> { }
     }
 }

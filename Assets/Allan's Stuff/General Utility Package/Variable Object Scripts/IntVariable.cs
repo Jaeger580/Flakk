@@ -5,30 +5,9 @@ namespace GeneralUtility
 {
     namespace VariableObject
     {
-        [CreateAssetMenu]
-        public class IntVariable : ScriptableObject
-        {
-            public int Value;
-        }
-
+        [CreateAssetMenu(menuName = "Variable Objects/Int Variable", fileName = "IV - ", order = 0)]
+        public class IntVariable : VariableObject<int> {}
         [Serializable]
-        public class IntReference
-        {
-            public bool UseConstant = true;
-            public int ConstantValue;
-            public IntVariable Variable;
-
-            public int Value
-            {
-                get { return UseConstant ? ConstantValue : Variable.Value; }
-                set
-                {
-                    if (UseConstant)
-                        ConstantValue = value;
-                    else
-                        Variable.Value = value;
-                }
-            }
-        }
+        public class IntReference : VariableReference<int> {}
     }
 }

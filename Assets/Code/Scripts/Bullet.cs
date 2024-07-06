@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private FloatReference speed;
 
-    private int finalDamage = 0;
+    protected int finalDamage = 0;
 
     private void Start()
     {
@@ -22,8 +22,16 @@ public class Bullet : MonoBehaviour
     }
 
     // Gun will call this method during instantiation. Will get the base damage from the gun.
-    public void SetDamage(int damage) 
+    virtual public void SetDamage(int damage) 
     {
         finalDamage = damage;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent(out IDamagable enemyHurtbox))
+        {
+            enemyHurtbox.TakeDamage(finalDamage);
+        }
     }
 }

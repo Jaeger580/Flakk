@@ -1,13 +1,36 @@
-using System;
-using UnityEngine;
+﻿using System;
 using UnityEditor;
+using UnityEngine;
 namespace GeneralUtility
 {
     namespace VariableObject
     {
+        public class VariableObject : ScriptableObject { }
+        public class VariableReference { }
+
+        public class VariableObject<T> : VariableObject
+        {
+            public T Value;
+        }
+        public class VariableReference<T> : VariableReference
+        {
+            public bool UseConstant = true;
+            public T ConstantValue;
+            public VariableObject<T> Variable;
+
+            public T Value
+            {
+                get { return UseConstant ? ConstantValue : Variable.Value; }
+                set
+                {
+                    if (UseConstant) ConstantValue = value;
+                    else Variable.Value = value;
+                }
+            }
+        }
 #if UNITY_EDITOR
-        [CustomPropertyDrawer(typeof(IntReference))]
-        public class IntReferenceDrawer : PropertyDrawer
+        [CustomPropertyDrawer(typeof(VariableReference), true)]
+        public class VariableReferenceDrawer : PropertyDrawer
         {
             /// <summary>
             /// Options to display in the popup to select constant or variable.
