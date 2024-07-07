@@ -179,16 +179,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6684eac21739c9a4fb4c548819db71a2, type: 3}
---- !u!1 &547411048 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4968140652613179903, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-  m_PrefabInstance: {fileID: 2868924512222592626}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1092062545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7884334638855335732, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-  m_PrefabInstance: {fileID: 2868924512222592626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1609654399
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,11 +459,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 40, y: -90, z: 0}
---- !u!1 &1737445488 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9170858499426201412, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-  m_PrefabInstance: {fileID: 2868924512222592626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1987420854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -531,11 +516,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97901db84f3628469c6074c1f7f870f, type: 3}
---- !u!1 &127029137026546137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5289577311133563177, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-  m_PrefabInstance: {fileID: 2868924512222592626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2868924512222592626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -642,11 +622,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1202898617839064579, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7072289
       objectReference: {fileID: 0}
     - target: {fileID: 1202898617839064579, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.7069847
       objectReference: {fileID: 0}
     - target: {fileID: 1202898617839064579, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.y
@@ -671,102 +651,6 @@ PrefabInstance:
     - target: {fileID: 2184980731967172289, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunBase
-      value: 
-      objectReference: {fileID: 547411048}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: maxHeat
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: clipSize
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunCamera
-      value: 
-      objectReference: {fileID: 1737445488}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: pivotPoint
-      value: 
-      objectReference: {fileID: 1092062545}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: coolDownSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: overHeatSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunBulletPoint
-      value: 
-      objectReference: {fileID: 127029137026546137}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: fireRate.Variable
-      value: 
-      objectReference: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: baseDamage.Variable
-      value: 
-      objectReference: {fileID: 11400000, guid: d00839767fae844acb673f82ca5dd241, type: 2}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: reloadTime.Variable
-      value: 
-      objectReference: {fileID: 11400000, guid: 894eaed0c55c4474fbd5bf9862c91b8a, type: 2}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: fireRate.UseConstant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: overheatRate.Variable
-      value: 
-      objectReference: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: baseDamage.UseConstant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: fireRate.ConstantValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: reloadTime.UseConstant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunRotateSpeed.Variable
-      value: 
-      objectReference: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: baseDamage.ConstantValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: overheatRate.UseConstant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: reloadTime.ConstantValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: bulletPrefab.ConstantValue
-      value: 
-      objectReference: {fileID: 7646842544791493506, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunRotateSpeed.UseConstant
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: overheatRate.ConstantValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532759987226430290, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
-      propertyPath: gunRotateSpeed.ConstantValue
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4691416641217043229, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -826,11 +710,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6831522435136753128, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7072289
       objectReference: {fileID: 0}
     - target: {fileID: 6831522435136753128, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.7069847
       objectReference: {fileID: 0}
     - target: {fileID: 6831522435136753128, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.y
@@ -914,11 +798,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296587246472693810, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7072289
       objectReference: {fileID: 0}
     - target: {fileID: 8296587246472693810, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.7069847
       objectReference: {fileID: 0}
     - target: {fileID: 8296587246472693810, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.y

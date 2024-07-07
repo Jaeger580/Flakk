@@ -86,7 +86,7 @@ public class GunControl : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         fireRateTimer = fireRate.Value;
         currentClip = clipSize;
-        AmmoChangeEvent.Invoke(currentClip);
+        AmmoChangeEvent?.Invoke(currentClip);
     }
 
     private void Update()
@@ -101,12 +101,12 @@ public class GunControl : MonoBehaviour
             if (currentHeat > 0 & !overHeating)
             {
                 currentHeat -= coolDownSpeed * Time.deltaTime;
-                HeatChangeEvent.Invoke(currentHeat);
+                HeatChangeEvent?.Invoke(currentHeat);
             }
             else if (overHeating && currentHeat > 0) 
             {
                 currentHeat -= overHeatSpeed * Time.deltaTime;
-                HeatChangeEvent.Invoke(currentHeat);
+                HeatChangeEvent?.Invoke(currentHeat);
             }
 
             if(currentHeat <= 0 && overHeating) 
@@ -134,7 +134,7 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
-                AmmoChangeEvent.Invoke(currentClip);
+                AmmoChangeEvent?.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
             {
@@ -208,9 +208,9 @@ public class GunControl : MonoBehaviour
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
         currentClip--;
-        AmmoChangeEvent.Invoke(currentClip);
+        AmmoChangeEvent?.Invoke(currentClip);
         currentHeat += overheatRate.Value;
-        HeatChangeEvent.Invoke(currentHeat);
+        HeatChangeEvent?.Invoke(currentHeat);
 
         if (currentHeat >= maxHeat) 
         {

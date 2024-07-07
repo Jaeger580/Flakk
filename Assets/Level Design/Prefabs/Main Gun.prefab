@@ -380,39 +380,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafa33efa55bdb741b47486ed746a3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunCamera: {fileID: 0}
-  pivotPoint: {fileID: 0}
-  gunBase: {fileID: 0}
-  gunBulletPoint: {fileID: 0}
+  gunCamera: {fileID: 9170858499426201412}
+  pivotPoint: {fileID: 7884334638855335732}
+  gunBase: {fileID: 4968140652613179903}
+  gunBulletPoint: {fileID: 5289577311133563177}
   bulletPrefab:
     UseConstant: 1
-    ConstantValue: {fileID: 0}
+    ConstantValue: {fileID: 7646842544791493506, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
     Variable: {fileID: 0}
   sensitivity: 3
   gunRotateSpeed:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
   baseDamage:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: d00839767fae844acb673f82ca5dd241, type: 2}
   fireRate:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
   reloadTime:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
-  clipSize: 1
+    Variable: {fileID: 11400000, guid: 894eaed0c55c4474fbd5bf9862c91b8a, type: 2}
+  clipSize: 14
   maxHeat: 100
   coolDownSpeed: 1
-  overHeatSpeed: 1
+  overHeatSpeed: 2
   overheatRate:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
 --- !u!1 &410770878781661479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,9 +5235,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3640203170965757038, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
   m_PrefabInstance: {fileID: 613139028551707122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4968140652613179903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5507954207143964685, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
+  m_PrefabInstance: {fileID: 613139028551707122}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6109902548169752268 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6649834558074771262, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
+  m_PrefabInstance: {fileID: 613139028551707122}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7884334638855335732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7343266690555643590, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
   m_PrefabInstance: {fileID: 613139028551707122}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2706887497645880633
