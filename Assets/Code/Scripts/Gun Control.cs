@@ -37,8 +37,8 @@ public class GunControl : MonoBehaviour
     private GameObject pivotPoint;
     [SerializeField]
     private GameObject gunBase;
-    [SerializeField]
-    private GameObject gunBarrel;
+    //[SerializeField]
+    //private GameObject gunBarrel;
     [SerializeField]
     private GameObject gunBulletPoint;
     [SerializeField]
@@ -157,7 +157,6 @@ public class GunControl : MonoBehaviour
 
         //mainCamera.transform.Rotate(0, horizRotation, 0);
         pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
-
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
         gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
