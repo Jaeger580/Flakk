@@ -149,13 +149,10 @@ public class GunControl : MonoBehaviour
     {
         horizRotation += Input.x * sensitivity * Time.deltaTime;
   
-        //transform.Rotate(0, horizRotation, 0);
-        //gunBase.transform.Rotate(0, horizRotation, 0);
 
         vertRotation -= Input.y * sensitivity * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85, 0);
 
-        //mainCamera.transform.Rotate(0, horizRotation, 0);
         pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 

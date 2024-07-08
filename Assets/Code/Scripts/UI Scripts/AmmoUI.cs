@@ -8,11 +8,11 @@ public class AmmoUI : MonoBehaviour
 
     private void Start()
     {
-        //gunControl.AmmoChangeEvent += UpdateAmmoBar;
+        gunControl.AmmoChangeEvent += UpdateAmmoBar;
     }
 
     private void UpdateAmmoBar(float newAmmo)
     {
-        //ammoBar.fillAmount = ((float)newAmmo / gunControl.ClipSize);
+        ammoBar.fillAmount = ((float)newAmmo / gunControl.ClipSize);
     }
 }

@@ -8,11 +8,11 @@ public class OverheatUI : MonoBehaviour
 
     private void Start()
     {
-        //gunControl.HeatChangeEvent += UpdateOverheatBar;
+        gunControl.HeatChangeEvent += UpdateOverheatBar;
     }
 
     private void UpdateOverheatBar(float newHeat)
     {
-        //overheatBar.fillAmount = (float)(newHeat / gunControl.MaxHeat);
+        overheatBar.fillAmount = (float)(newHeat / gunControl.MaxHeat);
     }
 }
