@@ -2,7 +2,6 @@ using Cinemachine;
 using GeneralUtility.VariableObject;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
