@@ -2,7 +2,6 @@ using Cinemachine;
 using GeneralUtility.VariableObject;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -37,8 +36,8 @@ public class GunControl : MonoBehaviour
     private GameObject pivotPoint;
     [SerializeField]
     private GameObject gunBase;
-    [SerializeField]
-    private GameObject gunBarrel;
+    //[SerializeField]
+    //private GameObject gunBarrel;
     [SerializeField]
     private GameObject gunBulletPoint;
     [SerializeField]
@@ -86,7 +85,7 @@ public class GunControl : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         fireRateTimer = fireRate.Value;
         currentClip = clipSize;
-        AmmoChangeEvent.Invoke(currentClip);
+        AmmoChangeEvent?.Invoke(currentClip);
     }
 
     private void Update()
@@ -101,12 +100,12 @@ public class GunControl : MonoBehaviour
             if (currentHeat > 0 & !overHeating)
             {
                 currentHeat -= coolDownSpeed * Time.deltaTime;
-                HeatChangeEvent.Invoke(currentHeat);
+                HeatChangeEvent?.Invoke(currentHeat);
             }
             else if (overHeating && currentHeat > 0) 
             {
                 currentHeat -= overHeatSpeed * Time.deltaTime;
-                HeatChangeEvent.Invoke(currentHeat);
+                HeatChangeEvent?.Invoke(currentHeat);
             }
 
             if(currentHeat <= 0 && overHeating) 
@@ -134,7 +133,7 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
-                AmmoChangeEvent.Invoke(currentClip);
+                AmmoChangeEvent?.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
             {
@@ -149,15 +148,11 @@ public class GunControl : MonoBehaviour
     {
         horizRotation += Input.x * sensitivity * Time.deltaTime;
   
-        //transform.Rotate(0, horizRotation, 0);
-        //gunBase.transform.Rotate(0, horizRotation, 0);
 
         vertRotation -= Input.y * sensitivity * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85, 0);
 
-        //mainCamera.transform.Rotate(0, horizRotation, 0);
         pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
-
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
         gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
@@ -209,9 +204,9 @@ public class GunControl : MonoBehaviour
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
         currentClip--;
-        AmmoChangeEvent.Invoke(currentClip);
+        AmmoChangeEvent?.Invoke(currentClip);
         currentHeat += overheatRate.Value;
-        HeatChangeEvent.Invoke(currentHeat);
+        HeatChangeEvent?.Invoke(currentHeat);
 
         if (currentHeat >= maxHeat) 
         {
