@@ -6,7 +6,7 @@ namespace JO.AI
 {
     public abstract class AI_FSM : MonoBehaviour
     {
-        public enum AI_STATE { PATROL, AGGRO };
+        public enum AI_STATE { IDLE, PATROL, AGGRO };
 
     }
 }

@@ -9,6 +9,20 @@ public class Waypoint_Web : MonoBehaviour
     public Color32 nodeColor;
     public Color32 webColor;
 
+    public static Waypoint_Web instance;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void ChildCheck()
     {
         foreach (Transform child in transform)
