@@ -14,6 +14,7 @@ namespace JO.AI
         public float damageOutput;
         public List<Transform> patrolPoints = new List<Transform>();
         public int currentPatrolIndex;
+        public WebSelection currentWeb;
         private float speed;
         public float constSpeed;
         private bool isbraking = false;
@@ -55,7 +56,7 @@ namespace JO.AI
 
             if (patrolPoints.Count <= 0)
             {
-                patrolPoints = Waypoint_Web.instance.waypoints;
+                patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
                 currentState = AI_STATE.PATROL;
             }
         }
@@ -99,7 +100,7 @@ namespace JO.AI
 
         private void UpdatePatrol()
         {
-            patrolPoints = Waypoint_Web.instance.waypoints;
+            patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
             currentPatrolIndex++;
 
             if (currentPatrolIndex >= patrolPoints.Count)

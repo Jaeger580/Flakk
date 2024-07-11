@@ -303,8 +303,7 @@ MonoBehaviour:
   damageOutput: 5
   patrolPoints: []
   currentPatrolIndex: 0
-  isPatrolling: 0
-  speed: 25
+  currentWeb: 0
   constSpeed: 25
   brake: 8
   rotationSpeed: 10
@@ -327,7 +326,6 @@ MonoBehaviour:
   right_Fire_Point: {fileID: 7520409861926308664}
   projectilePrefab: {fileID: 8007559461031883096, guid: 3129dee72c77dbc46a83e1cdf9b2a188, type: 3}
   fireRate: 0.15
-  isFiring: 0
 --- !u!54 &7669835714228794804
 Rigidbody:
   m_ObjectHideFlags: 0
