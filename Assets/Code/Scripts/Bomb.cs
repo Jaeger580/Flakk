@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Missile : MonoBehaviour
+public class Bomb : MonoBehaviour
 {
     private float damageOutput;
     public float speed;
@@ -35,11 +35,11 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == ignoreLayer)
+        if (other.gameObject.layer == ignoreLayer)
         {
             return;
         }
-        
+
         if (other.GetComponent<IDamagable>() != null)
         {
             other.GetComponent<IDamagable>().TakeDamage(damageOutput);
