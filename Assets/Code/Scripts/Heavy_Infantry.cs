@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace JO.AI 
+namespace JO.AI
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Light_Infantry : AI_FSM, IDamagable
+    public class Heavy_Infantry : AI_FSM, IDamagable
     {
         private Rigidbody rb;
 
@@ -35,7 +35,7 @@ namespace JO.AI
         private float targetDistance;
         public AI_STATE currentState;
 
-        public Transform left_Fire_Point, right_Fire_Point;
+        public Transform fire_Point;
         public GameObject projectilePrefab;
         public float fireRate;
         private bool isFiring = false;
@@ -53,7 +53,7 @@ namespace JO.AI
             speed = constSpeed;
             currentState = AI_STATE.IDLE;
 
-            if(patrolPoints.Count <= 0)
+            if (patrolPoints.Count <= 0)
             {
                 patrolPoints = Waypoint_Web.instance.waypoints;
                 currentState = AI_STATE.PATROL;
@@ -71,7 +71,7 @@ namespace JO.AI
             {
                 Patrol();
             }
-            else if(currentState == AI_STATE.AGGRO)
+            else if (currentState == AI_STATE.AGGRO)
             {
                 Aggro();
             }
@@ -79,7 +79,7 @@ namespace JO.AI
 
         private void Patrol()
         {
-            if(patrolPoints.Count <= 0)
+            if (patrolPoints.Count <= 0)
             {
                 return;
             }
@@ -114,7 +114,7 @@ namespace JO.AI
         {
             Collider[] targets = Physics.OverlapSphere(transform.position, 200f, ~ignoreLayer);
 
-            foreach(Collider t in targets)
+            foreach (Collider t in targets)
             {
                 if (!test.Contains(target))
                 {
@@ -142,7 +142,7 @@ namespace JO.AI
             {
                 MoveShip();
 
-                if(targetDistance <= 200f)
+                if (targetDistance <= 200f)
                 {
                     if (!isFiring)
                     {
@@ -158,7 +158,7 @@ namespace JO.AI
             RaycastHit hit;
             Vector3 avoidanceDirection = Vector3.zero;
 
-            if(Physics.Raycast(transform.position, transform.forward, out hit, obstacleForwardDetectionDistance))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, obstacleForwardDetectionDistance))
             {
                 if (!isbraking)
                 {
@@ -225,28 +225,17 @@ namespace JO.AI
 
         private IEnumerator FireChain()
         {
-            bool isFireLeft = true;
 
-            while(currentState == AI_STATE.AGGRO)
+            while (currentState == AI_STATE.AGGRO)
             {
                 isFiring = true;
 
                 GameObject projectile = null;
+                projectile = Instantiate(projectilePrefab, fire_Point.position, fire_Point.rotation);
 
-                if (isFireLeft)
+                if (projectile.GetComponent<Bomb>())
                 {
-                    projectile = Instantiate(projectilePrefab, left_Fire_Point.position, left_Fire_Point.rotation);
-                    isFireLeft = false;
-                }
-                else
-                {
-                    projectile = Instantiate(projectilePrefab, right_Fire_Point.position, left_Fire_Point.rotation);
-                    isFireLeft = true;
-                }
-
-                if (projectile.GetComponent<Missile>())
-                {
-                    projectile.GetComponent<Missile>().Fire(target, damageOutput);
+                    projectile.GetComponent<Bomb>().Fire(target, damageOutput);
                 }
 
                 yield return new WaitForSeconds(fireRate);
@@ -259,7 +248,7 @@ namespace JO.AI
         {
             health -= _damage;
 
-            if(health <= 0)
+            if (health <= 0)
             {
                 Death();
             }
