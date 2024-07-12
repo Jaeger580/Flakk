@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class Waypoint_Web : MonoBehaviour
 {
@@ -8,20 +9,7 @@ public class Waypoint_Web : MonoBehaviour
     public float nodeSize;
     public Color32 nodeColor;
     public Color32 webColor;
-
-    public static Waypoint_Web instance;
-
-    private void Awake()
-    {
-        if (!instance)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+    public WebSelection currentWeb;
 
     private void ChildCheck()
     {
@@ -78,5 +66,42 @@ public class Waypoint_Web : MonoBehaviour
                 Gizmos.DrawRay(waypoints[i].position, waypoints[i].forward * distance);
             }
         }
+    }
+}
+
+[CustomEditor(typeof(Waypoint_Web))]
+public class WebGUIEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        Waypoint_Web web = (Waypoint_Web)target;
+
+        EditorGUI.BeginChangeCheck();
+
+        WebSelection selectedWeb = (WebSelection)EditorGUILayout.EnumPopup("Desired Selected", web.currentWeb);
+
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(web, "Change Desired Selected Web");
+            web.currentWeb = selectedWeb;
+
+            if (Spider.instance.IsStateAvailable(selectedWeb))
+            {
+                Debug.Log("Selected " + selectedWeb + " is available.");
+            }
+            else
+            {
+                Debug.Log("Selected " + selectedWeb + " is already in use.");
+            }
+        }
+
+/*
+        GUILayout.Label("Used States:");
+        foreach (var state in Spider.instance.GetUsedStates())
+        {
+            GUILayout.Label(state.ToString());
+        }
+*/
+        DrawDefaultInspector();
     }
 }
