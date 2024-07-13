@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4603692972644350234}
   - component: {fileID: 6992616593026458470}
   - component: {fileID: 1065802703151804483}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Missile_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3785230442121884971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: L_Shoot_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 1140515374311917327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.75}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2630005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -126,7 +126,8 @@ GameObject:
   - component: {fileID: 2508351015695541793}
   - component: {fileID: 6064201504014422804}
   - component: {fileID: 3792828718922570180}
-  m_Layer: 0
+  - component: {fileID: 2727741892443388788}
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +144,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7397292876578179589}
@@ -220,6 +221,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2727741892443388788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057774281867839386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479148abe2dfb4036be46a9eefd58493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actualHealthComponent: {fileID: 5667413683026037196}
 --- !u!1 &3595480444028727325
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7953915839592533578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +276,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958315493551780978}
-  m_Layer: 0
+  - component: {fileID: 5667413683026037196}
+  - component: {fileID: 7669835714228794804}
+  m_Layer: 9
   m_Name: Light_Infantry_Prototype
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,6 +301,72 @@ Transform:
   - {fileID: 7953915839592533578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5667413683026037196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212164114013495738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14798444616adb34bb71ecf4f6a3beef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  damageOutput: 5
+  patrolPoints: []
+  currentPatrolIndex: 0
+  currentWeb: 0
+  constSpeed: 35
+  brake: 8
+  rotationSpeed: 10
+  minimumDistance: 0.1
+  target: {fileID: 0}
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 4
+  obstacleForwardDetectionDistance: 10
+  obstacleUpDetectionDistance: 10
+  obstacleDownDetectionDistance: 10
+  obstacleLeftDetectionDistance: 10
+  obstacleRightDetectionDistance: 10
+  avoidForce: 10
+  targetList:
+  - {fileID: 0}
+  currentTargetIndex: 0
+  currentState: 1
+  left_Fire_Point: {fileID: 3785230442121884971}
+  right_Fire_Point: {fileID: 7520409861926308664}
+  projectilePrefab: {fileID: 8007559461031883096, guid: 3129dee72c77dbc46a83e1cdf9b2a188, type: 3}
+  fireRate: 0.15
+--- !u!54 &7669835714228794804
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4212164114013495738}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 2
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1 &4958263681468874538
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7520409861926308664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: R_Shoot_Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 4958263681468874538}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.75}
+  m_LocalPosition: {x: 0, y: 0, z: 1.263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -327,7 +409,7 @@ GameObject:
   - component: {fileID: 1127541382986076026}
   - component: {fileID: 2738937939517745864}
   - component: {fileID: 4857194752993522732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: R_Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +494,7 @@ GameObject:
   - component: {fileID: 7274515860650877143}
   - component: {fileID: 5955144987701265121}
   - component: {fileID: 5764149207203742426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: L_Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +580,7 @@ GameObject:
   - component: {fileID: 4126560134102459845}
   - component: {fileID: 6715989020286344762}
   - component: {fileID: 5128801459144783341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +669,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -602,7 +684,7 @@ GameObject:
   - component: {fileID: 5207859300981665777}
   - component: {fileID: 21288345062960151}
   - component: {fileID: 7901824258831734639}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Missile_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7397292876578179589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
