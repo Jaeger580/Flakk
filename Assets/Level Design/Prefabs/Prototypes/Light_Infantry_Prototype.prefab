@@ -143,7 +143,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 2, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7397292876578179589}
@@ -299,12 +299,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14798444616adb34bb71ecf4f6a3beef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 10
   damageOutput: 5
   patrolPoints: []
   currentPatrolIndex: 0
   currentWeb: 0
-  constSpeed: 25
+  constSpeed: 35
   brake: 8
   rotationSpeed: 10
   minimumDistance: 0.1
@@ -335,7 +335,7 @@ Rigidbody:
   m_GameObject: {fileID: 4212164114013495738}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
