@@ -146,9 +146,10 @@ public class GunControl : MonoBehaviour
 
     private void HandleLook(Vector2 Input)
     {
-        horizRotation += Input.x * sensitivity;
+        horizRotation += Input.x * sensitivity * Time.deltaTime;
+  
 
-        vertRotation -= Input.y * sensitivity;
+        vertRotation -= Input.y * sensitivity * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85, 0);
 
         pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
