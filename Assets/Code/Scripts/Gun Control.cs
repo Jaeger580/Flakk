@@ -149,12 +149,19 @@ public class GunControl : MonoBehaviour
         horizRotation += Input.x * sensitivity;
 
         vertRotation -= Input.y * sensitivity;
-        vertRotation = Mathf.Clamp(vertRotation, -85, 0);
+        vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
-        pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
+        var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
+
+        //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
+        horizRotation = Mathf.Clamp(horizRotation, gunBase.transform.rotation.eulerAngles.y - 30f, gunBase.transform.rotation.eulerAngles.y + 30f);
+
+        pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
+        pivotPoint.transform.localRotation = pivotRot;
     }
 
     public void Look(InputAction.CallbackContext context)
