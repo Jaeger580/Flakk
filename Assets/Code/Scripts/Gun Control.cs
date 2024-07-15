@@ -14,6 +14,7 @@ public class GunControl : MonoBehaviour
     private float vertRotation;
     private float horizRotation;
 
+    private float maxFireRate;
     private float fireRateTimer;
     private int currentClip = 0;
     private float reloadTimer;
@@ -83,17 +84,18 @@ public class GunControl : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        fireRateTimer = fireRate.Value;
+        maxFireRate = fireRate.Value;
+        //fireRateTimer = Time.time;
         currentClip = clipSize;
         AmmoChangeEvent?.Invoke(currentClip);
     }
 
     private void Update()
     {
-        if (fireRateTimer < fireRate.Value)
-        {
-            fireRateTimer += Time.deltaTime;
-        }
+        //if (Time.time >= fireRateTimer + maxFireRate)
+        //{
+        //    fireRateTimer = Time.time;
+        //}
 
         if (!isShooting)
         {
@@ -118,9 +120,10 @@ public class GunControl : MonoBehaviour
         {
             HandleLook(mouseInput);
 
-            if (isShooting && fireRateTimer >= fireRate.Value && currentClip > 0)
+            if (isShooting && Time.time >= fireRateTimer + (1 / maxFireRate) && currentClip > 0)
             {
                 Fire();
+
             }
         }
         else if(isReloading)
@@ -143,20 +146,19 @@ public class GunControl : MonoBehaviour
     }
 
     // Starts off faster than slows down to normal pace as approaches center.
-
     private void HandleLook(Vector2 Input)
     {
-        horizRotation += Input.x * sensitivity;
+        horizRotation += Input.x * sensitivity * Time.deltaTime;
 
-        vertRotation -= Input.y * sensitivity;
+        vertRotation -= Input.y * sensitivity * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
         var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
         gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
 
-        //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
         horizRotation = Mathf.Clamp(horizRotation, gunBase.transform.rotation.eulerAngles.y - 30f, gunBase.transform.rotation.eulerAngles.y + 30f);
 
         pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
@@ -220,6 +222,7 @@ public class GunControl : MonoBehaviour
             isShooting = false;
         }
 
-        fireRateTimer = 0;
+        fireRateTimer = Time.time;
+
     }
 }
