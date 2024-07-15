@@ -154,11 +154,11 @@ public class GunControl : MonoBehaviour
         vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
         var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.fixedDeltaTime * Mathf.Sqrt(angle));
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
 
-        //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
         horizRotation = Mathf.Clamp(horizRotation, gunBase.transform.rotation.eulerAngles.y - 30f, gunBase.transform.rotation.eulerAngles.y + 30f);
 
         pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
