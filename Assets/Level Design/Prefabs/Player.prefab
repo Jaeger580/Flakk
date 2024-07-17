@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 1356548263797392650}
   - component: {fileID: 5804583968159245268}
   - component: {fileID: 5529999662385422817}
+  - component: {fileID: 2688641610935678054}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -309,7 +310,19 @@ MonoBehaviour:
     m_ActionId: fbf2b0e0-3ac0-40c6-8193-bc01a1c90efc
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2688641610935678054}
+        m_TargetAssemblyTypeName: UI_InputHandler, Assembly-CSharp
+        m_MethodName: ExitMonitor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 28cb2285-d103-44a6-95a6-3e8f2037a694
     m_ActionName: UI/Cancel[/Keyboard/escape]
   - m_PersistentCalls:
@@ -455,6 +468,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RayCastSource: {fileID: 2305169572909855577}
   RayCastDistance: 3
+--- !u!114 &2688641610935678054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791316003805755341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857a486bbaab544449caa1e0ca4ffb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 5804583968159245268}
+  inputEVCancelUI: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
 --- !u!1 &8894776046167025390
 GameObject:
   m_ObjectHideFlags: 0

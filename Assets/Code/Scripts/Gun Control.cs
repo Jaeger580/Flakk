@@ -14,6 +14,7 @@ public class GunControl : MonoBehaviour
     private float vertRotation;
     private float horizRotation;
 
+    private float maxFireRate;
     private float fireRateTimer;
     private int currentClip = 0;
     private float reloadTimer;
@@ -83,17 +84,18 @@ public class GunControl : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        fireRateTimer = fireRate.Value;
+        maxFireRate = fireRate.Value;
+        //fireRateTimer = Time.time;
         currentClip = clipSize;
         AmmoChangeEvent?.Invoke(currentClip);
     }
 
     private void Update()
     {
-        if (fireRateTimer < fireRate.Value)
-        {
-            fireRateTimer += Time.deltaTime;
-        }
+        //if (Time.time >= fireRateTimer + maxFireRate)
+        //{
+        //    fireRateTimer = Time.time;
+        //}
 
         if (!isShooting)
         {
@@ -118,9 +120,10 @@ public class GunControl : MonoBehaviour
         {
             HandleLook(mouseInput);
 
-            if (isShooting && fireRateTimer >= fireRate.Value && currentClip > 0)
+            if (isShooting && Time.time >= fireRateTimer + (1 / maxFireRate) && currentClip > 0)
             {
                 Fire();
+
             }
         }
         else if(isReloading)
@@ -143,19 +146,45 @@ public class GunControl : MonoBehaviour
     }
 
     // Starts off faster than slows down to normal pace as approaches center.
-
     private void HandleLook(Vector2 Input)
     {
         horizRotation += Input.x * sensitivity * Time.deltaTime;
-  
+        horizRotation = Mathf.Repeat(horizRotation, 360f);
 
         vertRotation -= Input.y * sensitivity * Time.deltaTime;
-        vertRotation = Mathf.Clamp(vertRotation, -85, 0);
+        vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
-        pivotPoint.transform.localRotation = Quaternion.Euler(vertRotation, horizRotation, 0);
+        var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
+
+        //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
+
+        var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
+        if (Mathf.Abs(horizRotation - gunBaseY) > 180f)
+        {//If the difference is too big, we know that horizRotation wrapped when gunBaseY didn't (or vice versa)
+            if (horizRotation > gunBaseY)
+            {
+                print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
+                horizRotation = Mathf.Clamp(horizRotation, 330f, 360f);   //if horiz passed left over 360 line, clamp it to a minimum of 330f
+            }
+            else if (horizRotation < gunBaseY)
+            {
+                print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
+                horizRotation = Mathf.Clamp(horizRotation, 0f, 30f); //if horiz passed right over 0 line, clamp it to a max of 30f
+            }
+        }
+        else if (Mathf.Abs(horizRotation - gunBaseY) > 25f)
+        {
+            print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
+            horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
+        }
+
+        pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
+        pivotPoint.transform.localRotation = pivotRot;
     }
 
     public void Look(InputAction.CallbackContext context)
@@ -214,6 +243,7 @@ public class GunControl : MonoBehaviour
             isShooting = false;
         }
 
-        fireRateTimer = 0;
+        fireRateTimer = Time.time;
+
     }
 }

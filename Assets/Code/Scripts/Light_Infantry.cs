@@ -11,12 +11,16 @@ namespace JO.AI
 
         [Header("Settings")]
         public float health;
-        public Transform[] patrolPoints;
+        public float damageOutput;
+        public List<Transform> patrolPoints = new List<Transform>();
         public int currentPatrolIndex;
-        public bool isPatrolling = false;
-        public float patrolSpeed;
+        public WebSelection currentWeb;
+        private float speed;
+        public float constSpeed;
+        private bool isbraking = false;
+        public float brake;
         public float rotationSpeed;
-        public float minimumDistance = 2f;
+        public float minimumDistance = .1f;
 
         public Transform target;
         public LayerMask ignoreLayer;
@@ -26,8 +30,7 @@ namespace JO.AI
         public float obstacleLeftDetectionDistance;
         public float obstacleRightDetectionDistance;
         public float avoidForce;
-        public Transform[] targetList;
-        private List<Transform> test;
+        public List<Transform> targetList;
         public int currentTargetIndex;
         private float targetDistance;
         public AI_STATE currentState;
@@ -35,7 +38,7 @@ namespace JO.AI
         public Transform left_Fire_Point, right_Fire_Point;
         public GameObject projectilePrefab;
         public float fireRate;
-        public bool isFiring = false;
+        private bool isFiring = false;
 
         private void Awake()
         {
@@ -45,8 +48,17 @@ namespace JO.AI
 
         void Start()
         {
+
             currentPatrolIndex = 0;
-            currentState = AI_STATE.AGGRO;
+            speed = constSpeed;
+            currentState = AI_STATE.IDLE;
+            Retarget();
+
+            if (patrolPoints.Count <= 0)
+            {
+                patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
+                currentState = AI_STATE.PATROL;
+            }
         }
 
         private void Update()
@@ -68,6 +80,11 @@ namespace JO.AI
 
         private void Patrol()
         {
+            if(patrolPoints.Count <= 0)
+            {
+                return;
+            }
+
             target = patrolPoints[currentPatrolIndex];
             float distance = Vector3.Distance(transform.position, target.position);
 
@@ -83,9 +100,10 @@ namespace JO.AI
 
         private void UpdatePatrol()
         {
+            patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
             currentPatrolIndex++;
 
-            if (currentPatrolIndex >= patrolPoints.Length)
+            if (currentPatrolIndex >= patrolPoints.Count)
             {
                 currentPatrolIndex = 0;
                 //Patrol is complete
@@ -99,17 +117,25 @@ namespace JO.AI
 
             foreach(Collider t in targets)
             {
-                if (!test.Contains(target))
-                {
-                    test.Add(target);
-                }
+
+            }
+        }
+
+        private void Retarget()
+        {
+            GameObject newTarget = GameObject.FindWithTag("Target");
+
+            if (!targetList.Contains(newTarget.transform))
+            {
+                targetList.Add(newTarget.transform);
             }
         }
 
         private void Aggro()
         {
-            if (targetList.Length <= 0)
+            if (targetList.Count <= 0)
             {
+                Retarget();
                 currentState = AI_STATE.PATROL;
                 return;
             }
@@ -141,6 +167,20 @@ namespace JO.AI
             RaycastHit hit;
             Vector3 avoidanceDirection = Vector3.zero;
 
+            if(Physics.Raycast(transform.position, transform.forward, out hit, obstacleForwardDetectionDistance))
+            {
+                if (!isbraking)
+                {
+                    speed -= brake;
+                    isbraking = true;
+                }
+            }
+            else
+            {
+                speed = constSpeed;
+                isbraking = false;
+            }
+
             if (Physics.Raycast(transform.position, transform.forward, out hit, obstacleForwardDetectionDistance, ~ignoreLayer))
             {
                 avoidanceDirection += Vector3.Reflect(directionToTarget, hit.normal);
@@ -164,7 +204,7 @@ namespace JO.AI
 
             Vector3 finalDirection = directionToTarget + avoidanceDirection * avoidForce;
             finalDirection.Normalize();
-            rb.MovePosition(rb.position + finalDirection * patrolSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + finalDirection * speed * Time.deltaTime);
             Vector3 lookDirection = target.position - transform.position;
 
             if (lookDirection.magnitude > minimumDistance)
@@ -215,7 +255,7 @@ namespace JO.AI
 
                 if (projectile.GetComponent<Missile>())
                 {
-                    projectile.GetComponent<Missile>().Fire(target);
+                    projectile.GetComponent<Missile>().Fire(target, damageOutput);
                 }
 
                 yield return new WaitForSeconds(fireRate);
