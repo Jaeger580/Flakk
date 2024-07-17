@@ -30,8 +30,7 @@ namespace JO.AI
         public float obstacleLeftDetectionDistance;
         public float obstacleRightDetectionDistance;
         public float avoidForce;
-        public Transform[] targetList;
-        private List<Transform> test;
+        public List<Transform> targetList;
         public int currentTargetIndex;
         private float targetDistance;
         public AI_STATE currentState;
@@ -53,6 +52,7 @@ namespace JO.AI
             currentPatrolIndex = 0;
             speed = constSpeed;
             currentState = AI_STATE.IDLE;
+            Retarget();
 
             if (patrolPoints.Count <= 0)
             {
@@ -117,17 +117,25 @@ namespace JO.AI
 
             foreach (Collider t in targets)
             {
-                if (!test.Contains(target))
-                {
-                    test.Add(target);
-                }
+
+            }
+        }
+
+        private void Retarget()
+        {
+            GameObject newTarget = GameObject.FindWithTag("Target");
+
+            if (!targetList.Contains(newTarget.transform))
+            {
+                targetList.Add(newTarget.transform);
             }
         }
 
         private void Aggro()
         {
-            if (targetList.Length <= 0)
+            if (targetList.Count <= 0)
             {
+                Retarget();
                 currentState = AI_STATE.PATROL;
                 return;
             }

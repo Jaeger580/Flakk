@@ -50,7 +50,7 @@ MonoBehaviour:
   damageOutput: 5
   patrolPoints: []
   currentPatrolIndex: 0
-  speed: 15
+  currentWeb: 0
   constSpeed: 15
   brake: 8
   rotationSpeed: 10
@@ -65,8 +65,7 @@ MonoBehaviour:
   obstacleLeftDetectionDistance: 10
   obstacleRightDetectionDistance: 10
   avoidForce: 10
-  targetList:
-  - {fileID: 0}
+  targetList: []
   currentTargetIndex: 0
   currentState: 1
   fire_Point: {fileID: 4358041103246457254}
