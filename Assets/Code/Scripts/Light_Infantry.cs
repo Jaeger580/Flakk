@@ -4,37 +4,47 @@ using UnityEngine;
 
 namespace JO.AI 
 {
-    [RequireComponent(typeof(Rigidbody))]
-    public class Light_Infantry : AI_FSM, IDamagable
+    abstract public class EnemyAI : AI_FSM, IDamagable
     {
-        private Rigidbody rb;
+        protected Rigidbody rb;
 
         [Header("Settings")]
-        public float health;
-        public float damageOutput;
-        public List<Transform> patrolPoints = new List<Transform>();
-        public int currentPatrolIndex;
-        public WebSelection currentWeb;
-        private float speed;
-        public float constSpeed;
-        private bool isbraking = false;
-        public float brake;
-        public float rotationSpeed;
-        public float minimumDistance = .1f;
+        [SerializeField] protected float health;
+        [SerializeField] protected float damageOutput;
+        [SerializeField] protected List<Transform> patrolPoints = new List<Transform>();
+        [SerializeField] protected int currentPatrolIndex;
+        [SerializeField] protected WebSelection currentWeb;
+        protected float speed;
+        [SerializeField] protected float constSpeed;
+        protected bool isbraking = false;
+        [SerializeField] protected float brake;
+        [SerializeField] protected float rotationSpeed;
+        [SerializeField] protected float minimumDistance = .1f;
 
-        public Transform target;
-        public LayerMask ignoreLayer;
-        public float obstacleForwardDetectionDistance;
-        public float obstacleUpDetectionDistance;
-        public float obstacleDownDetectionDistance;
-        public float obstacleLeftDetectionDistance;
-        public float obstacleRightDetectionDistance;
-        public float avoidForce;
-        public List<Transform> targetList;
-        public int currentTargetIndex;
-        private float targetDistance;
-        public AI_STATE currentState;
+        [SerializeField] protected Transform target;
+        [SerializeField] protected LayerMask ignoreLayer;
+        [SerializeField] protected float obstacleForwardDetectionDistance;
+        [SerializeField] protected float obstacleUpDetectionDistance;
+        [SerializeField] protected float obstacleDownDetectionDistance;
+        [SerializeField] protected float obstacleLeftDetectionDistance;
+        [SerializeField] protected float obstacleRightDetectionDistance;
+        [SerializeField] protected float avoidForce;
+        [SerializeField] protected List<Transform> targetList;
+        [SerializeField] protected int currentTargetIndex;
+        protected float targetDistance;
+        [SerializeField] protected AI_STATE currentState;
 
+        abstract public void TakeDamage(float _damage);
+
+        public void SetChosenWeb(WebSelection chosenWeb)
+        {
+            currentWeb = chosenWeb;
+        }
+    }
+
+    [RequireComponent(typeof(Rigidbody))]
+    public class Light_Infantry : EnemyAI
+    {
         public Transform left_Fire_Point, right_Fire_Point;
         public GameObject projectilePrefab;
         public float fireRate;
@@ -46,24 +56,32 @@ namespace JO.AI
             rb.isKinematic = true;
         }
 
-        void Start()
+        private void Start()
         {
-
-            currentPatrolIndex = 0;
-            speed = constSpeed;
-            currentState = AI_STATE.IDLE;
-            Retarget();
+            float distToPoint = 100000000f;
+            var transPos = transform.position;
+            int tempPatrolIndex = 0;
+            currentState = AI_STATE.IDLE;   //Unsure why this is here
 
             if (patrolPoints.Count <= 0)
-            {
+            {//If we have no patrol points, get them from the web
                 patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
                 currentState = AI_STATE.PATROL;
             }
-        }
 
-        private void Update()
-        {
+            foreach (var waypoint in patrolPoints)
+            {//Look for the closest waypoint
+                var testDist = Vector3.Distance(transPos, waypoint.position);
+                if (testDist < distToPoint)
+                {
+                    distToPoint = testDist;
+                    tempPatrolIndex = patrolPoints.IndexOf(waypoint);
+                }
+            }
 
+            currentPatrolIndex = tempPatrolIndex;   //Set my current waypoint to the closest one
+            speed = constSpeed;
+            Retarget();
         }
 
         private void FixedUpdate()
@@ -264,7 +282,7 @@ namespace JO.AI
             isFiring = false;
         }
 
-        public void TakeDamage(float _damage)
+        override public void TakeDamage(float _damage)
         {
             health -= _damage;
 
