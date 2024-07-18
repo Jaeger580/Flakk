@@ -667,6 +667,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 143177974165791582, guid: e63039f3bc3983c4999a2e785f841462, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.120538205
+      objectReference: {fileID: 0}
+    - target: {fileID: 143177974165791582, guid: e63039f3bc3983c4999a2e785f841462, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.9752515
+      objectReference: {fileID: 0}
     - target: {fileID: 251336271402768772, guid: e63039f3bc3983c4999a2e785f841462, type: 3}
       propertyPath: m_Name
       value: Spider
@@ -760,17 +768,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2feada973225f49a4140d30510d94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfWaves: 10
-  enemyWave:
+  enemyWaves:
   - {fileID: 11400000, guid: 3b431c1a4eaf1e24aad8a832cf5e79ba, type: 2}
   - {fileID: 11400000, guid: 7799971cc792faa4ba5fd5eeb21586f4, type: 2}
-  enemyList:
-  - {fileID: 4212164114013495738, guid: d01a4b76d43fb30419f0def1e4fe196d, type: 3}
-  - {fileID: 35135041648192537, guid: b243edd58b955634c987baff9c039544, type: 3}
   waveTimeInterval: 30
+  levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
+  gunEnterEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
   isDebugging: 0
-  enemySpawnSphereSize: 150
-  enemySpawnSpherePosition: {x: 27, y: 132.4, z: -176.8}
+  enemySpawnRadius: 150
+  enemySpawnSpherePosition: {x: 27, y: -15.5, z: 392.7}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

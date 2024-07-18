@@ -10,10 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f2a27d2f4ffa214cb80b907a7ddde3b, type: 3}
-  m_Name: Wave1
+  m_Name: Wave - 3
   m_EditorClassIdentifier: 
-  groups: 0000000001000000
-  numberOfLightInfantry: 10
-  numberOfHeavyInfantry: 20
-  spawnRanges:
-  - {x: 27, y: 132.4, z: -176.8}
+  formations:
+  - {fileID: 11400000, guid: 9e8ef3e576caf46e5b99ca6cbaf9eee6, type: 2}
+  delayBetweenFormations: 0

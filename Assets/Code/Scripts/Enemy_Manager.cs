@@ -1,115 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility;
+using GeneralUtility.GameEventSystem;
+using JO.AI;
 using UnityEngine;
 
 public class Enemy_Manager : MonoBehaviour
 {
-    public int numberOfWaves;
-    private int currentWaveIndex = 1;
-    public Enemy_Wave_Creator[] enemyWave;
-    private int currentEnemyWaveIndex;
-    public List<GameObject> enemyList = new List<GameObject>();
+    private int currentWaveIndex = 0;
+    public Enemy_Wave_Creator[] enemyWaves;
     public float waveTimeInterval;
-    private float currentWaveTime;
-    private bool isRoundRunning = false;
+
+    [SerializeField] private GameEvent levelEndEvent, gunEnterEvent;
 
     [Header("Debugging/Helper")]
     public bool isDebugging;
-    public float enemySpawnSphereSize;
+    public float enemySpawnRadius;
     public Vector3 enemySpawnSpherePosition;
 
-
-    void Start()
+    private void Start()
     {
-        currentWaveIndex = 1;
-        currentWaveTime = waveTimeInterval;
-        Invoke("SpawnWave", 3f);
+        currentWaveIndex = 0;
+
+        var gunEnterListener = gameObject.AddComponent<GameEventListener>();
+        gunEnterListener.Events.Add(gunEnterEvent);
+        gunEnterListener.Response = new();
+        gunEnterListener.Response.AddListener(() => StartLevel(gunEnterListener));
+        gunEnterEvent.RegisterListener(gunEnterListener);
     }
 
-
-    private void Update()
+    [ContextMenu("Manual Start")]
+    private void ManualStart()
     {
-        if (isRoundRunning)
-        {
-            currentWaveTime -= Time.deltaTime;
-
-            if(currentWaveTime <= 0)
-            {
-                if(currentWaveIndex == numberOfWaves)
-                {
-                    print("Mission Completed");
-                    return;
-                }
-
-                currentWaveTime = waveTimeInterval;
-                isRoundRunning = false;
-                currentWaveIndex++;
-                SpawnWave();
-            }
-        }
+        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
+        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
 
-    private void SpawnWave()
+    private void StartLevel(GameEventListener gunEnterListener)
     {
-        for (int i = 1; i < numberOfWaves; i++)
-        {
-            if(i == currentWaveIndex)
-            {
-                currentEnemyWaveIndex = i;
-                SpawnSelector();
-                return;
-            }
-        }
+        Destroy(gunEnterListener);
+        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
+        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
 
-    private void SpawnSelector()
+    private IEnumerator SpawnRoutine(Enemy_Wave_Creator wave)
     {
-        // Spawn specific unit and how many of that unit.
-        if(enemyWave[currentEnemyWaveIndex - 1].numberOfLightInfantry > 0)
+        foreach(var formation in wave.formations)
         {
-            Spawn(enemyList[0], enemyWave[currentEnemyWaveIndex - 1].numberOfLightInfantry);
-        }
-        if (enemyWave[currentEnemyWaveIndex - 1].numberOfHeavyInfantry > 0)
-        {
-            Spawn(enemyList[1], enemyWave[currentEnemyWaveIndex - 1].numberOfHeavyInfantry);
-        }
-    }
+            if (formation.spawnRanges.Length <= 0) { Editor_Utility.ThrowWarning("ERR: Enemy formation doesn't have an assigned spawn point.", this); yield break; }
 
-    private void Spawn(GameObject _unit, int _numberOfUnits)
-    {
-        GameObject previousUnit = _unit;
-        GameObject newUnit = null;
-        Vector3 newUnitPos;
-
-        for (int i = 0; i < _numberOfUnits; i++)
-        {
-            if (enemyWave[currentEnemyWaveIndex - 1].spawnRanges.Length <= 0)
+            foreach (var enemyPrefab in formation.formationUnitPrefabs)
             {
-                newUnitPos = Vector3.zero;
-            }
-            else
-            {
-                //float point = Random.Range(-50f, enemySpawnSphereSize);
-                Vector3 setPosition = enemyWave[currentEnemyWaveIndex - 1].spawnRanges[0];
-                newUnitPos = new Vector3(setPosition.x + Random.Range(-50f, enemySpawnSphereSize), setPosition.y + Random.Range(-50f, enemySpawnSphereSize), setPosition.z + Random.Range(-50f, enemySpawnSphereSize));
+                Spawn(enemyPrefab, formation.spawnRanges[Random.Range(0, formation.spawnRanges.Length)], formation.preferredWeb);
             }
 
-            newUnit = Instantiate(_unit, newUnitPos, previousUnit.transform.rotation);
-            previousUnit = newUnit;
+            yield return new WaitForSeconds(wave.delayBetweenFormations);
         }
 
-        isRoundRunning = true;
+        yield return new WaitForSeconds(waveTimeInterval);
+
+        currentWaveIndex++;
+        if (currentWaveIndex >= enemyWaves.Length) { levelEndEvent.Trigger(); yield break; }
+
+        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
 
-    //Debugging
+    private void Spawn(GameObject _unit, Vector3 spawnPosition, WebSelection chosenWeb)
+    {
+        Vector3 newUnitPos = new Vector3(
+            spawnPosition.x + Random.Range(-enemySpawnRadius, enemySpawnRadius),
+            spawnPosition.y + Random.Range(-enemySpawnRadius, enemySpawnRadius),
+            spawnPosition.z + Random.Range(-enemySpawnRadius, enemySpawnRadius));
+
+        var newUnit = Instantiate(_unit, newUnitPos, _unit.transform.rotation);
+        if (chosenWeb == WebSelection.NONE) chosenWeb = WebSelection.WEB1;
+        newUnit.GetComponent<EnemyAI>().SetChosenWeb(chosenWeb);
+    }
 
     private void OnDrawGizmos()
     {
         if (isDebugging)
         {
             //Show which position you'd like the enemy to spawn
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(enemySpawnSpherePosition, enemySpawnSphereSize);
+            var color = Color.yellow;
+            color.a = 0.25f;
+            Gizmos.color = color;
+            Gizmos.DrawSphere(enemySpawnSpherePosition, enemySpawnRadius);
         }
     }
 }
