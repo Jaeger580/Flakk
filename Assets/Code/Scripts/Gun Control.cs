@@ -223,6 +223,29 @@ public class GunControl : MonoBehaviour
         }
     }
 
+    public void Zoom(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 36f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + 2);
+        }
+
+        else if (context.canceled)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 52f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z - 2);
+        }
+    }
+
     private void Fire() 
     {
         Quaternion gunRotation = gunBase.transform.rotation;
