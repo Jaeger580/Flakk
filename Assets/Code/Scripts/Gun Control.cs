@@ -136,6 +136,7 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
+                AudioManager.instance.ForcePlay("Reload");
                 AmmoChangeEvent?.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
@@ -231,6 +232,8 @@ public class GunControl : MonoBehaviour
         Vector3 camCenter = mainCamera.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
+
+        AudioManager.instance.ForcePlay("Shoot");
 
         currentClip--;
         AmmoChangeEvent?.Invoke(currentClip);
