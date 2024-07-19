@@ -35,7 +35,11 @@ public class Enemy_Manager : MonoBehaviour
 
     private void Update()
     {
-        if (enemiesDoneSpawning && livingEnemiesList.Count <= 0) levelEndEvent?.Trigger();
+        if (enemiesDoneSpawning && livingEnemiesList.Count <= 0)
+        {
+            enemiesDoneSpawning = false;
+            levelEndEvent?.Trigger();
+        }
     }
 
     private void StartLevel(GameEventListener gunEnterListener)
