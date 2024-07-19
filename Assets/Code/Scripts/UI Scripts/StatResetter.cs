@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-public class StatResetter : MonoBehaviour
+public class StatResetter : MonoBehaviour, I_UIScreenRefresh
 {
     private void Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-
-        var resetButton = root.Q<Button>("Reset");
-        resetButton.clicked += ResetStats;
+        RefreshUI();
     }
 
     private void ResetStats()
@@ -17,5 +14,13 @@ public class StatResetter : MonoBehaviour
         {//Unoptimized but likely never to be an issue, fix after prototype if necessary
             upgrader.ResetStat();
         }
+    }
+
+    public void RefreshUI()
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+
+        var resetButton = root.Q<Button>("Reset");
+        resetButton.clicked += ResetStats;
     }
 }

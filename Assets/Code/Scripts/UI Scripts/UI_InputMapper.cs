@@ -23,6 +23,8 @@ public class UI_InputMapper : MonoBehaviour
                 return invalidPosition;
             }
 
+            Debug.Log($"{hit.collider.transform.parent.name}");
+
             Vector2 pixelUV = hit.textureCoord;
 
             pixelUV.y = 1 - pixelUV.y;
@@ -30,7 +32,7 @@ public class UI_InputMapper : MonoBehaviour
             pixelUV.y *= doc.panelSettings.targetTexture.height;
 
             //var cursor = doc.rootVisualElement.Q<VisualElement>("Cursor");
-            //if(cursor != null)
+            //if (cursor != null)
             //{
             //    cursor.style.left = pixelUV.x;
             //    cursor.style.top = pixelUV.y;
