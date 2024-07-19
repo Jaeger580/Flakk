@@ -1,13 +1,22 @@
-﻿using JO.AI;
+﻿using GeneralUtility;
+using GeneralUtility.VariableObject;
+using JO.AI;
 using UnityEngine;
 
 public class PROTO_DamageRedirect : MonoBehaviour, IDamagable
 {
-    [SerializeField] private Light_Infantry actualHealthComponent;
+    [SerializeField] protected GameObject actualHealthHolder;
+    protected IDamagable actualHealthComponent;
 
-    public void TakeDamage(float _damage)
+    virtual protected void Start()
     {
-        Debug.Log($"{gameObject.name} got hit, redirecting to {actualHealthComponent.gameObject.name}");
+        if (actualHealthHolder != null) actualHealthHolder.TryGetComponent(out actualHealthComponent);
+    }
+
+    virtual public void TakeDamage(int _damage)
+    {
+        if (actualHealthComponent == null) { Editor_Utility.ThrowWarning("ERR: No health component found to redirect to.",this); return; }
+        Debug.Log($"{gameObject.name} got hit, redirecting to {actualHealthHolder.name}");
         actualHealthComponent.TakeDamage(_damage);
     }
 }

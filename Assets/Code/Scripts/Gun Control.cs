@@ -70,11 +70,6 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     private FloatReference overheatRate;
 
-
-
-
-
-
     private void OnDisable()
     {
         HeatChangeEvent = null;
@@ -167,18 +162,18 @@ public class GunControl : MonoBehaviour
         {//If the difference is too big, we know that horizRotation wrapped when gunBaseY didn't (or vice versa)
             if (horizRotation > gunBaseY)
             {
-                print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
+                //print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
                 horizRotation = Mathf.Clamp(horizRotation, 330f, 360f);   //if horiz passed left over 360 line, clamp it to a minimum of 330f
             }
             else if (horizRotation < gunBaseY)
             {
-                print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
+                //print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
                 horizRotation = Mathf.Clamp(horizRotation, 0f, 30f); //if horiz passed right over 0 line, clamp it to a max of 30f
             }
         }
         else if (Mathf.Abs(horizRotation - gunBaseY) > 25f)
         {
-            print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
+            //print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
             horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
         }
 

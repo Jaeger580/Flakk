@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 using GeneralUtility.VariableObject;
+using GeneralUtility;
 
 public class FloatStatUpgrader : StatUpgrader
 {
@@ -31,6 +32,7 @@ public class FloatStatUpgrader : StatUpgrader
 
     override protected void TryUpgradeStat()
     {
+        if (currentCurrency.Value <= 0) { Editor_Utility.ThrowWarning($"Can't upgrade without money!", this); return; }
         statToUpgrade.Value = CalcStatUpgrade();
         UpdateUI();
     }

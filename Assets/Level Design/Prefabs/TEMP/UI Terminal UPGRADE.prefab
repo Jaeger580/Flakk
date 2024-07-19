@@ -24,6 +24,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00015538931
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00001886487
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9927075
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.12054804
+      objectReference: {fileID: 0}
     - target: {fileID: 8275605964201587467, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -124,6 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: Damage
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -144,6 +164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: BulletSpeed
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -164,6 +188,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: FireRate
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -184,6 +212,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: ReloadSpeed
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -204,6 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: GunTurnSpeed
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -224,6 +260,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statName: OverheatRate
+  currentCurrency:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
