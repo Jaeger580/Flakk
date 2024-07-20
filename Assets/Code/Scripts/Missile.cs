@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Missile : MonoBehaviour
 {
-    private float damageOutput;
+    private int damageOutput;
     public float speed;
     public float lifeTime;
     private Rigidbody rb;
@@ -27,7 +27,7 @@ public class Missile : MonoBehaviour
         }
     }
 
-    public void Fire(Transform _target, float _damageOutput)
+    public void Fire(Transform _target, int _damageOutput)
     {
         target = _target;
         damageOutput = _damageOutput;
@@ -35,7 +35,7 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == ignoreLayer)
+        if((ignoreLayer.value & 1 << other.gameObject.layer) > 0)
         {
             return;
         }

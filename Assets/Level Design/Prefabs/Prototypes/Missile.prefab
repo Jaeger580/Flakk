@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7611104979701681489}
   - component: {fileID: 3284625511279213714}
   - component: {fileID: 1922953896080923552}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Missile_GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7624281205546850892}
   - component: {fileID: 5085760906489617532}
   - component: {fileID: 5596568472780766812}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,8 +112,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.74, y: 131.2, z: -30.7981}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.25}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1.6666666}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7611104979701681489}
   m_Father: {fileID: 0}
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5000
-  lifeTime: 30
+  lifeTime: 5
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 4
+    m_Bits: 2052

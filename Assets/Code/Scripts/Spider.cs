@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility;
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -22,11 +23,6 @@ public class Spider : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        
-    }
-
     private void InitWebs()
     {
         foreach(Transform child in transform)
@@ -40,6 +36,7 @@ public class Spider : MonoBehaviour
 
     public Waypoint_Web GetWeb(int _index)
     {
+        if (webs.Count <= _index) { Editor_Utility.ThrowWarning("ERR: Web index out of range.", this);  return webs[0].GetComponent<Waypoint_Web>(); }
         return webs[_index].GetComponent<Waypoint_Web>();
     }
 

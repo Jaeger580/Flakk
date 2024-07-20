@@ -3,6 +3,7 @@ using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class MonitorInteract : MonoBehaviour, IInteractable
 {
@@ -12,19 +13,49 @@ public class MonitorInteract : MonoBehaviour, IInteractable
     private PlayerInput playInput;
     private bool monitorEngaged = false;
 
+    private UIDocument doc;
+    private UI_InputMapper mapper;
+    private List<I_UIScreenRefresh> toRefresh = new();
+
     private void Start()
     {
         playInput = FindObjectOfType<PlayerInput>();
-
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        var exitBtn = root.Q<Button>("Exit");
-        exitBtn.clickable.clicked += TryExitMonitor;
+        doc = GetComponent<UIDocument>();
+        mapper = GetComponent<UI_InputMapper>();
 
         var exitMonitorListener = gameObject.AddComponent<GameEventListener>();
         exitMonitorListener.Events.Add(exitMonitorEvent);
         exitMonitorListener.Response = new();
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
         exitMonitorEvent.RegisterListener(exitMonitorListener);
+
+        foreach(var refresh in GetComponents<I_UIScreenRefresh>())
+        {
+            toRefresh.Add(refresh);
+        }
+
+        DisableMonitor();
+    }
+
+    private void EnableMonitor()
+    {
+        doc.enabled = true;
+        mapper.enabled = true;
+
+        var root = doc.rootVisualElement;
+        var exitBtn = root.Q<Button>("Exit");
+        exitBtn.clickable.clicked += TryExitMonitor;
+
+        foreach(var refresh in toRefresh)
+        {
+            refresh.RefreshUI();
+        }
+    }
+
+    private void DisableMonitor()
+    {
+        doc.enabled = false;
+        mapper.enabled = false;
     }
 
     public void Interact()
@@ -33,6 +64,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         monitorEngaged = true;
         monitorCam.Priority = 100;
         playInput.SwitchCurrentActionMap("UI");
+
+        EnableMonitor();
     }
 
     private void TryExitMonitor()
@@ -42,5 +75,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
         playInput.SwitchCurrentActionMap("Hub");
+
+        DisableMonitor();
     }
 }
