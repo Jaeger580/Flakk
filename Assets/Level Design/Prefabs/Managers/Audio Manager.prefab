@@ -45,8 +45,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: BGM
+    clip: {fileID: 8300000, guid: 38c91438e5eb17d40bccfa6acae6a102, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+    volume: 0.025
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Shoot
     clip: {fileID: 8300000, guid: fe900292af09d32449f5a3ac5e574880, type: 3}
+    audioMixerGroup: {fileID: 24300002, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Reload
+    clip: {fileID: 8300000, guid: 91f3fbe1721bb3549b5e02fb704ad6a0, type: 3}
     audioMixerGroup: {fileID: 24300002, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
     volume: 0.2
     pitch: 1

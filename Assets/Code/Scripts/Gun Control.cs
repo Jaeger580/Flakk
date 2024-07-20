@@ -251,7 +251,10 @@ public class GunControl : MonoBehaviour
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
-        AudioManager.instance.ForcePlay("Shoot");
+        if(AudioManager.instance != null) 
+        {
+            AudioManager.instance.ForcePlay("Shoot");
+        }
 
         currentClip--;
         AmmoChangeEvent?.Invoke(currentClip);
