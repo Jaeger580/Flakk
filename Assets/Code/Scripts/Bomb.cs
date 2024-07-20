@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Bomb : MonoBehaviour
 {
-    private float damageOutput;
+    private int damageOutput;
     public float speed;
     public float lifeTime;
     private Rigidbody rb;
@@ -27,7 +27,7 @@ public class Bomb : MonoBehaviour
         }
     }
 
-    public void Fire(Transform _target, float _damageOutput)
+    public void Fire(Transform _target, int _damageOutput)
     {
         target = _target;
         damageOutput = _damageOutput;

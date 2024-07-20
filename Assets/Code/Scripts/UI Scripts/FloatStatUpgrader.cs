@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 using GeneralUtility.VariableObject;
+using GeneralUtility;
 
 public class FloatStatUpgrader : StatUpgrader
 {
@@ -11,17 +12,9 @@ public class FloatStatUpgrader : StatUpgrader
 
     private void Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-
-        var statContainer = root.Q<VisualElement>($"{statName}Container");
-        statContainer.Q<Button>("Upgrade").clicked += TryUpgradeStat;
-
-        currentLabel = statContainer.Q<Label>("CurrentAmt");
-        nextLabel = statContainer.Q<Label>("NextAmt");
-
         initialAmt = statToUpgrade.Value;
 
-        UpdateUI();
+        RefreshInfo();
     }
 
     private void OnDisable()
@@ -31,6 +24,7 @@ public class FloatStatUpgrader : StatUpgrader
 
     override protected void TryUpgradeStat()
     {
+        if (currentCurrency.Value <= 0) { Editor_Utility.ThrowWarning($"Can't upgrade without money!", this); return; }
         statToUpgrade.Value = CalcStatUpgrade();
         UpdateUI();
     }

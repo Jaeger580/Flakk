@@ -13,6 +13,10 @@ public class Enemy_Manager : MonoBehaviour
 
     [SerializeField] private GameEvent levelEndEvent, gunEnterEvent;
 
+    private bool enemiesDoneSpawning = false;
+
+    private List<GameObject> livingEnemiesList = new();
+
     [Header("Debugging/Helper")]
     public bool isDebugging;
     public float enemySpawnRadius;
@@ -29,11 +33,13 @@ public class Enemy_Manager : MonoBehaviour
         gunEnterEvent.RegisterListener(gunEnterListener);
     }
 
-    [ContextMenu("Manual Start")]
-    private void ManualStart()
+    private void Update()
     {
-        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
-        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
+        if (enemiesDoneSpawning && livingEnemiesList.Count <= 0)
+        {
+            enemiesDoneSpawning = false;
+            levelEndEvent?.Trigger();
+        }
     }
 
     private void StartLevel(GameEventListener gunEnterListener)
@@ -46,21 +52,21 @@ public class Enemy_Manager : MonoBehaviour
     private IEnumerator SpawnRoutine(Enemy_Wave_Creator wave)
     {
         foreach(var formation in wave.formations)
-        {
+        {//For each formation in the wave,
             if (formation.spawnRanges.Length <= 0) { Editor_Utility.ThrowWarning("ERR: Enemy formation doesn't have an assigned spawn point.", this); yield break; }
 
+            yield return new WaitForSeconds(wave.delayBetweenFormations);   //Delay first, otherwise could cause level-end delay
+
             foreach (var enemyPrefab in formation.formationUnitPrefabs)
-            {
+            {//for each enemy to spawn, spawn it
                 Spawn(enemyPrefab, formation.spawnRanges[Random.Range(0, formation.spawnRanges.Length)], formation.preferredWeb);
             }
-
-            yield return new WaitForSeconds(wave.delayBetweenFormations);
         }
 
-        yield return new WaitForSeconds(waveTimeInterval);
-
         currentWaveIndex++;
-        if (currentWaveIndex >= enemyWaves.Length) { levelEndEvent.Trigger(); yield break; }
+        if (currentWaveIndex >= enemyWaves.Length) { enemiesDoneSpawning = true; yield break; }
+
+        yield return new WaitForSeconds(waveTimeInterval);
 
         StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
@@ -73,8 +79,17 @@ public class Enemy_Manager : MonoBehaviour
             spawnPosition.z + Random.Range(-enemySpawnRadius, enemySpawnRadius));
 
         var newUnit = Instantiate(_unit, newUnitPos, _unit.transform.rotation);
+        livingEnemiesList.Add(newUnit);
+
         if (chosenWeb == WebSelection.NONE) chosenWeb = WebSelection.WEB1;
-        newUnit.GetComponent<EnemyAI>().SetChosenWeb(chosenWeb);
+        var ai = newUnit.GetComponent<EnemyAI>();
+        ai.SetChosenWeb(chosenWeb);
+        ai.EnemyDeathEvent += () => RemoveDead(newUnit);
+    }
+
+    private void RemoveDead(GameObject unit)
+    {
+        livingEnemiesList.Remove(unit);
     }
 
     private void OnDrawGizmos()
@@ -87,5 +102,12 @@ public class Enemy_Manager : MonoBehaviour
             Gizmos.color = color;
             Gizmos.DrawSphere(enemySpawnSpherePosition, enemySpawnRadius);
         }
+    }
+
+    [ContextMenu("Manual Start")]
+    private void ManualStart()
+    {
+        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
+        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
 }

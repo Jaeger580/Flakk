@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479148abe2dfb4036be46a9eefd58493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualHealthComponent: {fileID: 5667413683026037196}
+  actualHealthHolder: {fileID: 4212164114013495738}
 --- !u!1 &3595480444028727325
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  damageOutput: 5
+  damageOutput: 2
   patrolPoints: []
   currentPatrolIndex: 0
   currentWeb: 0
@@ -326,7 +326,7 @@ MonoBehaviour:
   target: {fileID: 0}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 4
+    m_Bits: 4294967295
   obstacleForwardDetectionDistance: 10
   obstacleUpDetectionDistance: 10
   obstacleDownDetectionDistance: 10
@@ -336,10 +336,13 @@ MonoBehaviour:
   targetList: []
   currentTargetIndex: 0
   currentState: 1
+  fireRate: 0.15
+  aggroCooldown: 15
+  aggroTimer: 0
+  recentlyAggro: 0
   left_Fire_Point: {fileID: 3785230442121884971}
   right_Fire_Point: {fileID: 7520409861926308664}
   projectilePrefab: {fileID: 8007559461031883096, guid: 3129dee72c77dbc46a83e1cdf9b2a188, type: 3}
-  fireRate: 0.15
 --- !u!54 &7669835714228794804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -803,6 +806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Light Fighter
       objectReference: {fileID: 0}
+    - target: {fileID: 8143025597826128898, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8811862285114312376, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -899,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479148abe2dfb4036be46a9eefd58493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualHealthComponent: {fileID: 5667413683026037196}
+  actualHealthHolder: {fileID: 4212164114013495738}
 --- !u!4 &8652197254371506861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8811862285114312376, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
