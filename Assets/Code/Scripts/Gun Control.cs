@@ -131,6 +131,7 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
+                AudioManager.instance.ForcePlay("Reload");
                 AmmoChangeEvent?.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
@@ -217,6 +218,29 @@ public class GunControl : MonoBehaviour
         }
     }
 
+    public void Zoom(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 36f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + 2);
+        }
+
+        else if (context.canceled)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 52f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z - 2);
+        }
+    }
+
     private void Fire() 
     {
         Quaternion gunRotation = gunBase.transform.rotation;
@@ -226,6 +250,11 @@ public class GunControl : MonoBehaviour
         Vector3 camCenter = mainCamera.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
+
+        if(AudioManager.instance != null) 
+        {
+            AudioManager.instance.ForcePlay("Shoot");
+        }
 
         currentClip--;
         AmmoChangeEvent?.Invoke(currentClip);
