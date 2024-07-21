@@ -383,6 +383,7 @@ namespace JO.AI
 
             if(health <= 0)
             {
+                AudioManager.instance.Play("Distant Exp");
                 Death();
             }
         }
