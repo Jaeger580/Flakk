@@ -30,7 +30,7 @@ public class FloatStatUpgrader : StatUpgrader
             AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR);
             return;
         }
-        currentCurrency.Value--;
+        currentCurrency.Value -= upgradeCost;
         statToUpgrade.Value = CalcStatUpgrade();
         UpdateUI();
     }
