@@ -24,7 +24,13 @@ public class IntStatUpgrader : StatUpgrader
 
     override protected void TryUpgradeStat()
     {
-        if (currentCurrency.Value <= 0) { Editor_Utility.ThrowWarning($"Can't upgrade without money!", this); return; }
+        if (currentCurrency.Value < upgradeCost)
+        {
+            Editor_Utility.ThrowWarning($"ERR: Currency amt ({currentCurrency.Value}) less than upgrade cost ({upgradeCost})!", this);
+            AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR);
+            return;
+        }
+        currentCurrency.Value -= upgradeCost;
         statToUpgrade.Value = CalcStatUpgrade();
         UpdateUI();
     }

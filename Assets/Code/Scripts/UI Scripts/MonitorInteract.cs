@@ -15,7 +15,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
     private UIDocument doc;
     private UI_InputMapper mapper;
-    private List<I_UIScreenRefresh> toRefresh = new();
+    private List<IUIScreenRefresh> toRefresh = new();
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
         exitMonitorEvent.RegisterListener(exitMonitorListener);
 
-        foreach(var refresh in GetComponents<I_UIScreenRefresh>())
+        foreach(var refresh in GetComponents<IUIScreenRefresh>())
         {
             toRefresh.Add(refresh);
         }

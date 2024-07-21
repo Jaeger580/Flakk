@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour
     private Sound[] footSteps;
     private int footStepCount;
 
+    [SerializeField]
+    private Sound[] uiSounds;
+
     private void Awake()
     {
         if (instance == null)
@@ -32,7 +35,14 @@ public class AudioManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        foreach (Sound s in sounds) 
+        InitializeSoundList(sounds);
+        InitializeSoundList(footSteps);
+        InitializeSoundList(uiSounds);
+    }
+
+    private void InitializeSoundList(Sound[] sounds)
+    {
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -41,17 +51,6 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
-
-        foreach (Sound f in footSteps)
-        {
-            f.source = gameObject.AddComponent<AudioSource>();
-            f.source.clip = f.clip;
-            f.source.outputAudioMixerGroup = f.audioMixerGroup;
-            f.source.volume = f.volume;
-            f.source.pitch = f.pitch;
-            f.source.loop = f.loop;
-        }
-
     }
 
     private void Start()
@@ -106,7 +105,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void setVolume(string name, float vol)
+    public void SetVolume(string name, float vol)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -120,4 +119,8 @@ static public class MagicStrings
     public const string AUDIO_PARAM_NAME_MASTER = "MasterVol",
         AUDIO_PARAM_NAME_BGM = "MusicVol",
         AUDIO_PARAM_NAME_SFX = "EffectVol";
+
+    public const string BTN_HOVER = "UI Button Hover",
+        BTN_CLICK = "UI Button Click",
+        BTN_ERROR = "UI Button Error";
 } 
