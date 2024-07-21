@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField]
     private Sound[] uiSounds;
+    public Sound[] UISounds => uiSounds;
 
     private void Awake()
     {
@@ -81,6 +82,14 @@ public class AudioManager : MonoBehaviour
     public void ForcePlay(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        // Should make the audio clip only play once if called multiple times.
+        s.source.PlayOneShot(s.clip);
+    }
+
+    public void ForcePlay(string name, Sound[] specificList)
+    {
+        Sound s = Array.Find(specificList, sound => sound.name == name);
 
         // Should make the audio clip only play once if called multiple times.
         s.source.PlayOneShot(s.clip);

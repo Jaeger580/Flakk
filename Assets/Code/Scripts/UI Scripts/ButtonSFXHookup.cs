@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ButtonSFXHookup : MonoBehaviour
+public class ButtonSFXHookup : MonoBehaviour, IUIScreenRefresh
 {
     private void Start()
+    {
+        AttachSounds();
+    }
+
+    private void AttachSounds()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         root.Query<Button>().ForEach(AddSFX);
@@ -17,7 +22,7 @@ public class ButtonSFXHookup : MonoBehaviour
 
     public void TriggerSFX(EventBase evt, string clipName)
     {
-        AudioManager.instance.ForcePlay(clipName);
+        AudioManager.instance.ForcePlay(clipName, AudioManager.instance.UISounds);
     }
 
     public void AddSFXWorkaround(Button btn)
@@ -28,6 +33,11 @@ public class ButtonSFXHookup : MonoBehaviour
 
     public void TriggerSFX(string clipName)
     {
-        AudioManager.instance.ForcePlay(clipName);
+        AudioManager.instance.ForcePlay(clipName, AudioManager.instance.UISounds);
+    }
+
+    public void RefreshUI()
+    {
+        AttachSounds();
     }
 }

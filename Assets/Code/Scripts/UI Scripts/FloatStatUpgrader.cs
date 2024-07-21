@@ -27,7 +27,7 @@ public class FloatStatUpgrader : StatUpgrader
         if (currentCurrency.Value < upgradeCost)
         {
             Editor_Utility.ThrowWarning($"ERR: Currency amt ({currentCurrency.Value}) less than upgrade cost ({upgradeCost})!", this);
-            AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR);
+            AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR, AudioManager.instance.UISounds);
             return;
         }
         currentCurrency.Value -= upgradeCost;
@@ -39,6 +39,7 @@ public class FloatStatUpgrader : StatUpgrader
     {
         currentLabel.text = statToUpgrade.Value.ToString("0.##");
         nextLabel.text = CalcStatUpgrade().ToString("0.##");
+        if (currentCurrency.Value < upgradeCost) upgradeBtn.SetEnabled(false);
     }
 
     override public void ResetStat()

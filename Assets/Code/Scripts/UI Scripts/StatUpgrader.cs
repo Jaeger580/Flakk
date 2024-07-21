@@ -12,6 +12,7 @@ abstract public class StatUpgrader : MonoBehaviour, IUIScreenRefresh
     [SerializeField] protected int upgradeCost = 1;
 
     protected Label currentLabel, nextLabel;
+    protected Button upgradeBtn;
 
     abstract protected void TryUpgradeStat();
 
@@ -24,7 +25,10 @@ abstract public class StatUpgrader : MonoBehaviour, IUIScreenRefresh
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         var statContainer = root.Q<VisualElement>($"{statName}Container");
-        statContainer.Q<Button>("Upgrade").clicked += TryUpgradeStat;
+        upgradeBtn = statContainer.Q<Button>("Upgrade");
+        upgradeBtn.clicked += TryUpgradeStat;
+
+        if (currentCurrency.Value < upgradeCost) upgradeBtn.SetEnabled(false);
 
         currentLabel = statContainer.Q<Label>("CurrentAmt");
         nextLabel = statContainer.Q<Label>("NextAmt");
