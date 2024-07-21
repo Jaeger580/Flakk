@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.TryGetComponent(out IDamagable enemyHurtbox))
         {
             enemyHurtbox.TakeDamage(finalDamage);
+            AudioManager.instance.Play("Hit");
             Destroy(gameObject);
         }
     }

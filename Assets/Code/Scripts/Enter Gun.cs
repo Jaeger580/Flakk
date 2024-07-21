@@ -18,6 +18,7 @@ public class EnterGun : MonoBehaviour, IInteractable
         playerVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Gun");
         gunEnterEvent?.Trigger();
+        AudioManager.instance.setVolume("BGM", 0.015f);
     }
 
     void Start()
