@@ -70,6 +70,9 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     private FloatReference overheatRate;
 
+    [SerializeField]
+    public ParticleSystem[] vfx=new ParticleSystem[5];
+
     private void OnDisable()
     {
         HeatChangeEvent = null;
@@ -312,5 +315,10 @@ public class GunControl : MonoBehaviour
 
         fireRateTimer = Time.time;
 
+        foreach(ParticleSystem ps in vfx)
+        {
+            ps.Play();
+        }
+        
     }
 }
