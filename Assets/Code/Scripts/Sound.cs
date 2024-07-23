@@ -5,6 +5,7 @@
 */
 
 
+using GeneralUtility.EditorQoL;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -23,5 +24,5 @@ public class Sound
     public bool loop;
 
     //[HideInInspector]
-    public AudioSource source;
+    [ReadOnly] public AudioSource source;
 }
