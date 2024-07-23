@@ -14,8 +14,8 @@
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: row; align-items: flex-start;">
                     <ui:VisualElement name="MissionContainer" class="contentContainer" style="flex-grow: 1; width: 100%; height: 100%; flex-direction: row;">
                         <ui:VisualElement class="statDetailContainer" style="flex-grow: 1; width: 20%;">
-                            <ui:Label tabindex="-1" text="Missions" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionTitle" class="contentTitle" />
-                            <ui:Button text="Mission 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionButton" class="textButton statText" />
+                            <ui:Label tabindex="-1" text="Contracts" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionTitle" class="contentTitle" />
+                            <ui:Button text="Contract 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionButton" class="textButton statText" />
                         </ui:VisualElement>
                         <ui:VisualElement class="statDetailContainer" style="flex-grow: 1; width: 80%;">
                             <ui:Label tabindex="-1" text="Description" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" />
@@ -31,7 +31,7 @@
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;">
-                    <ui:Button text="Start Mission" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartMission" class="basicButton" />
+                    <ui:Button text="Start Contract" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartMission" class="basicButton" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

@@ -12,17 +12,17 @@ public class Missile : MonoBehaviour
     private Transform target;
     public LayerMask ignoreLayer;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         Destroy(gameObject, lifeTime);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (target)
         {
-            //transform.LookAt(target.position);
+            transform.LookAt(target.position);
             rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Acceleration);
         }
     }

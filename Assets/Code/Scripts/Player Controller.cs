@@ -98,6 +98,6 @@ public class PlayerController : MonoBehaviour
     {
         playInput.SwitchCurrentActionMap("Hub");
         virtualCamera.Priority = 10;
-        AudioManager.instance.setVolume("BGM", 0.05f);
+        AudioManager.instance.SetVolume("BGM", 0.05f);
     }
 }

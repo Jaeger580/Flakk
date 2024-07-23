@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-public class StatResetter : MonoBehaviour, I_UIScreenRefresh
+public class StatResetter : MonoBehaviour, IUIScreenRefresh
 {
     private void Start()
     {

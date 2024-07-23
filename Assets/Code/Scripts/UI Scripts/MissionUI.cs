@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MissionUI : MonoBehaviour, I_UIScreenRefresh
+public class MissionUI : MonoBehaviour, IUIScreenRefresh
 {
     [SerializeField] private StartMission missionStarter;
 
