@@ -71,7 +71,10 @@ public class GunControl : MonoBehaviour
     private FloatReference overheatRate;
 
     [SerializeField]
-    public ParticleSystem[] vfx=new ParticleSystem[5];
+    private ParticleSystem[] vfx=new ParticleSystem[4];
+
+    [SerializeField]
+    private Light vfxLight;
 
     private void OnDisable()
     {
