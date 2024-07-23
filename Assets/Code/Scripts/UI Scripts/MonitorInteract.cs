@@ -9,6 +9,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] private CinemachineVirtualCamera monitorCam;
     [SerializeField] private GameEvent exitMonitorEvent;
+    [SerializeField] private bool startInTerminal;
 
     private PlayerInput playInput;
     private bool monitorEngaged = false;
@@ -34,7 +35,10 @@ public class MonitorInteract : MonoBehaviour, IInteractable
             toRefresh.Add(refresh);
         }
 
-        DisableMonitor();
+        if (!startInTerminal)
+            DisableMonitor();
+        else
+            Interact();
     }
 
     private void EnableMonitor()
