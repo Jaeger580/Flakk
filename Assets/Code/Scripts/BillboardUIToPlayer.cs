@@ -8,6 +8,8 @@ public class BillboardUIToPlayer : MonoBehaviour
     private void Start()
     {
         uiTrans = transform;
+        if(gunCam == null)
+            gunCam = Camera.main.transform;
     }
 
     private void Update()
