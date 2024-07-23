@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-public class StartUI : MonoBehaviour, IInteractable
+public class StartUI : MonoBehaviour, IUIScreenRefresh
 {
     //[SerializeField] private StartMission missionStarter;
 
@@ -32,10 +32,5 @@ public class StartUI : MonoBehaviour, IInteractable
         var backTab = root.Q<Button>($"BackTab");
         manualTab.clicked += ShowManual;
         backTab.clicked += HideManual;
-    }
-
-    public void Interact()
-    {
-        throw new System.NotImplementedException();
     }
 }

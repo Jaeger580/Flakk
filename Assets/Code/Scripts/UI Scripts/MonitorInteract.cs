@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MonitorInteract : MonoBehaviour, IInteractable
 {
@@ -18,7 +19,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
     private UI_InputMapper mapper;
     private List<IUIScreenRefresh> toRefresh = new();
 
-    private void Start()
+    private IEnumerator Start()
     {
         playInput = FindObjectOfType<PlayerInput>();
         doc = GetComponent<UIDocument>();
@@ -34,6 +35,9 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         {
             toRefresh.Add(refresh);
         }
+
+        yield return new WaitForSeconds(0.01f);
+
 
         if (!startInTerminal)
             DisableMonitor();

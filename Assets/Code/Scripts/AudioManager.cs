@@ -66,6 +66,7 @@ public class AudioManager : MonoBehaviour
         footStepCount = footSteps.Length;
 
         Play("BGM");
+
     }
 
     public void Play (string name) 

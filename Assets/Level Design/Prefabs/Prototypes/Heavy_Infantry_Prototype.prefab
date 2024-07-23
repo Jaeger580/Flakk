@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f1f4515cd67ea4b95bd4bcd6ac7f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 22
   damageOutput: 5
   patrolPoints: []
   currentPatrolIndex: 0
@@ -68,9 +68,13 @@ MonoBehaviour:
   targetList: []
   currentTargetIndex: 0
   currentState: 1
+  fireRate: 0.5
+  aggroCooldown: 0
+  aggroTimer: 0
+  recentlyAggro: 0
+  deathFX: {fileID: 0}
   fire_Point: {fileID: 4358041103246457254}
   projectilePrefab: {fileID: 1373563154404561746, guid: 02b33b79a543c5b4b93991c7289e7a51, type: 3}
-  fireRate: 0.5
 --- !u!54 &9123216535888608243
 Rigidbody:
   m_ObjectHideFlags: 0
