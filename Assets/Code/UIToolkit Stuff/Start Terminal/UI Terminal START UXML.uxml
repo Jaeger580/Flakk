@@ -1,0 +1,91 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Code/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="ScreenParent" class="screenParent">
+            <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors">
+                    <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 80%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0); border-left-color: rgb(0, 227, 255); border-right-color: rgb(0, 227, 255); border-top-color: rgb(0, 227, 255); border-bottom-color: rgb(0, 227, 255); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+                    <ui:VisualElement>
+                        <ui:Label tabindex="-1" text="F.L.A.K.K." parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" style="font-size: 64px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-between;">
+                        <ui:VisualElement style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; visibility: hidden;">
+                            <ui:Label tabindex="-1" text="Controls:" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Move : WASD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Look : Mouse" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Interact : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Exit Terminal : Esc" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Gun Shoot : LMB" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Gun Zoom : RMB" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="justify-content: space-around; align-items: flex-end; align-self: auto; height: 100%; width: 30%;">
+                            <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightAnchor" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="ManualParent" picking-mode="Ignore" class="screenParent manualTabBaseline" style="position: absolute; display: flex;">
+            <ui:VisualElement name="LeftAnchor" picking-mode="Ignore" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" picking-mode="Ignore" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 80%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0); border-left-color: rgb(0, 227, 255); border-right-color: rgb(0, 227, 255); border-top-color: rgb(0, 227, 255); border-bottom-color: rgb(0, 227, 255); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+                    <ui:VisualElement>
+                        <ui:Label tabindex="-1" text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" style="font-size: 64px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-between;">
+                        <ui:VisualElement name="VisualElement" style="justify-content: space-around; align-items: flex-end; align-self: auto; rotate: 90deg; height: 40px; translate: -31px 245px;">
+                            <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; width: 100%;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width: 30%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                            <ui:Label tabindex="-1" text="Controls:" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Move : WASD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Look : Mouse" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Interact : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Exit Terminal : Esc" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Gun Shoot : LMB" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Gun Zoom : RMB" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                        </ui:VisualElement>
+                        <ui:VisualElement style="width: 60%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                            <ui:Label tabindex="-1" text="Stuff to do:" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentBody" />
+                            <ui:Label tabindex="-1" text="1.) Select Contract from console" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="2.) Exit Contract console, enter gun" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="3.) Enemies will spawn, kill them" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" enable-rich-text="false" class="contentBody" />
+                            <ui:Label tabindex="-1" text="4.) Protect mothership from waves" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="5.) When done, exit gun" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="6.) Purchase Upgrades from console" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                            <ui:Label tabindex="-1" text="7.) Repeat" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightAnchor" class="ltrAnchors" style="width: 10%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
