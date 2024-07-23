@@ -17,7 +17,7 @@ public class WinNotifier : MonoBehaviour
         var hideListener = gameObject.AddComponent<GameEventListener>();
         hideListener.Events.Add(hideEvent);
         hideListener.Response = new();
-        hideListener.Response.AddListener(() => ShowWin());
+        hideListener.Response.AddListener(() => HideWin());
         hideEvent.RegisterListener(hideListener);
 
         HideWin();
