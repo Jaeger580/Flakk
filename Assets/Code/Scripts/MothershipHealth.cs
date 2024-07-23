@@ -11,7 +11,7 @@ public class MothershipHealth : MonoBehaviour, IDamagable
     private void Start()
     {
         currentHealth.Value = maxHealth.Value;
-        healthChangeEvent?.Trigger(currentHealth.Value);
+        healthChangeEvent?.Trigger();
     }
 
     public void TakeDamage(int _damage)
@@ -19,7 +19,7 @@ public class MothershipHealth : MonoBehaviour, IDamagable
         currentHealth.Value -= _damage;
         if (currentHealth.Value <= 0) currentHealth.Value = 0;
 
-        healthChangeEvent?.Trigger(currentHealth.Value);
+        healthChangeEvent?.Trigger();
 
         if (currentHealth.Value <= 0)
         {
