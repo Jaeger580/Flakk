@@ -5,6 +5,7 @@
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors">
                     <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="basicButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    <ui:Label tabindex="-1" text="$$$$$" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrencyText" class="statText" />
                 </ui:VisualElement>
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />

@@ -147,6 +147,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -171,13 +173,15 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
-  amtToUpgradeBy: 20
+  amtToUpgradeBy: 50
   min: 0
-  max: 200
+  max: 2000
 --- !u!114 &4056927002669304686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +199,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -219,6 +225,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -243,6 +251,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -267,6 +277,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -287,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   currency:
     UseConstant: 0
     ConstantValue: 0
