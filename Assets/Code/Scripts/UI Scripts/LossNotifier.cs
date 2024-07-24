@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class LossNotifier : MonoBehaviour
 {
     [SerializeField] private GameEvent lossEvent;
-    [SerializeField] private float fadeTime = 1f;
+    //[SerializeField] private float fadeTime = 1f;
     [SerializeField] private GameObject lossScreen;
 
     private void Start()

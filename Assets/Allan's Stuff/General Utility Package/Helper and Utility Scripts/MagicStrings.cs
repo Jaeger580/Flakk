@@ -13,5 +13,11 @@ namespace GeneralUtility
 
         //public const string
         //    SCENE_ etc etc etc = "";
+
+        public const string
+            OPTIONS_X_SENS_BASE = "xUnscopedSensitivity",
+            OPTIONS_X_SENS_ZOOM = "xScopedSensitivity",
+            OPTIONS_Y_SENS_BASE = "yUnscopedSensitivity",
+            OPTIONS_Y_SENS_ZOOM = "yScopedSensitivity";
     }
 }

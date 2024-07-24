@@ -23,7 +23,7 @@ public class UI_InputMapper : MonoBehaviour
                 return invalidPosition;
             }
 
-            Debug.Log($"{hit.collider.transform.parent.name}");
+            //Debug.Log($"{hit.collider.transform.parent.name}");
 
             Vector2 pixelUV = hit.textureCoord;
 

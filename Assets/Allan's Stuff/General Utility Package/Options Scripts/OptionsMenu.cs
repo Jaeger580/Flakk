@@ -19,24 +19,33 @@ namespace GeneralUtility
             public GameEvent applyOptionsEvent, revertOptionsEvent, exitOptionsEvent;
             public GameEvent defaultVisualEvent, defaultSensEvent, defaultAudioEvent, defaultAllEvent;
 
-            private Button buttonOptions;
+            protected Button buttonOptions;
 
-            private VisualElement screenOptions;
+            protected VisualElement screenOptions;
 
-            private Button buttonAudioTab, buttonVisualTab, buttonKeysTab, buttonAccessTab, buttonGameTab;
-            private Button buttonOptionsApply, buttonOptionsRevert, buttonOptionsDefault, buttonOptionsExit;
+            protected Button buttonAudioTab, buttonVisualTab, buttonKeysTab, buttonAccessTab, buttonGameTab;
+            protected Button buttonOptionsApply, buttonOptionsRevert, buttonOptionsDefault, buttonOptionsExit;
 
-            private VisualElement optionsAudio, optionsVisual, optionsKeys, optionsAccess, optionsGame;
+            protected VisualElement optionsAudio, optionsVisual, optionsKeys, optionsAccess, optionsGame;
 
-            private string visibleOptionsTab;
+            protected string visibleOptionsTab;
 
-            private DisplayStyle showing = DisplayStyle.Flex, hidden = DisplayStyle.None;
+            protected DisplayStyle showing = DisplayStyle.Flex, hidden = DisplayStyle.None;
 
-            private void Start()
+            protected void Start()
+            {
+                InitUI();
+
+                visibleOptionsTab = optionsAudio.name;
+            }
+
+            /*** UI-Updating Functions ***/
+
+            protected void InitUI()
             {
                 var root = FindObjectOfType<UIDocument>().rootVisualElement;                //Get the root of the UI
-                buttonOptions = root.Q<Button>("Options");                              //Find the "options" button
-                buttonOptions.clicked += ToggleOptionsScreen;
+                //buttonOptions = root.Q<Button>("Options");                              //Find the "options" button
+                //buttonOptions.clicked += ToggleOptionsScreen;
 
                 screenOptions = root.Q<VisualElement>("OptionsScreen");
                 buttonAudioTab = screenOptions.Q<Button>("Audio");                      //Assign a reference to each tab button
@@ -68,18 +77,15 @@ namespace GeneralUtility
                 buttonAccessTab.clicked += delegate { SelectOptions(optionsAccess); };
                 buttonGameTab.clicked += delegate { SelectOptions(optionsGame); };
 
-                buttonOptionsExit.clicked += ToggleOptionsScreen;
+                //buttonOptionsExit.clicked += ToggleOptionsScreen;
                 buttonOptionsExit.clicked += ExitOptions;
                 buttonOptionsApply.clicked += ApplyOptions;
                 buttonOptionsRevert.clicked += RevertOptions;
                 buttonOptionsDefault.clicked += DefaultOptions;
-                screenOptions.style.display = hidden;
-
-                visibleOptionsTab = optionsAudio.name;
+                //screenOptions.style.display = hidden;
             }
 
-            /*** UI-Updating Functions ***/
-            private void SelectOptions(VisualElement opt)
+            protected void SelectOptions(VisualElement opt)
             {//Toggle the related options screen on, and all the other ones off
                 optionsAudio.style.display = hidden;
                 optionsVisual.style.display = hidden;
@@ -90,20 +96,20 @@ namespace GeneralUtility
                 opt.style.display = showing;
                 visibleOptionsTab = opt.name;
             }
-            private void ToggleOptionsScreen()
-            {
-                if (screenOptions.style.display != hidden)
-                    screenOptions.style.display = hidden;
-                else
-                    screenOptions.style.display = showing;
-            }
+            //private void ToggleOptionsScreen()
+            //{
+            //    if (screenOptions.style.display != hidden)
+            //        screenOptions.style.display = hidden;
+            //    else
+            //        screenOptions.style.display = showing;
+            //}
 
             /*** Event-Sending Functions ***/
-            private void ApplyOptions() { applyOptionsEvent.Trigger(); }
-            private void RevertOptions() { revertOptionsEvent.Trigger(); }
+            protected void ApplyOptions() { applyOptionsEvent.Trigger(); }
+            protected void RevertOptions() { revertOptionsEvent.Trigger(); }
             public void ExitOptions() { exitOptionsEvent.Trigger(); }
 
-            private void DefaultOptions()
+            protected void DefaultOptions()
             {
                 switch (visibleOptionsTab)
                 {

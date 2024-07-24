@@ -10,42 +10,16 @@ namespace GeneralUtility
     {
         public class SensitivityController : MonoBehaviour
         {
-            private float defaultUnscopedSens = 1f, defaultScopedSens = 0.25f;
-            private float xNewUnscopedSens, xNewScopedSens, yNewUnscopedSens, yNewScopedSens;
-            private Slider sliderXUnscoped, sliderXScoped, sliderYUnscoped, sliderYScoped;
-            private Toggle toggleAxisSync;
+            protected float defaultUnscopedSens = 1f, defaultScopedSens = 0.25f;
+            protected float xNewUnscopedSens, xNewScopedSens, yNewUnscopedSens, yNewScopedSens;
+            protected Slider sliderXUnscoped, sliderXScoped, sliderYUnscoped, sliderYScoped;
+            protected Toggle toggleAxisSync;
             public GameEvent applyOptionsEvent, revertOptionsEvent, defaultOptionsEvent, exitOptionsEvent;
+            [SerializeField] protected GameEvent sensitivityChangedEvent;
 
             private void Start()
             {//Called AFTER AWAKE so that everything is set up properly
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;
-
-                toggleAxisSync = root.Q<Toggle>("AxisSyncToggle");
-                toggleAxisSync.value = PlayerPrefs.GetInt("AxisSyncBool", 1) == 1;
-
-                sliderXUnscoped = root.Q<Slider>("xUnscopedSensitivity");
-                sliderXScoped = root.Q<Slider>("xScopedSensitivity");
-                sliderXScoped.style.display = UI_Utility.hidden;
-                sliderXUnscoped.value = PlayerPrefs.GetFloat(sliderXUnscoped.name, defaultUnscopedSens);
-                sliderXScoped.value = PlayerPrefs.GetFloat(sliderXScoped.name, defaultScopedSens);
-                PlayerPrefs.SetFloat(sliderXUnscoped.name, sliderXUnscoped.value);
-                PlayerPrefs.SetFloat(sliderXScoped.name, sliderXScoped.value);
-                xNewUnscopedSens = sliderXUnscoped.value;
-                xNewScopedSens = sliderXScoped.value;
-                sliderXUnscoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref xNewUnscopedSens));     //Tell the system "when slider changes, call "SetMasterVolume"
-                sliderXScoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref xNewScopedSens));
-
-                sliderYUnscoped = root.Q<Slider>("yUnscopedSensitivity");
-                sliderYScoped = root.Q<Slider>("yScopedSensitivity");
-                sliderYScoped.style.display = UI_Utility.hidden;
-                sliderYUnscoped.value = PlayerPrefs.GetFloat(sliderYUnscoped.name, defaultUnscopedSens);
-                sliderYScoped.value = PlayerPrefs.GetFloat(sliderYScoped.name, defaultScopedSens);
-                PlayerPrefs.SetFloat(sliderYUnscoped.name, sliderYUnscoped.value);
-                PlayerPrefs.SetFloat(sliderYScoped.name, sliderYScoped.value);
-                yNewUnscopedSens = sliderYUnscoped.value;
-                yNewScopedSens = sliderYScoped.value;
-                sliderYUnscoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref yNewUnscopedSens));     //Tell the system "when slider changes, call "SetMasterVolume"
-                sliderYScoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref yNewScopedSens));
+                InitUI();
 
                 var applyListener = gameObject.AddComponent<GameEventListener>();
                 applyListener.Events.Add(applyOptionsEvent);
@@ -79,6 +53,40 @@ namespace GeneralUtility
                 exitListener.Response.AddListener(() => RevertSensitivity(sliderYUnscoped, PlayerPrefs.GetFloat(sliderYUnscoped.name), ref yNewUnscopedSens));
                 exitListener.Response.AddListener(() => RevertSensitivity(sliderYScoped, PlayerPrefs.GetFloat(sliderYScoped.name), ref yNewScopedSens));
                 exitOptionsEvent.RegisterListener(exitListener);
+            }
+
+            protected void InitUI()
+            {
+                var root = FindObjectOfType<UIDocument>().rootVisualElement;
+
+                toggleAxisSync = root.Q<Toggle>("AxisSyncToggle");
+                toggleAxisSync.value = PlayerPrefs.GetInt("AxisSyncBool", 1) == 1;
+
+                sliderXUnscoped = root.Q<Slider>(MagicStrings.OPTIONS_X_SENS_BASE);
+                sliderXScoped = root.Q<Slider>(MagicStrings.OPTIONS_X_SENS_ZOOM);
+                sliderXScoped.style.display = UI_Utility.hidden;
+                sliderXUnscoped.value = PlayerPrefs.GetFloat(sliderXUnscoped.name, defaultUnscopedSens);
+                sliderXScoped.value = PlayerPrefs.GetFloat(sliderXScoped.name, defaultScopedSens);
+                PlayerPrefs.SetFloat(sliderXUnscoped.name, sliderXUnscoped.value);
+                PlayerPrefs.SetFloat(sliderXScoped.name, sliderXScoped.value);
+                xNewUnscopedSens = sliderXUnscoped.value;
+                xNewScopedSens = sliderXScoped.value;
+                sliderXUnscoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref xNewUnscopedSens));     //Tell the system "when slider changes, call "SetMasterVolume"
+                sliderXScoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref xNewScopedSens));
+
+                sliderYUnscoped = root.Q<Slider>(MagicStrings.OPTIONS_Y_SENS_BASE);
+                sliderYScoped = root.Q<Slider>(MagicStrings.OPTIONS_Y_SENS_ZOOM);
+                sliderYScoped.style.display = UI_Utility.hidden;
+                sliderYUnscoped.value = PlayerPrefs.GetFloat(sliderYUnscoped.name, defaultUnscopedSens);
+                sliderYScoped.value = PlayerPrefs.GetFloat(sliderYScoped.name, defaultScopedSens);
+                PlayerPrefs.SetFloat(sliderYUnscoped.name, sliderYUnscoped.value);
+                PlayerPrefs.SetFloat(sliderYScoped.name, sliderYScoped.value);
+                yNewUnscopedSens = sliderYUnscoped.value;
+                yNewScopedSens = sliderYScoped.value;
+                sliderYUnscoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref yNewUnscopedSens));     //Tell the system "when slider changes, call "SetMasterVolume"
+                sliderYScoped.RegisterValueChangedCallback((evt) => TempSensitivity(evt, ref yNewScopedSens));
+
+                sensitivityChangedEvent?.Trigger();
             }
 
             public void TempSensitivity(ChangeEvent<float> evt, ref float flt)
@@ -115,6 +123,7 @@ namespace GeneralUtility
             public void SetSensitivity(string name, float val)
             {//Parameter: evt is an object that holds data about the recent slider movement
                 PlayerPrefs.SetFloat(name, val);
+                sensitivityChangedEvent?.Trigger();
             }
 
             public void DefaultSensitivity()
@@ -128,6 +137,8 @@ namespace GeneralUtility
                 sliderXScoped.value = PlayerPrefs.GetFloat(sliderXScoped.name, defaultScopedSens);
                 sliderYUnscoped.value = PlayerPrefs.GetFloat(sliderYUnscoped.name, defaultUnscopedSens);
                 sliderYScoped.value = PlayerPrefs.GetFloat(sliderYScoped.name, defaultScopedSens);
+
+                sensitivityChangedEvent?.Trigger();
             }
 
             public void RevertSensitivity(Slider sli, float val, ref float flt)
