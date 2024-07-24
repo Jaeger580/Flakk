@@ -71,10 +71,7 @@ public class GunControl : MonoBehaviour
     private FloatReference overheatRate;
 
     [SerializeField]
-    private ParticleSystem[] vfx=new ParticleSystem[4];
-
-    [SerializeField]
-    private Light vfxLight;
+    public GameObject vfxPrefab;
 
     private void OnDisable()
     {
@@ -300,6 +297,8 @@ public class GunControl : MonoBehaviour
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
+        GameObject vxfInstance = Instantiate(vfxPrefab, bulletInstance.transform.position, bulletInstance.transform.rotation);
+
         if(AudioManager.instance != null) 
         {
             AudioManager.instance.ForcePlay("Shoot");
@@ -317,11 +316,6 @@ public class GunControl : MonoBehaviour
         }
 
         fireRateTimer = Time.time;
-
-        foreach(ParticleSystem ps in vfx)
-        {
-            ps.Play();
-        }
         
     }
 }
