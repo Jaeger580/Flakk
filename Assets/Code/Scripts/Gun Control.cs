@@ -14,7 +14,7 @@ public class GunControl : MonoBehaviour
     private float vertRotation;
     private float horizRotation;
 
-    private float maxFireRate;
+    //private float maxFireRate;
     private float fireRateTimer;
     private int currentClip = 0;
     private float reloadTimer;
@@ -82,7 +82,7 @@ public class GunControl : MonoBehaviour
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        maxFireRate = fireRate.Value;
+        //maxFireRate = fireRate.Value;
         //fireRateTimer = Time.time;
         currentClip = clipSize;
         AmmoChangeEvent?.Invoke(currentClip);
@@ -123,7 +123,7 @@ public class GunControl : MonoBehaviour
             GunLook();
         }
 
-        if (isShooting && Time.time >= fireRateTimer + (1 / maxFireRate) && currentClip > 0)
+        if (isShooting && Time.time >= fireRateTimer + (1 / fireRate.Value) && currentClip > 0)
         {
             Fire();
         }

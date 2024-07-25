@@ -26,19 +26,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00015538931
+      value: 0.00015538951
       objectReference: {fileID: 0}
     - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00001886487
+      value: 0.000018869507
       objectReference: {fileID: 0}
     - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9927075
+      value: 0.9927075
       objectReference: {fileID: 0}
     - target: {fileID: 7399811507745639869, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.12054804
+      value: -0.12054804
       objectReference: {fileID: 0}
     - target: {fileID: 8275605964201587467, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,6 +147,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -171,13 +172,14 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
-  amtToUpgradeBy: 20
+  amtToUpgradeBy: 25
   min: 0
-  max: 200
+  max: 500
 --- !u!114 &4056927002669304686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,13 +197,14 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
-  amtToUpgradeBy: -0.1
+  amtToUpgradeBy: 0.25
   min: 0.2
-  max: 1
+  max: 5
 --- !u!114 &4050136731494406370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +222,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -243,13 +247,14 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
-  amtToUpgradeBy: 2
+  amtToUpgradeBy: 1
   min: 0
-  max: 20
+  max: 10
 --- !u!114 &1572761026848863748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,12 +272,13 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
-  amtToUpgradeBy: -2.5
-  min: 12.5
+  amtToUpgradeBy: -1.5
+  min: 6
   max: 25
 --- !u!114 &6217690656462894124
 MonoBehaviour:
