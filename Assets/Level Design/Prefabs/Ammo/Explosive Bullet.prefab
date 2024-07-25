@@ -48,10 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5935080551579313978, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 7646842544791493506, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
       propertyPath: m_Name
       value: Explosive Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 8444292905380475999, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents:
     - {fileID: 2347782712994975477, guid: c07afc2f371c8cd4ebc2990e867e53d4, type: 3}
     m_RemovedGameObjects: []
@@ -82,3 +90,4 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
+  bulletVFX: {fileID: 0}
