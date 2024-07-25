@@ -27,6 +27,9 @@
                             <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                             <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                         </ui:VisualElement>
+                        <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                            <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
+                        </ui:VisualElement>
                         <ui:VisualElement style="justify-content: space-around; align-items: flex-end; align-self: auto; height: 100%; width: 30%;">
                             <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%;" />
                         </ui:VisualElement>

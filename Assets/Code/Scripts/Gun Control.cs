@@ -1,4 +1,6 @@
 using Cinemachine;
+using GeneralUtility.EditorQoL;
+using GeneralUtility.GameEventSystem;
 using GeneralUtility.VariableObject;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,8 +47,11 @@ public class GunControl : MonoBehaviour
     private GameObjectReference bulletPrefab;
 
     [Header("Weapon Movement")]
+    [SerializeField] //[ReadOnly]
+    private float sensitivity;
     [SerializeField]
-    private float sensitivity = 5f;
+    private float sensitivityScaler;
+    [SerializeField] private GameEvent sensitivityChangedEvent;
     [SerializeField]
     private FloatReference gunRotateSpeed;
 
@@ -77,6 +82,16 @@ public class GunControl : MonoBehaviour
     {
         HeatChangeEvent = null;
         AmmoChangeEvent = null;
+    }
+
+    private void Awake()
+    {
+        var sensitivityChangedListener = gameObject.AddComponent<GameEventListener>();
+        sensitivityChangedListener.Events.Add(sensitivityChangedEvent);
+        sensitivityChangedListener.Response = new();
+        sensitivityChangedListener.Response.AddListener(() =>
+        sensitivity = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_BASE) * sensitivityScaler);
+        sensitivityChangedEvent.RegisterListener(sensitivityChangedListener);
     }
 
     private void Start()

@@ -32,5 +32,8 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
         var backTab = root.Q<Button>($"BackTab");
         manualTab.clicked += ShowManual;
         backTab.clicked += HideManual;
+
+        var quitBtn = root.Q<Button>("QuitGame");
+        quitBtn.clicked += Application.Quit;
     }
 }
