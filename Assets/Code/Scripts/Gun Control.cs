@@ -297,9 +297,13 @@ public class GunControl : MonoBehaviour
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
 
-        GameObject vxfInstance = Instantiate(vfxPrefab, bulletInstance.transform.position, bulletInstance.transform.rotation);
 
-        if(AudioManager.instance != null) 
+        if(vfxPrefab != null) 
+        {
+            GameObject vxfInstance = Instantiate(vfxPrefab, bulletInstance.transform.position, bulletInstance.transform.rotation);
+        }
+
+        if (AudioManager.instance != null) 
         {
             AudioManager.instance.ForcePlay("Shoot");
         }
