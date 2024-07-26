@@ -33,7 +33,7 @@ namespace GeneralUtility
 
             protected void InitUI()
             {
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;
+                var root = GetComponent<UIDocument>().rootVisualElement;
                 masterSlider = root.Q<Slider>("MasterSlider");
                 musicSlider = root.Q<Slider>("MusicSlider");
                 sfxSlider = root.Q<Slider>("SFXSlider");

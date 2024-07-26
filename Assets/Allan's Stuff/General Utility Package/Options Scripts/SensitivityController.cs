@@ -57,7 +57,7 @@ namespace GeneralUtility
 
             protected void InitUI()
             {
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;
+                var root = GetComponent<UIDocument>().rootVisualElement;
 
                 toggleAxisSync = root.Q<Toggle>("AxisSyncToggle");
                 toggleAxisSync.value = PlayerPrefs.GetInt("AxisSyncBool", 1) == 1;
