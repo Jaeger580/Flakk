@@ -43,7 +43,7 @@ namespace GeneralUtility
 
             protected void InitUI()
             {
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;                //Get the root of the UI
+                var root = GetComponent<UIDocument>().rootVisualElement;                //Get the root of the UI
                 //buttonOptions = root.Q<Button>("Options");                              //Find the "options" button
                 //buttonOptions.clicked += ToggleOptionsScreen;
 

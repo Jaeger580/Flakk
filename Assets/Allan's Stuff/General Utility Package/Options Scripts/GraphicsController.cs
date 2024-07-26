@@ -64,7 +64,7 @@ namespace GeneralUtility
 
             protected void InitUI()
             {
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;
+                var root = GetComponent<UIDocument>().rootVisualElement;
 
                 toggleVSync = root.Q<Toggle>("VSyncToggle");
                 toggleVSync.value = PlayerPrefs.GetInt(MagicStrings.OPTIONS_VSYNC, 0) == 1;
