@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Start Terminal
       objectReference: {fileID: 0}
+    - target: {fileID: 3539111139493566231, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: startInTerminal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3624301289078086791, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -109,3 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec13dc70427064b01bc499a6f6802bec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startEvent: {fileID: 11400000, guid: e47bc2ce9e2d34a24be9caf683d761f4, type: 2}
+  manualEvent: {fileID: 11400000, guid: 4a3582d11d9d14cb6b26f5744da6233f, type: 2}
+  exitPromptEvent: {fileID: 11400000, guid: ac7b1d9d0f5924fbfb5f2625ae96babf, type: 2}
+  terminalDescEvent: {fileID: 11400000, guid: d11ae31c3074b4a07aee2ec36a25950c, type: 2}
+  contractDescEvent: {fileID: 11400000, guid: 44d52b01e1aad4735852c16e72c51a26, type: 2}
+  exitMonitorEvent: {fileID: 11400000, guid: 37dc20866e6594950ba4a3a7d973732d, type: 2}
+  terminalEnteredEvent: {fileID: 11400000, guid: 1f360dd4d5ed24ebca1af42e3ccba4c4, type: 2}
+  contractStartedEvent: {fileID: 11400000, guid: 447b8b2de973a4a82bb7a041c9497a61, type: 2}

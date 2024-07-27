@@ -29,6 +29,10 @@ public class AudioManager : MonoBehaviour
     private Sound[] uiSounds;
     public Sound[] UISounds => uiSounds;
 
+    [SerializeField]
+    private Sound[] voSounds;
+    public Sound[] VOSounds => voSounds;
+
     private void Awake()
     {
         if (instance == null)
@@ -39,6 +43,7 @@ public class AudioManager : MonoBehaviour
         InitializeSoundList(sounds);
         InitializeSoundList(footSteps);
         InitializeSoundList(uiSounds);
+        InitSoundList_SharedSource(voSounds);
     }
 
     private void InitializeSoundList(Sound[] sounds)
@@ -46,6 +51,20 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.outputAudioMixerGroup = s.audioMixerGroup;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+        }
+    }
+
+    private void InitSoundList_SharedSource(Sound[] sounds)
+    {
+        var sharedSource = gameObject.AddComponent<AudioSource>();
+        foreach (Sound s in sounds)
+        {
+            s.source = sharedSource;
             s.source.clip = s.clip;
             s.source.outputAudioMixerGroup = s.audioMixerGroup;
             s.source.volume = s.volume;
@@ -78,6 +97,25 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Play();
         }
+    }
+
+    public void Play(string name, Sound[] specificList)
+    {
+        Sound s = Array.Find(specificList, sound => sound.name == name);
+
+        // Should make the audio clip only play once if called multiple times.
+        if (!s.source.isPlaying)
+        {
+            s.source.clip = s.clip;
+            s.source.Play();
+        }
+    }
+
+    public void OverridePlay(string name, Sound[] specificList)
+    {
+        Sound s = Array.Find(specificList, sound => sound.name == name);
+        s.source.clip = s.clip;
+        s.source.Play();
     }
 
     public void ForcePlay(string name)
@@ -133,4 +171,16 @@ static public class MagicStrings
     public const string BTN_HOVER = "UI Button Hover",
         BTN_CLICK = "UI Button Click",
         BTN_ERROR = "UI Button Error";
-} 
+
+    public const string VO_INTRO = "Intro",
+        VO_MANUAL = "Manual",
+        VO_EXIT_CONSOLE = "Exit Console",
+        VO_DECK_DESC = "Deck Description",
+        VO_TERMINAL_DESC = "Terminal Explanation",
+        VO_CONTRACT_DESC = "Contract Explain",
+        VO_CONTRACT_START = "Contract Start",
+        VO_LOSS = "Loss",
+        VO_WIN = "Win",
+        VO_NEXT_WAVE = "Next Wave",
+        VO_WEAKPOINT_DEATH = "Weakpoint Death";
+}
