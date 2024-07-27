@@ -9,7 +9,7 @@ using System.Collections;
 public class MonitorInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] private CinemachineVirtualCamera monitorCam;
-    [SerializeField] private GameEvent exitMonitorEvent;
+    [SerializeField] private GameEvent inputEventExitMonitor, exittedMonitorEvent;
     [SerializeField] private bool startInTerminal;
 
     private PlayerInput playInput;
@@ -26,10 +26,10 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         mapper = GetComponent<UI_InputMapper>();
 
         var exitMonitorListener = gameObject.AddComponent<GameEventListener>();
-        exitMonitorListener.Events.Add(exitMonitorEvent);
+        exitMonitorListener.Events.Add(inputEventExitMonitor);
         exitMonitorListener.Response = new();
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
-        exitMonitorEvent.RegisterListener(exitMonitorListener);
+        inputEventExitMonitor.RegisterListener(exitMonitorListener);
 
         foreach(var refresh in GetComponents<IUIScreenRefresh>())
         {
@@ -72,6 +72,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         monitorEngaged = true;
         monitorCam.Priority = 100;
         playInput.SwitchCurrentActionMap("UI");
+        var hubInput = playInput.actions.FindActionMap("Hub");
+        hubInput.Disable();
 
         EnableMonitor();
     }
@@ -82,7 +84,11 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
+        var hubInput = playInput.actions.FindActionMap("Hub");
+        hubInput.Enable();
         playInput.SwitchCurrentActionMap("Hub");
+
+        exittedMonitorEvent?.Trigger();
 
         DisableMonitor();
     }

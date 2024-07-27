@@ -32,9 +32,11 @@ public class LossNotifier : MonoBehaviour
     //    }
     //}
 
+    [ContextMenu("Lose")]
     public void ShowLoss()
     {
         lossScreen.SetActive(true);
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void RestartScene()

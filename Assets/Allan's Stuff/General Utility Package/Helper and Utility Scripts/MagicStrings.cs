@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace GeneralUtility
+﻿namespace GeneralUtility
 {
     public class MagicStrings
     {

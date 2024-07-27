@@ -167,12 +167,12 @@ namespace GeneralUtility
             protected void SetResolution(int resolutionIndex)
             {
                 PlayerPrefs.SetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, resolutionIndex);
-                //Display.main.SetRenderingResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height);
+                Display.main.SetRenderingResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height);
                 Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, toggleFullScreen.value);
             }
             protected void RevertResolution()
             {
-                //resolutionDropdown.index = PlayerPrefs.GetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, defaultResIndex);
+                resolutionDropdown.index = PlayerPrefs.GetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, defaultResIndex);
                 resolutionDropdown.value = resolutionNames[PlayerPrefs.GetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, defaultResIndex)];
                 resolutionIndex = PlayerPrefs.GetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, defaultResIndex);
                 Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, toggleFullScreen.value);
