@@ -69,6 +69,7 @@ public class Waypoint_Web : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(Waypoint_Web))]
 public class WebGUIEditor : Editor
 {
@@ -105,3 +106,4 @@ public class WebGUIEditor : Editor
         DrawDefaultInspector();
     }
 }
+#endif
