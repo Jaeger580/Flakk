@@ -19,7 +19,7 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
     }
     [EnumFlag] [SerializeField] [ReadOnly] private VoiceOverBitFlag voFlags;
 
-    private void Start()
+    private IEnumerator Start()
     {
         var monitorExitListener = gameObject.AddComponent<GameEventListener>();
         monitorExitListener.Events.Add(exitMonitorEvent);
@@ -41,6 +41,9 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
         contractStartedEvent.RegisterListener(contractEnteredListener);
 
         RefreshUI();
+
+        yield return new WaitForSeconds(0.01f);
+
         startEvent?.Trigger();
         StartCoroutine(nameof(ManualTutorial));
     }
