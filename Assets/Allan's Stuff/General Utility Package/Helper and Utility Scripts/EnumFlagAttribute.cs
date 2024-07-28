@@ -10,7 +10,9 @@ namespace GeneralUtility
     {
 	}
 
+# if UNITY_EDITOR
 	[CustomPropertyDrawer(typeof(EnumFlagAttribute))]
+
 	public class EnumFlagDrawer : PropertyDrawer
 	{
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -47,4 +49,5 @@ namespace GeneralUtility
 			return (T)reflectionTarget;
 		}
 	}
+#endif
 }
