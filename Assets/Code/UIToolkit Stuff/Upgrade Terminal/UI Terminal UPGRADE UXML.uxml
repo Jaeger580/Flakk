@@ -1,0 +1,138 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Code/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="ScreenParent" class="screenParent">
+            <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors">
+                    <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="basicButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    <ui:Label tabindex="-1" text="$$$$$" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrencyText" class="statText" />
+                </ui:VisualElement>
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 80%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="flex-wrap: wrap; flex-direction: column; height: 100%; justify-content: center;">
+                    <ui:VisualElement style="flex-direction: row; flex-wrap: wrap; justify-content: space-around;">
+                        <ui:VisualElement name="DamageContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Damage" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="BulletSpeedContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Bullet Speed" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="FireRateContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Fire Rate" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="ReloadSpeedContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Reload Speed" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="GunTurnSpeedContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Gun Turn Speed" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OverheatRateContainer" class="statContainer">
+                            <ui:Label tabindex="-1" text="Overheat Rate" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StatTitle" class="statTitle" />
+                            <ui:VisualElement name="DetailContainer" class="statDetailContainer">
+                                <ui:VisualElement name="InfoContainer" class="statInfoContainer" style="flex-direction: column;">
+                                    <ui:VisualElement name="CurrentContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Current Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CurrentAmt" class="statText" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="NextContainer" class="statLineContainer">
+                                        <ui:Label tabindex="-1" text="Next Stat Amt:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextTitle" class="statText" />
+                                        <ui:Label tabindex="-1" text="##" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NextAmt" class="statText" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpgradeContainer">
+                                    <ui:Button text="UPGRADE" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Upgrade" class="upgradeButton" />
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
+            </ui:VisualElement>
+            <ui:VisualElement name="RightAnchor" class="ltrAnchors" style="width: 20%;">
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
+                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;">
+                    <ui:Button text="Reset Stats" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Reset" class="basicButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

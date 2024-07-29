@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,8 +320,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafa33efa55bdb741b47486ed746a3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunCamera: {fileID: 0}
+  pivotPoint: {fileID: 0}
+  gunBase: {fileID: 0}
+  gunBulletPoint: {fileID: 0}
+  bulletPrefab:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
   sensitivity: 3
-  mainCamera: {fileID: 5464370318938758186}
+  gunRotateSpeed:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  baseDamage:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  fireRate:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  reloadTime:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  clipSize: 1
+  maxHeat: 100
+  coolDownSpeed: 1
+  overHeatSpeed: 1
+  overheatRate:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  vfx:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  vfxLight: {fileID: 0}
 --- !u!1 &5464370318938758186
 GameObject:
   m_ObjectHideFlags: 0

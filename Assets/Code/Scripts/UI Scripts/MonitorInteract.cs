@@ -4,37 +4,45 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 public class MonitorInteract : MonoBehaviour, IInteractable
 {
     [SerializeField] private CinemachineVirtualCamera monitorCam;
-    [SerializeField] private GameEvent exitMonitorEvent;
+    [SerializeField] private GameEvent inputEventExitMonitor, exittedMonitorEvent;
+    [SerializeField] private bool startInTerminal;
 
     private PlayerInput playInput;
     private bool monitorEngaged = false;
 
     private UIDocument doc;
     private UI_InputMapper mapper;
-    private List<I_UIScreenRefresh> toRefresh = new();
+    private List<IUIScreenRefresh> toRefresh = new();
 
-    private void Start()
+    private IEnumerator Start()
     {
         playInput = FindObjectOfType<PlayerInput>();
         doc = GetComponent<UIDocument>();
         mapper = GetComponent<UI_InputMapper>();
 
         var exitMonitorListener = gameObject.AddComponent<GameEventListener>();
-        exitMonitorListener.Events.Add(exitMonitorEvent);
+        exitMonitorListener.Events.Add(inputEventExitMonitor);
         exitMonitorListener.Response = new();
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
-        exitMonitorEvent.RegisterListener(exitMonitorListener);
+        inputEventExitMonitor.RegisterListener(exitMonitorListener);
 
-        foreach(var refresh in GetComponents<I_UIScreenRefresh>())
+        foreach(var refresh in GetComponents<IUIScreenRefresh>())
         {
             toRefresh.Add(refresh);
         }
 
-        DisableMonitor();
+        yield return new WaitForSeconds(0.01f);
+
+
+        if (!startInTerminal)
+            DisableMonitor();
+        else
+            Interact();
     }
 
     private void EnableMonitor()
@@ -64,6 +72,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         monitorEngaged = true;
         monitorCam.Priority = 100;
         playInput.SwitchCurrentActionMap("UI");
+        var hubInput = playInput.actions.FindActionMap("Hub");
+        hubInput.Disable();
 
         EnableMonitor();
     }
@@ -74,7 +84,11 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
+        var hubInput = playInput.actions.FindActionMap("Hub");
+        hubInput.Enable();
         playInput.SwitchCurrentActionMap("Hub");
+
+        exittedMonitorEvent?.Trigger();
 
         DisableMonitor();
     }

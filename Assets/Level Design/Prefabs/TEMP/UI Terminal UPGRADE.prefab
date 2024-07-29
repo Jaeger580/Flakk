@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2153500054746334937, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      propertyPath: m_text
+      value: Upgrade Terminal
+      objectReference: {fileID: 0}
     - target: {fileID: 4137575377433783407, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.043748423
@@ -85,7 +89,8 @@ PrefabInstance:
       value: UI Terminal UPGRADE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6402418399156887565, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
@@ -147,6 +152,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -171,13 +178,15 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: d8fff0830d0fa4963a6e02fa022ad0b5, type: 2}
-  amtToUpgradeBy: 20
+  amtToUpgradeBy: 25
   min: 0
-  max: 200
+  max: 500
 --- !u!114 &4056927002669304686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,13 +204,15 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 64aff1223c7be48be9290d4bd62ac1cb, type: 2}
-  amtToUpgradeBy: -0.1
-  min: 0.2
-  max: 1
+  amtToUpgradeBy: 0.25
+  min: 1
+  max: 5
 --- !u!114 &4050136731494406370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +230,8 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
@@ -243,13 +256,15 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: f31c452383d4e4e828ac0878e1c4b25c, type: 2}
-  amtToUpgradeBy: 2
+  amtToUpgradeBy: 1
   min: 0
-  max: 20
+  max: 10
 --- !u!114 &1572761026848863748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,12 +282,14 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 77179385b00544d848e9e7edb94e6052, type: 2}
+  upgradeCost: 1
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   statToUpgrade:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: dfd03ebad516545369a0b77cffa0f350, type: 2}
-  amtToUpgradeBy: -2.5
-  min: 12.5
+  amtToUpgradeBy: -1.5
+  min: 6
   max: 25
 --- !u!114 &6217690656462894124
 MonoBehaviour:
@@ -287,6 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
+  currencyChangedEvent: {fileID: 11400000, guid: 9ec27060ca00c494ca10320446a3d470, type: 2}
   currency:
     UseConstant: 0
     ConstantValue: 0

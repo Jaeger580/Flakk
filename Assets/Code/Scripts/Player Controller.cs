@@ -24,16 +24,26 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playInput;
     private CinemachineVirtualCamera virtualCamera;
 
+    private bool isMoving; //for audio
+    private float footStepTimer;
+    private float footStepMax = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
         charControl = this.GetComponent<CharacterController>();
         playInput = this.GetComponent<PlayerInput>();
         virtualCamera = this.GetComponentInChildren<CinemachineVirtualCamera>();
+
+        footStepTimer = footStepMax;
     }
 
     private void Update()
     {
+        if(footStepTimer < footStepMax) 
+        {
+            footStepTimer += Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -48,7 +58,14 @@ public class PlayerController : MonoBehaviour
 
         moveDir.y = vel;
 
+        if (isMoving && footStepTimer >= footStepMax) 
+        {
+            AudioManager.instance.PlayRando();
+            footStepTimer = 0;
+        }
+
         charControl.Move(transform.rotation * moveDir * Time.deltaTime);
+        
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -57,6 +74,13 @@ public class PlayerController : MonoBehaviour
         moveDir = new Vector3(rawInput.x, 0, rawInput.y);
         moveDir.x *= moveSpeed;
         moveDir.z *= moveSpeed;
+
+        if(context.started)
+            isMoving = true;
+        
+        if(context.canceled)
+            isMoving = false;
+
     }
 
     public void Jump(InputAction.CallbackContext context) 
@@ -74,5 +98,6 @@ public class PlayerController : MonoBehaviour
     {
         playInput.SwitchCurrentActionMap("Hub");
         virtualCamera.Priority = 10;
+        AudioManager.instance.SetVolume("BGM", 0.05f);
     }
 }

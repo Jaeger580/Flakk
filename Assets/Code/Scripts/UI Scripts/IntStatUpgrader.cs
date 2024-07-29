@@ -24,7 +24,7 @@ public class IntStatUpgrader : StatUpgrader
 
     override protected void TryUpgradeStat()
     {
-        if (currentCurrency.Value <= 0) { Editor_Utility.ThrowWarning($"Can't upgrade without money!", this); return; }
+        if (!TryUpgrade()) return;
         statToUpgrade.Value = CalcStatUpgrade();
         UpdateUI();
     }
@@ -33,6 +33,7 @@ public class IntStatUpgrader : StatUpgrader
     {
         currentLabel.text = $"{statToUpgrade.Value}";
         nextLabel.text = $"{CalcStatUpgrade()}";
+        if (currentCurrency.Value < upgradeCost) upgradeBtn.SetEnabled(false);
     }
 
     override public void ResetStat()

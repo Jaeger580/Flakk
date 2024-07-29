@@ -6,12 +6,12 @@ using UnityEngine;
 public class MothershipHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] private IntReference maxHealth, currentHealth;
-    [SerializeField] private GameEvent healthChangeEvent;
+    [SerializeField] private GameEvent healthChangeEvent, deathEvent;
 
     private void Start()
     {
         currentHealth.Value = maxHealth.Value;
-        healthChangeEvent?.Trigger(currentHealth.Value);
+        healthChangeEvent?.Trigger();
     }
 
     public void TakeDamage(int _damage)
@@ -19,9 +19,13 @@ public class MothershipHealth : MonoBehaviour, IDamagable
         currentHealth.Value -= _damage;
         if (currentHealth.Value <= 0) currentHealth.Value = 0;
 
-        healthChangeEvent?.Trigger(currentHealth.Value);
+        healthChangeEvent?.Trigger();
 
-        if (currentHealth.Value <= 0) Debug.Log("You lose!");
+        if (currentHealth.Value <= 0)
+        {
+            Debug.Log("You lose!");
+            deathEvent?.Trigger();
+        }
         else Debug.Log($"Mothership now at {currentHealth.Value} health.");
     }
 }

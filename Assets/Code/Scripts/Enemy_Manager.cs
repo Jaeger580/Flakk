@@ -11,7 +11,7 @@ public class Enemy_Manager : MonoBehaviour
     public Enemy_Wave_Creator[] enemyWaves;
     public float waveTimeInterval;
 
-    [SerializeField] private GameEvent levelEndEvent, gunEnterEvent;
+    [SerializeField] private GameEvent levelEndEvent, gunEnterEvent, nextWaveEvent;
 
     private bool enemiesDoneSpawning = false;
 
@@ -51,7 +51,7 @@ public class Enemy_Manager : MonoBehaviour
 
     private IEnumerator SpawnRoutine(Enemy_Wave_Creator wave)
     {
-        foreach(var formation in wave.formations)
+        foreach (var formation in wave.formations)
         {//For each formation in the wave,
             if (formation.spawnRanges.Length <= 0) { Editor_Utility.ThrowWarning("ERR: Enemy formation doesn't have an assigned spawn point.", this); yield break; }
 
@@ -68,6 +68,7 @@ public class Enemy_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(waveTimeInterval);
 
+        nextWaveEvent?.Trigger();
         StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
     }
 

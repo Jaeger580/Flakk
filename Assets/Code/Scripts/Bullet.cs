@@ -11,6 +11,9 @@ public class Bullet : MonoBehaviour
 
     protected int finalDamage = 0;
 
+    [SerializeField]
+    ParticleSystem bulletVFX;
+
     private void Start()
     {
         Destroy(gameObject, 5f);
@@ -31,7 +34,9 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out IDamagable enemyHurtbox))
         {
+            bulletVFX.Play();
             enemyHurtbox.TakeDamage(finalDamage);
+            AudioManager.instance.Play("Hit");
             Destroy(gameObject);
         }
     }

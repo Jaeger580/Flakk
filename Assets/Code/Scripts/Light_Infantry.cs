@@ -44,6 +44,9 @@ namespace JO.AI
         [ReadOnly] [SerializeField] protected float aggroTimer;
         [ReadOnly] [SerializeField] protected bool recentlyAggro = false;
 
+        [SerializeField]
+        public ParticleSystem deathFX;
+
         public delegate void OnEnemyDeath();
         public OnEnemyDeath EnemyDeathEvent;
 
@@ -55,7 +58,7 @@ namespace JO.AI
         {
             EnemyDeathEvent?.Invoke();
             EnemyDeathEvent = null;
-            Destroy(gameObject);
+            Destroy(gameObject, 1f);
         }
 
         public void SetChosenWeb(WebSelection chosenWeb)
@@ -383,8 +386,11 @@ namespace JO.AI
 
             if(health <= 0)
             {
+                AudioManager.instance.Play("Distant Exp");
+                deathFX.Play();
                 Death();
             }
         }
+
     }
 }

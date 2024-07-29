@@ -1,4 +1,6 @@
 using Cinemachine;
+using GeneralUtility.EditorQoL;
+using GeneralUtility.GameEventSystem;
 using GeneralUtility.VariableObject;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ public class GunControl : MonoBehaviour
     private float vertRotation;
     private float horizRotation;
 
-    private float maxFireRate;
+    //private float maxFireRate;
     private float fireRateTimer;
     private int currentClip = 0;
     private float reloadTimer;
@@ -45,8 +47,11 @@ public class GunControl : MonoBehaviour
     private GameObjectReference bulletPrefab;
 
     [Header("Weapon Movement")]
+    [SerializeField] //[ReadOnly]
+    private float sensitivity;
     [SerializeField]
-    private float sensitivity = 5f;
+    private float sensitivityScaler;
+    [SerializeField] private GameEvent sensitivityChangedEvent;
     [SerializeField]
     private FloatReference gunRotateSpeed;
 
@@ -70,16 +75,29 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     private FloatReference overheatRate;
 
+    [SerializeField]
+    public GameObject vfxPrefab;
+
     private void OnDisable()
     {
         HeatChangeEvent = null;
         AmmoChangeEvent = null;
     }
 
+    private void Awake()
+    {
+        var sensitivityChangedListener = gameObject.AddComponent<GameEventListener>();
+        sensitivityChangedListener.Events.Add(sensitivityChangedEvent);
+        sensitivityChangedListener.Response = new();
+        sensitivityChangedListener.Response.AddListener(() =>
+        sensitivity = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_BASE) * sensitivityScaler);
+        sensitivityChangedEvent.RegisterListener(sensitivityChangedListener);
+    }
+
     private void Start()
     {
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        maxFireRate = fireRate.Value;
+        //maxFireRate = fireRate.Value;
         //fireRateTimer = Time.time;
         currentClip = clipSize;
         AmmoChangeEvent?.Invoke(currentClip);
@@ -111,15 +129,18 @@ public class GunControl : MonoBehaviour
             }
         }
 
-        if (!isReloading) 
+        // Move the camera
+        CamLook(mouseInput);
+
+        // Realign the gun
+        if (!isReloading)
         {
-            HandleLook(mouseInput);
+            GunLook();
+        }
 
-            if (isShooting && Time.time >= fireRateTimer + (1 / maxFireRate) && currentClip > 0)
-            {
-                Fire();
-
-            }
+        if (isShooting && Time.time >= fireRateTimer + (1 / fireRate.Value) && currentClip > 0)
+        {
+            Fire();
         }
         else if(isReloading)
         {
@@ -131,6 +152,7 @@ public class GunControl : MonoBehaviour
             {
                 reloadTimer = 0;
                 currentClip++;
+                AudioManager.instance.ForcePlay("Reload");
                 AmmoChangeEvent?.Invoke(currentClip);
             }
             else if(currentClip == clipSize) 
@@ -140,22 +162,13 @@ public class GunControl : MonoBehaviour
         }
     }
 
-    // Starts off faster than slows down to normal pace as approaches center.
-    private void HandleLook(Vector2 Input)
-    {
+    private void CamLook(Vector2 Input)
+    {        
         horizRotation += Input.x * sensitivity * Time.deltaTime;
         horizRotation = Mathf.Repeat(horizRotation, 360f);
 
         vertRotation -= Input.y * sensitivity * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
-
-        var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
-
-        var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
-
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
-
-        //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
 
         var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
         if (Mathf.Abs(horizRotation - gunBaseY) > 180f)
@@ -177,10 +190,59 @@ public class GunControl : MonoBehaviour
             horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
         }
 
-        pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+        var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
 
         pivotPoint.transform.localRotation = pivotRot;
     }
+
+    // Starts off faster than slows down to normal pace as approaches center.
+    private void GunLook()
+    {
+        var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
+
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
+    }
+
+    //private void HandleLook(Vector2 Input)
+    //{
+    //    horizRotation += Input.x * sensitivity * Time.deltaTime;
+    //    horizRotation = Mathf.Repeat(horizRotation, 360f);
+
+    //    vertRotation -= Input.y * sensitivity * Time.deltaTime;
+    //    vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
+
+    //    var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
+    //    var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
+
+    //    gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotRot, gunRotateSpeed.Value * Time.deltaTime * angle);
+
+    //    //vertRotation = Mathf.Clamp(vertRotation, gunBase.transform.rotation.eulerAngles.x - 25f, gunBase.transform.rotation.eulerAngles.x + 25f);
+
+    //    var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
+    //    if (Mathf.Abs(horizRotation - gunBaseY) > 180f)
+    //    {//If the difference is too big, we know that horizRotation wrapped when gunBaseY didn't (or vice versa)
+    //        if (horizRotation > gunBaseY)
+    //        {
+    //            //print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
+    //            horizRotation = Mathf.Clamp(horizRotation, 330f, 360f);   //if horiz passed left over 360 line, clamp it to a minimum of 330f
+    //        }
+    //        else if (horizRotation < gunBaseY)
+    //        {
+    //            //print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
+    //            horizRotation = Mathf.Clamp(horizRotation, 0f, 30f); //if horiz passed right over 0 line, clamp it to a max of 30f
+    //        }
+    //    }
+    //    else if (Mathf.Abs(horizRotation - gunBaseY) > 25f)
+    //    {
+    //        //print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
+    //        horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
+    //    }
+
+    //    pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+
+    //    pivotPoint.transform.localRotation = pivotRot;
+    //}
 
     public void Look(InputAction.CallbackContext context)
     {
@@ -217,6 +279,29 @@ public class GunControl : MonoBehaviour
         }
     }
 
+    public void Zoom(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 36f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + 2);
+        }
+
+        else if (context.canceled)
+        {
+            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
+
+            vCam.m_Lens.FieldOfView = 52f; // Calculated as Vertical for some reason. needs fixed
+
+            Vector3 camPos = gunCamera.transform.localPosition;
+            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z - 2);
+        }
+    }
+
     private void Fire() 
     {
         Quaternion gunRotation = gunBase.transform.rotation;
@@ -226,6 +311,17 @@ public class GunControl : MonoBehaviour
         Vector3 camCenter = mainCamera.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
         GameObject bulletInstance = Instantiate(bulletPrefab.Value, gunBulletPoint.transform.position, gunRotation);
         bulletInstance.GetComponent<Bullet>().SetDamage(baseDamage.Value);
+
+
+        if(vfxPrefab != null) 
+        {
+            GameObject vxfInstance = Instantiate(vfxPrefab, bulletInstance.transform.position, bulletInstance.transform.rotation);
+        }
+
+        if (AudioManager.instance != null) 
+        {
+            AudioManager.instance.ForcePlay("Shoot");
+        }
 
         currentClip--;
         AmmoChangeEvent?.Invoke(currentClip);
@@ -239,6 +335,6 @@ public class GunControl : MonoBehaviour
         }
 
         fireRateTimer = Time.time;
-
+        
     }
 }

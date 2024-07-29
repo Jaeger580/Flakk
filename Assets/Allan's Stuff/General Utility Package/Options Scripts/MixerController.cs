@@ -11,23 +11,15 @@ namespace GeneralUtility
     {
         public class MixerController : MonoBehaviour
         {
-            [SerializeField] private AudioMixer myAudioMixer;
-            [SerializeField] private GameEvent defaultAudioEvent;
-            private float defaultVolume = 0.5f;
-            private Slider masterSlider, musicSlider, sfxSlider;
+            [SerializeField] protected AudioMixer myAudioMixer;
+            [SerializeField] protected GameEvent defaultAudioEvent;
+            protected float defaultVolume = 0.5f;
+            protected Slider masterSlider, musicSlider, sfxSlider;
 
-            private void Start()
+            protected void Start()
             {//Called AFTER AWAKE so that everything is set up properly
-                var root = FindObjectOfType<UIDocument>().rootVisualElement;
-                masterSlider = root.Q<Slider>("MasterSlider");
-                musicSlider = root.Q<Slider>("MusicSlider");
-                sfxSlider = root.Q<Slider>("SFXSlider");
-                masterSlider.RegisterValueChangedCallback(SetVolume);     //Tell the system "when slider changes, call "SetMasterVolume"
-                musicSlider.RegisterValueChangedCallback(SetVolume);
-                sfxSlider.RegisterValueChangedCallback(SetVolume);
-                masterSlider.value = PlayerPrefs.GetFloat(masterSlider.name, defaultVolume);
-                musicSlider.value = PlayerPrefs.GetFloat(musicSlider.name, defaultVolume);
-                sfxSlider.value = PlayerPrefs.GetFloat(sfxSlider.name, defaultVolume);
+                InitUI();
+
                 myAudioMixer.SetFloat(masterSlider.name, Mathf.Log10(masterSlider.value) * 20);      //Set volume properly based on previously set volume
                 myAudioMixer.SetFloat(musicSlider.name, Mathf.Log10(musicSlider.value) * 20);
                 myAudioMixer.SetFloat(sfxSlider.name, Mathf.Log10(sfxSlider.value) * 20);
@@ -37,6 +29,20 @@ namespace GeneralUtility
                 defaultListener.Response = new();
                 defaultListener.Response.AddListener(() => DefaultVolume());
                 defaultAudioEvent.RegisterListener(defaultListener);
+            }
+
+            protected void InitUI()
+            {
+                var root = GetComponent<UIDocument>().rootVisualElement;
+                masterSlider = root.Q<Slider>("MasterSlider");
+                musicSlider = root.Q<Slider>("MusicSlider");
+                sfxSlider = root.Q<Slider>("SFXSlider");
+                masterSlider.RegisterValueChangedCallback(SetVolume);     //Tell the system "when slider changes, call "SetMasterVolume"
+                musicSlider.RegisterValueChangedCallback(SetVolume);
+                sfxSlider.RegisterValueChangedCallback(SetVolume);
+                masterSlider.value = PlayerPrefs.GetFloat(masterSlider.name, defaultVolume);
+                musicSlider.value = PlayerPrefs.GetFloat(musicSlider.name, defaultVolume);
+                sfxSlider.value = PlayerPrefs.GetFloat(sfxSlider.name, defaultVolume);
             }
 
             public void SetVolume(ChangeEvent<float> evt)
