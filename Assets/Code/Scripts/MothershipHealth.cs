@@ -6,9 +6,20 @@ using UnityEngine;
 public class MothershipHealth : MonoBehaviour, IDamagable
 {
     [SerializeField] private IntReference maxHealth, currentHealth;
-    [SerializeField] private GameEvent healthChangeEvent, deathEvent;
+    [SerializeField] private GameEvent healthChangeEvent, deathEvent, winEvent;
 
     private void Start()
+    {
+        var winListener = gameObject.AddComponent<GameEventListener>();
+        winListener.Events.Add(winEvent);
+        winListener.Response = new();
+        winListener.Response.AddListener(() => ResetHealth());
+        winEvent.RegisterListener(winListener);
+
+        ResetHealth();
+    }
+
+    private void ResetHealth()
     {
         currentHealth.Value = maxHealth.Value;
         healthChangeEvent?.Trigger();
