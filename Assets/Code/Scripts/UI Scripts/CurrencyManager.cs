@@ -53,9 +53,21 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+
+        if(!TryGetComponent<UIDocument>(out var UIDoc)) 
+        {
+            return;
+        }
+
+        var root = UIDoc.rootVisualElement;
+
+        if (root == null)
+            return;
 
         var currencyText = root.Q<Label>($"CurrencyText");
+
+        if (currencyText == null)
+            return;
 
         currencyText.text = $"${currency.Value}";
     }
