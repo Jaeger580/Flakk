@@ -2821,13 +2821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2feada973225f49a4140d30510d94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWaves:
-  - {fileID: 11400000, guid: 3b431c1a4eaf1e24aad8a832cf5e79ba, type: 2}
-  - {fileID: 11400000, guid: a14fe858030ef431e8c04d6a76b2ff67, type: 2}
-  - {fileID: 11400000, guid: 16e2675226816411eb4d55285a99026d, type: 2}
-  - {fileID: 11400000, guid: e44baae0aab31454a95c33e71288d201, type: 2}
-  - {fileID: 11400000, guid: 0e222ebffcf5a469bb73ee56edb49247, type: 2}
-  waveTimeInterval: 30
+  chosenContract: {fileID: 11400000, guid: 4fe20bcd91fbb4598969ecc973a7b2a9, type: 2}
   levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
   gunEnterEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
   nextWaveEvent: {fileID: 11400000, guid: 52b24ca1cc6a7470ab819f64fc88bb81, type: 2}
@@ -2846,12 +2840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee2feada973225f49a4140d30510d94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWaves:
-  - {fileID: 11400000, guid: 190bd20548e2f4bce8c2660f89f13452, type: 2}
-  waveTimeInterval: 30
+  chosenContract: {fileID: 11400000, guid: 4fe20bcd91fbb4598969ecc973a7b2a9, type: 2}
   levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
   gunEnterEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
-  nextWaveEvent: {fileID: 0}
+  nextWaveEvent: {fileID: 11400000, guid: 52b24ca1cc6a7470ab819f64fc88bb81, type: 2}
   isDebugging: 1
   enemySpawnRadius: 150
   enemySpawnSpherePosition: {x: 27, y: -15.5, z: 392.7}

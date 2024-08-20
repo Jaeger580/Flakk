@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility;
 using UnityEngine;
 
 namespace JO.AI
@@ -57,14 +58,24 @@ namespace JO.AI
         {
             if (patrolPoints.Count <= 0)
             {
+                Editor_Utility.ThrowWarning($"ERR: No points in list of patrol points.", this);
                 return;
             }
 
+            if (targetList.Contains(target))
+            {//if I was previously aiming at a weakpoint, go to the nearest patrol point
+                recentlyAggro = true;
+                currentPatrolIndex = patrolPoints.IndexOf(FindNearest(ref patrolPoints, 60f));
+                UpdatePatrol();
+            }
+
             target = patrolPoints[currentPatrolIndex];
+            //print(currentPatrolIndex);
+            if (target == null) return;
             float distance = Vector3.Distance(transform.position, target.position);
 
             if (distance <= 2f)
-            {
+            {//Every time I hit a new patrol point,
                 UpdatePatrol();
             }
             else
@@ -75,14 +86,36 @@ namespace JO.AI
 
         private void UpdatePatrol()
         {
-            patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
-            currentPatrolIndex++;
+            //patrolPoints = Spider.instance.GetWeb((int)currentWeb).waypoints;
 
-            if (currentPatrolIndex >= patrolPoints.Count)
-            {
-                currentPatrolIndex = 0;
-                //Patrol is complete
-                currentState = AI_STATE.AGGRO;
+            var forwardPoint = currentPatrolIndex + 1;
+            var backwardPoint = currentPatrolIndex - 1;
+
+            if (forwardPoint >= patrolPoints.Count) forwardPoint = 0;
+            if (backwardPoint < 0) backwardPoint = patrolPoints.Count - 1;
+
+            var forwardAngle = Vector3.Angle(transform.forward, (patrolPoints[forwardPoint].position - transform.position).normalized);
+            var backwardAngle = Vector3.Angle(transform.forward, (patrolPoints[backwardPoint].position - transform.position).normalized);
+
+            if (backwardAngle < forwardAngle) currentPatrolIndex--;
+            else currentPatrolIndex++;
+
+            if (currentPatrolIndex >= patrolPoints.Count) currentPatrolIndex = 0;
+            else if (currentPatrolIndex < 0) currentPatrolIndex = patrolPoints.Count - 1;
+
+            if (target == null) return;
+
+            if (!recentlyAggro)
+            {//otherwise if I'm okay to be aggro again,
+                if (!Retarget()) return;
+
+                var potentialTarget = targetList[currentTargetIndex];
+
+                if (Vector3.Distance(transform.position, potentialTarget.position) < Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position) + 30f)
+                {//if there's a potential weakspot closer than the next patrol point,
+                    //print($"{potentialTarget.gameObject.name} : {Vector3.Distance(transform.position, potentialTarget.position)} < {patrolPoints[currentPatrolIndex].gameObject.name} : {Vector3.Distance(transform.position, patrolPoints[currentPatrolIndex].position)}");
+                    currentState = AI_STATE.AGGRO;
+                }
             }
         }
 
@@ -107,9 +140,7 @@ namespace JO.AI
             while (currentState == AI_STATE.AGGRO)
             {
                 isFiring = true;
-
-                GameObject projectile = null;
-                projectile = Instantiate(projectilePrefab, fire_Point.position, fire_Point.rotation);
+                GameObject projectile = Instantiate(projectilePrefab, fire_Point.position, fire_Point.rotation);
 
                 if (projectile.GetComponent<Bomb>())
                 {

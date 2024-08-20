@@ -22,8 +22,8 @@ public class Bomb : MonoBehaviour
     {
         if (target)
         {
-            //transform.LookAt(target.position);
-            rb.AddForce(transform.forward * speed * Time.deltaTime, ForceMode.Acceleration);
+            transform.LookAt(target.position);
+            rb.AddForce(speed * Time.deltaTime * transform.forward, ForceMode.Acceleration);
         }
     }
 
@@ -35,7 +35,7 @@ public class Bomb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == ignoreLayer)
+        if ((ignoreLayer.value & 1 << other.gameObject.layer) > 0)
         {
             return;
         }

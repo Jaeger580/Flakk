@@ -111,6 +111,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1940894624715856056}
   m_SourcePrefab: {fileID: 100100000, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+--- !u!114 &421780035428901907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3539111139493566231, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+  m_PrefabInstance: {fileID: 3803013228002489092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149399133796076623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6418b5b87aa504f669bd7cb616b0caea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9149399133796076623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
@@ -142,6 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7018faeb6a89482d82da112975dd557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  contractSet: {fileID: 11400000, guid: 56cd0395502d748b897c98a6845febe2, type: 2}
+  chosenContract: {fileID: 11400000, guid: 4fe20bcd91fbb4598969ecc973a7b2a9, type: 2}
   missionStarter: {fileID: 2369665396567334018}
   contractEnterEvent: {fileID: 11400000, guid: 6110eaecdba2c4ff19635e87e7784b11, type: 2}
   contractStartEvent: {fileID: 11400000, guid: 447b8b2de973a4a82bb7a041c9497a61, type: 2}
+  monitor: {fileID: 421780035428901907}

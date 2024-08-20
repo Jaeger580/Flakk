@@ -8,8 +8,7 @@ using UnityEngine;
 public class Enemy_Manager : MonoBehaviour
 {
     private int currentWaveIndex = 0;
-    public Enemy_Wave_Creator[] enemyWaves;
-    public float waveTimeInterval;
+    public ContractSet chosenContract;
 
     [SerializeField] private GameEvent levelEndEvent, gunEnterEvent, nextWaveEvent;
 
@@ -24,6 +23,12 @@ public class Enemy_Manager : MonoBehaviour
 
     private void Start()
     {
+        if (chosenContract is null || chosenContract.items.Count == 0)
+        {
+            Editor_Utility.ThrowWarning($"ERR: No chosen contract!", this);
+            Destroy(gameObject);
+        }
+
         currentWaveIndex = 0;
 
         var gunEnterListener = gameObject.AddComponent<GameEventListener>();
@@ -39,14 +44,15 @@ public class Enemy_Manager : MonoBehaviour
         {
             enemiesDoneSpawning = false;
             levelEndEvent?.Trigger();
+            chosenContract.items[0].completed = true;
         }
     }
 
     private void StartLevel(GameEventListener gunEnterListener)
     {
         Destroy(gunEnterListener);
-        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
-        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
+        if (chosenContract.items[0].waves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
+        StartCoroutine(nameof(SpawnRoutine), chosenContract.items[0].waves[currentWaveIndex]);
     }
 
     private IEnumerator SpawnRoutine(Enemy_Wave_Creator wave)
@@ -64,12 +70,12 @@ public class Enemy_Manager : MonoBehaviour
         }
 
         currentWaveIndex++;
-        if (currentWaveIndex >= enemyWaves.Length) { enemiesDoneSpawning = true; yield break; }
+        if (currentWaveIndex >= chosenContract.items[0].waves.Length) { enemiesDoneSpawning = true; yield break; }
 
-        yield return new WaitForSeconds(waveTimeInterval);
+        yield return new WaitForSeconds(chosenContract.items[0].delayBetweenWaves);
 
         nextWaveEvent?.Trigger();
-        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
+        StartCoroutine(nameof(SpawnRoutine), chosenContract.items[0].waves[currentWaveIndex]);
     }
 
     private void Spawn(GameObject _unit, Vector3 spawnPosition, WebSelection chosenWeb)
@@ -108,7 +114,7 @@ public class Enemy_Manager : MonoBehaviour
     [ContextMenu("Manual Start")]
     private void ManualStart()
     {
-        if (enemyWaves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
-        StartCoroutine(nameof(SpawnRoutine), enemyWaves[currentWaveIndex]);
+        if (chosenContract.items[0].waves.Length <= 0) { Editor_Utility.ThrowWarning("ERR: No waves found in enemyWaves array.", this); return; }
+        StartCoroutine(nameof(SpawnRoutine), chosenContract.items[0].waves[currentWaveIndex]);
     }
 }

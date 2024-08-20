@@ -78,7 +78,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         EnableMonitor();
     }
 
-    private void TryExitMonitor()
+    public void TryExitMonitor()
     {
         if (!monitorEngaged) return;
 

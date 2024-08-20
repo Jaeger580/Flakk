@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
         {
             bulletVFX.Play();
             enemyHurtbox.TakeDamage(finalDamage);
-            AudioManager.instance.Play("Hit");
+            AudioManager.instance.ForcePlay("Hit");
             Destroy(gameObject);
         }
     }
