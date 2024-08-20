@@ -49,7 +49,7 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         //playerVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Gun");
         gunEnterEvent?.Trigger();
-        AudioManager.instance.SetVolume("BGM", 0.015f);
+        //AudioManager.instance.SetVolume("BGM", 0.015f);
     }
 
     private IEnumerator CamCoroutine()

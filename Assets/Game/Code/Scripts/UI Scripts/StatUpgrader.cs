@@ -6,6 +6,8 @@ using GeneralUtility.UI;
 using GeneralUtility.GameEventSystem;
 using GeneralUtility;
 
+//public class AudioManager { }
+
 abstract public class StatUpgrader : MonoBehaviour, IUIScreenRefresh
 {
     [Tooltip("No spaces, camelcase. Must directly and perfectly match the term used in the UI.")]
@@ -45,7 +47,7 @@ abstract public class StatUpgrader : MonoBehaviour, IUIScreenRefresh
         if (currentCurrency.Value < upgradeCost)
         {
             Editor_Utility.ThrowWarning($"ERR: Currency amt ({currentCurrency.Value}) less than upgrade cost ({upgradeCost})!", this);
-            AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR, AudioManager.instance.UISounds);
+            //AudioManager.instance.ForcePlay(MagicStrings.BTN_ERROR, AudioManager.instance.UISounds);
             return false;
         }
         currentCurrency.Value -= upgradeCost;
