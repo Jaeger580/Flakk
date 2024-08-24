@@ -10,7 +10,6 @@ using UnityEngine.InputSystem;
 
 public class GunControl : MonoBehaviour
 {
-
     private Camera mainCamera;
     private Vector2 mouseInput;
     private float vertRotation;
@@ -48,7 +47,7 @@ public class GunControl : MonoBehaviour
 
     [Header("Weapon Movement")]
     [SerializeField] //[ReadOnly]
-    private float sensitivity;
+    private float xSens, ySens;
     [SerializeField]
     private float sensitivityScaler;
     [SerializeField] private GameEvent sensitivityChangedEvent;
@@ -78,6 +77,8 @@ public class GunControl : MonoBehaviour
     [SerializeField]
     public GameObject vfxPrefab;
 
+    [SerializeField] private GameEvent zoomEnterEvent, zoomExitEvent;
+
     private void OnDisable()
     {
         HeatChangeEvent = null;
@@ -90,7 +91,9 @@ public class GunControl : MonoBehaviour
         sensitivityChangedListener.Events.Add(sensitivityChangedEvent);
         sensitivityChangedListener.Response = new();
         sensitivityChangedListener.Response.AddListener(() =>
-        sensitivity = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_BASE) * sensitivityScaler);
+        xSens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_ZOOM) * sensitivityScaler);
+        sensitivityChangedListener.Response.AddListener(() =>
+        ySens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_ZOOM) * sensitivityScaler);
         sensitivityChangedEvent.RegisterListener(sensitivityChangedListener);
     }
 
@@ -138,36 +141,36 @@ public class GunControl : MonoBehaviour
             GunLook();
         }
 
-        if (isShooting && Time.time >= fireRateTimer + (1 / fireRate.Value) && currentClip > 0)
+        if (isReloading)
         {
-            Fire();
-        }
-        else if(isReloading)
-        {
-            if(reloadTimer < reloadTime.Value) 
+            if (reloadTimer < reloadTime.Value)
             {
                 reloadTimer += Time.deltaTime;
             }
-            else if(currentClip < clipSize)
+            else if (currentClip < clipSize)
             {
                 reloadTimer = 0;
                 currentClip++;
                 AudioManager.instance.ForcePlay("Reload");
                 AmmoChangeEvent?.Invoke(currentClip);
             }
-            else if(currentClip == clipSize) 
+            else if (currentClip == clipSize)
             {
                 isReloading = false;
             }
+        }
+        else if (isShooting && Time.time >= fireRateTimer + (1 / fireRate.Value) && currentClip > 0)
+        {
+            Fire();
         }
     }
 
     private void CamLook(Vector2 Input)
     {        
-        horizRotation += Input.x * sensitivity * Time.deltaTime;
+        horizRotation += Input.x * xSens * Time.deltaTime;
         horizRotation = Mathf.Repeat(horizRotation, 360f);
 
-        vertRotation -= Input.y * sensitivity * Time.deltaTime;
+        vertRotation -= Input.y * ySens * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
         var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
@@ -289,6 +292,8 @@ public class GunControl : MonoBehaviour
 
             Vector3 camPos = gunCamera.transform.localPosition;
             gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + 2);
+
+            zoomEnterEvent?.Trigger();
         }
 
         else if (context.canceled)
@@ -299,6 +304,8 @@ public class GunControl : MonoBehaviour
 
             Vector3 camPos = gunCamera.transform.localPosition;
             gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z - 2);
+
+            zoomExitEvent?.Trigger();
         }
     }
 

@@ -200,6 +200,7 @@ MonoBehaviour:
   moveSpeed: 5
   gravityValue: -9.81
   jumpValue: 2
+  gunExitEvent: {fileID: 11400000, guid: 2101d65a7b3894856810a5ce0a87432d, type: 2}
 --- !u!114 &7852382303603180859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,7 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3440a5e8655d0314db3418cd8407764e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 0.5
   mainCamera: {fileID: 8894776046167025390}
 --- !u!143 &1356548263797392650
 CharacterController:
@@ -465,6 +465,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fd03e090-7424-45dc-a2ed-656f598604ff
     m_ActionName: Gun/Zoom[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9048844140538416044}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: LBozo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 91bc1bfd-86c1-4c76-8893-0f7004a5dca6
+    m_ActionName: Hub/Self Sacrifice[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hub

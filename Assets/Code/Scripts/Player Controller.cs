@@ -1,4 +1,5 @@
 using Cinemachine;
+using GeneralUtility.GameEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float jumpValue = 2f;
+
+    [SerializeField] private GameEvent gunExitEvent;
 
     private CharacterController charControl;
     private Vector3 moveDir = Vector3.zero;
@@ -96,8 +99,13 @@ public class PlayerController : MonoBehaviour
 
     public void ExitGun()
     {
-        playInput.SwitchCurrentActionMap("Hub");
+        gunExitEvent?.Trigger();
         virtualCamera.Priority = 10;
         AudioManager.instance.SetVolume("BGM", 0.05f);
+    }
+
+    public void LBozo()
+    {
+        FindObjectOfType<LossNotifier>().RestartScene();
     }
 }

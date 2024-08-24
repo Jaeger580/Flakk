@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using GeneralUtility;
 
 public class PlayerLook : MonoBehaviour
 {
-    [SerializeField]
-    private float sensitivity = 5f;
-
     [SerializeField]
     private GameObject mainCamera;
 
@@ -27,10 +25,13 @@ public class PlayerLook : MonoBehaviour
 
     private void HandleLook(Vector2 Input) 
     {
-        float horizRotation = Input.x * sensitivity;
+        var sensX = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_BASE, 1f);
+        var sensY = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_BASE, 1f);
+
+        float horizRotation = Input.x * sensX;
         transform.Rotate(0, horizRotation, 0);
         
-        vertRotation -= Input.y * sensitivity;
+        vertRotation -= Input.y * sensY;
         vertRotation = Mathf.Clamp(vertRotation, -90, 90);
         
         mainCamera.transform.localRotation = Quaternion.Euler(vertRotation, 0, 0);

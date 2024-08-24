@@ -95,6 +95,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7192247214692769197}
+    - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1645257353441284107}
+    - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7797646420951516000}
+    - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4015084762631251770}
+    - targetCorrespondingSourceObject: {fileID: 5349773231645376331, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7155761060834909017}
   m_SourcePrefab: {fileID: 100100000, guid: dc3310fa1656c4ae1a6b743d72dd7679, type: 3}
 --- !u!1 &1063326888436137349 stripped
 GameObject:
@@ -121,3 +133,70 @@ MonoBehaviour:
   exitMonitorEvent: {fileID: 11400000, guid: 37dc20866e6594950ba4a3a7d973732d, type: 2}
   terminalEnteredEvent: {fileID: 11400000, guid: 1f360dd4d5ed24ebca1af42e3ccba4c4, type: 2}
   contractStartedEvent: {fileID: 11400000, guid: 447b8b2de973a4a82bb7a041c9497a61, type: 2}
+  voFlags: 0
+--- !u!114 &1645257353441284107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063326888436137349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8d6eeea95614be9a2ab02cfbd255d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyOptionsEvent: {fileID: 11400000, guid: 9dda03377c01f4f68a2c4d3a1b11f816, type: 2}
+  revertOptionsEvent: {fileID: 11400000, guid: a425657a65ab34dcf957030ff170bed0, type: 2}
+  exitOptionsEvent: {fileID: 11400000, guid: a81822f6f828e4c13a20a8f15793f6ae, type: 2}
+  defaultVisualEvent: {fileID: 11400000, guid: 03094840b18734d829115ff05e220f07, type: 2}
+  defaultSensEvent: {fileID: 11400000, guid: 4c6a77302520547d98eb1cf2b3edda7a, type: 2}
+  defaultAudioEvent: {fileID: 11400000, guid: a2a24cba42a7845faa89071251226d9b, type: 2}
+  defaultAllEvent: {fileID: 11400000, guid: ba62a25c7797a4be79998f561662caf1, type: 2}
+--- !u!114 &7797646420951516000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063326888436137349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55326803cd954710a442a56494c5efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAudioMixer: {fileID: 24100000, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+  defaultAudioEvent: {fileID: 11400000, guid: a2a24cba42a7845faa89071251226d9b, type: 2}
+--- !u!114 &4015084762631251770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063326888436137349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64ae748618e749ec8165b96ca3b708a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyOptionsEvent: {fileID: 11400000, guid: 9dda03377c01f4f68a2c4d3a1b11f816, type: 2}
+  revertOptionsEvent: {fileID: 11400000, guid: a425657a65ab34dcf957030ff170bed0, type: 2}
+  defaultOptionsEvent: {fileID: 11400000, guid: 03094840b18734d829115ff05e220f07, type: 2}
+  exitOptionsEvent: {fileID: 11400000, guid: a81822f6f828e4c13a20a8f15793f6ae, type: 2}
+--- !u!114 &7155761060834909017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063326888436137349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a4fa844bdfc47e3b120285ea09c1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  applyOptionsEvent: {fileID: 11400000, guid: 9dda03377c01f4f68a2c4d3a1b11f816, type: 2}
+  revertOptionsEvent: {fileID: 11400000, guid: a425657a65ab34dcf957030ff170bed0, type: 2}
+  defaultOptionsEvent: {fileID: 11400000, guid: 4c6a77302520547d98eb1cf2b3edda7a, type: 2}
+  exitOptionsEvent: {fileID: 11400000, guid: a81822f6f828e4c13a20a8f15793f6ae, type: 2}
+  sensitivityChangedEvent: {fileID: 11400000, guid: 7806ad284f4924c9fb00ed821ba980c2, type: 2}

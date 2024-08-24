@@ -74,19 +74,33 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
         if (!voFlags.HasFlag(VoiceOverBitFlag.CONTRACT_STARTED)) contractDescEvent?.Trigger();
     }
 
+    private void ShowOptions()
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        var optionsScreen = root.Q<VisualElement>("OptionsScreen");
+        optionsScreen.AddToClassList("tabTransition");
+    }
+
+    private void HideOptions()
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        var optionsScreen = root.Q<VisualElement>("OptionsScreen");
+        optionsScreen.RemoveFromClassList("tabTransition");
+    }
+
     private void ShowManual()
     {
         voFlags |= VoiceOverBitFlag.MANUAL_CHECKED;
         var root = GetComponent<UIDocument>().rootVisualElement;
-        var manualScreen = root.Q<VisualElement>("ManualParent");
-        manualScreen.AddToClassList("manualTabTransition");
+        var manualScreen = root.Q<VisualElement>("ManualScreen");
+        manualScreen.AddToClassList("tabTransition");
     }
 
     private void HideManual()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-        var manualScreen = root.Q<VisualElement>("ManualParent");
-        manualScreen.RemoveFromClassList("manualTabTransition");
+        var manualScreen = root.Q<VisualElement>("ManualScreen");
+        manualScreen.RemoveFromClassList("tabTransition");
     }
 
     public void RefreshUI()
@@ -94,9 +108,18 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         var manualTab = root.Q<Button>($"ManualTab");
-        var backTab = root.Q<Button>($"BackTab");
+        var optionsTab = root.Q<Button>($"OptionsTab");
+
+        var manualScreen = root.Q<VisualElement>("ManualScreen");
+        var manualBackButton = manualScreen.Q<Button>($"Exit");
+
+        var optionsScreen = root.Q<VisualElement>("OptionsScreen");
+        var optionsBackButton = optionsScreen.Q<Button>($"Exit");
+
         manualTab.clicked += ShowManual;
-        backTab.clicked += HideManual;
+        optionsTab.clicked += ShowOptions;
+        manualBackButton.clicked += HideManual;
+        optionsBackButton.clicked += HideOptions;
 
         var quitBtn = root.Q<Button>("QuitGame");
         quitBtn.clicked += Application.Quit;

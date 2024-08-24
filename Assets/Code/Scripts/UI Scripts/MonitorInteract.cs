@@ -84,12 +84,21 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
-        var hubInput = playInput.actions.FindActionMap("Hub");
-        hubInput.Enable();
-        playInput.SwitchCurrentActionMap("Hub");
+
+        StartCoroutine(nameof(MouseDelay));
 
         exittedMonitorEvent?.Trigger();
 
         DisableMonitor();
+    }
+
+    private IEnumerator MouseDelay()
+    {
+        var uiInput = playInput.actions.FindActionMap("UI");
+        uiInput.Disable();
+        yield return new WaitForSeconds(1f);
+        var hubInput = playInput.actions.FindActionMap("Hub");
+        hubInput.Enable();
+        playInput.SwitchCurrentActionMap("Hub");
     }
 }

@@ -64,7 +64,7 @@ namespace GeneralUtility
 
                 sliderXUnscoped = root.Q<Slider>(MagicStrings.OPTIONS_X_SENS_BASE);
                 sliderXScoped = root.Q<Slider>(MagicStrings.OPTIONS_X_SENS_ZOOM);
-                sliderXScoped.style.display = UI_Utility.hidden;
+                //sliderXScoped.style.display = UI_Utility.hidden;
                 sliderXUnscoped.value = PlayerPrefs.GetFloat(sliderXUnscoped.name, defaultUnscopedSens);
                 sliderXScoped.value = PlayerPrefs.GetFloat(sliderXScoped.name, defaultScopedSens);
                 PlayerPrefs.SetFloat(sliderXUnscoped.name, sliderXUnscoped.value);
@@ -76,7 +76,7 @@ namespace GeneralUtility
 
                 sliderYUnscoped = root.Q<Slider>(MagicStrings.OPTIONS_Y_SENS_BASE);
                 sliderYScoped = root.Q<Slider>(MagicStrings.OPTIONS_Y_SENS_ZOOM);
-                sliderYScoped.style.display = UI_Utility.hidden;
+                //sliderYScoped.style.display = UI_Utility.hidden;
                 sliderYUnscoped.value = PlayerPrefs.GetFloat(sliderYUnscoped.name, defaultUnscopedSens);
                 sliderYScoped.value = PlayerPrefs.GetFloat(sliderYScoped.name, defaultScopedSens);
                 PlayerPrefs.SetFloat(sliderYUnscoped.name, sliderYUnscoped.value);
