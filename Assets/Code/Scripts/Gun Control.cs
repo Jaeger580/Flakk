@@ -79,6 +79,8 @@ public class GunControl : MonoBehaviour
 
     [SerializeField] private GameEvent zoomEnterEvent, zoomExitEvent;
 
+    [SerializeField] private AnimationCurve gunCatchUpCurve;
+
     private void OnDisable()
     {
         HeatChangeEvent = null;
@@ -166,32 +168,35 @@ public class GunControl : MonoBehaviour
     }
 
     private void CamLook(Vector2 Input)
-    {        
-        horizRotation += Input.x * xSens * Time.deltaTime;
+    {
+        var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
+        angle = Mathf.Clamp(angle, 0f, 45f);
+
+        horizRotation += Input.x * xSens * Time.deltaTime * (1f - angle/45f);
         horizRotation = Mathf.Repeat(horizRotation, 360f);
 
         vertRotation -= Input.y * ySens * Time.deltaTime;
         vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
-        var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
-        if (Mathf.Abs(horizRotation - gunBaseY) > 180f)
-        {//If the difference is too big, we know that horizRotation wrapped when gunBaseY didn't (or vice versa)
-            if (horizRotation > gunBaseY)
-            {
-                //print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
-                horizRotation = Mathf.Clamp(horizRotation, 330f, 360f);   //if horiz passed left over 360 line, clamp it to a minimum of 330f
-            }
-            else if (horizRotation < gunBaseY)
-            {
-                //print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
-                horizRotation = Mathf.Clamp(horizRotation, 0f, 30f); //if horiz passed right over 0 line, clamp it to a max of 30f
-            }
-        }
-        else if (Mathf.Abs(horizRotation - gunBaseY) > 25f)
-        {
-            //print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
-            horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
-        }
+        //var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
+        //if (Mathf.Abs(horizRotation - gunBaseY) > 180f)
+        //{//If the difference is too big, we know that horizRotation wrapped when gunBaseY didn't (or vice versa)
+        //    if (horizRotation > gunBaseY)
+        //    {
+        //        //print($"Clamping! {horizRotation} > {gunBaseY}After Clamp: {Mathf.Clamp(horizRotation, 330f, 360f)}");
+        //        horizRotation = Mathf.Clamp(horizRotation, 330f, 360f);   //if horiz passed left over 360 line, clamp it to a minimum of 330f
+        //    }
+        //    else if (horizRotation < gunBaseY)
+        //    {
+        //        //print($"Clamping! {horizRotation} < {gunBaseY} || After Clamp: {Mathf.Clamp(horizRotation, 0f, 30f)}");
+        //        horizRotation = Mathf.Clamp(horizRotation, 0f, 30f); //if horiz passed right over 0 line, clamp it to a max of 30f
+        //    }
+        //}
+        //else if (Mathf.Abs(horizRotation - gunBaseY) > 25f)
+        //{
+        //    //print($"Clamping! {horizRotation} --- {gunBaseY} After Clamp: {Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f)}");
+        //    horizRotation = Mathf.Clamp(horizRotation, gunBaseY - 30f, gunBaseY + 30f);
+        //}
 
         var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
 
@@ -203,7 +208,9 @@ public class GunControl : MonoBehaviour
     {
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
 
-        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * Time.deltaTime * angle);
+        var speed = gunCatchUpCurve.Evaluate(angle/45f);
+
+        gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * speed);
     }
 
     //private void HandleLook(Vector2 Input)
