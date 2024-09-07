@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141309729494818375}
-  - component: {fileID: 890870715451131878}
+  - component: {fileID: 8700168661930345454}
   m_Layer: 0
   m_Name: Lead Point
   m_TagString: Untagged
@@ -385,7 +385,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1532450216113318409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &890870715451131878
+--- !u!114 &8700168661930345454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,17 +394,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7295802221162836981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a074d529cf945029ef7cf40540c9df, type: 3}
+  m_Script: {fileID: 11500000, guid: a829091269032db4885909354e3f879f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 1
-  m_Duration: 10
-  m_MaxSpeed: 1166.6814
-  m_EasingMode: 1
-  m_AlignmentMode: 1
-  m_ObjectForwardAxis: 2
-  m_ObjectUpAxis: 1
-  m_StartOffset: 0
+  splineContainer: {fileID: 0}
+  moveSpeed: 0.1

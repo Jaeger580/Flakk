@@ -1,0 +1,124 @@
+/*  Jakob Jaeger
+ *  09/06/2024
+ *  Custom Script that will move along splines.
+ *  Original Layout of this script from git-amend's tutorial on youtube: https://youtu.be/ipKeYqYB4oY?si=-AtATrjU_GfE52_V
+ */
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Splines;
+
+
+
+public class SPLineFollow : MonoBehaviour
+{
+    // custom classes for making spline data serializable in editor
+    // Note: these classes may be better to define in a different location. Needs Testing.
+    [Serializable]
+    public class SplinePathData
+    {
+        public SliceData[] slices;
+    }
+
+    [Serializable]
+    public class SliceData
+    {
+        public int splineIndex;
+        public SplineRange range;
+
+        // Can store more useful information
+        public bool isEnabled = true;
+        public float sliceLength;
+        public float distanceFromStart;
+    }
+
+    [SerializeField]
+    private SplineContainer splineContainer;
+    [SerializeField]
+    private float moveSpeed = 0.1f;
+
+    [SerializeField]
+    private SplinePathData pathData;
+
+    SplinePath path;
+
+    float progressRatio;
+    float progress;
+    float totalLength;
+
+    private void Start()
+    {
+        path = new SplinePath(CalculatePath());
+
+        StartCoroutine(FollowCoroutine());
+    }
+
+    private List<SplineSlice<Spline>> CalculatePath()
+    {
+        // Get the container's transform matrix
+        var localToWorldMatrix = splineContainer.transform.localToWorldMatrix;
+
+        // Get all the enabled Slices using LINQ
+        var enabledSlices = pathData.slices.Where(slice => slice.isEnabled).ToList();
+
+        var slices = new List<SplineSlice<Spline>>();
+
+        totalLength = 0f;
+        foreach (var sliceData in enabledSlices)
+        {
+            var spline = splineContainer.Splines[sliceData.splineIndex];
+            var slice = new SplineSlice<Spline>(spline, sliceData.range, localToWorldMatrix);
+            slices.Add(slice);
+
+            // Calculate the slice details
+            sliceData.distanceFromStart = totalLength;
+            sliceData.sliceLength = slice.GetLength();
+            totalLength += sliceData.sliceLength;
+        }
+
+        return slices;
+    }
+
+
+    // Coroutine that handles the gameobject movement
+    IEnumerator FollowCoroutine() 
+    {
+        for (var n = 0;; ++n)   // This syntax causes the for loop to loop forever.
+        {
+            progressRatio = 0;
+
+            while (progressRatio <= 1f) 
+            {
+                // Get the gameobject's posiotion on the path
+                var pos = path.EvaluatePosition(progressRatio);
+                var direction = path.EvaluateTangent(progressRatio);
+
+                // Currently this sets the object's position correctly but it
+                // does not set object's rotation based off of the rotation of the spline knots.
+                transform.position = pos;
+                transform.LookAt(pos + direction);
+                //transform.rotation = Quaternion.LookRotation(direction, transform.up);
+
+                // Increment the progress ratio
+                progressRatio += moveSpeed * Time.deltaTime;
+
+                // Calculate the current distance travelled
+                progress = progressRatio * totalLength;
+                yield return null;
+            }
+
+            // Enable all paths
+            foreach (var sliceData in pathData.slices) 
+            {
+                sliceData.isEnabled = true;
+            }
+
+            // Calculate the new path
+            path = new SplinePath(CalculatePath());
+        }
+    }
+}
