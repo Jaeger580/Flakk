@@ -97,11 +97,11 @@ public class SPLineFollow : MonoBehaviour
                 var pos = path.EvaluatePosition(progressRatio);
                 var direction = path.EvaluateTangent(progressRatio);
 
-                // Currently this sets the object's position correctly but it
-                // does not set object's rotation based off of the rotation of the spline knots.
+                // Currently this sets the object's position and rotation
                 transform.position = pos;
                 transform.LookAt(pos + direction);
-                //transform.rotation = Quaternion.LookRotation(direction, transform.up);
+                transform.rotation = Quaternion.LookRotation(path.EvaluateUpVector(progressRatio), -transform.forward);
+                transform.Rotate(Vector3.right, 90f);
 
                 // Increment the progress ratio
                 progressRatio += moveSpeed * Time.deltaTime;
