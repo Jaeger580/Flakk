@@ -32,6 +32,8 @@ public class SPLineFollow : MonoBehaviour
 
         // Can store more useful information
         public bool isEnabled = true;
+        //public bool loop = false;
+
         public float sliceLength;
         public float distanceFromStart;
     }
@@ -87,6 +89,11 @@ public class SPLineFollow : MonoBehaviour
     // Coroutine that handles the gameobject movement
     IEnumerator FollowCoroutine() 
     {
+        // This makes it so the script loops trough the spline after following the spawning spline.
+        // Would be better to replace with something like a bool 
+        if (pathData.slices[0].isEnabled)
+            pathData.slices[0].isEnabled = false;
+
         for (var n = 0;; ++n)   // This syntax causes the for loop to loop forever.
         {
             progressRatio = 0;
@@ -111,11 +118,13 @@ public class SPLineFollow : MonoBehaviour
                 yield return null;
             }
 
-            // Enable all paths
-            foreach (var sliceData in pathData.slices) 
-            {
-                sliceData.isEnabled = true;
-            }
+
+            // Should need to auto enable paths. Seems reduntant when we can decide which are enabled
+            //// Enable all paths
+            //foreach (var sliceData in pathData.slices) 
+            //{
+            //    sliceData.isEnabled = true;
+            //}
 
             // Calculate the new path
             path = new SplinePath(CalculatePath());
