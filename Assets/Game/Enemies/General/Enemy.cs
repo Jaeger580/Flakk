@@ -56,6 +56,9 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         this.gameObject.transform.rotation = leadPoint.transform.rotation;
     }
 
+
+    // Damage should likely be moved to another script for
+    // systems involving multiple hitzones and complex enemies.
     public virtual void TakeDamage(int damage)
     {
         //Deal damage to the enemy
