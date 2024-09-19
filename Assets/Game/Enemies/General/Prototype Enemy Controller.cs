@@ -16,10 +16,16 @@ public class PrototypeEnemyController : MonoBehaviour
     [SerializeField]
     private GameObject LeadPoint;
 
+    [SerializeField]
+    private Vector3 offSet;
+
     private void LateUpdate()
     {
+        var targetPos = LeadPoint.transform.position;
+        var finalPos = new Vector3(targetPos.x - offSet.x, targetPos.y - offSet.y, targetPos.z - offSet.z);
+
         // Matches postion to the leading point
-        this.gameObject.transform.position = LeadPoint.transform.position;
+        this.gameObject.transform.position = finalPos;
 
         // Matches rotation to the leading point. Note this sibling relationship was set up so this exact feature would be optional.
         this.gameObject.transform.rotation = LeadPoint.transform.rotation;

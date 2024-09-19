@@ -49,14 +49,14 @@ public class SPLineFollow : MonoBehaviour
     SplinePath path;
 
     float progressRatio;
-    float progress;
+    //float progress;
     float totalLength;
 
     private void Start()
     {
         path = new SplinePath(CalculatePath());
 
-        StartCoroutine(FollowCoroutine());
+        StartCoroutine(FollowCoroutine());  
     }
 
     private List<SplineSlice<Spline>> CalculatePath()
@@ -70,17 +70,30 @@ public class SPLineFollow : MonoBehaviour
         var slices = new List<SplineSlice<Spline>>();
 
         totalLength = 0f;
+
+        int num = 0;
+
         foreach (var sliceData in enabledSlices)
         {
+            
             var spline = splineContainer.Splines[sliceData.splineIndex];
             var slice = new SplineSlice<Spline>(spline, sliceData.range, localToWorldMatrix);
             slices.Add(slice);
 
-            // Calculate the slice details
-            sliceData.distanceFromStart = totalLength;
-            sliceData.sliceLength = slice.GetLength();
-            totalLength += sliceData.sliceLength;
+            // this if check was add to skip the first section of spline. Not very modular and should be replaced with another solution
+            // Another solution may be difficult with out full script rewrite
+            if(num != 0) 
+            {
+                // Calculate the slice details
+                sliceData.distanceFromStart = totalLength;
+                sliceData.sliceLength = slice.GetLength();
+                totalLength += sliceData.sliceLength;
+                num++;
+            }
+
         }
+
+
 
         return slices;
     }
@@ -114,7 +127,7 @@ public class SPLineFollow : MonoBehaviour
                 progressRatio += moveSpeed * Time.deltaTime;
 
                 // Calculate the current distance travelled
-                progress = progressRatio * totalLength;
+                //progress = progressRatio * totalLength;
                 yield return null;
             }
 
