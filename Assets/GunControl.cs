@@ -244,16 +244,30 @@ public class GunControl : MonoBehaviour
     }
 
     // Starts off faster than slows down to normal pace as approaches center.
-    private void GunLook(Vector2 input)
+    private void GunLook(Vector2 input) 
     {//TODO: CURRENT ISSUE: when crossing the 180-line, RotateTowards fucks up and starts going the opposite direction
      //because it thinks the faster way to rotate to the correct rotation is in the opposite direction
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
         float clamp = 32f;
         var speed = gunCatchUpCurve.Evaluate(angle / clamp);
-        gunHorizRotation += Mathf.Sign(horizRotation - gunHorizRotation) * xSens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+
+        float deadZone = 0.05f;
+
+        var tempHoriz = horizRotation - gunHorizRotation;
+        if (tempHoriz > deadZone) tempHoriz = 1f;
+        else if (tempHoriz < -deadZone) tempHoriz = -1f;
+        else tempHoriz = 0f;
+
+        gunHorizRotation += tempHoriz * xSens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunHorizRotation = Mathf.Clamp(gunHorizRotation, horizRotation - clamp, horizRotation + clamp);
-        gunVertRotation -= Mathf.Sign(horizRotation - gunHorizRotation) * ySens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
-        gunVertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
+
+        var tempVert = vertRotation - gunVertRotation;
+        if (tempVert > deadZone) tempVert = 1f;
+        else if (tempVert < -deadZone) tempVert = -1f;
+        else tempVert = 0f;
+
+        gunVertRotation += tempVert * ySens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunVertRotation = Mathf.Clamp(gunVertRotation, -85f, 15f);
 
         //directional input * sensitivity * time since last physics frame * how fast the gun should rotate * distanceScalar
 
@@ -261,10 +275,10 @@ public class GunControl : MonoBehaviour
         //var nRot = Quaternion.Slerp(gunBase.transform.rotation, pivotPoint.transform.rotation, speed * gunRotateSpeed.Value * Time.fixedDeltaTime);
         //if(Quaternion.Angle(gunBase.transform.rotation, ))
         //var lookRot = Quaternion.LookRotation(pivotPoint.transform.forward, pivotPoint.transform.up);
-        var gunRot = Quaternion.Euler(gunVertRotation, gunHorizRotation, 0f);
+        var gunRot = Quaternion.Euler(gunVertRotation, gunHorizRotation, 0f); 
         var truRot = Quaternion.RotateTowards(gunBase.transform.localRotation, gunRot, 20f);
 
-        if(input.x <= 0.01f && input.y <= 0.01f)
+        if(Mathf.Abs(gunHorizRotation - horizRotation) <= deadZone && Mathf.Abs(gunVertRotation - vertRotation) <= deadZone)
         {
             gunBase.transform.rotation = pivotPoint.transform.rotation;
         }
