@@ -182,7 +182,7 @@ public class GunControl : MonoBehaviour
 
     private void CamLook(Vector2 input)
     {
-        input.x = Mathf.Clamp(input.x, -120f, 120f);
+        input.x = Mathf.Clamp(input.x, -80f, 80f);
 
         horizRotation += input.x * xSens * Time.fixedDeltaTime;
         //while (horizRotation > 180f) { horizRotation -= 360f; }
@@ -252,7 +252,7 @@ public class GunControl : MonoBehaviour
         var speed = gunCatchUpCurve.Evaluate(angle / clamp);
         gunHorizRotation += Mathf.Sign(horizRotation - gunHorizRotation) * xSens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunHorizRotation = Mathf.Clamp(gunHorizRotation, horizRotation - clamp, horizRotation + clamp);
-        //gunVertRotation -= (vertRotation - gunVertRotation) * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunVertRotation -= Mathf.Sign(horizRotation - gunHorizRotation) * ySens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunVertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
 
         //directional input * sensitivity * time since last physics frame * how fast the gun should rotate * distanceScalar
@@ -263,7 +263,15 @@ public class GunControl : MonoBehaviour
         //var lookRot = Quaternion.LookRotation(pivotPoint.transform.forward, pivotPoint.transform.up);
         var gunRot = Quaternion.Euler(gunVertRotation, gunHorizRotation, 0f);
         var truRot = Quaternion.RotateTowards(gunBase.transform.localRotation, gunRot, 20f);
-        gunBase.transform.rotation = truRot;
+
+        if(input.x <= 0.01f && input.y <= 0.01f)
+        {
+            gunBase.transform.rotation = pivotPoint.transform.rotation;
+        }
+        else
+        {
+            gunBase.transform.rotation = truRot;
+        }
         //gunBase.transform.rotation = Quaternion.RotateTowards(gunBase.transform.rotation, pivotPoint.transform.rotation, gunRotateSpeed.Value * speed);
 
         //find the desired up direction:
