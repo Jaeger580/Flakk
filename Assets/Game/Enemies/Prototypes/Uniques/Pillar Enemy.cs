@@ -5,7 +5,9 @@
 */
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PillarEnemy : Enemy
 {
@@ -16,9 +18,19 @@ public class PillarEnemy : Enemy
     [SerializeField]
     private float randomTimer = 5f;
     [SerializeField]
-    private float ranRadius = 5f;
+    private float radius = 5f;
     private float ranTimerCount = 0f;
+
+    [SerializeField]
     private Vector3 ranDirection = Vector3.up;
+
+    [SerializeField]
+    private float range;
+
+    public void setLeadPoint(GameObject newLeadPoint)
+    {
+        leadPoint = newLeadPoint;
+    }
 
     protected override void Update()
     {
@@ -29,7 +41,10 @@ public class PillarEnemy : Enemy
         else
         {
             ranTimerCount = 0f;
-            ranDirection = Random.insideUnitSphere;
+
+            //ranDirection = new Vector3(0, Random.Range(0, 1.0f), Random.Range(0, 1.0f));
+            ranDirection.Normalize();
+
             Debug.Log("Direction Changed");
         }
 
@@ -38,24 +53,13 @@ public class PillarEnemy : Enemy
 
     protected override void Move() 
     {
-        // By default, this method will make the enemy follow the leadPoint at a 1:1 rate.
-        // Both for position and rotation.
         var targetPos = leadPoint.transform.position;
 
-        // Matches postion to the leading point
-        //this.gameObject.transform.position = targetPos;
 
-        // Matches rotation to the leading point. Note this sibling relationship was set up so this exact feature would be optional.
-        //this.gameObject.transform.rotation = leadPoint.transform.rotation;
-
-        //gameObject.transform.RotateAround(targetPos, ranDirection/2, rotateSpeed * Time.deltaTime);
-
-
-        Vector3 ranOffset = ranDirection * ranRadius;
-        Vector3 offsetTarget = leadPoint.transform.position + ranOffset;
-
-        gameObject.transform.Rotate(offsetTarget, rotateSpeed * Time.deltaTime, Space.Self);
-        gameObject.transform.localPosition += transform.forward * rotateSpeed * Time.deltaTime; 
-
+        // Ask for help increasing the speed based of distance. Copy some turret code?
+        transform.LookAt(targetPos);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, rotateSpeed * Time.deltaTime);
     }
+
+    
 }
