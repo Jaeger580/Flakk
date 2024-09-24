@@ -56,6 +56,8 @@ public class PillarBrain : Enemy
             else if (i != 0) 
             {
                 segements[i].transform.position = segements[i - 1].transform.localPosition + segementOffSet;
+                segements[i].AddComponent<HingeJoint>();
+                segements[i].GetComponent<HingeJoint>().connectedBody = segements[i - 1].GetComponent<Rigidbody>();
             }
         }
     }
