@@ -374,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402193703068818532}
+  - component: {fileID: 5860426773886348526}
   - component: {fileID: 4631278577601222393}
   - component: {fileID: 1652715241852594384}
   m_Layer: 0
@@ -404,6 +405,44 @@ Transform:
   - {fileID: 7981791472569014423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5860426773886348526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383172950227800002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f41126b458db4b31b1a2b9e8d20a976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivityScaler: 5
+  xSens: 5
+  ySens: 5
+  sensitivityChangedEvent: {fileID: 11400000, guid: 7806ad284f4924c9fb00ed821ba980c2, type: 2}
+  gunRotateSpeed:
+    UseConstant: 1
+    ConstantValue: 22
+    Variable: {fileID: 0}
+  gunCamera: {fileID: 9170858499426201412}
+  pivotPoint: {fileID: 8928254296052272511}
+  gunBase: {fileID: 4968140652613179903}
+  vfxPrefab: {fileID: 0}
+  zoomEnterEvent: {fileID: 0}
+  zoomExitEvent: {fileID: 0}
+  gunCatchUpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isReloading:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  pivotRotation: {x: 0, y: 0}
+  gunRotation: {x: 0, y: 0}
 --- !u!114 &4631278577601222393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,23 +455,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8a4056cd55e4a85a1047443afcac38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pivotRotation: {x: 0, y: 0}
-  gunRotation: {x: 0, y: 0}
-  gunCamera: {fileID: 9170858499426201412}
-  pivotPoint: {fileID: 8928254296052272511}
-  gunBase: {fileID: 4968140652613179903}
-  gunBulletPoint: {fileID: 295220863187362114}
-  bulletPrefab:
+  isReloading:
     UseConstant: 1
-    ConstantValue: {fileID: 0}
-    Variable: {fileID: 0}
-  xSens: 3
-  ySens: 3
-  sensitivityScaler: 5
-  sensitivityChangedEvent: {fileID: 11400000, guid: 7806ad284f4924c9fb00ed821ba980c2, type: 2}
-  gunRotateSpeed:
-    UseConstant: 1
-    ConstantValue: 22
+    ConstantValue: 0
     Variable: {fileID: 0}
   baseDamage:
     UseConstant: 1
@@ -448,57 +473,22 @@ MonoBehaviour:
     Variable: {fileID: 0}
   clipSize: 1
   maxHeat: 100
-  coolDownSpeed: 1
-  overHeatSpeed: 1
+  cooldownSpeed: 1
+  overheatSpeed: 1
   overheatRate:
     UseConstant: 1
     ConstantValue: 0
     Variable: {fileID: 0}
+  gunCamera: {fileID: 9170858499426201412}
+  gunBase: {fileID: 4968140652613179903}
+  gunBulletPoint: {fileID: 295220863187362114}
+  bulletPrefab:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
   vfxPrefab: {fileID: 0}
   zoomEnterEvent: {fileID: 0}
   zoomExitEvent: {fileID: 0}
-  gunCatchUpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.025
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.08
-      value: 0.3
-      inSlope: 0.5185435
-      outSlope: 0.5185435
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.17308442
-    - serializedVersion: 3
-      time: 0.87033695
-      value: 1.1
-      inSlope: 0.018904265
-      outSlope: 0.018904265
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.31193656
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0.995
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1652715241852594384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13053,8 +13043,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170858499426201412}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8000002, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.79999924, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13951,7 +13941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1247548825751369462, guid: 737807053bb61a24788705a3a516a99e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2887223357178337509, guid: 737807053bb61a24788705a3a516a99e, type: 3}
       propertyPath: m_LocalRotation.w

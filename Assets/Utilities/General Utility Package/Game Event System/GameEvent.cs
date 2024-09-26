@@ -7,7 +7,7 @@ namespace GeneralUtility
 {
     namespace GameEventSystem
     {
-        [CreateAssetMenu(menuName = "GameEvents/GameEvent")]
+        [CreateAssetMenu(fileName = "EV - ", menuName = "GameEvents/GameEvent")]
         public class GameEvent : ScriptableObject
         {//WHEN WE EVENTUALLY REUSE THIS, REMEMBER TO GENERICIZE. (Allan has a WIP Folder)
             public int exampleVal;
