@@ -12,8 +12,7 @@ public class GunControl : MonoBehaviour
 {
     private Camera mainCamera;
     private Vector2 mouseInput;
-    private float vertRotation, gunVertRotation;
-    private float horizRotation, gunHorizRotation;
+    [SerializeField] [ReadOnly] private Vector2 pivotRotation, gunRotation;
 
     //private float maxFireRate;
     private float fireRateTimer;
@@ -184,15 +183,15 @@ public class GunControl : MonoBehaviour
     {
         input.x = Mathf.Clamp(input.x, -80f, 80f);
 
-        horizRotation += input.x * xSens * Time.fixedDeltaTime;
+        pivotRotation.x += input.x * xSens * Time.fixedDeltaTime;
         //while (horizRotation > 180f) { horizRotation -= 360f; }
         //while (horizRotation < -180f) { horizRotation += 360f; }
         //horizRotation = Mathf.Repeat(horizRotation, 360f) - 180f;
 
         //print(horizRotation);
 
-        vertRotation -= input.y * ySens * Time.fixedDeltaTime;
-        vertRotation = Mathf.Clamp(vertRotation, -85f, 15f);
+        pivotRotation.y -= input.y * ySens * Time.fixedDeltaTime;
+        pivotRotation.y = Mathf.Clamp(pivotRotation.y, -85f, 15f);
 
         var gunBaseY = gunBase.transform.rotation.eulerAngles.y;
         if (gunBaseY > 180f) gunBaseY -= 360f;
@@ -222,7 +221,7 @@ public class GunControl : MonoBehaviour
         //    horizRotation = Mathf.Clamp(horizRotation, gunBaseY - angleOffset, gunBaseY + angleOffset);
         //}
 
-        var pivotRot = Quaternion.Euler(vertRotation, horizRotation, 0f);
+        var pivotRot = Quaternion.Euler(pivotRotation.y, pivotRotation.x, 0f);
         var truRot = Quaternion.RotateTowards(pivotPoint.transform.localRotation, pivotRot, 20f);
         //pivotPoint.transform.localRotation.Rot
 
@@ -253,21 +252,19 @@ public class GunControl : MonoBehaviour
 
         float deadZone = 0.05f;
 
-        var tempHoriz = horizRotation - gunHorizRotation;
-        if (tempHoriz > deadZone) tempHoriz = 1f;
-        else if (tempHoriz < -deadZone) tempHoriz = -1f;
-        else tempHoriz = 0f;
+        Vector2 tempDirection = new Vector2((pivotRotation.x - gunRotation.x),(pivotRotation.y - gunRotation.y));
+        tempDirection.Normalize();
+        if (Mathf.Abs(tempDirection.x) <= deadZone) tempDirection.x = 0f;
+        if (Mathf.Abs(tempDirection.y) <= deadZone) tempDirection.y = 0f;
 
-        gunHorizRotation += tempHoriz * xSens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
-        gunHorizRotation = Mathf.Clamp(gunHorizRotation, horizRotation - clamp, horizRotation + clamp);
+        //NEED gunRotateSpeed.Value somewhere in the calc
+        gunRotation.x += tempDirection.x * xSens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunRotation.x = Mathf.Clamp(gunRotation.x, pivotRotation.x - clamp, pivotRotation.x + clamp);
 
-        var tempVert = vertRotation - gunVertRotation;
-        if (tempVert > deadZone) tempVert = 1f;
-        else if (tempVert < -deadZone) tempVert = -1f;
-        else tempVert = 0f;
+        gunRotation.y += tempDirection.y * ySens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunRotation.y = Mathf.Clamp(gunRotation.y, -85f, 15f);
 
-        gunVertRotation += tempVert * ySens * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
-        gunVertRotation = Mathf.Clamp(gunVertRotation, -85f, 15f);
+        //Vector3 combined = new Vector3(gunVertRotation, gunHorizRotation, 0f);
 
         //directional input * sensitivity * time since last physics frame * how fast the gun should rotate * distanceScalar
 
@@ -275,10 +272,11 @@ public class GunControl : MonoBehaviour
         //var nRot = Quaternion.Slerp(gunBase.transform.rotation, pivotPoint.transform.rotation, speed * gunRotateSpeed.Value * Time.fixedDeltaTime);
         //if(Quaternion.Angle(gunBase.transform.rotation, ))
         //var lookRot = Quaternion.LookRotation(pivotPoint.transform.forward, pivotPoint.transform.up);
-        var gunRot = Quaternion.Euler(gunVertRotation, gunHorizRotation, 0f); 
+        var gunRot = Quaternion.Euler(gunRotation.y, gunRotation.x, 0f); 
         var truRot = Quaternion.RotateTowards(gunBase.transform.localRotation, gunRot, 20f);
+        //truRot = Quaternion.Lerp(gunBase.transform.rotation, pivotPoint.transform.rotation, speed);
 
-        if(Mathf.Abs(gunHorizRotation - horizRotation) <= deadZone && Mathf.Abs(gunVertRotation - vertRotation) <= deadZone)
+        if(Mathf.Abs(gunRotation.x - pivotRotation.x) <= deadZone && Mathf.Abs(gunRotation.y - pivotRotation.y) <= deadZone)
         {
             gunBase.transform.rotation = pivotPoint.transform.rotation;
         }
