@@ -1,32 +1,33 @@
-using Cinemachine;
+﻿using Cinemachine;
 using GeneralUtility.GameEventSystem;
 using GeneralUtility.VariableObject;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public partial class InputHandler : MonoBehaviour
 {
-    [Header("Gun Input Events")]
-    public GameEvent inputEvPriFire, inputEvAdsPress, inputEvReload, inputEvPriRelease, inputEvAdsRelease;
+    [Header("Gun Mechanic Input Events")]
+    [SerializeField] private GameEvent inputEvPriFire;
+    [SerializeField] private GameEvent inputEvPriRelease;
+    [SerializeField] private GameEvent inputEvAdsPress, inputEvAdsRelease;
+    [SerializeField] private GameEvent inputEvReleasePress, inputEvReleaseRelease;
+
     public void PrimaryFire(InputAction.CallbackContext context)
     {
         if (context.started)
             inputEvPriFire.Trigger();
     }
 
-    public void AimDownSightsPressed(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            inputEvAdsPress.Trigger();
-    }
-
     public void PrimaryRelease(InputAction.CallbackContext context)
     {
         if (context.canceled)
             inputEvPriRelease.Trigger();
+    }
+
+    public void AimDownSightsPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            inputEvAdsPress.Trigger();
     }
 
     public void AimDownSightsRelease(InputAction.CallbackContext context)
@@ -36,10 +37,9 @@ public partial class InputHandler : MonoBehaviour
     }
 }
 
-public class GunControl : MonoBehaviour
+public class GunMechanicControl : MonoBehaviour
 {
     private Camera mainCamera;
-    private Vector2 mouseInput;
 
     //private float maxFireRate;
     private float fireRateTimer;
@@ -54,16 +54,30 @@ public class GunControl : MonoBehaviour
     public OnAmmoChange AmmoChangeEvent;
 
     private bool isShooting = false;
-    [SerializeField] private BoolReference isReloading;    
 
     [Header("Gun Stats")]
     [SerializeField] private IntReference baseDamage;
-    [SerializeField] private FloatReference fireRate, reloadTime;
-    [SerializeField] private int clipSize = 1;
-    public int ClipSize => clipSize;
-    [SerializeField] private float maxHeat = 100f;
-    public float MaxHeat => maxHeat;
-    [SerializeField] private float cooldownSpeed = 1f, overheatSpeed = 1f;
+
+    [Tooltip("How many bullets can be fired per second?")]
+    [SerializeField] private FloatReference fireRate;
+
+    [Tooltip("How many bullets can be reloaded per second?")]
+    [SerializeField] private FloatReference reloadRate;
+    [SerializeField] private BoolReference isReloading;
+
+    [Tooltip("How many bullets can fit in the clip, at max?")]
+    [SerializeField] private IntReference clipSize;
+    public int ClipSize => clipSize.Value;
+
+    [Tooltip("How much heat until the gun needs to cool down?")]
+    [SerializeField] private FloatReference maxHeat;
+    public float MaxHeat => maxHeat.Value;
+
+    [Tooltip("How fast can the gun cool down prior to reaching max overheat? (in overheat per second)")]
+    [SerializeField] private FloatReference cooldownSpeed;
+    [Tooltip("How fast can the gun cool down after overheating? (in overheat per second)")]
+    [SerializeField] private FloatReference overheatSpeed;
+    [Tooltip("How much overheat does the gun accumulate per shot?")]
     [SerializeField] private FloatReference overheatRate;
 
     [Header("References")]
@@ -71,7 +85,10 @@ public class GunControl : MonoBehaviour
     [SerializeField] private GameObject gunBase, gunBulletPoint;
     [SerializeField] private GameObjectReference bulletPrefab;
     [SerializeField] private GameObject vfxPrefab;
+    [SerializeField] private GameEvent inputEvAdsPress, inputEvAdsRelease;
     [SerializeField] private GameEvent zoomEnterEvent, zoomExitEvent;
+
+    private CinemachineVirtualCamera vCam;
 
     private void OnDisable()
     {
@@ -79,10 +96,26 @@ public class GunControl : MonoBehaviour
         AmmoChangeEvent = null;
     }
 
+    private void Awake()
+    {
+        var zoomEnterListener = gameObject.AddComponent<GameEventListener>();
+        zoomEnterListener.Events.Add(inputEvAdsPress);
+        zoomEnterListener.Response = new();
+        zoomEnterListener.Response.AddListener(() => { Zoom(true); zoomEnterEvent?.Trigger(); });
+        inputEvAdsPress.RegisterListener(zoomEnterListener);
+
+        var zoomExitListener = gameObject.AddComponent<GameEventListener>();
+        zoomExitListener.Events.Add(inputEvAdsRelease);
+        zoomExitListener.Response = new();
+        zoomExitListener.Response.AddListener(() => { Zoom(false); zoomExitEvent?.Trigger(); });
+        inputEvAdsRelease.RegisterListener(zoomExitListener);
+    }
+
     private void Start()
     {
         mainCamera = Camera.main;
-        currentClip = clipSize;
+        gunCamera.TryGetComponent(out vCam);
+        currentClip = clipSize.Value;
         AmmoChangeEvent?.Invoke(currentClip);
     }
 
@@ -92,12 +125,12 @@ public class GunControl : MonoBehaviour
         {
             if (currentHeat > 0 & !overHeating)
             {
-                currentHeat -= cooldownSpeed * Time.deltaTime;
+                currentHeat -= cooldownSpeed.Value * Time.deltaTime;
                 HeatChangeEvent?.Invoke(currentHeat);
             }
             else if (overHeating && currentHeat > 0)
             {
-                currentHeat -= overheatSpeed * Time.deltaTime;
+                currentHeat -= overheatSpeed.Value * Time.deltaTime;
                 HeatChangeEvent?.Invoke(currentHeat);
             }
 
@@ -109,17 +142,17 @@ public class GunControl : MonoBehaviour
 
         if (isReloading.Value)
         {
-            if (reloadTimer < reloadTime.Value)
+            if (reloadTimer < reloadRate.Value)
             {
                 reloadTimer += Time.deltaTime;
             }
-            else if (currentClip < clipSize)
+            else if (currentClip < clipSize.Value)
             {
                 reloadTimer = 0;
                 currentClip++;
                 AmmoChangeEvent?.Invoke(currentClip);
             }
-            else if (currentClip == clipSize)
+            else if (currentClip == clipSize.Value)
             {
                 isReloading.Value = false;
             }
@@ -128,11 +161,6 @@ public class GunControl : MonoBehaviour
         {
             Fire();
         }
-    }
-
-    public void Look(InputAction.CallbackContext context)
-    {
-        mouseInput = context.ReadValue<Vector2>();
     }
 
     public void Shoot(InputAction.CallbackContext context)
@@ -165,31 +193,11 @@ public class GunControl : MonoBehaviour
         }
     }
 
-    public void Zoom(InputAction.CallbackContext context)
+    public void Zoom(bool zoomEnter)
     {
-        if (context.started)
-        {
-            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
-
-            vCam.m_Lens.FieldOfView = 36f; // Calculated as Vertical for some reason. needs fixed
-
-            Vector3 camPos = gunCamera.transform.localPosition;
-            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + 2);
-
-            zoomEnterEvent?.Trigger();
-        }
-
-        else if (context.canceled)
-        {
-            CinemachineVirtualCamera vCam = gunCamera.GetComponent<CinemachineVirtualCamera>();
-
-            vCam.m_Lens.FieldOfView = 52f; // Calculated as Vertical for some reason. needs fixed
-
-            Vector3 camPos = gunCamera.transform.localPosition;
-            gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z - 2);
-
-            zoomExitEvent?.Trigger();
-        }
+        vCam.m_Lens.FieldOfView = zoomEnter ? 36f : 52f;
+        Vector3 camPos = gunCamera.transform.localPosition;
+        gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + (zoomEnter ? 2f : -2f));
     }
 
     private void Fire()
@@ -211,7 +219,7 @@ public class GunControl : MonoBehaviour
         currentHeat += overheatRate.Value;
         HeatChangeEvent?.Invoke(currentHeat);
 
-        if (currentHeat >= maxHeat)
+        if (currentHeat >= maxHeat.Value)
         {
             overHeating = true;
             isShooting = false;
