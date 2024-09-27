@@ -43,6 +43,8 @@ public class SPLineFollow : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 0.1f;
 
+    public float MoveSpeed {  get { return moveSpeed; } set {  moveSpeed = value; } }
+
     [SerializeField]
     private SplinePathData pathData;
 

@@ -1472,6 +1472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pillar Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6828183738434398900, guid: 61875f30b6837d248a77cb7f2ea3972e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6885784878208681247, guid: 61875f30b6837d248a77cb7f2ea3972e, type: 3}
       propertyPath: startSize
       value: 7
@@ -2094,6 +2098,56 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &525277702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525277704}
+  - component: {fileID: 525277703}
+  m_Layer: 0
+  m_Name: TempTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &525277703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525277702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384daba07f42d674bbe6f9396bab04b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 538256209}
+--- !u!4 &525277704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525277702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.273319, y: 199.37694, z: 673.62585}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &538256209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4841845340170309717, guid: 998369fd0eaac954b8a1dbcfe2341ad9, type: 3}
+  m_PrefabInstance: {fileID: 3490181113692352318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &548018100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11960,6 +12014,14 @@ PrefabInstance:
       propertyPath: splineContainer
       value: 
       objectReference: {fileID: 7876675187010415202}
+    - target: {fileID: 4786057831724042205, guid: 998369fd0eaac954b8a1dbcfe2341ad9, type: 3}
+      propertyPath: armor
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886868301630734569, guid: 998369fd0eaac954b8a1dbcfe2341ad9, type: 3}
+      propertyPath: armor
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5225842605926512082, guid: 998369fd0eaac954b8a1dbcfe2341ad9, type: 3}
       propertyPath: m_Name
       value: Three Piece Enemy
@@ -12569,3 +12631,4 @@ SceneRoots:
   - {fileID: 1530688600}
   - {fileID: 3490181113692352318}
   - {fileID: 381301688}
+  - {fileID: 525277704}

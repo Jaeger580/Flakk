@@ -64,10 +64,21 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         //Deal damage to the enemy
         currenthealth -= damage;
 
+        Debug.Log(damage + " final damage taken.");
+
         if (currenthealth <= 0) 
         {
             death();
         }
+    }
+
+    public virtual void speedMulti(float newSpeed)
+    {
+        //Deal damage to the enemy
+        var followScript = leadPoint.GetComponent<SPLineFollow>();
+        float oldSpeed = followScript.MoveSpeed;
+
+        followScript.MoveSpeed = oldSpeed * newSpeed;
     }
 
     protected virtual void death() 
