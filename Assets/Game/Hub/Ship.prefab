@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3691411218591133934}
   - component: {fileID: 4879215824490499280}
   - component: {fileID: 1644527529504295015}
-  - component: {fileID: 4869986648537883043}
   m_Layer: 0
   m_Name: WeakSpot (1)
   m_TagString: Untagged
@@ -107,21 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4869986648537883043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809064981439162818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df3d0a35ca1e45b2ba12fd282ea6849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actualHealthHolder: {fileID: 4004265471844828206}
-  maxWeakpointHealth: 50000
-  currentHealth: 0
 --- !u!1 &3737747467900355970
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +118,6 @@ GameObject:
   - component: {fileID: 7711384944768266807}
   - component: {fileID: 4762727251685052563}
   - component: {fileID: 5130001143926839943}
-  - component: {fileID: 5754634492287440628}
   m_Layer: 0
   m_Name: WeakSpot
   m_TagString: Untagged
@@ -229,21 +212,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5754634492287440628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3737747467900355970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df3d0a35ca1e45b2ba12fd282ea6849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actualHealthHolder: {fileID: 4004265471844828206}
-  maxWeakpointHealth: 50000
-  currentHealth: 0
 --- !u!1 &4004265471844828206
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,11 +265,11 @@ MonoBehaviour:
   maxHealth:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: c1468826a7cab4bd48795519df1586cb, type: 2}
+    Variable: {fileID: 11400000, guid: 2d713344abc1d43a9bb57e24be1a9902, type: 2}
   currentHealth:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: b461a482e7691428495245f9214ec39d, type: 2}
+    Variable: {fileID: 11400000, guid: b527cf4804bdf4406a6602e44a2a8ad0, type: 2}
   healthChangeEvent: {fileID: 11400000, guid: 4ecfacac102e244849b84e83a6c3c931, type: 2}
   deathEvent: {fileID: 11400000, guid: f00a9c6e8af2b4296a8a51e5cd4594e3, type: 2}
   winEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
@@ -1041,7 +1009,6 @@ GameObject:
   - component: {fileID: 5554033510657345487}
   - component: {fileID: 4275581534714647939}
   - component: {fileID: 7675115757856536894}
-  - component: {fileID: 1233230614509769176}
   m_Layer: 0
   m_Name: WeakSpot (2)
   m_TagString: Untagged
@@ -1136,21 +1103,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1233230614509769176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8423548241403985397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7df3d0a35ca1e45b2ba12fd282ea6849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actualHealthHolder: {fileID: 4004265471844828206}
-  maxWeakpointHealth: 50000
-  currentHealth: 0
 --- !u!1001 &6256019079353253133
 PrefabInstance:
   m_ObjectHideFlags: 0
