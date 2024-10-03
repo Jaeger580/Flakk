@@ -19,13 +19,21 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     [SerializeField]
     protected int maxHealth;
 
+    [SerializeField]
+    protected float attackRange;
+    [SerializeField]
+    protected float attackRadius;
+
     protected int currenthealth;
+    protected int targetLayer;
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
 
     protected virtual void Start()
     {
         currenthealth = maxHealth;
+
+        targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
     }
 
     protected virtual void Update()
@@ -34,6 +42,14 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
     protected virtual void FixedUpdate()
     {
+        RaycastHit hit;
+        if (Physics.SphereCast(transform.position, attackRadius, transform.forward, out hit, attackRange)) 
+        {
+            if(hit.transform.gameObject.layer == targetLayer)
+            {
+                Attack();
+            }
+        }
     }
 
     protected virtual void LateUpdate()
@@ -68,11 +84,11 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
         if (currenthealth <= 0) 
         {
-            death();
+            Death();
         }
     }
 
-    public virtual void speedMulti(float newSpeed)
+    public virtual void SpeedMulti(float newSpeed)
     {
         //Deal damage to the enemy
         var followScript = leadPoint.GetComponent<SPLineFollow>();
@@ -81,8 +97,13 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         followScript.MoveSpeed = oldSpeed * newSpeed;
     }
 
-    protected virtual void death() 
+    protected virtual void Death() 
     {
 
+    }
+
+    protected virtual void Attack() 
+    {
+        Debug.Log("Pew Pew Pew!");
     }
 }

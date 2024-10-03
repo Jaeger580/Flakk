@@ -8,7 +8,7 @@ public class Engine : DestructablePart
     {
         //mainBody.speed--;
 
-        mainBody.GetComponent<Enemy>().speedMulti(0.5f);
+        mainBody.GetComponent<Enemy>().SpeedMulti(0.5f);
 
         //trigger VFX
         //enable/disable model

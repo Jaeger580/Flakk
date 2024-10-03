@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
+  armor: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &1675847659245256344
 GameObject:
@@ -419,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
+  armor: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &3471579149652576933
 GameObject:
@@ -551,6 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
+  armor: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &4911050270570361200
 GameObject:
@@ -600,6 +603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
   maxHealth: 50
+  attackRange: 10
+  attackRadius: 5
 --- !u!1 &5225842605926512082
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,4 +793,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 50
+  armor: 0
   mainBody: {fileID: 1960761301650854311}
