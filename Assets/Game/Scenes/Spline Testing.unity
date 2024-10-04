@@ -11457,18 +11457,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Bomber
       objectReference: {fileID: 0}
-    - target: {fileID: 6895504544599098394, guid: 5d666095f2d516546af1374c0a17602d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334158909923739744, guid: 5d666095f2d516546af1374c0a17602d, type: 3}
-      propertyPath: attackRange
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334158909923739744, guid: 5d666095f2d516546af1374c0a17602d, type: 3}
-      propertyPath: attackRadius
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8700168661930345454, guid: 5d666095f2d516546af1374c0a17602d, type: 3}
       propertyPath: splineContainer
       value: 
@@ -11824,7 +11812,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -12497,6 +12485,10 @@ PrefabInstance:
     - target: {fileID: 7830317453534902602, guid: 41edfd696e180d34981072d0599e37b5, type: 3}
       propertyPath: m_Name
       value: Bomber Testr Spline
+      objectReference: {fileID: 0}
+    - target: {fileID: 7830317453534902602, guid: 41edfd696e180d34981072d0599e37b5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

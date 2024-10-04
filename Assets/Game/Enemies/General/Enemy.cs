@@ -23,6 +23,20 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     protected float attackRange;
     [SerializeField]
     protected float attackRadius;
+    [SerializeField]
+    protected float fireRate;
+    protected float fireRateTimer;
+    protected bool canShoot;
+
+    [SerializeField]
+    protected float burstSize;
+    [SerializeField]
+    protected float shotDelay;
+
+    [SerializeField]
+    protected GameObject[] attackPoints;
+    [SerializeField]
+    protected GameObject attackProjectile;
 
     protected int currenthealth;
     protected int targetLayer;
@@ -32,22 +46,37 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     protected virtual void Start()
     {
         currenthealth = maxHealth;
+        fireRateTimer = fireRate;
 
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
     }
 
     protected virtual void Update()
     {
+        if(fireRateTimer < fireRate) 
+        {
+            fireRateTimer += Time.deltaTime;
+            canShoot = false;
+        }
+        else 
+        {
+            canShoot = true;
+        }
     }
 
     protected virtual void FixedUpdate()
     {
-        RaycastHit hit;
-        if (Physics.SphereCast(transform.position, attackRadius, transform.forward, out hit, attackRange)) 
+        if(canShoot) 
         {
-            if(hit.transform.gameObject.layer == targetLayer)
+            RaycastHit hit;
+            if (Physics.SphereCast(transform.position, attackRadius, transform.forward, out hit, attackRange))
             {
-                Attack();
+                if (hit.transform.gameObject.layer == targetLayer)
+                {
+                    Attack(hit);
+                    fireRateTimer = 0;
+                    canShoot = false;
+                }
             }
         }
     }
@@ -102,8 +131,23 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
     }
 
-    protected virtual void Attack() 
+    protected virtual void Attack(RaycastHit hit) 
     {
-        Debug.Log("Pew Pew Pew!");
+        StartCoroutine(BurstAttack(hit));
+    }
+
+    protected virtual IEnumerator BurstAttack(RaycastHit hit) 
+    {
+        for (int i = 0;  i < burstSize; i++) 
+        {
+            var dir = transform.position - hit.transform.position;
+
+            foreach (GameObject AP in attackPoints) 
+            {
+                Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
+            }
+
+            yield return new WaitForSeconds(shotDelay);
+        }
     }
 }
