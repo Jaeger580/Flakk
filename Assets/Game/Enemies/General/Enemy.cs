@@ -1,6 +1,5 @@
 /* Jakob Jaeger
  * 09/17/2024
- * This is a prototype script that SHOULD NOT BE USED AFTER TESTING. A new script should be rewritten as the framework for future enemies. 
  * 
  * This script contains an abstract class that will be used as the base for all future enemies.
  * Contains values for health, move speed, ect...
