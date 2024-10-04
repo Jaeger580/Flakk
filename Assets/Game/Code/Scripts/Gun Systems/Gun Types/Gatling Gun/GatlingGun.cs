@@ -14,8 +14,8 @@ public class GatlingGun : GunType
     [Tooltip("How much overheat does the gun accumulate per shot?")]
     [SerializeField] private FloatReference overheatRate;
 
-    private float currentHeat = 1f;
-    private BoolReference overHeating;
+    private float currentHeat = 0f;
+    [SerializeField] protected BoolReference overHeating;
 
     public delegate void OnHeatChange(float newHeat);
     public OnHeatChange HeatChangeEvent;
@@ -28,16 +28,34 @@ public class GatlingGun : GunType
 
     protected override void Update()
     {
-        base.Update();
-        if (!isFiring.Value)
+        if (fireTimer < 1f / fireRate.Value)
+        {//increment timer if it's below the threshold
+            fireTimer += Time.deltaTime;
+        }
+
+        if (isReloading.Value)
+        {//if I'm pressing reload, handle that
+            HandleReload();
+        }
+        else if (overHeating.Value)
+        {//if I'm overheating, prevent firing and handle overheat
             HandleOverheat();
+        }
+        else if (isFiring.Value)
+        {//if I'm firing, handle that
+            HandleFire();
+        }
+        else
+        {//otherwise also consider handling overheat
+            HandleOverheat();
+        }
     }
 
     protected override void HandleFire()
     {
-        if (overHeating.Value) return;                          //if I'm overheating, return (TODO: add feedback)
+        if (overHeating.Value) { Debug.Log("OVERHEATING"); return; }                          //if I'm overheating, return (TODO: add feedback)
         if (!currentMag.TryPeek(out var ammoType)) return;        //if there's no bullet in the magazine, return (TODO: add feedback)
-        if (fireTimer > 1f / fireRate.Value) return;            //if the timer isn't ready, return
+        if (fireTimer < 1f / fireRate.Value) return;            //if the timer isn't ready, return
 
         var bulletInstance = Fire(ammoType);
         var imp = bulletInstance.GetComponent<ImpactBehavior>();

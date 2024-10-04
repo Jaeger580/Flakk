@@ -2928,6 +2928,63 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &1009756356
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8359329690269774280, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_Name
+      value: Gatling Gun VARIANT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8414943872671212142, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7510c52e9d36640b2bc9c6a06bf47039, type: 3}
 --- !u!1 &1050595880
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,6 +3474,10 @@ PrefabInstance:
     - target: {fileID: 8359329690269774280, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_Name
       value: Base Gun VARIANT
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359329690269774280, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8414943872671212142, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12073,6 +12134,7 @@ SceneRoots:
   - {fileID: 3661080312620403298}
   - {fileID: 2868924512222592626}
   - {fileID: 1232027278}
+  - {fileID: 1009756356}
   - {fileID: 1638138363}
   - {fileID: 253655149}
   - {fileID: 1624138664}

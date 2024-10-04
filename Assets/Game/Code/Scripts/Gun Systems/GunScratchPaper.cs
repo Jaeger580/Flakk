@@ -317,6 +317,11 @@ public abstract class ImpactBehavior : MonoBehaviour
         return LayerMask.NameToLayer("Enemy");
     }
 
+    protected void Awake()
+    {
+        Destroy(gameObject, 5f);
+    }
+
     public void Initialize(float effectVal)
     {
         effectValue = effectVal;
