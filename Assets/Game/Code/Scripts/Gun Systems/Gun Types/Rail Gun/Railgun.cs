@@ -27,31 +27,20 @@ public class Railgun : GunType
         gunSetup.inputEvPriRelease.RegisterListener(primaryReleaseListener);
     }
 
-    protected void ZeroCharge()
-    {
-        currentCharge.Value = 0f;
-        ChargeChangeEvent?.Invoke(currentCharge.Value);
-    }
-
     protected override void Update()
     {
         if (isReloading.Value)
         {//if I'm pressing reload, handle that
             HandleReload();
-            ZeroCharge();
+            CurrentCharge = 0f;
         }
-        else if (isFiring.Value && currentCharge.Value < maxCharge.Value)
+        else if (isFiring.Value && CurrentCharge < maxCharge.Value)
         {//if I'm holding fire, increment charge
-            currentCharge.Value += Time.deltaTime * chargeRate.Value;
-            ChargeChangeEvent?.Invoke(currentCharge.Value);
-        }
-        else if (currentCharge.Value >= maxCharge.Value)
-        {
-            currentCharge.Value = maxCharge.Value;
+            CurrentCharge += Time.deltaTime * chargeRate.Value;
         }
         else
         {
-            ZeroCharge();
+            CurrentCharge = 0f;
         }
     }
 
@@ -67,13 +56,32 @@ public class Railgun : GunType
         //Cleanup
         currentMag.Pop();
         AmmoChangeEvent?.Invoke(currentMag.stack.Count);
-        currentCharge.Value = 0f;
-        ChargeChangeEvent?.Invoke(currentCharge.Value);
+        CurrentCharge = 0f;
 
         //trigger sfx and vfx?
-        if (vfxOnShot != null)
+        //if (vfxOnShot != null)
+        //{
+        //    GameObject vfxInstance = Instantiate(vfxOnShot.Value, bulletInstance.transform.position, bulletInstance.transform.rotation);
+        //}
+    }
+
+    public float CurrentCharge
+    {
+        get { return currentCharge.Value; }
+        set
         {
-            GameObject vfxInstance = Instantiate(vfxOnShot.Value, bulletInstance.transform.position, bulletInstance.transform.rotation);
+            value = Mathf.Clamp(value, 0f, maxCharge.Value);
+            if(currentCharge.Value != value)
+            {
+                currentCharge.Value = value;
+                ChargeChangeEvent?.Invoke(currentCharge.Value);
+            }
+
+            if(currentCharge.Value >= maxCharge.Value)
+            {
+                fullyCharged.Value = true;
+                //trigger max charge event?
+            }
         }
     }
 }

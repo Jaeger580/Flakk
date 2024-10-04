@@ -242,11 +242,13 @@ public abstract class GunType : MonoBehaviour
 
         var bulletTrans = bulletInstance.transform;
         var bulletRB = bulletInstance.GetComponent<Rigidbody>();
-
-        bulletRB.velocity = Vector3.zero;
         bulletTrans.forward = directionWithSpread.normalized;
 
-        bulletRB.AddForce(directionWithSpread.normalized * shotForce.Value, ForceMode.Impulse);
+        if (bulletRB != null)
+        {
+            bulletRB.velocity = Vector3.zero;
+            bulletRB.AddForce(directionWithSpread.normalized * shotForce.Value, ForceMode.Impulse);
+        }
 
         return bulletInstance;
     }

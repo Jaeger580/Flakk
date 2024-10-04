@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rail Gun Standard Iron Bullet Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -84,3 +88,83 @@ MonoBehaviour:
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
   sfxOnImpact: []
+  radiusScalar: 1
+  bulletTrail: {fileID: 3679580393387967822, guid: c597ed6cf8b5d47afac40faa11600f53, type: 3}
+  trailToPoint: 0.1
+  trailLifetime: 1
+  trailPosCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0041666664
+      value: 0.000000027939677
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.23749995
+      value: 0.000000027939677
+      inSlope: 0.01617231
+      outSlope: 0.01617231
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.023103638
+      outSlope: 0.023103638
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.26775953
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  trailWeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.3282118
+      outSlope: 3.3282118
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2616601
+      value: 0.8708602
+      inSlope: -0.036293287
+      outSlope: -0.036293287
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.3692717
+      value: 0.90157956
+      inSlope: 0.48277962
+      outSlope: 0.48277962
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.79942065
+      outWeight: 0.23065269
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.15604253
+      outSlope: 0.15604253
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  journey: 0

@@ -257,23 +257,114 @@ public class DEBUFF_DamageOverTime : PersistentStatusEffect
 
 abstract public class RailGunAmmo : ImpactBehavior
 {
-    private bool triggered;
+    protected bool triggered;
+    protected float og_effectValue;
 
-    private void LateUpdate()
+    [SerializeField] protected float radiusScalar = 0f;
+
+    [SerializeField] protected TrailRenderer bulletTrail;
+    [SerializeField] protected float trailToPoint, trailLifetime;
+    [SerializeField] protected AnimationCurve trailPosCurve, trailWeightCurve;
+    [ReadOnly] [SerializeField] protected float journey;
+
+    protected void LateUpdate()
     {
         if (triggered) return;
+        triggered = true;
 
-        if (!Physics.Raycast(transform.position, transform.forward, out var hit, 1000f, affectableMask)) { Destroy(this); return; }
+        bool hitSomething = Physics.Raycast(transform.position, transform.forward, out var hit, 1000f, affectableMask);
+
+        HandleTrailVFX(hitSomething, hit);
+
+        //if (!hitSomething) { Destroy(this); return; }
+        if (!hitSomething) { return; }
 
         if (!hit.collider.TryGetComponent<IDamageable>(out var d)) return;  //If it's not damageable
 
+        //TrailRenderer trail = Instantiate(bulletTrail, transform.position, Quaternion.identity);
+        
         CombatPacket p = new();
         p.SetTarget(d, this);
         p.SetHitCollider(hit.collider, this);
 
         OnImpact(p);
+    }
 
-        triggered = true;
+    protected void HandleTrailVFX(bool hitSomething, RaycastHit hit)
+    {
+        TrailRenderer trail = Instantiate(bulletTrail, transform.position, Quaternion.identity);
+        Ray ray = new(transform.position, transform.forward);
+
+        if (hitSomething)
+        {
+            StartCoroutine(SpawnTrail(trail, hit));
+        }
+        else
+        {
+            StartCoroutine(SpawnTrail(trail, ray.GetPoint(500)));
+        }
+    }
+
+    protected IEnumerator SpawnTrail(TrailRenderer trail, Vector3 hitPoint)
+    {
+        if (hitPoint == null) yield break;
+
+        journey = 0f;
+        var trailTrans = trail.transform;
+        var trailRend = trail.GetComponent<TrailRenderer>();
+        Vector3 startPos = trailTrans.position;
+        //trailTrans.position = hitInfo.point;
+        while (journey < trailLifetime)
+        {
+            float pointPercent = journey / trailToPoint;
+            float lifePercent = journey / trailLifetime;
+            float posEasePercent = trailPosCurve.Evaluate(pointPercent);
+            float weightEasePercent = trailWeightCurve.Evaluate(lifePercent);
+
+            trailTrans.position = Vector3.LerpUnclamped(startPos, hitPoint, posEasePercent);
+            float scale = radiusScalar * effectValue * (1f - weightEasePercent);
+            trailRend.widthMultiplier = scale;
+            //trailRend.startWidth = scale;
+            //trailRend.endWidth = scale;
+            journey += Time.deltaTime / trail.time;
+            yield return null;
+        }
+        trailTrans.position = hitPoint;
+        //if (impactParticleSystem != null)
+        //{
+        //    Instantiate(impactParticleSystem, hitPoint, Quaternion.identity);
+        //}
+        Destroy(trail.gameObject, trail.time);
+    }
+
+    protected IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hitInfo)
+    {
+        journey = 0f;
+        var trailTrans = trail.transform;
+        var trailRend = trail.GetComponent<TrailRenderer>();
+        Vector3 startPos = trailTrans.position;
+        //trailTrans.position = hitInfo.point;
+        while (journey < trailLifetime)
+        {
+            float pointPercent = journey / trailToPoint;
+            float lifePercent = journey / trailLifetime;
+            float posEasePercent = trailPosCurve.Evaluate(pointPercent);
+            float weightEasePercent = trailWeightCurve.Evaluate(lifePercent);
+
+            trailTrans.position = Vector3.LerpUnclamped(startPos, hitInfo.point, posEasePercent);
+            float scale = radiusScalar * effectValue * (1f - weightEasePercent);
+            trailRend.widthMultiplier = scale;
+            //trailRend.startWidth = scale;
+            //trailRend.endWidth = scale;
+            journey += Time.deltaTime / trail.time;
+            yield return null;
+        }
+        trailTrans.position = hitInfo.point;
+        //if (impactParticleSystem != null)
+        //{
+        //    Instantiate(impactParticleSystem, hitInfo.point, Quaternion.LookRotation(hitInfo.normal));
+        //}
+        Destroy(trail.gameObject, trail.time);
     }
 
     abstract public override void OnImpact(CombatPacket p);

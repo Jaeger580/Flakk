@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 351227032502860110, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
     - target: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_Name
-      value: Rail Gun VARIANT
+      value: Rail Gun Prefab VARIANT
       objectReference: {fileID: 0}
     - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +56,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 531004887479689101, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
+    - target: {fileID: 1471481963223189436, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
+    - target: {fileID: 2783894222322362544, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
+    - target: {fileID: 4644549873338530887, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6922793697723135513, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -101,7 +121,19 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 0340d90e091564305a0fc193ea825a75, type: 2}
-  vfxPrefab:
+  shotForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 5e1a4475e24004fbcbbf4dc306bbd66d, type: 2}
+  inaccuracyRange:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 4d9b979b995ab4566936cba6569bb6f7, type: 2}
+  inaccuracyRadius:
+    UseConstant: 0
+    ConstantValue: {x: 0, y: 0}
+    Variable: {fileID: 11400000, guid: f44f6b88e23c448069e1a1c5ceb4daaf, type: 2}
+  vfxOnShot:
     UseConstant: 0
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
