@@ -10,9 +10,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using GeneralUtility.CombatSystem;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, IDamagable
+public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField]
     protected GameObject leadPoint;
@@ -40,6 +41,9 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
     protected int currenthealth;
     protected int targetLayer;
+
+    public int MaxHealth => throw new System.NotImplementedException();
+
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
 
@@ -104,17 +108,20 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
     // Damage should likely be moved to another script for
     // systems involving multiple hitzones and complex enemies.
-    public virtual void TakeDamage(int damage)
+    public bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
-        currenthealth -= damage;
+        int finalDamage = CombatManager.DamageCalculator(packet);
+        currenthealth -= finalDamage;
 
-        Debug.Log(damage + " final damage taken.");
+        Debug.Log(finalDamage + " final damage taken.");
 
-        if (currenthealth <= 0) 
+        if (currenthealth <= 0)
         {
             Death();
         }
+
+        return true;
     }
 
     public virtual void SpeedMulti(float newSpeed)

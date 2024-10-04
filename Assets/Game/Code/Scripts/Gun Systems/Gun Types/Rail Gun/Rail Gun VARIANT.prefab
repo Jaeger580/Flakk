@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8165874762400808458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Name
+      value: Rail Gun VARIANT
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4400658669411195339}
+  m_SourcePrefab: {fileID: 100100000, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+--- !u!1 &8359329690269774280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+  m_PrefabInstance: {fileID: 8165874762400808458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4400658669411195339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359329690269774280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44c0bb8ff654450c8712b31135c3439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMag: {fileID: 0}
+  currentStockpile: {fileID: 0}
+  primaryMag: {fileID: 11400000, guid: f2fa6316238f04c28847f9b0e86242ed, type: 2}
+  secondaryMag: {fileID: 11400000, guid: 84b5fa7294c1241fb9ae8c1658851767, type: 2}
+  primaryStockpile: {fileID: 11400000, guid: a0caf7fd71c764e2d8adbebff053fc7c, type: 2}
+  secondaryStockpile: {fileID: 11400000, guid: f3f7f57b22f0f487e9483136d0a52df6, type: 2}
+  defaultPrimaryMag: {fileID: 11400000, guid: 29e2de664040e41dfa2a7e36d159d38f, type: 2}
+  defaultSecondaryMag: {fileID: 11400000, guid: 29e2de664040e41dfa2a7e36d159d38f, type: 2}
+  fireRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: a154b1381b6a2455faa6dce2bff0dff4, type: 2}
+  isFiring:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7b338361c3e6a40fbb13d808c34bdfec, type: 2}
+  reloadRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 6944b89b0d2d8431d94eb75716de409d, type: 2}
+  isReloading:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 0340d90e091564305a0fc193ea825a75, type: 2}
+  vfxPrefab:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
+  fullyCharged:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 0e6052c21a4664ce89dd1eb110a3c070, type: 2}
+  maxCharge:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 10e9f8c16a5fa483ebf50f88d373ae90, type: 2}
+  currentCharge:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 09f6cd8b791de4d97b278f5dd0a21741, type: 2}
+  chargeRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 3b63234713c514c0b88638540504068c, type: 2}
+  chargeDamageCurve:
+    UseConstant: 0
+    ConstantValue:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    Variable: {fileID: 11400000, guid: 5f9e9f4babb09469492d974869144cee, type: 2}

@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5480843703411572514
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Name
+      value: Gatling Gun Incendiary Bullet Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 36814b3a2cb8e7f47bbe8c22785c4cb7, type: 2}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9126019508848450402}
+  m_SourcePrefab: {fileID: 100100000, guid: ac1cd62467021485fbef057f75334857, type: 3}
+--- !u!1 &4844741514299502954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+  m_PrefabInstance: {fileID: 5480843703411572514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9126019508848450402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4844741514299502954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ac0b061a90e4e34a4314b54f74f17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxPrefab:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
+  sfxOnImpact: []
+  ammoVals: {fileID: 11400000, guid: 119106f38bcdb4052913cadd574c49c5, type: 2}
+  tickRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d620c537b9a314485824aa967da1dae9, type: 2}
+  timeBeforeExpiration:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 6b50ec5245ba340a1b217a206d5f3bb9, type: 2}
+  maxNumTicks:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d3d3ffe69227940b0b296c3f8e92a0f8, type: 2}
+  maxStacks:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ff91cb46028024ad29393acf0d45f7ea, type: 2}
+  refreshable:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 4a34e49a3f13a4353be3681cbeefc406, type: 2}
+  stackable:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 089117d4431bc4434b3e8b17362cc79a, type: 2}

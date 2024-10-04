@@ -7,11 +7,20 @@ namespace GeneralUtility
     {
         public interface IEffect
         {//Used to trigger weapon effects and events
-            abstract public bool TriggerEffectByRaycast(CombatPacket p, RaycastHit target);
-            //These are poor design, as interfaces are SUPPOSED to implement all members, not just some.
-            abstract public bool TriggerEffect(CombatPacket p); //EVERYTHING ELSE DOES NOT
-            abstract public void OnEffect(int damage);
+            abstract public float GetEffectValue();
+            abstract public bool TriggerEffect(CombatPacket p);
+            abstract public void OnEffect(int damage);          //Primarily for related events, such as objectivs
             abstract public void OnKill();
+        }
+
+        public interface IPersistentEffect : IEffect
+        {
+            abstract public float GetTickRate();
+            abstract public float GetTimeBeforeExpiration();
+            abstract public int GetMaxNumTicks();
+            abstract public int GetMaxStacks();
+            abstract public bool GetRefreshable();
+            abstract public bool GetStackable();
         }
 
         public interface IDamageable
@@ -41,8 +50,8 @@ namespace GeneralUtility
             private IEffect affector;
             public IEffect Affector => affector;
 
-            //private List<PersistentStatusEffect> activeModifiers = new();
-            //public List<PersistentStatusEffect> ActiveModifiers => activeModifiers;
+            private List<DamageModifier> activeModifiers = new();
+            public List<DamageModifier> ActiveModifiers => activeModifiers;
 
             private List<Component> mons = new();
 
@@ -101,17 +110,17 @@ namespace GeneralUtility
                 LogHandoff(m);
             }
 
-            //[Tooltip("Add along the way.")]
-            //public void AddToActiveModifiers(PersistentStatusEffect e, Component m)
-            //{
-            //    if (activeModifiers.Count <= 0) loggedHandoffs += $"Active Modifiers\n{SPACER}";
-            //    activeModifiers.Add(e);
-            //    LogHandoff(m);
+            [Tooltip("Add along the way.")]
+            public void AddToActiveModifiers(DamageModifier e, Component m)
+            {
+                if (activeModifiers.Count <= 0) loggedHandoffs += $"Active Modifiers\n{SPACER}";
+                activeModifiers.Add(e);
+                LogHandoff(m);
 
-            //    loggedHandoffs += $"Parent - {m.GetType()} :: Modifier - {e.GetType()}\n";
+                loggedHandoffs += $"Parent - {m.GetType()} :: Modifier - {e.GetType()}\n";
 
-            //    Editor_Utility.Ping(m.gameObject);
-            //}
+                //Editor_Utility.Ping(m.gameObject);
+            }
 
             public void LogHandoff(Component m)
             {
@@ -162,23 +171,23 @@ namespace GeneralUtility
             static public int DamageCalculator(CombatPacket combatInstance)
             {
                 int newDamage = combatInstance.Damage;
-                //var activeModifs = combatInstance.ActiveModifiers;
+                var activeModifs = combatInstance.ActiveModifiers;
                 var hitCol = combatInstance.HitCollider;
                 //foreach (var modif in combatInstance.activeModifiers)
                 //    currentModifiers.Add(modif);
 
                 int lastDamage = newDamage;
 
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not BUFF_PreMitigationMultiplier preMitMult) continue;
-                //    newDamage = preMitMult.ApplyStatModification(newDamage);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
+                foreach (var e in activeModifs)
+                {
+                    if (e is not DamageMod_PreMitigationMultiplier preMitMult) continue;
+                    newDamage = preMitMult.ApplyStatModification(newDamage);
+                    if (lastDamage != newDamage)
+                    {
+                        //Debug.Log($"{lastDamage} != {newDamage}");
+                        lastDamage = newDamage;
+                    }
+                }
 
                 //foreach (var e in activeModifs)
                 //{
@@ -191,16 +200,16 @@ namespace GeneralUtility
                 //    }
                 //}
 
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not BUFF_PreMitigationFlat preMitFlat) continue;
-                //    newDamage = preMitFlat.ApplyStatModification(newDamage);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        //Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
+                foreach (var e in activeModifs)
+                {
+                    if (e is not DamageMod_PreMitigationFlat preMitFlat) continue;
+                    newDamage = preMitFlat.ApplyStatModification(newDamage);
+                    if (lastDamage != newDamage)
+                    {
+                        //Debug.Log($"{lastDamage} != {newDamage}");
+                        lastDamage = newDamage;
+                    }
+                }
 
                 //foreach (var e in activeModifs)
                 //{
@@ -213,20 +222,20 @@ namespace GeneralUtility
                 //    }
                 //}
 
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not BUFF_PostMitigationMultiplier postMitMult) continue;
-                //    newDamage = postMitMult.ApplyStatModification(newDamage);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
+                foreach (var e in activeModifs)
+                {
+                    if (e is not DamageMod_PostMitigationMultiplier postMitMult) continue;
+                    newDamage = postMitMult.ApplyStatModification(newDamage);
+                    if (lastDamage != newDamage)
+                    {
+                        //Debug.Log($"{lastDamage} != {newDamage}");
+                        lastDamage = newDamage;
+                    }
+                }
 
                 //foreach (var e in activeModifs)
                 //{
-                //    if (e is not EE_PostMitigationMultiplier postMitMult) continue;
+                //    if (e is not DamageMod_PostMitigationFlat postMitMult) continue;
                 //    newDamage = postMitMult.ApplyDamageModification(newDamage, hitCol);
                 //    if (lastDamage != newDamage)
                 //    {
@@ -235,15 +244,31 @@ namespace GeneralUtility
                 //    }
                 //}
 
-                //foreach (var e in activeModifs)
+                DamageMod_PostMitigationFlat totalPostMitFlatArmor = new(0f);
+                DamageMod_PostMitigationFlat totalPostMitFlatBonus = new(0f);
+
+                foreach (var e in activeModifs)
+                {//Add up all the post-mitigation flat values, i.e. flat armor or flat bonus damage
+                    if (e is not DamageMod_PostMitigationFlat postMitFlat) continue;
+
+                    //if it's negative, it's armor. if it's positive, it's bonus damage.
+                    if(postMitFlat.statModifier < 0f) totalPostMitFlatArmor.statModifier += postMitFlat.statModifier; 
+                    else totalPostMitFlatBonus.statModifier += postMitFlat.statModifier;
+                }
+
+                foreach (var e in activeModifs)
+                {//if you have armor ignore,
+                    if (e is not DamageMod_PostMitigationFlatIgnore postMitFlatIgnore) continue;
+
+                    totalPostMitFlatArmor.statModifier += postMitFlatIgnore.statModifier;
+                }
+
+                newDamage = totalPostMitFlatArmor.ApplyStatModification(newDamage);
+                newDamage = totalPostMitFlatBonus.ApplyStatModification(newDamage);
+                //if (lastDamage != newDamage)
                 //{
-                //    if (e is not BUFF_PostMitigationFlat postMitFlat) continue;
-                //    newDamage = postMitFlat.ApplyStatModification(newDamage);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        //Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
+                //    //Debug.Log($"{lastDamage} != {newDamage}");
+                //    lastDamage = newDamage;
                 //}
 
                 //foreach (var e in activeModifs)
@@ -256,6 +281,9 @@ namespace GeneralUtility
                 //        lastDamage = newDamage;
                 //    }
                 //}
+
+                if (newDamage <= 0) newDamage = 1;
+
                 return newDamage;
             }
         }

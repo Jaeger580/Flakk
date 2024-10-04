@@ -6,9 +6,10 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility.CombatSystem;
 using UnityEngine;
 
-abstract public class DestructablePart : MonoBehaviour, IDamagable
+abstract public class DestructablePart : MonoBehaviour, IDamageable
 {
     // Tracks the local health of the part that was hit, and then applies damage 
     [SerializeField]
@@ -25,27 +26,33 @@ abstract public class DestructablePart : MonoBehaviour, IDamagable
     [SerializeField]
     protected Enemy mainBody;
 
-    public void TakeDamage(int _damage)
+    public int MaxHealth => localHealth;
+
+    public bool ApplyDamage(CombatPacket p)
     {
-        if (localHealth <= 0) return;
-        localHealth -= (_damage);
+        if (localHealth <= 0) return false;     //Provides feedback for whether it dealt any damage or not
 
-        Debug.Log(_damage + " local damage taken.");
-
-        if (localHealth <= 0)
-            TriggerSpecialDebuff();
-        
-        var finalDamage = _damage - armor;
+        p.AddToActiveModifiers(new DamageMod_PostMitigationFlat(-armor), this);  //Add armor to the list of considerations
+        var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
 
         // Makes sure enemies armor can completely nullify damage. Not sure how these will skill with different enemies vs new player weapons.
         if (finalDamage <= 0)
             finalDamage = 1;
-        mainBody.TakeDamage((finalDamage));
+
+        localHealth -= finalDamage; //Apply that damage locally
+
+        Debug.Log(finalDamage + " local damage taken.");
+
+        if (localHealth <= 0)
+            TriggerSpecialDebuff();
+        
+        mainBody.ApplyDamage(p);
+
+        return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body
     }
+
     abstract public void TriggerSpecialDebuff();
 }
-
-
 
 ////bullet takes care of triggering damage
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility.CombatSystem;
 using UnityEngine;
 
 public class ComponentTesting : MonoBehaviour
@@ -10,15 +11,17 @@ public class ComponentTesting : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(damageComponent());
+        StartCoroutine(DamageComponent());
     }
 
-    IEnumerator damageComponent() 
+    IEnumerator DamageComponent() 
     {
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(2f);
-            target.GetComponent<DestructablePart>().TakeDamage(5);
+            var packet = new CombatPacket();
+            packet.SetDamage(5, this);
+            target.GetComponent<DestructablePart>().ApplyDamage(packet);
             Debug.Log("Damage Proc");
         }
     }
