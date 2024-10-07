@@ -8,7 +8,7 @@ namespace UnityEngine.Splines
     /// <summary>
     /// A component to animate an object along a spline.
     /// </summary>
-    [AddComponentMenu("Splines/Spline Animate")]
+    [AddComponentMenu("Splines/Spline Movement")]
     [ExecuteInEditMode]
     public class SplineMovement : SplineComponent
     {
