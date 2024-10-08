@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rail Gun Depleted Uranium Bullet Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,6 +63,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1458332917138121108}
+    - targetCorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8001403827786689701}
   m_SourcePrefab: {fileID: 100100000, guid: ac1cd62467021485fbef057f75334857, type: 3}
 --- !u!1 &997773078012729279 stripped
 GameObject:
@@ -82,7 +89,212 @@ MonoBehaviour:
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
   sfxOnImpact: []
+  radiusScalar: 12.5
+  bulletTrail: {fileID: 3679580393387967822, guid: c597ed6cf8b5d47afac40faa11600f53, type: 3}
+  trailToPoint: 0.1
+  trailLifetime: 1
+  gradient:
+    UseConstant: 0
+    ConstantValue:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    Variable: {fileID: 11400000, guid: 4004015c79af04016bfabae1fe37b799, type: 2}
+  trailPosCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0041666664
+      value: 0.000000027939677
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.23749995
+      value: 0.000000027939677
+      inSlope: 0.01617231
+      outSlope: 0.01617231
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.023103638
+      outSlope: 0.023103638
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.26775953
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 1
+    m_RotationOrder: 4
+  trailWeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.3282118
+      outSlope: 3.3282118
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.2616601
+      value: 0.8708602
+      inSlope: -0.036293287
+      outSlope: -0.036293287
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.3692717
+      value: 0.90157956
+      inSlope: 0.48277962
+      outSlope: 0.48277962
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.79942065
+      outWeight: 0.23065269
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.15604253
+      outSlope: 0.15604253
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  journey: 0
   armorPierceValue:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 23cbb23fd4f6949bc8e8a13c61f756be, type: 2}
+--- !u!114 &8001403827786689701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997773078012729279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b81259c71354c89a5c9e45242d1122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxPrefab:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
+  sfxOnImpact: []
+  radiusScalar: 0
+  bulletTrail: {fileID: 0}
+  trailToPoint: 0
+  trailLifetime: 0
+  gradient:
+    UseConstant: 0
+    ConstantValue:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    Variable: {fileID: 0}
+  trailPosCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  trailWeightCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  journey: 0
+  ammoVals: {fileID: 11400000, guid: 41eb1094cca434f9a8a6079ecfcc44f6, type: 2}
+  tickRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 696b2abbc19d243b2870d83549f5cffe, type: 2}
+  timeBeforeExpiration:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: c3ae70d2fac11435b946d57579d10273, type: 2}
+  maxNumTicks:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: b23ae9f94179c48448dc1ca4e3b2cafa, type: 2}
+  maxStacks:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 54a3deed666764db69225c18243fb775, type: 2}
+  refreshable:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 98a5aae3b854947188b8c39eb4dcafd8, type: 2}
+  stackable:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d6d2a3ee9197c4c85960e9794eb8a7b6, type: 2}

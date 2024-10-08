@@ -33,8 +33,7 @@ public class RailGunDepletedUraniumAmmo : RailGunAmmo, IEffect
         if (p.Target is not DestructablePart d) return false;
 
         p.SetDamage(Mathf.CeilToInt(effectValue), this);
-        DamageMod_PostMitigationFlatIgnore armorPierce = new(armorPierceValue.Value);
-        p.AddToActiveModifiers(armorPierce, this);
+
         return d.ApplyDamage(p);
     }
 }

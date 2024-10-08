@@ -2,10 +2,10 @@
 using GeneralUtility.VariableObject;
 using UnityEngine;
 
-public class RailGunStandardIronAmmo : RailGunAmmo, IEffect
+public class RailGunTungstenAmmo : RailGunAmmo, IEffect
 {
     [Tooltip("Value as a percent, where 100 = 100%.")]
-    [SerializeField] private FloatReference hullMultiplier;
+    [SerializeField] private FloatReference nonHullMultiplier;
     public float GetEffectValue()
     {
         return effectValue;
@@ -31,10 +31,10 @@ public class RailGunStandardIronAmmo : RailGunAmmo, IEffect
     public bool TriggerEffect(CombatPacket p)
     {
         if (p.Target is not DestructablePart d) return false;
-        if (p.Target is Hull)
-        {//If it hit the hull, make sure you ignore any resistance and specifically add a multiplier
-            p.SetIgnoreMainResistance(true, this);
-            p.AddResistance(-hullMultiplier.Value, this);
+        if (p.Target is not Hull)
+        {//If it hit anything other than the hull, make sure you ignore any resistance and specifically add a multiplier
+            p.SetIgnoreLocalResistance(true, this);
+            p.AddResistance(-nonHullMultiplier.Value, this);
         }
 
         p.SetDamage(Mathf.CeilToInt(effectValue), this);

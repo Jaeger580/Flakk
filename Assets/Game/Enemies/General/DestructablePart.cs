@@ -20,8 +20,10 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     //[SerializeField]
     //protected float resistance;   // multiplier reduces damage taken locally
 
-    [SerializeField]
-    protected float armorPercent;    // multiplier reduces damage taken by total health
+    [Tooltip("Value in percentage resistance increase, where 100 = 100%.")]
+    [SerializeField] protected float localResistance;    // multiplier reduces damage taken by total health
+    [Tooltip("Value in percentage resistance increase, where 100 = 100%.")]
+    [SerializeField] protected float mainResistance;    // multiplier reduces damage taken by total health
 
     [SerializeField]
     protected Enemy mainBody;
@@ -30,14 +32,18 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
     public bool ApplyDamage(CombatPacket p)
     {
-        if (localHealth <= 0) return false;     //Provides feedback for whether it dealt any damage or not
+        if (localHealth <= 0)
+        {
+            var mainPacket = new CombatPacket(p);
+            mainPacket.SetTarget(mainBody, this);
+            mainPacket.AddResistance(mainResistance, this);
+            mainBody.ApplyDamage(mainPacket);
 
-        p.AddToActiveModifiers(new DamageMod_PostMitigationMultiplier(armorPercent), this);  //Add armor to the list of considerations
+            return false;   //Tells whether I did damage to this part or not
+        }
+
+        p.AddResistance(localResistance, this);
         var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
-
-        // Makes sure enemies armor can completely nullify damage. Not sure how these will skill with different enemies vs new player weapons.
-        if (finalDamage <= 0)
-            finalDamage = 1;
 
         localHealth -= finalDamage; //Apply that damage locally
 
@@ -45,8 +51,11 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
         if (localHealth <= 0)
             TriggerSpecialDebuff();
-        
-        mainBody.ApplyDamage(p);
+
+        var mainBodyPacket = new CombatPacket(p);
+        mainBodyPacket.SetTarget(mainBody, this);
+        //Add res here? unsure, depends on the part ig
+        mainBody.ApplyDamage(mainBodyPacket);
 
         return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body
     }

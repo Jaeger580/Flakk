@@ -24,7 +24,13 @@ public class DamageMod_PreMitigationMultiplier : DamageModifier
 
     public override int ApplyStatModification(int _damageInput)
     {
-        return Mathf.CeilToInt(_damageInput * statModifier);
+        float _damageOutput;
+        if (statModifier >= 0f) //If stat modifier is positive, then the damage output should be the original val over the percent increase from the stat mod
+            _damageOutput = _damageInput / 1f + (statModifier / 100f);
+        else //If stat modifier is negative, then the damage output should be 2x original val - original val over percent decrease from stat mod
+            _damageOutput = 2f * _damageInput - (_damageInput / (1f - statModifier / 100f));
+
+        return Mathf.CeilToInt(_damageOutput);
     }
 }
 
@@ -47,7 +53,13 @@ public class DamageMod_PostMitigationMultiplier : DamageModifier
 
     public override int ApplyStatModification(int _damageInput)
     {
-        return Mathf.CeilToInt(_damageInput * statModifier);
+        float _damageOutput;
+        if (statModifier >= 0f) //If stat modifier is positive, then the damage output should be the original val over the percent increase from the stat mod
+            _damageOutput = _damageInput / 1f + (statModifier / 100f);
+        else //If stat modifier is negative, then the damage output should be 2x original val - original val over percent decrease from stat mod
+            _damageOutput = 2f * _damageInput - (_damageInput / (1f - statModifier / 100f));
+
+        return Mathf.CeilToInt(_damageOutput);
     }
 }
 
@@ -219,6 +231,7 @@ public class DEBUFF_DamageOverTime : PersistentStatusEffect
             CombatPacket p = new();
             p.SetDamage(damagePerTick * currentStacks, this);
             p.SetAffector(owner, this);
+            p.SetIgnoreLocalResistance(true, this);
 
             iHealth.ApplyDamage(p);
             //Trigger DoT event?
@@ -259,39 +272,58 @@ abstract public class RailGunAmmo : ImpactBehavior
 {
     protected bool triggered;
     protected float og_effectValue;
-
+    public float OG_EffectValue
+    {
+        get => og_effectValue;
+        set
+        {
+            og_effectValue = value;
+        }
+    }
     [SerializeField] protected float radiusScalar = 0f;
 
     [SerializeField] protected TrailRenderer bulletTrail;
     [SerializeField] protected float trailToPoint, trailLifetime;
+    [SerializeField] protected GradientReference gradient;
     [SerializeField] protected AnimationCurve trailPosCurve, trailWeightCurve;
     [ReadOnly] [SerializeField] protected float journey;
+
+    public void Initialize(float effectVal, float og_effectVal)
+    {
+        effectValue = effectVal;
+        og_effectValue = og_effectVal;
+    }
 
     protected void LateUpdate()
     {
         if (triggered) return;
         triggered = true;
 
-        bool hitSomething = Physics.Raycast(transform.position, transform.forward, out var hit, 1000f, affectableMask);
+        Physics.Raycast(transform.position, transform.forward, out var hit, 1000f, affectableMask);
+        var allHits = Physics.RaycastAll(transform.position, transform.forward, 1000f, affectableMask);
 
-        HandleTrailVFX(hitSomething, hit);
+        HandleTrailVFX(allHits.Length > 0, hit);
 
         //if (!hitSomething) { Destroy(this); return; }
-        if (!hitSomething) { return; }
+        if (allHits.Length <= 0) { return; }
 
-        if (!hit.collider.TryGetComponent<IDamageable>(out var d)) return;  //If it's not damageable
+        foreach(var hitInfo in allHits)
+        {
+            if (!hitInfo.collider.TryGetComponent<IDamageable>(out var d)) continue;  //If it's not damageable
 
-        //TrailRenderer trail = Instantiate(bulletTrail, transform.position, Quaternion.identity);
-        
-        CombatPacket p = new();
-        p.SetTarget(d, this);
-        p.SetHitCollider(hit.collider, this);
+            //TrailRenderer trail = Instantiate(bulletTrail, transform.position, Quaternion.identity);
 
-        OnImpact(p);
+            CombatPacket p = new();
+            p.SetTarget(d, this);
+            p.SetHitCollider(hitInfo.collider, this);
+
+            OnImpact(p);
+        }
     }
 
     protected void HandleTrailVFX(bool hitSomething, RaycastHit hit)
     {
+        if (bulletTrail == null) return;
         TrailRenderer trail = Instantiate(bulletTrail, transform.position, Quaternion.identity);
         Ray ray = new(transform.position, transform.forward);
 
@@ -312,6 +344,8 @@ abstract public class RailGunAmmo : ImpactBehavior
         journey = 0f;
         var trailTrans = trail.transform;
         var trailRend = trail.GetComponent<TrailRenderer>();
+        trailRend.colorGradient = gradient.Variable == null ? trailRend.colorGradient : gradient.Value;
+
         Vector3 startPos = trailTrans.position;
         //trailTrans.position = hitInfo.point;
         while (journey < trailLifetime)
@@ -322,7 +356,7 @@ abstract public class RailGunAmmo : ImpactBehavior
             float weightEasePercent = trailWeightCurve.Evaluate(lifePercent);
 
             trailTrans.position = Vector3.LerpUnclamped(startPos, hitPoint, posEasePercent);
-            float scale = radiusScalar * effectValue * (1f - weightEasePercent);
+            float scale = radiusScalar * effectValue/og_effectValue * (1f - weightEasePercent);
             trailRend.widthMultiplier = scale;
             //trailRend.startWidth = scale;
             //trailRend.endWidth = scale;
@@ -342,6 +376,8 @@ abstract public class RailGunAmmo : ImpactBehavior
         journey = 0f;
         var trailTrans = trail.transform;
         var trailRend = trail.GetComponent<TrailRenderer>();
+        trailRend.colorGradient = gradient.Variable == null ? trailRend.colorGradient : gradient.Value;
+
         Vector3 startPos = trailTrans.position;
         //trailTrans.position = hitInfo.point;
         while (journey < trailLifetime)
@@ -352,7 +388,7 @@ abstract public class RailGunAmmo : ImpactBehavior
             float weightEasePercent = trailWeightCurve.Evaluate(lifePercent);
 
             trailTrans.position = Vector3.LerpUnclamped(startPos, hitInfo.point, posEasePercent);
-            float scale = radiusScalar * effectValue * (1f - weightEasePercent);
+            float scale = radiusScalar * effectValue / og_effectValue * (1f - weightEasePercent);
             trailRend.widthMultiplier = scale;
             //trailRend.startWidth = scale;
             //trailRend.endWidth = scale;
@@ -372,6 +408,9 @@ abstract public class RailGunAmmo : ImpactBehavior
 
 public class DoT_Fire : DEBUFF_DamageOverTime
 {}
+
+public class DoT_Uranium : DEBUFF_DamageOverTime
+{ }
 
 abstract public class BaseGunAmmo : ImpactBehavior
 {

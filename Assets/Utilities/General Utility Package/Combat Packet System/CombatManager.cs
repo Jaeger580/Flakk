@@ -47,6 +47,14 @@ namespace GeneralUtility
 
             private int damage;
             public int Damage => damage;
+            private bool ignoreLocalResistance;
+            public bool IgnoreLocalResistance => ignoreLocalResistance;
+            private bool ignoreMainResistance;
+            public bool IgnoreMainResistance => ignoreMainResistance;
+            private float resistance;
+            public float Resistance => resistance;
+            private float flatResistance;
+            public float FlatResistance => flatResistance;
             private IEffect affector;
             public IEffect Affector => affector;
 
@@ -69,6 +77,7 @@ namespace GeneralUtility
                 damage = basePacket.Damage;
                 affector = basePacket.Affector;
                 loggedHandoffs = basePacket.loggedHandoffs;
+                ignoreMainResistance = basePacket.IgnoreMainResistance;
             }
 
             public void SetTarget(IDamageable t, Component m)
@@ -97,10 +106,38 @@ namespace GeneralUtility
                 LogHandoff(m);
             }
 
-            [Tooltip("Apply in IEffect, as in like a WeaponEffect or EnemyEffect, etc.")]
+            [Tooltip("Apply in IEffect, i.e. the component dealing the damage, etc.")]
             public void SetDamage(int d, Component m)
             {
                 damage = d;
+                LogHandoff(m);
+            }
+            [Tooltip("Apply in IEffect, i.e. the component dealing the damage, etc.")]
+            public void SetIgnoreLocalResistance(bool ignore, Component m)
+            {
+                ignoreLocalResistance = ignore;
+                LogHandoff(m);
+            }
+            [Tooltip("Apply in IEffect, i.e. the component dealing the damage, etc.")]
+            public void SetIgnoreMainResistance(bool ignore, Component m)
+            {
+                ignoreMainResistance = ignore;
+                LogHandoff(m);
+            }
+            [Tooltip("Apply in IDamageable, i.e. the component being damaged, etc.")]
+            public void AddResistance(float r, Component m)
+            {
+                if (ignoreLocalResistance && r > 0f) return;
+                //If I'm ignoring resistances AND the passed in resistance is greater than 0, exit early
+                resistance += r;
+                LogHandoff(m);
+            }
+            [Tooltip("Apply in IDamageable, i.e. the component being damaged, etc.")]
+            public void AddFlatResistance(float r, Component m)
+            {
+                if (ignoreLocalResistance && r > 0f) return;
+                //If I'm ignoring resistances AND the passed in resistance is greater than 0, exit early
+                flatResistance += r;
                 LogHandoff(m);
             }
             [Tooltip("Apply in IEffect, as in like a WeaponEffect or EnemyEffect, etc.")]
@@ -177,8 +214,23 @@ namespace GeneralUtility
                 //    currentModifiers.Add(modif);
 
                 int lastDamage = newDamage;
+                float resistance = combatInstance.Resistance;
+                float flatRes = combatInstance.FlatResistance;
 
-                foreach (var e in activeModifs)
+                if (resistance >= 0f) //If stat modifier is positive, then the damage output should be the original val over the percent increase from the stat mod
+                    newDamage = Mathf.CeilToInt(newDamage / 1f + (resistance / 100f));
+                else //If stat modifier is negative, then the damage output should be 2x original val - original val over percent decrease from stat mod
+                    newDamage = Mathf.CeilToInt(2f * newDamage - (newDamage / (1f - resistance / 100f)));
+
+                newDamage = Mathf.CeilToInt(newDamage - flatRes);
+
+                if (newDamage <= 0) newDamage = 1;
+
+                return newDamage;
+            }
+
+            /*OLD
+             * foreach (var e in activeModifs)
                 {
                     if (e is not DamageMod_PreMitigationMultiplier preMitMult) continue;
                     newDamage = preMitMult.ApplyStatModification(newDamage);
@@ -188,17 +240,6 @@ namespace GeneralUtility
                         lastDamage = newDamage;
                     }
                 }
-
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not EE_PreMitigationMultiplier preMitMult) continue;
-                //    newDamage = preMitMult.ApplyDamageModification(newDamage, hitCol);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        //Debug.Log($"{lastDamage} != {newDamage} :: {preMitMult.name}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
 
                 foreach (var e in activeModifs)
                 {
@@ -211,17 +252,6 @@ namespace GeneralUtility
                     }
                 }
 
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not EE_PreMitigationFlat preMitFlat) continue;
-                //    newDamage = preMitFlat.ApplyDamageModification(newDamage, hitCol);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        //Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
-
                 foreach (var e in activeModifs)
                 {
                     if (e is not DamageMod_PostMitigationMultiplier postMitMult) continue;
@@ -232,17 +262,6 @@ namespace GeneralUtility
                         lastDamage = newDamage;
                     }
                 }
-
-                //foreach (var e in activeModifs)
-                //{
-                //    if (e is not DamageMod_PostMitigationFlat postMitMult) continue;
-                //    newDamage = postMitMult.ApplyDamageModification(newDamage, hitCol);
-                //    if (lastDamage != newDamage)
-                //    {
-                //        //Debug.Log($"{lastDamage} != {newDamage}");
-                //        lastDamage = newDamage;
-                //    }
-                //}
 
                 DamageMod_PostMitigationFlat totalPostMitFlatArmor = new(0f);
                 DamageMod_PostMitigationFlat totalPostMitFlatBonus = new(0f);
@@ -281,11 +300,7 @@ namespace GeneralUtility
                 //        lastDamage = newDamage;
                 //    }
                 //}
-
-                if (newDamage <= 0) newDamage = 1;
-
-                return newDamage;
-            }
+            */
         }
     }
 }

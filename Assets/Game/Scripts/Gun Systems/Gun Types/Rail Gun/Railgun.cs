@@ -50,8 +50,11 @@ public class Railgun : GunType
         if (fireTimer < 1f / fireRate.Value) return;          //if the timer isn't ready, return
 
         var bulletInstance = Fire(ammoType);
-        var imp = bulletInstance.GetComponent<ImpactBehavior>();
-        imp.Initialize(ammoType.damage.Value * chargeDamageCurve.Value.Evaluate(currentCharge.Value/maxCharge.Value));
+        var imps = bulletInstance.GetComponents<RailGunAmmo>();
+        foreach(var imp in imps)
+        {
+            imp.Initialize(ammoType.damage.Value * chargeDamageCurve.Value.Evaluate(currentCharge.Value / maxCharge.Value), ammoType.damage.Value);
+        }
 
         //Cleanup
         currentMag.Pop();
