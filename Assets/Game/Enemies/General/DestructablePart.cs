@@ -21,7 +21,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     //protected float resistance;   // multiplier reduces damage taken locally
 
     [SerializeField]
-    protected int armor;    // multiplier reduces damage taken by total health
+    protected float armorPercent;    // multiplier reduces damage taken by total health
 
     [SerializeField]
     protected Enemy mainBody;
@@ -32,7 +32,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     {
         if (localHealth <= 0) return false;     //Provides feedback for whether it dealt any damage or not
 
-        p.AddToActiveModifiers(new DamageMod_PostMitigationFlat(-armor), this);  //Add armor to the list of considerations
+        p.AddToActiveModifiers(new DamageMod_PostMitigationMultiplier(armorPercent), this);  //Add armor to the list of considerations
         var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
 
         // Makes sure enemies armor can completely nullify damage. Not sure how these will skill with different enemies vs new player weapons.
