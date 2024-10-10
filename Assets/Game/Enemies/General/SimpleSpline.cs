@@ -16,8 +16,11 @@ public class SimpleSpline : MonoBehaviour
     [SerializeField]
     private SplineContainer entrySpline;
 
+    //[SerializeField]
+    //private SplineContainer secondSpline
+    
     [SerializeField]
-    private SplineContainer secondSpline;
+    private SplineContainer targetSpline;
 
     private SplineAnimate spAnim;
 
@@ -26,6 +29,11 @@ public class SimpleSpline : MonoBehaviour
     {
         spAnim = GetComponent<SplineAnimate>();
 
+        if(targetSpline == null) 
+        {
+            targetSpline = entrySpline;
+        }
+
         spAnim.Container = entrySpline;
         spAnim.Play();
     }
@@ -33,12 +41,36 @@ public class SimpleSpline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(spAnim.NormalizedTime >= 1.0f && spAnim.Container == entrySpline) 
+        if(spAnim.NormalizedTime >= 1.0f) 
         {
-            spAnim.Container = secondSpline;
-            spAnim.Loop = SplineAnimate.LoopMode.Loop;
+            spAnim.Container = targetSpline;
+            //spAnim.Loop = SplineAnimate.LoopMode.Loop;
             spAnim.Restart(true);
             //spAnim.Play();
         }
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        //Debug.Log("Collision Happened");
+
+        if (collider.gameObject.GetComponent<PathNode>() != null) 
+        {
+            PathNode nextNode = collider.gameObject.GetComponent<PathNode>();
+
+            Debug.Log(nextNode.GetExit());
+
+            // If the node belongs to the same set of splines
+            if (nextNode.gameObject.transform.parent.Equals(targetSpline.gameObject.transform.parent)) 
+            {
+
+                targetSpline = nextNode.GetExit();
+            }
+        }
+    }
+
+    //private void SetNextSpline(SplineContainer SplineCon) 
+    //{
+    //    targetSpline = SplineCon;
+    //}
 }

@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 3868063591877498848}
   - component: {fileID: 4242601673080869662}
   - component: {fileID: 1771843694785902569}
+  - component: {fileID: 3913231703536383179}
   m_Layer: 0
   m_Name: Lead Point
   m_TagString: Untagged
@@ -510,6 +511,27 @@ MonoBehaviour:
   m_ObjectForwardAxis: 2
   m_ObjectUpAxis: 1
   m_StartOffset: 0
+--- !u!135 &3913231703536383179
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471579149652576933}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4841845340170309717
 GameObject:
   m_ObjectHideFlags: 0
