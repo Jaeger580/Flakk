@@ -117,6 +117,8 @@ public abstract class GunType : MonoBehaviour
 
         InitMag(primaryMag, defaultPrimaryMag);
         InitMag(secondaryMag, defaultSecondaryMag);
+        InitMag(primaryStockpile, defaultPrimaryMag);
+        InitMag(secondaryStockpile, defaultSecondaryMag);
 
         currentMag = primaryMag;
         currentStockpile = primaryStockpile;
