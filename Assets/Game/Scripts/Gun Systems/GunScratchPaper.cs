@@ -300,7 +300,7 @@ abstract public class RailGunAmmo : ImpactBehavior
         triggered = true;
 
         Physics.Raycast(transform.position, transform.forward, out var hit, 1000f, affectableMask);
-        var allHits = Physics.RaycastAll(transform.position, transform.forward, 1000f, affectableMask);
+        var allHits = Physics.SphereCastAll(transform.position, 2f, transform.forward, 1000f, affectableMask);
 
         HandleTrailVFX(allHits.Length > 0, hit);
 
@@ -444,7 +444,7 @@ public abstract class ImpactBehavior : MonoBehaviour
 
     static public LayerMask EnemyMask()
     {
-        return LayerMask.NameToLayer("Enemy");
+        return 1 << LayerMask.NameToLayer("Enemy");
     }
 
     protected void Awake()
