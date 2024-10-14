@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8165874762400808458
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Name
+      value: Gatling Gun VARIANT
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 402193703068818532, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3054325833961411013}
+  m_SourcePrefab: {fileID: 100100000, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+--- !u!1 &8359329690269774280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+  m_PrefabInstance: {fileID: 8165874762400808458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3054325833961411013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8359329690269774280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e66174bf097a94073bcde86e2ca6c2ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMag: {fileID: 0}
+  currentStockpile: {fileID: 0}
+  primaryMag: {fileID: 11400000, guid: 3e27e1093f1fa4865bc70deb055e430c, type: 2}
+  secondaryMag: {fileID: 11400000, guid: a659f6c1a43da49fea2a699a83718cdb, type: 2}
+  primaryStockpile: {fileID: 11400000, guid: c4c663d6c060549db874ca21b1a9f5d1, type: 2}
+  secondaryStockpile: {fileID: 11400000, guid: 17a017d5154b5483b94a3a38a7f10344, type: 2}
+  defaultPrimaryMag: {fileID: 11400000, guid: 06d00e824a6954d9eb90c36781ab97d8, type: 2}
+  defaultSecondaryMag: {fileID: 11400000, guid: 06d00e824a6954d9eb90c36781ab97d8, type: 2}
+  fireRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 86be438fc013345c0b9c8be66c0695b3, type: 2}
+  isFiring:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7b338361c3e6a40fbb13d808c34bdfec, type: 2}
+  reloadRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 5093fb0b6b5ff41049ff4e3b3a7a115c, type: 2}
+  isReloading:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 0340d90e091564305a0fc193ea825a75, type: 2}
+  shotForce:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 11b8cc702d6524520a2121443e42e7d9, type: 2}
+  inaccuracyRange:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 9e4ec35bcb86e4728817b45b6dd191a9, type: 2}
+  inaccuracyRadius:
+    UseConstant: 0
+    ConstantValue: {x: 0, y: 0}
+    Variable: {fileID: 11400000, guid: 550080880cf6340149fa5665be3619bc, type: 2}
+  vfxOnShot:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
+  maxHeat:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 71ee0375786934a04b56d6eb49948b68, type: 2}
+  preOverheatCoolingSpeed:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 2e97beee6282d45be90b3ff978e9e7f2, type: 2}
+  postOverheatCoolingSpeed:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 88ad795b735b64a1cb707f71c532afa8, type: 2}
+  overheatRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 08e14550448ee4c77bdd5c3debce668d, type: 2}
+  overHeating:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ed519a1ee543f4f13bfcbeb4a94f10b3, type: 2}

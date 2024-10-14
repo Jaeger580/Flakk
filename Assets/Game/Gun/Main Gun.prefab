@@ -375,9 +375,9 @@ GameObject:
   m_Component:
   - component: {fileID: 402193703068818532}
   - component: {fileID: 5860426773886348526}
-  - component: {fileID: 4631278577601222393}
   - component: {fileID: 819861242762164816}
   - component: {fileID: 1652715241852594384}
+  - component: {fileID: 7832215794291943172}
   m_Layer: 0
   m_Name: Main Gun
   m_TagString: Gun
@@ -418,13 +418,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41126b458db4b31b1a2b9e8d20a976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivityScaler: 2
+  sensitivityScaler: 1
   xSens: 3
   ySens: 3
   sensitivityChangedEvent: {fileID: 11400000, guid: 7806ad284f4924c9fb00ed821ba980c2, type: 2}
   gunRotateSpeed:
     UseConstant: 1
-    ConstantValue: 30
+    ConstantValue: 25
     Variable: {fileID: 0}
   inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
   angleClamp: 55
@@ -446,66 +446,6 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 0340d90e091564305a0fc193ea825a75, type: 2}
   pivotRotation: {x: 0, y: 0}
   gunRotation: {x: 0, y: 0}
---- !u!114 &4631278577601222393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 383172950227800002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e44bcf521bc44950b947f81d06bf9f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: efde5eb79a8824d018c4c6d54c89e686, type: 2}
-  fireRate:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: d2c3a16694bbd4db49f2ee46ba71c35c, type: 2}
-  reloadRate:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 3a4105a351d7a41da8d7daa6ca235534, type: 2}
-  isReloading:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 0340d90e091564305a0fc193ea825a75, type: 2}
-  clipSize:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: cbcb9dca5804c41a8aae3af93a0b962f, type: 2}
-  maxHeat:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 71ee0375786934a04b56d6eb49948b68, type: 2}
-  cooldownSpeed:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 1aece0f1a40c04c4082be8c8289da92e, type: 2}
-  overheatSpeed:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 88ad795b735b64a1cb707f71c532afa8, type: 2}
-  overheatRate:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 08e14550448ee4c77bdd5c3debce668d, type: 2}
-  gunCamera: {fileID: 9170858499426201412}
-  gunBase: {fileID: 4968140652613179903}
-  gunBulletPoint: {fileID: 8243784208279582778}
-  bulletPrefab:
-    UseConstant: 0
-    ConstantValue: {fileID: 0}
-    Variable: {fileID: 0}
-  vfxPrefab: {fileID: 0}
-  inputEvAdsPress: {fileID: 11400000, guid: da2a0b341fd354685b48fb6668eca7ea, type: 2}
-  inputEvAdsRelease: {fileID: 11400000, guid: 8331504a6c9be482e8370e68b1e31368, type: 2}
-  zoomEnterEvent: {fileID: 11400000, guid: 8bfc2576419ab4609ae435473bb7d461, type: 2}
-  zoomExitEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
 --- !u!114 &819861242762164816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,13 +458,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748fd3bfd7f81474e80719012e9a3c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
   inputEvPriFire: {fileID: 11400000, guid: b0dca46fccfc045439cd49032b51c1d6, type: 2}
   inputEvPriRelease: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
   inputEvAdsPress: {fileID: 11400000, guid: da2a0b341fd354685b48fb6668eca7ea, type: 2}
   inputEvAdsRelease: {fileID: 11400000, guid: 8331504a6c9be482e8370e68b1e31368, type: 2}
-  inputEvReleasePress: {fileID: 11400000, guid: aa7142357d292456f9db17c4c62fb233, type: 2}
-  inputEvReleaseRelease: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
-  inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
+  inputEvReloadPress: {fileID: 11400000, guid: aa7142357d292456f9db17c4c62fb233, type: 2}
+  inputEvReloadRelease: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+  inputEvSwapMagPress: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
 --- !u!114 &1652715241852594384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,7 +600,31 @@ MonoBehaviour:
     m_ActionId: fd03e090-7424-45dc-a2ed-656f598604ff
     m_ActionName: Gun/Zoom[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 819861242762164816}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: ReloadPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 819861242762164816}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: ReloadRelease
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 98f5e1b5-baad-412c-8240-a0f87604ef1c
     m_ActionName: Gun/Reload[/Keyboard/r]
   - m_PersistentCalls:
@@ -702,11 +667,51 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 06aee11b-1c3a-40ce-b70c-83a2f9f60451
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 819861242762164816}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: SwapMagPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7af13280-f81a-4808-9699-9f700f441d5a
+    m_ActionName: Gun/Swap Mag[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Gun
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &7832215794291943172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383172950227800002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337df4d9c6d4448d3b2184a3e632141c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunCamera: {fileID: 9170858499426201412}
+  gunBase: {fileID: 4968140652613179903}
+  gunBulletPoint: {fileID: 8243784208279582778}
+  inputEvPriFire: {fileID: 11400000, guid: b0dca46fccfc045439cd49032b51c1d6, type: 2}
+  inputEvPriRelease: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
+  inputEvAdsPress: {fileID: 11400000, guid: da2a0b341fd354685b48fb6668eca7ea, type: 2}
+  inputEvAdsRelease: {fileID: 11400000, guid: 8331504a6c9be482e8370e68b1e31368, type: 2}
+  inputEvReloadPress: {fileID: 11400000, guid: aa7142357d292456f9db17c4c62fb233, type: 2}
+  inputEvReloadRelease: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+  inputEvMagSwapPress: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
+  zoomEnterEvent: {fileID: 11400000, guid: 8bfc2576419ab4609ae435473bb7d461, type: 2}
+  zoomExitEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
 --- !u!1 &410770878781661479
 GameObject:
   m_ObjectHideFlags: 0
@@ -12225,6 +12230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1199546627887308748}
+  - component: {fileID: 5591259569032700620}
   m_Layer: 0
   m_Name: Bullet Point
   m_TagString: Untagged
@@ -12240,13 +12246,40 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8243784208279582778}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.874, z: 38.912}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0050874627, y: 2.0140305, z: 38.912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2545399615560384992}
+  m_Father: {fileID: 6109902548169752268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1773428102 &5591259569032700620
+ParentConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8243784208279582778}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.0050874627, y: 2.0140305, z: 38.912}
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_TranslationOffsets:
+  - {x: 0, y: -3.8740005, z: 38.912}
+  m_RotationOffsets:
+  - {x: 0, y: 0, z: 0}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 2545399615560384992}
+    weight: 1
 --- !u!1 &8477159451190499331
 GameObject:
   m_ObjectHideFlags: 0
@@ -13378,6 +13411,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6649834558074771262, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
       insertIndex: 0
+      addedObject: {fileID: 1199546627887308748}
+    - targetCorrespondingSourceObject: {fileID: 6649834558074771262, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
+      insertIndex: 1
       addedObject: {fileID: 1021361581226536903}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a91fb082dec6d5c49b691a6a728b0232, type: 3}
@@ -14424,10 +14460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -4152372840066517514, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1199546627887308748}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6092801204545913780, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
       insertIndex: -1

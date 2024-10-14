@@ -6,9 +6,10 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility.CombatSystem;
 using UnityEngine;
 
-abstract public class DestructablePart : MonoBehaviour, IDamagable
+abstract public class DestructablePart : MonoBehaviour, IDamageable
 {
     // Tracks the local health of the part that was hit, and then applies damage 
     [SerializeField]
@@ -19,33 +20,48 @@ abstract public class DestructablePart : MonoBehaviour, IDamagable
     //[SerializeField]
     //protected float resistance;   // multiplier reduces damage taken locally
 
-    [SerializeField]
-    protected int armor;    // multiplier reduces damage taken by total health
+    [Tooltip("Value in percentage resistance increase, where 100 = 100%.")]
+    [SerializeField] protected float localResistance;    // multiplier reduces damage taken by total health
+    [Tooltip("Value in percentage resistance increase, where 100 = 100%.")]
+    [SerializeField] protected float mainResistance;    // multiplier reduces damage taken by total health
 
     [SerializeField]
     protected Enemy mainBody;
 
-    public void TakeDamage(int _damage)
-    {
-        if (localHealth <= 0) return;
-        localHealth -= (_damage);
+    public int MaxHealth => localHealth;
 
-        Debug.Log(_damage + " local damage taken.");
+    public bool ApplyDamage(CombatPacket p)
+    {
+        if (localHealth <= 0)
+        {
+            var mainPacket = new CombatPacket(p);
+            mainPacket.SetTarget(mainBody, this);
+            mainPacket.AddResistance(mainResistance, this);
+            mainBody.ApplyDamage(mainPacket);
+
+            return false;   //Tells whether I did damage to this part or not
+        }
+
+        p.AddResistance(localResistance, this);
+        var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
+
+        localHealth -= finalDamage; //Apply that damage locally
+
+        Debug.Log(finalDamage + " local damage taken.");
 
         if (localHealth <= 0)
             TriggerSpecialDebuff();
-        
-        var finalDamage = _damage - armor;
 
-        // Makes sure enemies armor can completely nullify damage. Not sure how these will skill with different enemies vs new player weapons.
-        if (finalDamage <= 0)
-            finalDamage = 1;
-        mainBody.TakeDamage((finalDamage));
+        var mainBodyPacket = new CombatPacket(p);
+        mainBodyPacket.SetTarget(mainBody, this);
+        //Add res here? unsure, depends on the part ig
+        mainBody.ApplyDamage(mainBodyPacket);
+
+        return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body
     }
+
     abstract public void TriggerSpecialDebuff();
 }
-
-
 
 ////bullet takes care of triggering damage
 
