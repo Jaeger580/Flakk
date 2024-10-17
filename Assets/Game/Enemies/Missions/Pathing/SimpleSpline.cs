@@ -29,6 +29,11 @@ public class SimpleSpline : MonoBehaviour
     {
         spAnim = GetComponent<SplineAnimate>();
 
+        if(entrySpline == null) 
+        {
+            entrySpline = spAnim.Container;
+        }
+
         if(targetSpline == null) 
         {
             targetSpline = entrySpline;
