@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
-  armor: 0
+  localResistance: 0
+  mainResistance: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &1675847659245256344
 GameObject:
@@ -420,7 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
-  armor: 0
+  localResistance: 0
+  mainResistance: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &3471579149652576933
 GameObject:
@@ -431,10 +433,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3868063591877498848}
-  - component: {fileID: 4242601673080869662}
   - component: {fileID: 1771843694785902569}
+  - component: {fileID: 3892451404971573873}
   - component: {fileID: 3913231703536383179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lead Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,45 +451,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3471579149652576933}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.776018, z: 0, w: 0.6307107}
+  m_LocalPosition: {x: 57.248737, y: -0.004, z: 23.34248}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6778802439524851972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4242601673080869662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3471579149652576933}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a829091269032db4885909354e3f879f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  splineContainer: {fileID: 0}
-  moveSpeed: 0.1
-  pathData:
-    slices:
-    - splineIndex: 0
-      range:
-        m_Start: 0
-        m_Count: 4
-        m_Direction: 0
-      isEnabled: 1
-      sliceLength: 0
-      distanceFromStart: 0
-    - splineIndex: 1
-      range:
-        m_Start: 0
-        m_Count: 17
-        m_Direction: 0
-      isEnabled: 1
-      sliceLength: 0
-      distanceFromStart: 0
 --- !u!114 &1771843694785902569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,16 +471,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_LoopMode: 1
-  m_Method: 0
-  m_Duration: 1
-  m_MaxSpeed: 10
+  m_PlayOnAwake: 0
+  m_LoopMode: 0
+  m_Method: 1
+  m_Duration: 14.8564205
+  m_MaxSpeed: 100
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
   m_ObjectUpAxis: 1
   m_StartOffset: 0
+--- !u!114 &3892451404971573873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471579149652576933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38589c3996bdacc429bb7874f3ccf929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entrySpline: {fileID: 0}
+  targetSpline: {fileID: 0}
 --- !u!135 &3913231703536383179
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -521,16 +505,16 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4841845340170309717
 GameObject:
@@ -599,7 +583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
-  armor: 0
+  localResistance: 0
+  mainResistance: 0
   mainBody: {fileID: 1960761301650854311}
 --- !u!1 &4911050270570361200
 GameObject:
@@ -665,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6778802439524851972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Three Piece Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,8 +667,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3868063591877498848}
   - {fileID: 7924519492169408134}
@@ -844,5 +829,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 50
-  armor: 0
+  localResistance: 0
+  mainResistance: 0
   mainBody: {fileID: 1960761301650854311}
