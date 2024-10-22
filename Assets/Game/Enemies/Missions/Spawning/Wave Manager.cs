@@ -35,9 +35,13 @@ public class WaveManager : MonoBehaviour
         }
         else 
         {
-            currentWave = enemyWaves[waveIndex];
-            StartCoroutine(spawnEnemies(currentWave));
-            waveTimer = 0;
+            if(waveIndex < enemyWaves.Count - 1) 
+            {
+                waveIndex++;
+                currentWave = enemyWaves[waveIndex];
+                StartCoroutine(spawnEnemies(currentWave));
+                waveTimer = 0;
+            }
         }
     }
 

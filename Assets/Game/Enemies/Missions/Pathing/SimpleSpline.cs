@@ -63,7 +63,7 @@ public class SimpleSpline : MonoBehaviour
         {
             PathNode nextNode = collider.gameObject.GetComponent<PathNode>();
 
-            Debug.Log(nextNode.GetExit());
+            //Debug.Log(nextNode.GetExit());
 
             // If the node belongs to the same set of splines
             if (nextNode.gameObject.transform.parent.Equals(targetSpline.gameObject.transform.parent)) 
