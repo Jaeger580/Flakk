@@ -84,6 +84,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+    protected virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+
+        Debug.DrawLine(transform.position, transform.position + transform.forward * attackRange);
+        Gizmos.DrawWireSphere(transform.position + transform.forward * attackRange, attackRadius);
+    }
+
     protected virtual void LateUpdate()
     {
         // Moving in late update seems smooth when using the follow cam in scene view,
