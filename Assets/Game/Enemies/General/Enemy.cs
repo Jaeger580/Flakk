@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Net;
 using GeneralUtility.CombatSystem;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -40,6 +41,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected int currenthealth;
     protected int targetLayer;
+
+    //protected bool isAlive = false;
 
     public int MaxHealth => throw new System.NotImplementedException();
 
@@ -121,8 +124,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         int finalDamage = CombatManager.DamageCalculator(packet);
         currenthealth -= finalDamage;
 
-        Debug.Log(finalDamage + " final damage taken.");
-
+        //Debug.Log(finalDamage + " final damage taken.");
+        Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
             Death();
@@ -133,16 +136,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void SpeedMulti(float newSpeed)
     {
-        //Deal damage to the enemy
-        var followScript = leadPoint.GetComponent<SPLineFollow>();
-        float oldSpeed = followScript.MoveSpeed;
+        var followScript = leadPoint.GetComponent<SplineAnimate>();
+        float oldSpeed = followScript.MaxSpeed;
 
-        followScript.MoveSpeed = oldSpeed * newSpeed;
+        followScript.MaxSpeed = oldSpeed * newSpeed;
     }
 
     protected virtual void Death() 
     {
-
+        // Proper death needs added later
+        StopAllCoroutines();
+        Destroy(transform.parent.gameObject);
     }
 
     protected virtual void Attack(RaycastHit hit) 

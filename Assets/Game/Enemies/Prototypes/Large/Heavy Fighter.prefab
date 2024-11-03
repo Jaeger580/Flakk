@@ -232,9 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1571b372c8a2fa2428b788f7f1b9cae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 100
+  localHealth: 15
   localResistance: 0
-  mainResistance: 1
+  mainResistance: 0
   mainBody: {fileID: 6959418651261929473}
 --- !u!1 &1639322009249756181
 GameObject:
@@ -351,9 +351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16306734db187e429864442060d0bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 200
+  localHealth: 15
   localResistance: 0
-  mainResistance: 5
+  mainResistance: 25
   mainBody: {fileID: 6959418651261929473}
 --- !u!65 &2536211277912998015
 BoxCollider:
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 0
+  localHealth: 20
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 6959418651261929473}
@@ -663,7 +663,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 14.8564205
-  m_MaxSpeed: 100
+  m_MaxSpeed: 15
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -834,10 +834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 680a28d332948e445b2ad0021d6dbc61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadPoint: {fileID: 0}
-  maxHealth: 250
-  attackRange: 10
-  attackRadius: 5
+  leadPoint: {fileID: 3471579149652576933}
+  maxHealth: 75
+  attackRange: 75
+  attackRadius: 15
   fireRate: 1
   burstSize: 1
   shotDelay: 0
@@ -1127,9 +1127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16306734db187e429864442060d0bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 200
+  localHealth: 15
   localResistance: 0
-  mainResistance: 5
+  mainResistance: 25
   mainBody: {fileID: 6959418651261929473}
 --- !u!136 &7869947003834530890
 CapsuleCollider:
@@ -1220,8 +1220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0606a717f608af843951ca1a813d1da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 100
-  localResistance: 1
+  localHealth: 25
+  localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 6959418651261929473}
 --- !u!1 &7667191801273531367
@@ -1269,9 +1269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f16306734db187e429864442060d0bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 200
+  localHealth: 15
   localResistance: 0
-  mainResistance: 5
+  mainResistance: 25
   mainBody: {fileID: 6959418651261929473}
 --- !u!65 &6369450288940060327
 BoxCollider:
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 0
+  localHealth: 20
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 6959418651261929473}
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590de0134f5a042479e2ddca5f55485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 100
+  localHealth: 75
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 6959418651261929473}

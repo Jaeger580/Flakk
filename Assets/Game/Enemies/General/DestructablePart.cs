@@ -47,7 +47,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
         localHealth -= finalDamage; //Apply that damage locally
 
-        Debug.Log(finalDamage + " local damage taken.");
+        //Debug.Log(finalDamage + " local damage taken.");
 
         if (localHealth <= 0)
             TriggerSpecialDebuff();

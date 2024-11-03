@@ -10,8 +10,10 @@ public class Engine : DestructablePart
 
         mainBody.GetComponent<Enemy>().SpeedMulti(0.5f);
 
+        localResistance = 100;
+        mainResistance = 50;
         //trigger VFX
         //enable/disable model
-        Destroy(this);
+        //Destroy(this);
     }
 }
