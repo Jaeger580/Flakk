@@ -20,4 +20,12 @@ public class BomberController : Enemy
             }
         }
     }
+
+    protected override void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+
+        Debug.DrawLine(transform.position, transform.position + -transform.up * attackRange);
+        Gizmos.DrawWireSphere(transform.position + -transform.up * attackRange, attackRadius);
+    }
 }

@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Splines;
 
+[SelectionBase]
 public class PathNode : MonoBehaviour
 {
     [SerializeField]
@@ -17,5 +19,14 @@ public class PathNode : MonoBehaviour
         int rand = Random.Range(0, Outputs.Length);
 
         return Outputs[rand].GetComponent<SplineContainer>();
+    }
+
+    private void OnDrawGizmos()
+    {
+        //var sceneCam = SceneView.currentDrawingSceneView.cameraDistance;
+        var distance = Vector3.Distance(transform.position, SceneView.currentDrawingSceneView.camera.transform.position);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, distance / 20);
     }
 }
