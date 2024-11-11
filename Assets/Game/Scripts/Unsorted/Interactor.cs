@@ -1,33 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/* Jakob Jaeger
- * 06/26/2024
- * Handles the player to interact with anything that inherits the Interactable interface
- */
+public partial class InputHandler : MonoBehaviour
+{
+    [Header("Hub Interact Input Events")]
+    [SerializeField] private GameEvent inputEVInteractPress;
+    [SerializeField] private GameEvent inputEVInteractRelease;
+    [SerializeField] private GameEvent inputEVUICancel;
+
+    public void InteractPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            inputEVInteractPress.Trigger();
+    }
+
+    public void InteractReleased(InputAction.CallbackContext context)
+    {
+        if (context.canceled)
+            inputEVInteractRelease.Trigger();
+    }
+
+    public void UICancel(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            inputEVUICancel.Trigger();
+    }
+}
 
 public class Interactor : MonoBehaviour
 {
-    [SerializeField]
-    private Transform RayCastSource;
-    [SerializeField]
-    private float RayCastDistance;
+    [SerializeField] private Transform RayCastSource;
+    [SerializeField] private float RayCastDistance;
+    [SerializeField] private GameEvent inputEVInteractPress;
 
-    public void TryInteract(InputAction.CallbackContext context) 
+    private void Start()
     {
-        if (context.started)
-        {
-            Ray ray = new Ray(RayCastSource.position, RayCastSource.forward);
+        var interactListener = gameObject.AddComponent<GameEventListener>();
+        interactListener.Events.Add(inputEVInteractPress);
+        interactListener.Response = new();
+        interactListener.Response.AddListener(() => TryInteract());
+        inputEVInteractPress.RegisterListener(interactListener);
+    }
 
-            if (Physics.Raycast(ray, out RaycastHit hit, RayCastDistance))
-            {
-                if (hit.collider.gameObject.TryGetComponent(out IInteractable target))
-                {
-                    target.Interact();
-                }
-            }
+    private void TryInteract() 
+    {
+        Ray ray = new Ray(RayCastSource.position, RayCastSource.forward);
+
+        if (!Physics.Raycast(RayCastSource.position, RayCastSource.forward, out var hit, RayCastDistance)) return;
+
+        if (hit.collider.gameObject.TryGetComponent(out IInteractable target))
+        {
+            target.Interact();
         }
     }
 }

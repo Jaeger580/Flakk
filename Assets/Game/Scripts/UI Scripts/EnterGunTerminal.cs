@@ -34,9 +34,14 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
     {
         if (!monitorEngaged) return;
 
-        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
+        //gunVCAM.Priority = 101;
+        playerVCAM.Priority = 5;
         monitorCam.Priority = 0;
+        gunVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Hub");
+
+        monitorEngaged = false;
     }
 
     // Will change the players controlls and change there camera view to the gun / turret.
@@ -48,7 +53,7 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         StartCoroutine(nameof(CamCoroutine));
         //playerVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Gun");
-        gunEnterEvent?.Trigger();
+        gunEnterEvent.Trigger();
         //AudioManager.instance.SetVolume("BGM", 0.015f);
     }
 
