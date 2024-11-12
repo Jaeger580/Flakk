@@ -1,6 +1,8 @@
+using GeneralUtility.GameEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Splines;
 
 [System.Serializable]
@@ -16,8 +18,16 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     private float timeBetweenSpawns = 2f;
 
+    [SerializeField]
+    private GameEvent winEvent;
+
     private Wave currentWave;
     private int waveIndex;
+
+    private bool isSpawning = false;
+    private bool missionOver = false;
+
+    public static int currentEnemies;
 
     private void Start()
     {
@@ -43,24 +53,42 @@ public class WaveManager : MonoBehaviour
                 waveTimer = 0;
             }
         }
-    }
 
+        if (!isSpawning && waveIndex == enemyWaves.Count - 1 && currentEnemies == 0) 
+        {
+            if (!missionOver) 
+            {
+                EndMission();
+                missionOver = true;
+            }
+        }
+    }
 
 
     // Spawns enemies from the selected wave one at a time.
     private IEnumerator spawnEnemies(Wave wave) 
     {
         var enemies = wave.getEnemies();
+        isSpawning = true;
 
         foreach(waveObject enemy in enemies) 
         {
             GameObject newEnemy = Instantiate(enemy.enemy);
             newEnemy.GetComponentInChildren<SplineAnimate>().Container = enemy.splineToFollow;
+            currentEnemies++;
 
-            Debug.Log("Spline Containter Set?");
+            //Debug.Log("Spline Containter Set?");
 
             //newEnemy.GetComponentInChildren<SimpleSpline>().
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
+
+        isSpawning = false;
+    }
+
+    private void EndMission() 
+    {
+        winEvent.Trigger();
+        Debug.Log("VICTORY");
     }
 }
