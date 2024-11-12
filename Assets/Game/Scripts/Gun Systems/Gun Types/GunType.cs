@@ -14,6 +14,7 @@ public partial class InputHandler : MonoBehaviour
     [SerializeField] private GameEvent inputEvAdsPress, inputEvAdsRelease;
     [SerializeField] private GameEvent inputEvReloadPress, inputEvReloadRelease;
     [SerializeField] private GameEvent inputEvSwapMagPress;
+    [SerializeField] private GameEvent inputEvExitGun;
 
     public void PrimaryFire(InputAction.CallbackContext context)
     {
@@ -55,6 +56,12 @@ public partial class InputHandler : MonoBehaviour
     {
         if (context.started)
             inputEvSwapMagPress.Trigger();
+    }
+
+    public void ExitGunPressed(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            inputEvExitGun.Trigger();
     }
 }
 
