@@ -21,6 +21,7 @@ public class PathNode : MonoBehaviour
         return Outputs[rand].GetComponent<SplineContainer>();
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         //var sceneCam = SceneView.currentDrawingSceneView.cameraDistance;
@@ -29,4 +30,5 @@ public class PathNode : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, distance / 20);
     }
+#endif
 }

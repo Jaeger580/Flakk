@@ -1,6 +1,8 @@
+using GeneralUtility.GameEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Splines;
 
 [System.Serializable]
@@ -15,6 +17,9 @@ public class WaveManager : MonoBehaviour
 
     [SerializeField]
     private float timeBetweenSpawns = 2f;
+
+    [SerializeField]
+    private GameEvent winEvent;
 
     private Wave currentWave;
     private int waveIndex;
@@ -83,6 +88,7 @@ public class WaveManager : MonoBehaviour
 
     private void EndMission() 
     {
+        winEvent.Trigger();
         Debug.Log("VICTORY");
     }
 }
