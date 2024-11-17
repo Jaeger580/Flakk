@@ -24,7 +24,8 @@ public class MissionManager : MonoBehaviour
             SceneManager.UnloadSceneAsync(activeMission.name);
         }
 
-        SceneManager.LoadScene(missions[missionNum].name, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(missions[missionNum].name, LoadSceneMode.Additive);
+        SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
         activeMission = missions[missionNum];
     }
 }

@@ -430,7 +430,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -525,6 +525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6098461249007897197}
     m_Modifications:
+    - target: {fileID: 7638433528957992407, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8143025597826128898, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
       propertyPath: m_Name
       value: Light Fighter
@@ -573,7 +577,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2820770273939007408, guid: 73a84e537fe4ee44da92c2b9fca39aad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
