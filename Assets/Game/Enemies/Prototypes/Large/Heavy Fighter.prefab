@@ -663,7 +663,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 14.8564205
-  m_MaxSpeed: 15
+  m_MaxSpeed: 55
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -696,7 +696,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -836,8 +836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
   maxHealth: 75
-  attackRange: 75
-  attackRadius: 15
+  attackRange: 400
+  attackRadius: 65
   fireRate: 1
   burstSize: 1
   shotDelay: 0
