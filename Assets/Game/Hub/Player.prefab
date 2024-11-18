@@ -205,12 +205,12 @@ GameObject:
   - component: {fileID: 6692938035077926624}
   - component: {fileID: 290473895424421710}
   - component: {fileID: 5033008627668251323}
-  - component: {fileID: 8096213804020148053}
   - component: {fileID: 2689467676908812065}
   - component: {fileID: 7043883736311624466}
+  - component: {fileID: 3178372228335913064}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -624,6 +624,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 06aee11b-1c3a-40ce-b70c-83a2f9f60451
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 290473895424421710}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: PausePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2765478d-ab8a-43e7-bdfb-873bd41a9cf9
+    m_ActionName: Hub/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Hub
@@ -656,6 +672,7 @@ MonoBehaviour:
   inputEVSprintPress: {fileID: 11400000, guid: fdd04e310c789474382590b0fa2f30a6, type: 2}
   inputEVSprintRelease: {fileID: 11400000, guid: 04b0e2e32b31741d3a56ebcba93ec5d3, type: 2}
   inputEVHubLook: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+  inputEVPause: {fileID: 11400000, guid: 20baf6fd81192443eb4cce490f368c20, type: 2}
   inputEVInteractPress: {fileID: 11400000, guid: 24582c83429a44ff4a8aec49cdab34ea, type: 2}
   inputEVInteractRelease: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
   inputEVUICancel: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
@@ -672,8 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 1596174811518097120}
-  cameras:
-  - {fileID: 0}
+  cameras: []
   movement:
     sprintSpeed: 24
     sprintFOV: 64
@@ -717,20 +733,6 @@ MonoBehaviour:
   decelerationDistance: 3
   decelerationTime: 0.4
   maxSlideTime: 0.125
---- !u!114 &8096213804020148053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2886818909849609237}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f735b0c9a284f5db893ab5063b479b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 1487693591668164282}
-  inputEVLook: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
 --- !u!114 &2689467676908812065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +770,29 @@ MonoBehaviour:
   RayCastSource: {fileID: 3570702464864103966}
   RayCastDistance: 5
   inputEVInteractPress: {fileID: 11400000, guid: 24582c83429a44ff4a8aec49cdab34ea, type: 2}
+--- !u!114 &3178372228335913064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886818909849609237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1ffe3379b524013a365191bc025a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEVPause: {fileID: 11400000, guid: 20baf6fd81192443eb4cce490f368c20, type: 2}
+  gamePausedEvent: {fileID: 11400000, guid: 1079320f9433b4b5dab3cab589792437, type: 2}
+  gameUnpausedEvent: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
+  isPaused:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: a1876207b888f465bb7a8fef94e32a95, type: 2}
+  unpausedTimeScale:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: a078d4b3597bb4d0e8679a7003576a81, type: 2}
 --- !u!1 &6560453170434499441
 GameObject:
   m_ObjectHideFlags: 0
