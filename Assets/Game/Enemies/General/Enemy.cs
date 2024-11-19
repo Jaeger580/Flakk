@@ -12,6 +12,7 @@ using System.Net;
 using GeneralUtility.CombatSystem;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.UIElements;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -159,12 +160,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual IEnumerator BurstAttack(RaycastHit hit) 
     {
+        var target = hit.collider.gameObject;
+
         for (int i = 0;  i < burstSize; i++) 
         {
-            var dir = transform.position - hit.transform.position;
+            
+            //var dir = transform.position - target.transform.position;
 
             foreach (GameObject AP in attackPoints) 
             {
+                var dir = AP.transform.position - target.transform.position;
                 Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
             }
 
