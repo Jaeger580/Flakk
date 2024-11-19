@@ -14,7 +14,7 @@ public abstract class EnemyProjectile : MonoBehaviour
     protected int targetLayer;
     protected virtual void Start() 
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 50f);
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
     }
 

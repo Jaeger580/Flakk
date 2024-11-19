@@ -451,8 +451,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3471579149652576933}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.776018, z: 0, w: 0.6307107}
-  m_LocalPosition: {x: 57.248737, y: -0.004, z: 23.34248}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 14.8564205
-  m_MaxSpeed: 100
+  m_MaxSpeed: 75
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -508,7 +508,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -666,11 +666,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
   maxHealth: 30
-  attackRange: 20
+  attackRange: 30
   attackRadius: 10
   fireRate: 5
-  burstSize: 5
-  shotDelay: 0.02
+  burstSize: 3
+  shotDelay: 0.1
   attackPoints:
   - {fileID: 4481953635753938690}
   attackProjectile: {fileID: 7287566418581035305, guid: be0c5189769b6044f8533f742295f1eb, type: 3}
