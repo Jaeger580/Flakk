@@ -1,0 +1,115 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game/Code/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="ScreenView" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="PauseScreen" style="width: 100%; height: 100%; justify-content: flex-start; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; position: absolute; background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; display: none;">
+            <ui:VisualElement name="LeftAnchor" style="width: 30%;">
+                <ui:Label text="Paused" display-tooltip-when-elided="true" name="PauseTitle" style="-unity-text-align: middle-left; font-size: 40px; letter-spacing: 6px; margin-bottom: 10px; padding-left: 15px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; color: rgb(0, 230, 255);" />
+                <ui:VisualElement name="PauseButtons" style="flex-direction: column; align-items: flex-start;">
+                    <ui:Button text="Resume" display-tooltip-when-elided="true" name="Resume" usage-hints="DynamicColor" class="uiTab textButton" />
+                    <ui:Button text="Options" display-tooltip-when-elided="true" name="Options" usage-hints="DynamicColor" class="uiTab mainMenuButton textButton" />
+                    <ui:Button text="Reload Scene" display-tooltip-when-elided="true" name="ReloadScene" usage-hints="DynamicColor" class="uiTab mainMenuButton textButton" />
+                    <ui:Button text="Quit Game" display-tooltip-when-elided="true" name="QuitGame" usage-hints="DynamicColor" class="uiTab mainMenuButton textButton" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="OptionsScreen" style="width: 100%; height: 100%; justify-content: flex-start; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; position: absolute; background-color: rgb(0, 0, 0); top: 0; left: 0; display: none;">
+            <ui:VisualElement name="OptionsHeaders">
+                <ui:Label text="Options" display-tooltip-when-elided="true" name="OptionsTitle" style="-unity-text-align: middle-left; font-size: 40px; letter-spacing: 6px; margin-bottom: 10px; padding-left: 15px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; color: rgb(0, 230, 255);" />
+                <ui:VisualElement name="OptionTabs" style="flex-direction: row; align-items: stretch; justify-content: flex-start; flex-shrink: 0; flex-grow: 0;">
+                    <ui:Button text="Audio" display-tooltip-when-elided="true" name="Audio" usage-hints="DynamicColor" class="uiTab" />
+                    <ui:Button text="Graphics" display-tooltip-when-elided="true" name="Visual" usage-hints="DynamicColor" class="uiTab mainMenuButton" />
+                    <ui:Button text="Controls" display-tooltip-when-elided="true" name="Controls" usage-hints="DynamicColor" class="uiTab mainMenuButton" style="display: none;" />
+                    <ui:Button text="Accessibility" display-tooltip-when-elided="true" name="Accessibility" usage-hints="DynamicColor" class="uiTab mainMenuButton" style="display: none;" />
+                    <ui:Button text="Game" display-tooltip-when-elided="true" name="Game" usage-hints="DynamicColor" class="uiTab mainMenuButton" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="OptionsBody" style="justify-content: space-between; display: flex; height: auto; flex-grow: 1; flex-shrink: 0;">
+                <ui:VisualElement name="AudioOptions" class="optionsContainer" style="display: none;">
+                    <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 50%;">
+                            <ui:Slider picking-mode="Ignore" label="Master Volume : " value="1" high-value="1" name="MasterSlider" low-value="0.0001" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="align-items: stretch; justify-content: flex-start; width: 50%;">
+                            <ui:Slider picking-mode="Ignore" label="Music Volume : " value="42" high-value="1" name="MusicSlider" low-value="0.0001" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 50%;">
+                            <ui:Slider picking-mode="Ignore" label="SFX Volume : " value="42" high-value="1" name="SFXSlider" low-value="0.0001" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="VisualOptions" class="optionsContainer" style="display: flex;">
+                    <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
+                            <ui:Toggle label="Full Screen :" name="FullScreenToggle" class="optionsToggle" />
+                            <ui:DropdownField label="Display Mode : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="width: 50%; display: none;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 60%;">
+                            <ui:DropdownField label="Resolution : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="ResolutionDropdown" style="width: 100%;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
+                            <ui:Toggle label="V-Sync : " name="VSyncToggle" class="optionsToggle" style="width: 100%;" />
+                            <ui:DropdownField label="V-Sync : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="display: none;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="ControlsOptions" class="optionsContainer" style="display: none;">
+                    <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; display: none;">
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder">
+                            <ui:Label text="DUMMY TEXT : We&apos;ll add keybindings in the future." display-tooltip-when-elided="true" name="TEXT" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Controls" class="optionsHolder" style="margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; width: auto;">
+                        <ui:Label text="Move: WASD" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Jump/Double Jump: Spacebar" display-tooltip-when-elided="true" enable-rich-text="true" class="uiText" />
+                        <ui:Label text="Primary Fire: Left Mouse Button" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Secondary Fire: Right Mouse Button" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Unselect Placeable Object: Right Mouse Button" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Select Placeable Object: 1/2/3/4/5 key" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Place Object: Left Mouse Button" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Minimap: V" display-tooltip-when-elided="true" class="uiText" style="display: flex;" />
+                        <ui:Label text="Air Dash: Shift" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Crouch: Ctrl" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Self-Sacrifice: L" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Start Next Wave: F" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Rotate Placeable Object: Q/E" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Upgrade Turret: E" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Sell Turret: Q" display-tooltip-when-elided="true" class="uiText" />
+                        <ui:Label text="Switch Turret Priority: Tab" display-tooltip-when-elided="true" class="uiText" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="AccessibilityOptions" class="optionsContainer" style="display: none;">
+                    <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 60%;">
+                            <ui:Label text="DUMMY TEXT : We&apos;ll add accessibility options in the future." display-tooltip-when-elided="true" name="TEXT" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="GameOptions" class="optionsContainer" style="display: none; top: 0; left: 0;">
+                    <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
+                            <ui:Toggle label="Axis-Sensitivity Sync :" name="AxisSyncToggle" value="true" style="width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
+                            <ui:Slider picking-mode="Ignore" label="Horizontal Unscoped Sensitivity :" value="1" high-value="2" name="xUnscopedSensitivity" low-value="0" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
+                            <ui:Slider picking-mode="Ignore" label="Vertical Unscoped Sensitivity :" value="1" high-value="2" name="yUnscopedSensitivity" low-value="0" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
+                            <ui:Slider picking-mode="Ignore" label="Horizontal Zoomed Sensitivity :" value="1" high-value="2" name="xScopedSensitivity" low-value="0" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
+                            <ui:Slider picking-mode="Ignore" label="Vertical Zoomed Sensitivity :" value="1" name="yScopedSensitivity" show-input-field="true" high-value="2" low-value="0" style="flex-grow: 1; flex-shrink: 0;" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="SubmitBox" style="align-items: flex-start; flex-direction: row;">
+                <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+                <ui:Button text="Apply" display-tooltip-when-elided="true" name="Apply" class="mainMenuButton" style="display: none;" />
+                <ui:Button text="Revert" display-tooltip-when-elided="true" name="Revert" class="mainMenuButton" style="display: none;" />
+                <ui:Button text="Default" display-tooltip-when-elided="true" name="Default" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
