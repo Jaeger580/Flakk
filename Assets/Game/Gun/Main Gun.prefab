@@ -465,6 +465,7 @@ GameObject:
   - component: {fileID: 402193703068818532}
   - component: {fileID: 5860426773886348526}
   - component: {fileID: 7832215794291943172}
+  - component: {fileID: 949776233448456038}
   m_Layer: 0
   m_Name: Main Gun
   m_TagString: Gun
@@ -557,6 +558,22 @@ MonoBehaviour:
   inputEvMagSwapPress: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
   zoomEnterEvent: {fileID: 11400000, guid: 8bfc2576419ab4609ae435473bb7d461, type: 2}
   zoomExitEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
+--- !u!114 &949776233448456038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383172950227800002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c1043535e1085745a043dc2d2d9b9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveUpPress: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
+  moveUpRelease: {fileID: 11400000, guid: 6aca90f24e8418047bda4b43510100e6, type: 2}
+  moveDownPress: {fileID: 11400000, guid: f1189a8494061e9478e887d52eeac10a, type: 2}
+  moveDownRelease: {fileID: 11400000, guid: 11748b01d93af79428ff801228efffe6, type: 2}
 --- !u!1 &410770878781661479
 GameObject:
   m_ObjectHideFlags: 0
@@ -15405,6 +15422,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5925345842359251895, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.888033
+      objectReference: {fileID: 0}
+    - target: {fileID: -5925345842359251895, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
@@ -15451,6 +15472,10 @@ PrefabInstance:
     - target: {fileID: 1760913664071633295, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490852069005259311, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.888033
       objectReference: {fileID: 0}
     - target: {fileID: 7490852069005259311, guid: 1413cb2d703f4af41a79c162a4d4d34c, type: 3}
       propertyPath: m_LocalPosition.z
