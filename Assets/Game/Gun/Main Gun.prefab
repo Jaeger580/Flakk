@@ -570,10 +570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c1043535e1085745a043dc2d2d9b9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveUpPress: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
-  moveUpRelease: {fileID: 11400000, guid: 6aca90f24e8418047bda4b43510100e6, type: 2}
-  moveDownPress: {fileID: 11400000, guid: f1189a8494061e9478e887d52eeac10a, type: 2}
-  moveDownRelease: {fileID: 11400000, guid: 11748b01d93af79428ff801228efffe6, type: 2}
+  moveSpeed: 0.5
+  maxHeight: 100
+  minHeight: 0
+  vertMoveInput: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
 --- !u!1 &410770878781661479
 GameObject:
   m_ObjectHideFlags: 0

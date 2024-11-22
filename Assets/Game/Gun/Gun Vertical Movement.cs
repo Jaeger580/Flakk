@@ -9,8 +9,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public partial class InputHandler : MonoBehaviour
+{
+    //[SerializeField]
+    //private GameEvent moveUpPress, moveUpRelease;
+    //[SerializeField]
+    //private GameEvent moveDownPress, moveDownRelease;
+
+    [SerializeField]
+    private GameEvent vertMoveInput;
+
+    //private float moveValue = 0f;
+
+    public void GunVertMove(InputAction.CallbackContext context)
+    {
+        //if (context.started)
+        //{
+            vertMoveInput.Trigger(context.ReadValue<float>());
+            //moveValue = context.ReadValue<float>();
+            //Debug.Log(moveValue);
+        //}
+        //else if (context.canceled)
+        //{
+        //    //moveValue = 0;
+        //}
+    }
+}
+
 public class GunVerticalMovement : MonoBehaviour
 {
+
     [SerializeField]
     private float moveSpeed = 1;
 
@@ -19,25 +47,27 @@ public class GunVerticalMovement : MonoBehaviour
     [SerializeField]
     private float minHeight = 0;
 
+
+    //[SerializeField]
+    //private GameEvent moveUpPress;
+    //[SerializeField]
+    //private GameEvent moveDownPress;
+
     [SerializeField]
-    private GameEvent moveUpPress, moveUpRelease;
-    [SerializeField]
-    private GameEvent moveDownPress, moveDownRelease;
+    private GameEvent vertMoveInput;
 
     private float moveValue = 0f;
 
-    public void Move(InputAction.CallbackContext context)
+    private void Awake()
     {
-        if (context.started)
-        {
-            moveValue = context.ReadValue<float>();
-            Debug.Log(moveValue);
-        }
-        else if (context.canceled)
-        {
-            moveValue = 0;
-        }
+        var lookListener = gameObject.AddComponent<GameEventListener>();
+        lookListener.Events.Add(vertMoveInput);
+
+        lookListener.FloatResponse = new();
+        lookListener.FloatResponse.AddListener((input) => vertMove(input));
+        vertMoveInput.RegisterListener(lookListener);
     }
+
 
     private void FixedUpdate()
     {
@@ -60,5 +90,10 @@ public class GunVerticalMovement : MonoBehaviour
         //{
         //    transform.position = new Vector3(0, Mathf.Lerp(maxHeight, minHeight, speed), 0);
         //}
+    }
+
+    private void vertMove(float moveInput) 
+    {
+        moveValue = moveInput;
     }
 }
