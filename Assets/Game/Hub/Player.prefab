@@ -640,6 +640,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2765478d-ab8a-43e7-bdfb-873bd41a9cf9
     m_ActionName: Hub/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 290473895424421710}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: GunVertMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8cdb45ec-658a-4007-ba96-efeaa9aebefb
+    m_ActionName: Gun/Up/Down[/Keyboard/w,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Hub
@@ -657,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748fd3bfd7f81474e80719012e9a3c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vertMoveInput: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
   inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
   inputEvPriFire: {fileID: 11400000, guid: b0dca46fccfc045439cd49032b51c1d6, type: 2}
   inputEvPriRelease: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
