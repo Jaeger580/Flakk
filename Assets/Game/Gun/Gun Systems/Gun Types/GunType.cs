@@ -98,6 +98,14 @@ public abstract class GunType : MonoBehaviour
 
     [Header("References")]
     [SerializeField] protected GameObjectReference vfxOnShot;
+    [SerializeField] protected AudioSource sfxOnShot;
+    [SerializeField] protected AudioSource sfxOnReload;
+
+    protected float onShotStartPitch;
+    protected float onReloadStartPitch;
+
+
+
     protected GameObject gunCamera;
     protected CinemachineVirtualCamera vCam;
     protected GameObject gunBase, gunBulletPoint;
@@ -182,6 +190,11 @@ public abstract class GunType : MonoBehaviour
 
         fireTimer = 1f / fireRate.Value;
         fireTimer += 0.1f;
+
+        // Audio Setup
+        onShotStartPitch = sfxOnShot.pitch;
+        onReloadStartPitch = sfxOnReload.pitch;
+
     }
 
     virtual protected void Start()
@@ -233,6 +246,21 @@ public abstract class GunType : MonoBehaviour
         //{
         //    GameObject vfxInstance = Instantiate(vfxOnShot.Value, bulletInstance.transform.position, bulletInstance.transform.rotation);
         //}
+
+        if (sfxOnShot != null)
+        {
+            Debug.Log("Playing Audio");
+
+            //// Try randomizing the pitch before playing the clip
+            //float minPitch = startPitch - (startPitch * 0.05f);
+            //float maxPitch = startPitch + (startPitch * 0.05f);
+
+            //float ranPitch = Random.Range(minPitch, maxPitch);
+
+            //sfxOnShot.pitch = ranPitch;
+            //sfxOnShot.PlayOneShot(sfxOnShot.clip);
+            CustomAudio.PlayOnceWithPitch(sfxOnShot, onShotStartPitch);
+        }
     }
 
     virtual protected GameObject Fire(AmmoType ammoType)
@@ -309,6 +337,10 @@ public abstract class GunType : MonoBehaviour
         if (!currentMag.TryPush(bullet)) { Editor_Utility.ThrowWarning("ERR: Chosen mag full!", this); return false; }
 
         //Handle reload sound
+        if(sfxOnReload != null) 
+        {
+            CustomAudio.PlayOnceWithPitch(sfxOnReload, onReloadStartPitch);
+        }
 
         currentStockpile.Pop(); //Stockpile DOES have ammo, and current mag DID take from it, so pop
         AmmoChangeEvent?.Invoke(currentMag.stack.Count);

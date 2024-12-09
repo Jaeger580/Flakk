@@ -80,6 +80,22 @@ PrefabInstance:
       propertyPath: m_LocalRotation.x
       value: 0.7071068
       objectReference: {fileID: 0}
+    - target: {fileID: 4546641210154628965, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Pitch
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546641210154628965, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546641210154628965, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4546641210154628965, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
     - target: {fileID: 5579366685023631828, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -108,6 +124,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8157473874677316355, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 91f3fbe1721bb3549b5e02fb704ad6a0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -116,6 +136,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5311776882725190943}
   m_SourcePrefab: {fileID: 100100000, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+--- !u!82 &28755047530726665 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8157473874677316355, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+  m_PrefabInstance: {fileID: 8165874762400808458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5641859984109144431 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4546641210154628965, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+  m_PrefabInstance: {fileID: 8165874762400808458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8359329690269774280 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 383172950227800002, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
@@ -173,3 +203,5 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
+  sfxOnShot: {fileID: 5641859984109144431}
+  sfxOnReload: {fileID: 28755047530726665}
