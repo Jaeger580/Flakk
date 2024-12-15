@@ -50,9 +50,9 @@ public class GunRotationControl : MonoBehaviour
         sensitivityChangedListener.Events.Add(sensitivityChangedEvent);
         sensitivityChangedListener.Response = new();
         sensitivityChangedListener.Response.AddListener(() =>
-        xSens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_ZOOM) * sensitivityScaler);
+        xSens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_BASE) * sensitivityScaler);
         sensitivityChangedListener.Response.AddListener(() =>
-        ySens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_ZOOM) * sensitivityScaler);
+        ySens = PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_BASE) * sensitivityScaler);
         sensitivityChangedEvent.RegisterListener(sensitivityChangedListener);
 
         var lookListener = gameObject.AddComponent<GameEventListener>();
