@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 766059149541905807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 0, z: 2}
+  m_LocalPosition: {x: 5, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -355,6 +355,8 @@ MonoBehaviour:
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
+  partFixed: {fileID: 0}
+  partBroken: {fileID: 0}
 --- !u!1 &2545647882736997904
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +936,7 @@ Transform:
   m_GameObject: {fileID: 5962519833624415660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0, z: 2}
+  m_LocalPosition: {x: -5, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1477,10 +1479,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 10
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
+  partFixed: {fileID: 8484718262341809154}
+  partBroken: {fileID: 7044771121744535168}
 --- !u!1 &9219402182513161312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,10 +1560,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 10
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
+  partFixed: {fileID: 8208177467257087200}
+  partBroken: {fileID: 921783524971915179}
 --- !u!1001 &4915898204174522534
 PrefabInstance:
   m_ObjectHideFlags: 0

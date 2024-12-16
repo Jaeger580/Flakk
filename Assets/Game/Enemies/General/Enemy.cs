@@ -80,7 +80,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             {
                 if (hit.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hit);
+                    Attack(hit, attackPoints);
                     fireRateTimer = 0;
                     canShoot = false;
                 }
@@ -153,12 +153,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Destroy(transform.parent.gameObject);
     }
 
-    protected virtual void Attack(RaycastHit hit) 
+    protected virtual void Attack(RaycastHit hit, GameObject[] pointsOfAttack) 
     {
-        StartCoroutine(BurstAttack(hit));
+        StartCoroutine(BurstAttack(hit, pointsOfAttack));
     }
 
-    protected virtual IEnumerator BurstAttack(RaycastHit hit) 
+    protected virtual IEnumerator BurstAttack(RaycastHit hit, GameObject[] pointsOfAttack) 
     {
         var target = hit.collider.gameObject;
 
@@ -167,7 +167,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             
             //var dir = transform.position - target.transform.position;
 
-            foreach (GameObject AP in attackPoints) 
+            foreach (GameObject AP in pointsOfAttack) 
             {
                 var dir = AP.transform.position - target.transform.position;
                 Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
