@@ -46,7 +46,9 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
             mainPacket.AddResistance(mainResistance, this);
             mainBody.ApplyDamage(mainPacket);
 
-            return false;   //Tells whether I did damage to this part or not
+            // TEMP: switching this return from false to true to make sure bullets behave the way they are supposed to when striking parts that are already broken.
+            // Should likely be replaced with a solution similar to the once given by Allan at the bottom of this method.
+            return true;   //Tells whether I did damage to this part or not
         }
 
         p.AddResistance(localResistance, this);
