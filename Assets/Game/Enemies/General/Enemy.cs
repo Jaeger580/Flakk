@@ -140,7 +140,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         var followScript = leadPoint.GetComponent<SplineAnimate>();
         float oldSpeed = followScript.MaxSpeed;
 
+        float prevProgress = followScript.NormalizedTime;
+        
         followScript.MaxSpeed = oldSpeed * newSpeed;
+
+        followScript.NormalizedTime = prevProgress;
     }
 
     protected virtual void Death() 
