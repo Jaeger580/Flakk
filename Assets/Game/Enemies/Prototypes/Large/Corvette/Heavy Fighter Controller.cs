@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class HeavyFighterController : Enemy
 {
+    [SerializeField]
+    private GameObject[] leftGuns;
+
+    [SerializeField]
+    private GameObject[] rightGuns;
+
     protected override void FixedUpdate()
     {
         // Raycast from both sides of the enemy. If Either hits, shoot in that direction. (For now, they will share a fire rate / cooldown).
@@ -15,7 +21,7 @@ public class HeavyFighterController : Enemy
             {
                 if (hitOne.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hitOne);
+                    Attack(hitOne, rightGuns);
                     fireRateTimer = 0;
                     canShoot = false;
                 }
@@ -24,7 +30,7 @@ public class HeavyFighterController : Enemy
             {
                 if (hitTwo.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hitTwo);
+                    Attack(hitTwo, leftGuns);
                     fireRateTimer = 0;
                     canShoot = false;
                 }

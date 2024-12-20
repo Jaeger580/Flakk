@@ -9,6 +9,7 @@ public class Wing : DestructablePart
         localResistance = 100;
         mainResistance = 50;
 
+        SwapParts();
         //mainBody.speed--;
         //trigger VFX
         //enable/disable model
