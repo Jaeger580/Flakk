@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Engine : DestructablePart
 {
+    [SerializeField]
+    private float speedMultipler = 0.75f;
     public override void TriggerSpecialDebuff()
     {
         //mainBody.speed--;
 
-        mainBody.GetComponent<Enemy>().SpeedMulti(0.5f);
+        SwapParts();
+
+        mainBody.GetComponent<Enemy>().SpeedMulti(speedMultipler); 
 
         localResistance = 100;
         mainResistance = 50;
