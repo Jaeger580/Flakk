@@ -53,13 +53,13 @@ public class Interactor : MonoBehaviour
 
         if (hit.collider.gameObject.TryGetComponent(out IInteractable target))
         {
-            target.Interact();
+            target.Interact(this);
         }
     }
 }
 
 // Want to check this naming convention
-interface IInteractable
+public interface IInteractable
 {
-    void Interact();
+    public void Interact(object interactor);
 }

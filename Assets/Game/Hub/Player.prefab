@@ -673,7 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748fd3bfd7f81474e80719012e9a3c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vertMoveInput: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
   inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
   inputEvPriFire: {fileID: 11400000, guid: b0dca46fccfc045439cd49032b51c1d6, type: 2}
   inputEvPriRelease: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
@@ -683,6 +682,7 @@ MonoBehaviour:
   inputEvReloadRelease: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
   inputEvSwapMagPress: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
   inputEvExitGun: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
+  vertMoveInput: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
   inputEVMove: {fileID: 11400000, guid: 3b5e248451266464dba1988c332e4ea0, type: 2}
   inputEVJumpPress: {fileID: 11400000, guid: aa624df8493f646499daf22523046711, type: 2}
   inputEVJumpRelease: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d09241ce5b0f4c95a53154778b21978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRange: {x: 90, y: Infinity}
+  rotationRange: {x: 180, y: Infinity}
   rotationSpeed: 20
   dampingTime: 0
   autoZeroVerticalOnMobile: 1
