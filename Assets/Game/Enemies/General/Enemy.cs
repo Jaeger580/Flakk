@@ -44,6 +44,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected int targetLayer;
 
     //protected bool isAlive = false;
+    // Animation curve for handling how enemies move towards leadpoints
+    [SerializeField]
+    protected AnimationCurve moveCurve;
 
     public int MaxHealth => throw new System.NotImplementedException();
 
@@ -105,12 +108,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Move() 
     {
+
         // By default, this method will make the enemy follow the leadPoint at a 1:1 rate.
         // Both for position and rotation.
         var targetPos = leadPoint.transform.position;
 
+        Transform objTransform = this.gameObject.transform;
+
+        var moveStep = moveCurve.Evaluate(Vector3.Distance(objTransform.position, targetPos));
+
         // Matches postion to the leading point
-        this.gameObject.transform.position = targetPos;
+        //this.gameObject.transform.position = targetPos;
+        objTransform.position = Vector3.MoveTowards(objTransform.position, targetPos, moveStep);
+
 
         // Matches rotation to the leading point. Note this sibling relationship was set up so this exact feature would be optional.
         this.gameObject.transform.rotation = leadPoint.transform.rotation;

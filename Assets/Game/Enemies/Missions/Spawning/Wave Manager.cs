@@ -74,7 +74,17 @@ public class WaveManager : MonoBehaviour
         foreach(waveObject enemy in enemies) 
         {
             GameObject newEnemy = Instantiate(enemy.enemy);
+
             newEnemy.GetComponentInChildren<SplineAnimate>().Container = enemy.splineToFollow;
+
+            enemy.splineToFollow.Evaluate(0f, out var position, out var tangent, out var up);
+
+            GameObject ship = newEnemy.GetComponentInChildren<Enemy>().gameObject;
+            GameObject leadingPoint = newEnemy.GetComponentInChildren<SplineAnimate>().gameObject;
+
+            ship.transform.position = position;
+            leadingPoint.transform.position = position;
+
             currentEnemies++;
 
             //Debug.Log("Spline Containter Set?");

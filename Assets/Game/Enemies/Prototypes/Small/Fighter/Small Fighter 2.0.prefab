@@ -994,6 +994,30 @@ MonoBehaviour:
   - {fileID: 5962519833624415660}
   - {fileID: 766059149541905807}
   attackProjectile: {fileID: 8976202572985408777, guid: 0eb8c8163e7e41e4caa06aba36a70ec9, type: 3}
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 10
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5962519833624415660
 GameObject:
   m_ObjectHideFlags: 0
