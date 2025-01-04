@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour
     [System.Serializable]
     class Movement
     {
-        public float sprintSpeed = 24f;
-        public float sprintFOV = 80f, normalFOV = 60f, sprintTransitionDuration = 0.5f;
         public float walkSpeed = 12f;
-        public float groundDrag, airDrag;
+        public float sprintSpeed = 24f;
         public float jumpCooldown;
+        public float groundDrag, airDrag;
+        public float sprintFOV = 80f, normalFOV = 60f, sprintTransitionDuration = 0.5f;
     }
 
     [SerializeField] private Movement movement;
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     [ReadOnly] [SerializeField] private bool readyToJump, jumpPressed, jumpStarted;
 
     private Coroutine startSprint, stopSprint;
-    private float actualSpeed;
+    [ReadOnly] [SerializeField] private float actualSpeed;
     #endregion
 
     #region Slope Handling
@@ -205,7 +205,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.drag = 0;
+            rb.drag = airDrag;
         }
 
         //If x and z movement are within a threshold, apply an opposing force similar to drag to slow them to a stop
@@ -273,10 +273,10 @@ public class PlayerController : MonoBehaviour
 
     private void SpeedHandler()
     {//Exclusively affects the player's speed
-        if (actualSpeed > sprintSpeed)
-            actualSpeed -= 1.5f;
-        else
-            actualSpeed = sprintSpeed;
+        //if (actualSpeed > sprintSpeed)
+        //    actualSpeed -= 1.5f;
+        //else
+        //    actualSpeed = sprintSpeed;
 
         if (!coyoteGrounded)
             return;
@@ -293,7 +293,7 @@ public class PlayerController : MonoBehaviour
         normalizedMove = (transform.right * rawMove.x + transform.forward * rawMove.z).normalized;
         if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(20f * actualSpeed * GetSlopeMoveDirection(), ForceMode.Force);
+            rb.AddForce(50f * actualSpeed * GetSlopeMoveDirection(), ForceMode.Force);
             if (rb.velocity.y > 0f)
             {
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
@@ -301,7 +301,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (isGrounded && !exitingSlope)
         {
-            rb.AddForce(20f * actualSpeed * normalizedMove, ForceMode.Force);
+            rb.AddForce(50f * actualSpeed * normalizedMove, ForceMode.Force);
             if (rb.velocity.y > maxDownwardVelocity && !rb.isKinematic)
             {
                 var down = rb.velocity;
@@ -311,7 +311,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            var forceToApply = 10f * actualSpeed * normalizedMove;
+            var forceToApply = 20f * actualSpeed * normalizedMove;
             var drag = airDrag * actualSpeed * -normalizedMove;
             if (drag.magnitude > forceToApply.magnitude)
             {

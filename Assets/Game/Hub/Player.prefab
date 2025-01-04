@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 5033008627668251323}
   - component: {fileID: 2689467676908812065}
   - component: {fileID: 7043883736311624466}
+  - component: {fileID: 5265985712447480399}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -241,7 +242,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2886818909849609237}
   serializedVersion: 4
-  m_Mass: 1.25
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -267,7 +268,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2886818909849609237}
-  m_Material: {fileID: 13400000, guid: 3d914e962ec91476da3b852720c4e40a, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -341,7 +342,19 @@ MonoBehaviour:
     m_ActionId: ea2b8bfa-ddae-4b64-bbbe-65cfdcecfc40
     m_ActionName: Hub/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 290473895424421710}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: DropCrate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e4e1b4aa-0188-4547-b5b0-3e0e2169419c
     m_ActionName: Hub/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -683,6 +696,7 @@ MonoBehaviour:
   inputEvSwapMagPress: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
   inputEvExitGun: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
   vertMoveInput: {fileID: 11400000, guid: acdbebe455dad104aad0e9e590fcfc65, type: 2}
+  inputEvDropCrate: {fileID: 11400000, guid: 4fe19cd6a47474d8d81bca6ca88c3c4d, type: 2}
   inputEVMove: {fileID: 11400000, guid: 3b5e248451266464dba1988c332e4ea0, type: 2}
   inputEVJumpPress: {fileID: 11400000, guid: aa624df8493f646499daf22523046711, type: 2}
   inputEVJumpRelease: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
@@ -708,17 +722,18 @@ MonoBehaviour:
   playerCollider: {fileID: 1596174811518097120}
   cameras: []
   movement:
-    sprintSpeed: 24
+    walkSpeed: 16
+    sprintSpeed: 20
+    jumpCooldown: 0.4
+    groundDrag: 1.5
+    airDrag: 2
     sprintFOV: 64
     normalFOV: 60
     sprintTransitionDuration: 0.5
-    walkSpeed: 5
-    groundDrag: 2.5
-    airDrag: 6.8
-    jumpCooldown: 0.4
   readyToJump: 0
   jumpPressed: 0
   jumpStarted: 0
+  actualSpeed: 0
   slopeHandling:
     maxSlopeAngle: 60
     stepRayLower: {fileID: 2746790266215103169}
@@ -787,6 +802,19 @@ MonoBehaviour:
   RayCastSource: {fileID: 3570702464864103966}
   RayCastDistance: 5
   inputEVInteractPress: {fileID: 11400000, guid: 24582c83429a44ff4a8aec49cdab34ea, type: 2}
+--- !u!114 &5265985712447480399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2886818909849609237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9982175725dd341b59c68a063fa9b928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEvDropCrate: {fileID: 11400000, guid: 4fe19cd6a47474d8d81bca6ca88c3c4d, type: 2}
 --- !u!1 &6560453170434499441
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +840,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6560453170434499441}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.884, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
