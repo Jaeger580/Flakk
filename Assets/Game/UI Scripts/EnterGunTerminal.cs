@@ -6,12 +6,11 @@ using UnityEngine.InputSystem;
 
 public class EnterGunTerminal : MonoBehaviour, IInteractable
 {
-    [SerializeField] private CinemachineVirtualCamera monitorCam;
     private CinemachineVirtualCamera playerVCAM, gunVCAM;
 
     private GameObject player;
     private PlayerInput playInput;
-    [SerializeField] private GameEvent gunEnterEvent, exitMonitorEvent;
+    [SerializeField] private GameEvent gunEnterEvent, gunExitEvent, exitMonitorEvent;
 
     private bool monitorEngaged = false;
 
@@ -34,22 +33,22 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
     {
         if (!monitorEngaged) return;
 
+        gunExitEvent.Trigger();
         Cursor.lockState = CursorLockMode.Locked;
         //gunVCAM.Priority = 101;
         playerVCAM.Priority = 5;
-        monitorCam.Priority = 0;
-        gunVCAM.Priority = 0;
+        //gunVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Hub");
 
         monitorEngaged = false;
     }
 
     // Will change the players controlls and change there camera view to the gun / turret.
-    public void Interact()
+    public void Interact(object _)
     {
         //Debug.Log("It worked!");
         monitorEngaged = true;
-        monitorCam.Priority = 100;
+        //monitorCam.Priority = 100;
         StartCoroutine(nameof(CamCoroutine));
         //playerVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Gun");
@@ -59,10 +58,10 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
 
     private IEnumerator CamCoroutine()
     {
-        yield return new WaitForSeconds(1.8f);
-        gunVCAM.Priority = 101;
+        yield return null;
+        //yield return new WaitForSeconds(1.8f);
+        //gunVCAM.Priority = 101;
         playerVCAM.Priority = 0;
-        monitorCam.Priority = 0;
-        gunVCAM.Priority = 5;
+        //gunVCAM.Priority = 5;
     }
 }
