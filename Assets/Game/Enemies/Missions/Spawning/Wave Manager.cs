@@ -74,7 +74,28 @@ public class WaveManager : MonoBehaviour
         foreach(waveObject enemy in enemies) 
         {
             GameObject newEnemy = Instantiate(enemy.enemy);
+
             newEnemy.GetComponentInChildren<SplineAnimate>().Container = enemy.splineToFollow;
+
+            // Used Evaluate to get the world position
+            enemy.splineToFollow.Evaluate(0f, out var position, out var tangent, out var up);
+
+            // Used to get the rotation of the starting knot of the starting spline.
+            // Could have maybe used the tangent or up variable from the evaluate function above,
+            // but I could not figure out how to use them properly if it is possible.
+
+            var firstKnot = enemy.splineToFollow.Spline.ToArray()[0];
+
+            GameObject ship = newEnemy.GetComponentInChildren<Enemy>().gameObject;
+            GameObject leadingPoint = newEnemy.GetComponentInChildren<SplineAnimate>().gameObject;
+
+            ship.transform.position = position;
+
+            leadingPoint.transform.position = position;
+            leadingPoint.transform.rotation = firstKnot.Rotation;
+
+            ship.transform.rotation = leadingPoint.transform.rotation;
+
             currentEnemies++;
 
             //Debug.Log("Spline Containter Set?");
