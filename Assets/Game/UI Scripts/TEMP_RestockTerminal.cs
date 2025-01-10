@@ -76,7 +76,7 @@ public class TEMP_RestockTerminal : MonoBehaviour, IInteractable
         }
     }
 
-    public void Interact()
+    public void Interact(object _)
     {
         playInput.SwitchCurrentActionMap("UI");
         monitorEngaged = true;

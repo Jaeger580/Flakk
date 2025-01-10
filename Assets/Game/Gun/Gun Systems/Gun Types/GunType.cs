@@ -61,7 +61,9 @@ public partial class InputHandler : MonoBehaviour
     public void ExitGunPressed(InputAction.CallbackContext context)
     {
         if (context.started)
+        {
             inputEvExitGun.Trigger();
+        }
     }
 }
 

@@ -42,7 +42,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         if (!startInTerminal)
             DisableMonitor();
         else
-            Interact();
+            Interact(this);
     }
 
     private void EnableMonitor()
@@ -66,7 +66,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         mapper.enabled = false;
     }
 
-    public void Interact()
+    public void Interact(object _)
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         monitorEngaged = true;
