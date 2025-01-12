@@ -6,6 +6,7 @@ public class Engine : DestructablePart
 {
     [SerializeField]
     private float speedMultipler = 0.75f;
+
     public override void TriggerSpecialDebuff()
     {
         //mainBody.speed--;
