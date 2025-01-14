@@ -32,5 +32,58 @@ namespace GeneralUtility
                 return items == null || items.Count <= 0 || (items.Count == 1 && items[0] == null);
             }
         }
+
+        abstract public class RuntimeStack<T> : ScriptableObject where T : ScriptableObject
+        {
+            public IntReference maxStackSize;
+            [Expandable] public List<T> stack = new List<T>();
+            public void Push(T t)
+            {
+                stack.Add(t);
+            }
+
+            public bool TryPush(T t)
+            {
+                if (stack.Count >= maxStackSize.Value)
+                {
+                    Editor_Utility.ThrowWarning("ERR: Stack overflow, did you try to push to a full stack?", this);
+                    return false;
+                }
+
+                Push(t);
+                return true;
+            }
+
+            public T Pop()
+            {
+                T t = stack[^1];
+                stack.Remove(t);
+                return t;
+            }
+
+            public bool TryPop(out T t)
+            {
+                t = null;
+                if (stack.Count <= 0) return false;
+
+                t = Pop();
+                return true;
+            }
+
+            public T Peek()
+            {
+                T t = stack[^1];
+                return t;
+            }
+
+            public bool TryPeek(out T t)
+            {
+                t = null;
+                if (stack.Count <= 0) return false;
+
+                t = Peek();
+                return true;
+            }
+        }
     }
 }

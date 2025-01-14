@@ -503,14 +503,12 @@ namespace GeneralUtility
 
         static public void ToggleContainer(VisualElement container)
         {
-            if (container.style.display == showing)
-            {
-                container.style.display = hidden;
-            }
-            else
-            {
-                container.style.display = showing;
-            }
+            container.style.display = container.style.display == showing ? hidden : showing;
+        }
+
+        static public void ToggleContainer(VisualElement container, bool shouldBeVisible)
+        {
+            container.style.display = shouldBeVisible ? showing : hidden;
         }
 
         static public void AddSFX(UnityEngine.UIElements.Button btn, AudioSource sfxSource, AudioClip sfxHover, AudioClip sfxClick)

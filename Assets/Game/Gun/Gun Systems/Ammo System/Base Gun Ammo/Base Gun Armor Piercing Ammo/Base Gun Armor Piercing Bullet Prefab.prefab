@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1080715926209708915
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Name
+      value: Base Gun Armor Piercing Bullet Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c540fc0f77a914408a86fe10944ac9d3, type: 2}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2938999574742917333}
+  m_SourcePrefab: {fileID: 100100000, guid: ac1cd62467021485fbef057f75334857, type: 3}
+--- !u!1 &129299932798963003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
+  m_PrefabInstance: {fileID: 1080715926209708915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2938999574742917333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129299932798963003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdb0848f37c84f7c8c230b3702290b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxPrefab:
+    UseConstant: 1
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 0}
+  sfxOnImpact: []
+  armorPierceValue:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: b066b81b9a7a642b7b6f8f07e25b4d73, type: 2}

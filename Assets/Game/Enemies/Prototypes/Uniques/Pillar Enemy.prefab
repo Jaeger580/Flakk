@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6828183738434398900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7737735279970757303}
+  m_Layer: 0
+  m_Name: Pillar Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7737735279970757303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828183738434398900}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1265737246969340486}
+  - {fileID: 6457633155223334840}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7099290020505978566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265737246969340486}
+  - component: {fileID: 2821840527034845463}
+  m_Layer: 0
+  m_Name: Lead Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265737246969340486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099290020505978566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7737735279970757303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2821840527034845463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7099290020505978566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a829091269032db4885909354e3f879f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splineContainer: {fileID: 0}
+  moveSpeed: 0.01
+  pathData:
+    slices:
+    - splineIndex: 0
+      range:
+        m_Start: 0
+        m_Count: 4
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+    - splineIndex: 1
+      range:
+        m_Start: 0
+        m_Count: 17
+        m_Direction: 0
+      isEnabled: 1
+      sliceLength: 0
+      distanceFromStart: 0
+--- !u!1 &8980288624740413208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6457633155223334840}
+  - component: {fileID: 6885784878208681247}
+  m_Layer: 0
+  m_Name: Brain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6457633155223334840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980288624740413208}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7737735279970757303}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6885784878208681247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980288624740413208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb39c8c5ff9dbc41ab13ece2f6b669d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leadPoint: {fileID: 7099290020505978566}
+  maxHealth: 0
+  segementPrefab: {fileID: 0}
+  startSize: 7
+  segementOffSet: {x: 0, y: 0, z: 0}
