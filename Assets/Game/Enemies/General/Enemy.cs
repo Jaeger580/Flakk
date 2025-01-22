@@ -141,10 +141,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
+
+        Debug.Log("Final Damage: " + finalDamage);
+
         currenthealth -= finalDamage;
 
         //Debug.Log(finalDamage + " final damage taken.");
-        Debug.Log("Current Health " + currenthealth);
+        //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
             Death();

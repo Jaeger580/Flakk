@@ -16,12 +16,18 @@ public class Wing : DestructablePart
         CombatPacket packet = new CombatPacket();
         packet.SetDamage(bonusDamage, this);
 
-        localResistance = 100;
-        mainResistance = 100;
+
+        //localResistance = 100;
+        //mainResistance = 100;
+
+        //packet.AddResistance(localResistance, this);
 
         SwapParts();
+
         mainBody.GetComponent<Enemy>().SpeedMulti(speedMultipler);
         mainBody.GetComponent<Enemy>().ApplyDamage(packet);
+
+        Debug.Log("Wing DETROYED");
 
         //mainBody.speed--;
         //trigger VFX

@@ -37,6 +37,8 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
     public int MaxHealth => localHealth;
 
+    protected bool debuffTriggered = false;
+
     public bool ApplyDamage(CombatPacket p)
     {
         if (localHealth <= 0)
@@ -58,12 +60,16 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
         //Debug.Log(finalDamage + " local damage taken.");
 
-        if (localHealth <= 0)
+        if (localHealth <= 0 && !debuffTriggered) 
+        {
             TriggerSpecialDebuff();
+            debuffTriggered = true;
+        }
 
         var mainBodyPacket = new CombatPacket(p);
         mainBodyPacket.SetTarget(mainBody, this);
         //Add res here? unsure, depends on the part ig
+        mainBodyPacket.AddResistance(mainResistance, this);
         mainBody.ApplyDamage(mainBodyPacket);
 
         return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body

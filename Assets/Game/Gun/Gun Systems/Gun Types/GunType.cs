@@ -251,7 +251,7 @@ public abstract class GunType : MonoBehaviour
 
         if (sfxOnShot != null)
         {
-            Debug.Log("Playing Audio");
+            //Debug.Log("Playing Audio");
 
             //// Try randomizing the pitch before playing the clip
             //float minPitch = startPitch - (startPitch * 0.05f);
