@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 766059149541905807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 5}
+  m_LocalPosition: {x: 5.5, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -350,8 +350,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4866197400159693805}
   - {fileID: 8343807543343763257}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590de0134f5a042479e2ddca5f55485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 10
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
@@ -839,7 +839,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6142710254207506842}
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 7295802221162836981}
-  maxHealth: 15
+  maxHealth: 10
   attackRange: 10
   attackRadius: 5
   fireRate: 2
@@ -1044,7 +1044,7 @@ Transform:
   m_GameObject: {fileID: 5962519833624415660}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 5}
+  m_LocalPosition: {x: -5.5, y: 0, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 75
-  m_MaxSpeed: 75
+  m_MaxSpeed: 125
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 10
+  localHealth: 5
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 10
+  localHealth: 5
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 7231779034791383381}

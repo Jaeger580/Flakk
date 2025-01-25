@@ -56,7 +56,12 @@ public class GunVerticalMovement : MonoBehaviour
     [SerializeField]
     private GameEvent vertMoveInput;
 
+    [SerializeField]
+    private GameEvent GunExit;
+
     private float moveValue = 0f;
+
+    private bool isResetting = false;
 
     private void Awake()
     {
@@ -66,21 +71,39 @@ public class GunVerticalMovement : MonoBehaviour
         lookListener.FloatResponse = new();
         lookListener.FloatResponse.AddListener((input) => vertMove(input));
         vertMoveInput.RegisterListener(lookListener);
-    }
 
+        var exitListener = gameObject.AddComponent<GameEventListener>();
+        exitListener.Events.Add(GunExit);
+        exitListener.Response = new();
+        exitListener.Response.AddListener(() => PositionReset());
+        GunExit.RegisterListener(exitListener);
+    }
 
     private void FixedUpdate()
     {
         var speed = moveSpeed * Time.deltaTime;
 
-        if (moveValue == 1)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, maxHeight, 0), moveSpeed);
-        }
-        else if (moveValue == -1)
+        if (isResetting) 
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight, 0), moveSpeed);
+
+            if(transform.position.y == minHeight) 
+            {
+                isResetting = false;
+            }
         }
+        else
+        {
+            if (moveValue == 1)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, maxHeight, 0), moveSpeed);
+            }
+            else if (moveValue == -1)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight, 0), moveSpeed);
+            }
+        }
+
 
         //if(moveValue == 1) 
         //{
@@ -95,5 +118,11 @@ public class GunVerticalMovement : MonoBehaviour
     private void vertMove(float moveInput) 
     {
         moveValue = moveInput;
+    }
+
+    public void PositionReset()
+    {
+        //transform.position = new Vector3(0, minHeight, 0);
+        isResetting = true;
     }
 }

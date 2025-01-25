@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 376186388835229287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 105.4, y: 28, z: 165}
+  m_LocalPosition: {x: 48.533, y: 13.746, z: 76.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 907956526557626928}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -105.4, y: 30, z: 111.5}
+  m_LocalPosition: {x: -48.93, y: 13.13, z: 52.022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -539,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 1639322009249756181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -105.4, y: 28, z: 165}
+  m_LocalPosition: {x: -48.75, y: 13.48, z: 77.029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -654,8 +654,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5204070844216865728}
   - {fileID: 2036829008918498152}
@@ -1407,7 +1407,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 14.8564205
-  m_MaxSpeed: 55
+  m_MaxSpeed: 75
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -1473,7 +1473,7 @@ Transform:
   m_GameObject: {fileID: 3973479896972893959}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 125, y: 30, z: 2.5}
+  m_LocalPosition: {x: 58.477, y: 13.54, z: 1.199}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
-  maxHealth: 75
+  maxHealth: 90
   attackRange: 400
   attackRadius: 65
   fireRate: 15
@@ -2425,7 +2425,7 @@ Transform:
   m_GameObject: {fileID: 5483132318446581085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -125, y: 30, z: 2.5}
+  m_LocalPosition: {x: -59.95, y: 14.116, z: 1.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2531,7 +2531,7 @@ Transform:
   m_GameObject: {fileID: 5745120365852263550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 105.4, y: 30, z: 111.5}
+  m_LocalPosition: {x: 48.42, y: 13.87, z: 51.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2648,7 +2648,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 180409762260083066}
@@ -3641,6 +3641,7 @@ GameObject:
   - component: {fileID: 4645114932166713959}
   - component: {fileID: 4941640474518703810}
   - component: {fileID: 251755829838775918}
+  - component: {fileID: 583870152658354531}
   m_Layer: 9
   m_Name: Hull (Exposed)
   m_TagString: Untagged
@@ -3675,7 +3676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590de0134f5a042479e2ddca5f55485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 75
+  localHealth: 90
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 6959418651261929473}
@@ -3700,7 +3701,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 220, y: 30, z: 330}
+  m_Size: {x: 220, y: 25, z: 330}
   m_Center: {x: 0, y: 0, z: 125}
 --- !u!65 &4645114932166713959
 BoxCollider:
@@ -3765,3 +3766,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 30, y: 30, z: 150}
   m_Center: {x: 0, y: -35, z: 0}
+--- !u!65 &583870152658354531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323304006528317147}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 150, y: 60, z: 115}
+  m_Center: {x: 0, y: 0, z: -100}

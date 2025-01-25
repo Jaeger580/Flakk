@@ -112,4 +112,9 @@ public class WaveManager : MonoBehaviour
         winEvent.Trigger();
         Debug.Log("VICTORY");
     }
+
+    public static void ReduceCount() 
+    {
+        currentEnemies--;
+    }
 }

@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 10
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 9180726343200480494}
@@ -444,8 +444,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 290792977530645909}
   - {fileID: 5071700102660608751}
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 14.8564205
-  m_MaxSpeed: 75
+  m_MaxSpeed: 100
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -815,7 +815,7 @@ Transform:
   m_GameObject: {fileID: 3989354954145185693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.25, y: -15, z: 9}
+  m_LocalPosition: {x: 4.3, y: -7.5, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -846,7 +846,7 @@ Transform:
   m_GameObject: {fileID: 4481953635753938690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.25, y: -15, z: 9}
+  m_LocalPosition: {x: -4.3, y: -7.5, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 10
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 9180726343200480494}
@@ -996,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
-  maxHealth: 30
+  maxHealth: 35
   attackRange: 30
   attackRadius: 10
   fireRate: 5
@@ -1092,8 +1092,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8957021267808270576}
   - {fileID: 3669130361883302231}
@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590de0134f5a042479e2ddca5f55485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 30
+  localHealth: 35
   localResistance: 0
   mainResistance: 0
   mainBody: {fileID: 9180726343200480494}

@@ -170,8 +170,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         // Proper death needs added later
         StopAllCoroutines();
 
-        // Not being handled directly by wave manager. Could be source of future bugs?
-        WaveManager.currentEnemies--;
+        WaveManager.ReduceCount();
+
         Destroy(transform.parent.gameObject);
     }
 
