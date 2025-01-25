@@ -106,14 +106,16 @@ public abstract class GunType : MonoBehaviour
     protected float onShotStartPitch;
     protected float onReloadStartPitch;
 
-
-
     protected GameObject gunCamera;
     protected CinemachineVirtualCamera vCam;
     protected GameObject gunBase, gunBulletPoint;
 
-    public delegate void OnAmmoChange(float newAmmo);
-    public OnAmmoChange AmmoChangeEvent;
+    public delegate void OnAmmoChange(float newAmmo, float maxAmmo);
+    public OnAmmoChange PrimaryMagAmmoChangeEvent, SecondaryMagAmmoChangeEvent;
+    public OnAmmoChange PrimaryStockpileAmmoChangeEvent, SecondaryStockpileAmmoChangeEvent;
+
+    public delegate void OnReloadTimerChange(float newReloadTimer, float maxReloadTimer);
+    public OnReloadTimerChange ReloadTimerChangeEvent;
 
     protected GunTypeSetup gunSetup;
 
@@ -196,17 +198,22 @@ public abstract class GunType : MonoBehaviour
         // Audio Setup
         onShotStartPitch = sfxOnShot.pitch;
         onReloadStartPitch = sfxOnReload.pitch;
-
     }
 
     virtual protected void Start()
     {
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+        PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+        SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+        PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+        SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
     }
 
     virtual protected void OnDisable()
     {
-        AmmoChangeEvent = null;
+        PrimaryMagAmmoChangeEvent = null;
+        SecondaryMagAmmoChangeEvent = null;
+        PrimaryStockpileAmmoChangeEvent = null;
+        SecondaryStockpileAmmoChangeEvent = null;
     }
 
     virtual protected void Update()
@@ -240,7 +247,14 @@ public abstract class GunType : MonoBehaviour
 
         //Cleanup
         currentMag.Pop();
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+        if(currentMag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+        }
 
         fireTimer = 0f;
         //trigger sfx and vfx?
@@ -312,11 +326,13 @@ public abstract class GunType : MonoBehaviour
         if (reloadTimer < 1f / reloadRate.Value)
         {
             reloadTimer += Time.deltaTime;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
         else
         {
             ReloadInputIntake(TryReload());
             reloadTimer = 0f;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
     }
 
@@ -330,6 +346,7 @@ public abstract class GunType : MonoBehaviour
         {//If you released the reload button, reset the reload timer
             isReloading.Value = false;
             reloadTimer = 0f;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
     }
 
@@ -345,7 +362,17 @@ public abstract class GunType : MonoBehaviour
         }
 
         currentStockpile.Pop(); //Stockpile DOES have ammo, and current mag DID take from it, so pop
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+
+        if (currentMag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+            PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+            SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+        }
 
         return true;
     }

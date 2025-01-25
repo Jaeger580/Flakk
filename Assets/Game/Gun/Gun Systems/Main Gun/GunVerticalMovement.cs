@@ -79,7 +79,6 @@ public class GunVerticalMovement : MonoBehaviour
         GunExit.RegisterListener(exitListener);
     }
 
-
     private void FixedUpdate()
     {
         var speed = moveSpeed * Time.deltaTime;
@@ -121,10 +120,9 @@ public class GunVerticalMovement : MonoBehaviour
         moveValue = moveInput;
     }
 
-    private void PositionReset()
+    public void PositionReset()
     {
         //transform.position = new Vector3(0, minHeight, 0);
         isResetting = true;
     }
-
 }

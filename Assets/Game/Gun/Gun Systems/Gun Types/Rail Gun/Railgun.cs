@@ -58,7 +58,14 @@ public class Railgun : GunType
 
         //Cleanup
         currentMag.Pop();
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+        if (currentMag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+        }
         CurrentCharge = 0f;
 
         //trigger sfx and vfx?
