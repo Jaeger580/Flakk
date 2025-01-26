@@ -75,11 +75,14 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
         return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body
     }
 
-    public void SwapParts() 
+    public void SwapParts()
     {
-        if(partFixed != null && partBroken != null) 
+        if (partFixed != null)
         {
             partFixed.GetComponent<MeshRenderer>().enabled = false;
+        }
+        if (partBroken != null) 
+        {
             partBroken.GetComponent<MeshRenderer>().enabled = true;
         }
     }

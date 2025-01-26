@@ -13,7 +13,7 @@ public class BomberController : Enemy
             {
                 if (hit.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hit, attackPoints);
+                    Attack(hit, gunsList);
                     fireRateTimer = 0;
                     canShoot = false;
                 }
