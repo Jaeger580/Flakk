@@ -153,6 +153,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         currenthealth -= finalDamage;
 
+        OnHit();
+
         //Debug.Log(finalDamage + " final damage taken.");
         //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
@@ -214,4 +216,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(shotDelay);
         }
     }
+
+    // Optional Method for some enemies to trigger on hit effects
+    protected virtual void OnHit() 
+    {
+    }
+
 }
