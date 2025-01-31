@@ -190,6 +190,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7924519492169408134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &921352067705946512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4821374172908644197}
+  - component: {fileID: 1902143369288889466}
+  - component: {fileID: 2900015016144875745}
+  m_Layer: 9
+  m_Name: Bridge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4821374172908644197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921352067705946512}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 38, z: 22.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4398958687493778091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1902143369288889466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921352067705946512}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 40, y: 30, z: 70}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2900015016144875745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921352067705946512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfabbd859d3a6f44b86b20e7fcd0aa51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localHealth: 25
+  localResistance: 0
+  mainResistance: 75
+  mainBody: {fileID: 6959418651261929473}
+  partFixed: {fileID: 0}
+  partBroken: {fileID: 0}
+  bonusDamage: 30
 --- !u!1 &1018061521377753063
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 15
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 50
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 6094388705665470904}
   partBroken: {fileID: 2101847374676328571}
@@ -559,13 +632,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 5767085223054681965}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 5483132318446581085}
   isLeft: 1
 --- !u!65 &82588341342316666
@@ -665,13 +738,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 4313561362994091618}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 5745120365852263550}
   isLeft: 0
 --- !u!65 &5053930697885188183
@@ -823,13 +896,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 7734317161286559162}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 907956526557626928}
   isLeft: 1
 --- !u!65 &5407572837152326658
@@ -893,6 +966,7 @@ Transform:
   - {fileID: 2697934058105540144}
   - {fileID: 7329142601189133448}
   - {fileID: 395711375753786253}
+  - {fileID: 4821374172908644197}
   m_Father: {fileID: 7924519492169408134}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985461925417175339
@@ -1272,13 +1346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 6897222730821174994}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 3973479896972893959}
   isLeft: 0
 --- !u!65 &7701700888106556931
@@ -1634,7 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 15
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 50
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 4573062949194240256}
   partBroken: {fileID: 1985461925417175339}
@@ -2785,7 +2859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 15
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 50
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 2662290431537865873}
   partBroken: {fileID: 2414630766913882704}
@@ -2858,13 +2932,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 1018061521377753063}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 1639322009249756181}
   isLeft: 1
 --- !u!65 &4870561124471350875
@@ -3602,13 +3676,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e6d708228fc64ea86bd1205c47e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localHealth: 15
+  localHealth: 20
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 75
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 6649574948900155770}
   partBroken: {fileID: 0}
-  bonusDamage: 15
+  bonusDamage: 10
   attackPoint: {fileID: 376186388835229287}
   isLeft: 0
 --- !u!65 &8236315969358765015
@@ -3679,7 +3753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 15
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 50
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 2885504983260167791}
   partBroken: {fileID: 7917728138129774435}
@@ -4095,7 +4169,6 @@ GameObject:
   - component: {fileID: 5204070844216865728}
   - component: {fileID: 229980645549142712}
   - component: {fileID: 833807102794798942}
-  - component: {fileID: 4645114932166713959}
   - component: {fileID: 4941640474518703810}
   - component: {fileID: 251755829838775918}
   - component: {fileID: 583870152658354531}
@@ -4158,29 +4231,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 220, y: 25, z: 330}
+  m_Size: {x: 200, y: 21, z: 330}
   m_Center: {x: 0, y: 0, z: 125}
---- !u!65 &4645114932166713959
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8323304006528317147}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 35, y: 30, z: 70}
-  m_Center: {x: 0, y: 37, z: 25}
 --- !u!65 &4941640474518703810
 BoxCollider:
   m_ObjectHideFlags: 0
