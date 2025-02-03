@@ -11,7 +11,7 @@ public class PathNode : MonoBehaviour
     private GameObject[] Inputs;
 
     [SerializeField]
-    private GameObject[] Outputs;   // Primary varible that will be used. Inputs are for specific cases such as refersed movement.
+    private GameObject[] Outputs;   // Primary varible that will be used. Inputs are for specific cases such as reversed movement.
 
     // Will likely need to add some sort of "Key" argument for choosing paths in the future.
     public SplineContainer GetExit() 

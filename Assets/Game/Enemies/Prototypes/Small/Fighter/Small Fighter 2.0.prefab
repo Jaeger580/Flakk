@@ -80,7 +80,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 5}
+  m_Size: {x: 4, y: 3, z: 5}
   m_Center: {x: 0, y: 0.25, z: -5}
 --- !u!1 &766059149541905807
 GameObject:
@@ -988,8 +988,8 @@ MonoBehaviour:
   attackRange: 10
   attackRadius: 5
   fireRate: 2
-  burstSize: 3
-  shotDelay: 0.01
+  burstSize: 2
+  shotDelay: 0.1
   attackPoints:
   - {fileID: 5962519833624415660}
   - {fileID: 766059149541905807}
@@ -1019,6 +1019,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateSpeed: 5
+  gunsList: []
 --- !u!1 &5962519833624415660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,10 +1570,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 5
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 100
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8484718262341809154}
   partBroken: {fileID: 7044771121744535168}
+  speedMultipler: 0.9
+  bonusDamage: 2
 --- !u!65 &8093054196579080115
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1672,10 +1675,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 5
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 100
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8208177467257087200}
   partBroken: {fileID: 921783524971915179}
+  speedMultipler: 0.9
+  bonusDamage: 2
 --- !u!65 &4776361355456488331
 BoxCollider:
   m_ObjectHideFlags: 0
