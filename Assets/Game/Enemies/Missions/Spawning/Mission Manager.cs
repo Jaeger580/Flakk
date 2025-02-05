@@ -28,6 +28,11 @@ public class MissionManager : MonoBehaviour
         //SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
         activeMission = missions[missionNum].Name();
     }
+
+    public Mission GetMission(int missionNum) 
+    {
+        return missions[missionNum];
+    }
 }
 
 [System.Serializable]
