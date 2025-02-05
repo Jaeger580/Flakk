@@ -7,9 +7,9 @@ public class MissionManager : MonoBehaviour
 {
     // Using object type instead of Scene type since sences can not be serialized the way I want.
     [SerializeField]
-    private Object[] missions;
+    private Mission[] missions;
 
-    private Object activeMission;
+    private string activeMission;
 
     private void Start()
     {
@@ -21,11 +21,30 @@ public class MissionManager : MonoBehaviour
     {
         if(activeMission != null) 
         {
-            SceneManager.UnloadSceneAsync(activeMission.name);
+            SceneManager.UnloadSceneAsync(activeMission);
         }
 
-        //SceneManager.LoadScene(missions[missionNum].name, LoadSceneMode.Additive);
-        SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
-        activeMission = missions[missionNum];
+        SceneManager.LoadScene(missions[missionNum].Name(), LoadSceneMode.Additive);
+        //SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
+        activeMission = missions[missionNum].Name();
     }
+}
+
+[System.Serializable]
+public class Mission 
+{
+    [SerializeField]
+    private string name;
+
+    [SerializeField]
+    private string description;
+
+    [SerializeField]
+    private int cashReward;
+
+    public string Name() { return name; }
+
+    public string Description() { return description; }
+
+    public int CashReward() {  return cashReward; }
 }
