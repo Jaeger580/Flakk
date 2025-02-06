@@ -8,13 +8,14 @@ public class MissionManager : MonoBehaviour
     // Using object type instead of Scene type since sences can not be serialized the way I want.
     [SerializeField]
     private Mission[] missions;
+    public Mission[] Missions => missions;
 
     private string activeMission;
 
-    private void Start()
-    {
-        LoadMission(0);
-    }
+    //private void Start()
+    //{
+    //    LoadMission(0);
+    //}
 
     // If there is an active mission, remove it and load the correct mission
     public void LoadMission(int missionNum)
