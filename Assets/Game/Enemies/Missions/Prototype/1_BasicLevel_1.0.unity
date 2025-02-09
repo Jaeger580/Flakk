@@ -566,6 +566,84 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1001 &203927088
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1891420866}
+    m_Modifications:
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[0]
+      value: 
+      objectReference: {fileID: 444939065}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1251249810}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1794831077}
+    - target: {fileID: 3717268473254952940, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_Name
+      value: Path Node C01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 458.1462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -327.919
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -371.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+--- !u!4 &203927089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+  m_PrefabInstance: {fileID: 203927088}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &204207489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -644,6 +722,390 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 204207489}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &281759805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281759806}
+  - component: {fileID: 281759807}
+  m_Layer: 0
+  m_Name: Spline B_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281759806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281759805}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 216.5841, y: -359.32416, z: 479.54633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &281759807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281759805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 48.47737
+        y: -146.0145
+        z: -127.68506
+      TangentIn:
+        x: -0
+        y: -0
+        z: -19.313347
+      TangentOut:
+        x: 0
+        y: 0
+        z: 19.313347
+      Rotation:
+        value:
+          x: -0.11887217
+          y: -0.13177595
+          z: 0.009254097
+          w: 0.9840827
+    - Position:
+        x: -2.0380402
+        y: -101.3
+        z: 53.282745
+      TangentIn:
+        x: -0
+        y: -0
+        z: -52.335052
+      TangentOut:
+        x: 0
+        y: 0
+        z: 41.584404
+      Rotation:
+        value:
+          x: -0.30549923
+          y: -0.04118496
+          z: 0.029110229
+          w: 0.9508557
+    - Position:
+        x: 8.338593
+        y: 0
+        z: 120.358154
+      TangentIn:
+        x: -0
+        y: -0
+        z: -21.389355
+      TangentOut:
+        x: 0
+        y: 0
+        z: 16.35863
+      Rotation:
+        value:
+          x: -0.4551471
+          y: 0.67476183
+          z: 0.4068842
+          w: 0.41470817
+    - Position:
+        x: 18.661957
+        y: 21
+        z: 52.982727
+      TangentIn:
+        x: -0
+        y: -0
+        z: -28.047325
+      TangentOut:
+        x: 0
+        y: 0
+        z: 40.876293
+      Rotation:
+        value:
+          x: -0.1654535
+          y: 0.9792604
+          z: 0.10152135
+          w: 0.0580325
+    - Position:
+        x: 20.861954
+        y: 42.1
+        z: -97.01727
+      TangentIn:
+        x: -0
+        y: -0
+        z: -53.581047
+      TangentOut:
+        x: 0
+        y: 0
+        z: 61.036804
+      Rotation:
+        value:
+          x: 0.00058432826
+          y: 0.9992648
+          z: 0.034200132
+          w: -0.017322903
+    - Position:
+        x: 4.46196
+        y: 41.5
+        z: -292.91727
+      TangentIn:
+        x: -0
+        y: -0
+        z: -54.197906
+      TangentOut:
+        x: 0
+        y: 0
+        z: 38.22931
+      Rotation:
+        value:
+          x: 0.000006344139
+          y: 0.99946713
+          z: 0.0005151218
+          w: -0.032636635
+    - Position:
+        x: -0.13804626
+        y: 42
+        z: -390.61725
+      TangentIn:
+        x: 0
+        y: 0
+        z: -44.546925
+      TangentOut:
+        x: 0
+        y: 0
+        z: 53.78985
+      Rotation:
+        value:
+          x: -0.0005129485
+          y: 0.9514148
+          z: 0.0013457182
+          w: -0.30790862
+    - Position:
+        x: 31.165909
+        y: 42
+        z: -584.0378
+      TangentIn:
+        x: -0
+        y: -0
+        z: -65.75626
+      TangentOut:
+        x: 0
+        y: 0
+        z: 67.815544
+      Rotation:
+        value:
+          x: 0.007787829
+          y: 0.9912443
+          z: -0.048837185
+          w: 0.12242974
+    - Position:
+        x: 97.86195
+        y: 1.2
+        z: -777.2173
+      TangentIn:
+        x: -0
+        y: -0
+        z: -59.56599
+      TangentOut:
+        x: 0
+        y: 0
+        z: 52.908466
+      Rotation:
+        value:
+          x: -0.008027801
+          y: 0.9369139
+          z: -0.0065487525
+          w: 0.34940666
+    - Position:
+        x: 241.50197
+        y: 31.393
+        z: -851.3113
+      TangentIn:
+        x: -0
+        y: -0
+        z: -16.442017
+      TangentOut:
+        x: 0
+        y: 0
+        z: 16.442017
+      Rotation:
+        value:
+          x: -0.05226844
+          y: 0.8500513
+          z: 0.07612864
+          w: 0.5185416
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &378090676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378090677}
+  - component: {fileID: 378090678}
+  m_Layer: 0
+  m_Name: Spline A_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378090677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378090676}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 334.29395, y: -359.32416, z: -1212.1714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &378090678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378090676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -4.263855
+        y: 0
+        z: 1.3793945
+      TangentIn:
+        x: -0
+        y: -0
+        z: -93.544106
+      TangentOut:
+        x: 0
+        y: 0
+        z: 93.544106
+      Rotation:
+        value:
+          x: -0.094353825
+          y: -0.38745835
+          z: -0.055757575
+          w: 0.9153493
+    - Position:
+        x: -657.9479
+        y: 202
+        z: 639.3004
+      TangentIn:
+        x: -0
+        y: -0
+        z: -93.544106
+      TangentOut:
+        x: 0
+        y: 0
+        z: 93.544106
+      Rotation:
+        value:
+          x: -0.09435378
+          y: -0.38745838
+          z: -0.055757694
+          w: 0.9153493
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &398616628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,6 +1518,430 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1 &444939065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444939066}
+  - component: {fileID: 444939067}
+  m_Layer: 0
+  m_Name: Spline C_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444939066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444939065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 459.75317, y: -327.5702, z: -370.66156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444939067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444939065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -1.6290894
+        y: -0.3665676
+        z: -1.1291809
+      TangentIn:
+        x: -0
+        y: -0
+        z: -23.418165
+      TangentOut:
+        x: 0
+        y: 0
+        z: 23.418165
+      Rotation:
+        value:
+          x: 0.06707162
+          y: -0.11563742
+          z: 0.004723561
+          w: 0.99101317
+    - Position:
+        x: -55.154297
+        y: -31.753967
+        z: 224.68253
+      TangentIn:
+        x: -0
+        y: -0
+        z: -69.29613
+      TangentOut:
+        x: 0
+        y: 0
+        z: 56.392494
+      Rotation:
+        value:
+          x: 0.03347462
+          y: -0.18082306
+          z: 0.005348604
+          w: 0.9829312
+    - Position:
+        x: -128.67496
+        y: -31.753967
+        z: 361.23624
+      TangentIn:
+        x: -0
+        y: -0
+        z: -46.318382
+      TangentOut:
+        x: 0
+        y: 0
+        z: 39.185986
+      Rotation:
+        value:
+          x: 1.1349634e-12
+          y: -0.34587452
+          z: -3.0789035e-12
+          w: 0.93828076
+    - Position:
+        x: -216.90709
+        y: -31.753967
+        z: 428.59064
+      TangentIn:
+        x: 0
+        y: 0
+        z: -34.055477
+      TangentOut:
+        x: 0
+        y: 0
+        z: 69.78371
+      Rotation:
+        value:
+          x: 0.00586674
+          y: -0.4566211
+          z: 0.017510002
+          w: 0.88946956
+    - Position:
+        x: -494.7071
+        y: -56.753967
+        z: 56.890625
+      TangentIn:
+        x: -0
+        y: -0
+        z: -146.44814
+      TangentOut:
+        x: 0
+        y: 0
+        z: 144.014
+      Rotation:
+        value:
+          x: 0.04158112
+          y: 0.9269274
+          z: 0.1116897
+          w: -0.35581183
+    - Position:
+        x: -783.3391
+        y: 170.20503
+        z: -202.2154
+      TangentIn:
+        x: -0
+        y: -0
+        z: -44.939377
+      TangentOut:
+        x: 0
+        y: 0
+        z: 44.939377
+      Rotation:
+        value:
+          x: 0.08299421
+          y: 0.88396597
+          z: 0.24935682
+          w: -0.38670045
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &522031241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522031242}
+  - component: {fileID: 522031243}
+  m_Layer: 0
+  m_Name: Spline A_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &522031242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522031241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -232.87619, y: -359.32416, z: -566.567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522031243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522031241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -90.86223
+        y: 202.1133
+        z: -6.3340454
+      TangentIn:
+        x: -0
+        y: -0
+        z: -35.07495
+      TangentOut:
+        x: 0
+        y: 0
+        z: 35.07495
+      Rotation:
+        value:
+          x: 0.16179617
+          y: 0.45604035
+          z: -0.024460465
+          w: 0.87478626
+    - Position:
+        x: 186.21597
+        y: 95
+        z: 180.15894
+      TangentIn:
+        x: -0
+        y: -0
+        z: -110.39264
+      TangentOut:
+        x: 0
+        y: 0
+        z: 103.87145
+      Rotation:
+        value:
+          x: 0.08916989
+          y: 0.3783691
+          z: -0.022903528
+          w: 0.92106515
+    - Position:
+        x: 359.99908
+        y: 80
+        z: 437.07498
+      TangentIn:
+        x: -0
+        y: -0
+        z: -85.322235
+      TangentOut:
+        x: 0
+        y: 0
+        z: 60.077633
+      Rotation:
+        value:
+          x: 0.011874692
+          y: 0.26071656
+          z: -0.0024686628
+          w: 0.96533924
+    - Position:
+        x: 428.42224
+        y: 80
+        z: 574.9961
+      TangentIn:
+        x: -0
+        y: -0
+        z: -50.9709
+      TangentOut:
+        x: 0
+        y: 0
+        z: 52.772614
+      Rotation:
+        value:
+          x: 0.0008514222
+          y: 0.3329964
+          z: 0.0024109252
+          w: 0.9429247
+    - Position:
+        x: 557.4332
+        y: 80
+        z: 677.92126
+      TangentIn:
+        x: -0
+        y: -0
+        z: -55.075626
+      TangentOut:
+        x: 0
+        y: 0
+        z: 58.390797
+      Rotation:
+        value:
+          x: 0.098287806
+          y: 0.4622903
+          z: -0.052726705
+          w: 0.8796859
+    - Position:
+        x: 702.20874
+        y: 0
+        z: 761.8958
+      TangentIn:
+        x: -0
+        y: -0
+        z: -47.121613
+      TangentOut:
+        x: 0
+        y: 0
+        z: 45.560535
+      Rotation:
+        value:
+          x: 0.2919611
+          y: 0.12499425
+          z: -0.028299592
+          w: 0.9478049
+    - Position:
+        x: 626.12225
+        y: -75.9
+        z: 897.9961
+      TangentIn:
+        x: -0
+        y: -0
+        z: -51.12323
+      TangentOut:
+        x: 0
+        y: 0
+        z: 47.176064
+      Rotation:
+        value:
+          x: 0.26958722
+          y: -0.42047918
+          z: 0.034190457
+          w: 0.8656506
+    - Position:
+        x: 497.82623
+        y: -146.105
+        z: 918.44836
+      TangentIn:
+        x: -0
+        y: -0
+        z: -14.767161
+      TangentOut:
+        x: 0
+        y: 0
+        z: 14.767161
+      Rotation:
+        value:
+          x: 0.38732097
+          y: -0.52984273
+          z: -0.09820937
+          w: 0.7480669
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1001 &658795783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1403,11 +2289,11 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[0].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[1].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[2].splineToFollow
       value: 
@@ -1415,19 +2301,19 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[3].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[4].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[5].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[6].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[7].splineToFollow
       value: 
@@ -1439,23 +2325,23 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[0].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[1].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[2].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[3].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[4].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[1].enemies.Array.data[5].splineToFollow
       value: 
@@ -1487,15 +2373,15 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[2].enemies.Array.data[3].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[2].enemies.Array.data[4].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[2].enemies.Array.data[5].splineToFollow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922463863}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[2].enemies.Array.data[6].splineToFollow
       value: 
@@ -1585,6 +2471,530 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 916810091411e7240bfb8680adadb997, type: 3}
+--- !u!1 &686668561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686668562}
+  - component: {fileID: 686668563}
+  m_Layer: 0
+  m_Name: Spline B_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &686668562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686668561}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 210.02657, y: -359.32416, z: 456.37958}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &686668563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686668561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 55.00949
+        y: -146.0043
+        z: -104.498505
+      TangentIn:
+        x: -0
+        y: -0
+        z: -30.825747
+      TangentOut:
+        x: 0
+        y: 0
+        z: 30.825747
+      Rotation:
+        value:
+          x: -0.2092486
+          y: -0.37594354
+          z: -0.13297845
+          w: 0.8928595
+    - Position:
+        x: -134.77798
+        y: 0
+        z: 89.630615
+      TangentIn:
+        x: -0
+        y: -0
+        z: -71.33979
+      TangentOut:
+        x: 0
+        y: 0
+        z: 62.893993
+      Rotation:
+        value:
+          x: -0.13053533
+          y: -0.6914254
+          z: -0.098287284
+          w: 0.7037266
+    - Position:
+        x: -323.65115
+        y: 0
+        z: -57.780914
+      TangentIn:
+        x: -0
+        y: -0
+        z: -71.21879
+      TangentOut:
+        x: 0
+        y: 0
+        z: 68.39556
+      Rotation:
+        value:
+          x: 0.012017848
+          y: 0.9686885
+          z: 0.04831114
+          w: -0.24323684
+    - Position:
+        x: -338.5405
+        y: 40
+        z: -274.5905
+      TangentIn:
+        x: 0
+        y: 0
+        z: -44.180927
+      TangentOut:
+        x: 0
+        y: 0
+        z: 20.35115
+      Rotation:
+        value:
+          x: 0.18586718
+          y: 0.9777199
+          z: 0.06766539
+          w: -0.07027521
+    - Position:
+        x: -370.68048
+        y: 40
+        z: -306.0505
+      TangentIn:
+        x: -0
+        y: -0
+        z: -18.626982
+      TangentOut:
+        x: 0
+        y: 0
+        z: 33.386272
+      Rotation:
+        value:
+          x: -0.5248845
+          y: 0.8078614
+          z: 0.13817748
+          w: -0.22970207
+    - Position:
+        x: -411.79657
+        y: 35
+        z: -444.46976
+      TangentIn:
+        x: -0
+        y: -0
+        z: -49.70201
+      TangentOut:
+        x: 0
+        y: 0
+        z: 53.18316
+      Rotation:
+        value:
+          x: -0.00039586276
+          y: 0.99255943
+          z: -0.031563673
+          w: -0.11759821
+    - Position:
+        x: -441.8122
+        y: 20
+        z: -606.4624
+      TangentIn:
+        x: -0
+        y: -0
+        z: -56.11196
+      TangentOut:
+        x: 0
+        y: 0
+        z: 64.910446
+      Rotation:
+        value:
+          x: 0.0035281994
+          y: 0.9964049
+          z: -0.047630474
+          w: 0.0699738
+    - Position:
+        x: -343.22046
+        y: 0.000030517578
+        z: -803.6636
+      TangentIn:
+        x: -0
+        y: -0
+        z: -78.48595
+      TangentOut:
+        x: 0
+        y: 0
+        z: 107.62701
+      Rotation:
+        value:
+          x: 0.010309101
+          y: 0.9073885
+          z: -0.022299958
+          w: 0.41957414
+    - Position:
+        x: 54.0195
+        y: 0
+        z: -928.1505
+      TangentIn:
+        x: -0
+        y: -0
+        z: -107.91823
+      TangentOut:
+        x: 0
+        y: 0
+        z: 78.5548
+      Rotation:
+        value:
+          x: -0.025183367
+          y: 0.67645454
+          z: 0.029602928
+          w: 0.7354582
+    - Position:
+        x: 248.1076
+        y: 31.3927
+        z: -828.16846
+      TangentIn:
+        x: -0
+        y: -0
+        z: -22.057224
+      TangentOut:
+        x: 0
+        y: 0
+        z: 22.057224
+      Rotation:
+        value:
+          x: -0.045431543
+          y: 0.52085847
+          z: 0.06247136
+          w: 0.85014105
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &893783566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 893783567}
+  - component: {fileID: 893783568}
+  m_Layer: 0
+  m_Name: Spline B_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &893783567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893783566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162.53185, y: -359.32416, z: 454.6482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893783568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893783566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: 102.52121
+        y: -146.023
+        z: -102.77414
+      TangentIn:
+        x: -0
+        y: -0
+        z: -27.589836
+      TangentOut:
+        x: 0
+        y: 0
+        z: 27.589836
+      Rotation:
+        value:
+          x: -0.21530275
+          y: -0.4108832
+          z: -0.16601507
+          w: 0.8702062
+    - Position:
+        x: -75.05223
+        y: -5
+        z: 54.38849
+      TangentIn:
+        x: -0
+        y: -0
+        z: -65.9982
+      TangentOut:
+        x: 0
+        y: 0
+        z: 51.64112
+      Rotation:
+        value:
+          x: -0.15143685
+          y: -0.6811779
+          z: -0.16772252
+          w: 0.696371
+    - Position:
+        x: -214.28578
+        y: 30
+        z: -34.61914
+      TangentIn:
+        x: -0
+        y: -0
+        z: -57.22202
+      TangentOut:
+        x: 0
+        y: 0
+        z: 61.871998
+      Rotation:
+        value:
+          x: 0.021206664
+          y: 0.9164925
+          z: 0.048611764
+          w: -0.39652053
+    - Position:
+        x: -331.4879
+        y: 30
+        z: -193.56796
+      TangentIn:
+        x: -0
+        y: -0
+        z: -68.993195
+      TangentOut:
+        x: 0
+        y: 0
+        z: 77.87562
+      Rotation:
+        value:
+          x: -0.000014926971
+          y: 0.97107345
+          z: 0.0000036704455
+          w: -0.23878069
+    - Position:
+        x: -412.80133
+        y: 30
+        z: -431.67706
+      TangentIn:
+        x: 0
+        y: 0
+        z: -52.649403
+      TangentOut:
+        x: 0
+        y: 0
+        z: 30.642271
+      Rotation:
+        value:
+          x: 0.37360567
+          y: 0.9275856
+          z: -0.0007051353
+          w: 0.0017484537
+    - Position:
+        x: -369.48578
+        y: 30
+        z: -491.91913
+      TangentIn:
+        x: -0
+        y: -0
+        z: -31.03329
+      TangentOut:
+        x: 0
+        y: 0
+        z: 52.63255
+      Rotation:
+        value:
+          x: 0.25152487
+          y: 0.9207493
+          z: 0.042379197
+          w: 0.29522854
+    - Position:
+        x: -253.57123
+        y: 0
+        z: -668.5941
+      TangentIn:
+        x: -0
+        y: -0
+        z: -76.56856
+      TangentOut:
+        x: 0
+        y: 0
+        z: 104.21119
+      Rotation:
+        value:
+          x: 0.29098994
+          y: 0.84139436
+          z: 0.108240984
+          w: 0.44233954
+    - Position:
+        x: 127.65018
+        y: -0.000030517578
+        z: -773.3113
+      TangentIn:
+        x: -0
+        y: -0
+        z: -105.56988
+      TangentOut:
+        x: 0
+        y: 0
+        z: 71.023605
+      Rotation:
+        value:
+          x: -0.026309533
+          y: 0.8002111
+          z: 0.03537428
+          w: 0.5980959
+    - Position:
+        x: 295.60623
+        y: 31.395
+        z: -826.44617
+      TangentIn:
+        x: -0
+        y: -0
+        z: -17.893631
+      TangentOut:
+        x: 0
+        y: 0
+        z: 17.893631
+      Rotation:
+        value:
+          x: -0.05063116
+          y: 0.8036857
+          z: 0.07208102
+          w: 0.5884981
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &922463861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1596,7 +3006,7 @@ GameObject:
   - component: {fileID: 922463862}
   - component: {fileID: 922463863}
   m_Layer: 0
-  m_Name: Spline
+  m_Name: Entry Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1652,53 +3062,53 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -98.12063
+        z: -47.909508
       TangentOut:
         x: 0
         y: 0
-        z: 98.12063
+        z: 47.909508
       Rotation:
         value:
-          x: 0.000000015216655
-          y: 0.2062619
-          z: -0.00000000320759
-          w: 0.9784968
+          x: -3.8254304e-12
+          y: 0.3108738
+          z: -1.1695694e-11
+          w: 0.95045125
     - Position:
-        x: 396.06708
-        y: -0.000030517578
-        z: 897.7174
+        x: 283.11682
+        y: 0
+        z: 386.49316
       TangentIn:
         x: -0
         y: -0
-        z: -326.00198
+        z: -146.01506
       TangentOut:
         x: 0
         y: 0
-        z: 328.1184
+        z: 136.57866
       Rotation:
         value:
-          x: 9.9492393e-11
-          y: 0.15024726
-          z: -1.5120096e-11
-          w: 0.98864836
+          x: 3.729933e-11
+          y: 0.15032618
+          z: 2.4530314e-10
+          w: 0.9886365
     - Position:
-        x: 581.61053
+        x: 271.11682
         y: 0
-        z: 1874.2341
+        z: 805.49316
       TangentIn:
         x: -0
         y: -0
-        z: -99.39876
+        z: -41.917183
       TangentOut:
         x: 0
         y: 0
-        z: 99.39876
+        z: 41.917183
       Rotation:
         value:
-          x: -0.000000015283483
-          y: 0.09374572
-          z: 0.0000000014390988
-          w: 0.9955962
+          x: -6.913198e-11
+          y: -0.014315408
+          z: 0.000000004828706
+          w: 0.99989754
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -1751,6 +3161,198 @@ Transform:
   - {fileID: 1078204057}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &943674783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 943674784}
+  - component: {fileID: 943674785}
+  m_Layer: 0
+  m_Name: Spline A_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &943674784
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943674783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -279.48706, y: -359.32416, z: -613.66345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &943674785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943674783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -44.17807
+        y: 201.9974
+        z: 40.822937
+      TangentIn:
+        x: -0
+        y: -0
+        z: -58.234463
+      TangentOut:
+        x: 0
+        y: 0
+        z: 58.234463
+      Rotation:
+        value:
+          x: 0.1062527
+          y: 0.1418224
+          z: -0.0012395644
+          w: 0.9841724
+    - Position:
+        x: 118.23314
+        y: 80
+        z: 586.5925
+      TangentIn:
+        x: -0
+        y: -0
+        z: -124.3697
+      TangentOut:
+        x: 0
+        y: 0
+        z: 60.01426
+      Rotation:
+        value:
+          x: 0.053018447
+          y: 0.07161445
+          z: -0.0056703314
+          w: 0.99600613
+    - Position:
+        x: 118.333145
+        y: 80
+        z: 722.1925
+      TangentIn:
+        x: -0
+        y: -0
+        z: -44.849377
+      TangentOut:
+        x: 0
+        y: 0
+        z: 46.58851
+      Rotation:
+        value:
+          x: 0.04809222
+          y: 0.10440753
+          z: -0.031725712
+          w: 0.99286443
+    - Position:
+        x: 176.43314
+        y: 50.9
+        z: 853.2925
+      TangentIn:
+        x: 76.719185
+        y: 0.00699234
+        z: -91.03445
+      TangentOut:
+        x: 0.0000047683716
+        y: -0.00000071525574
+        z: 58.982433
+      Rotation:
+        value:
+          x: 0.095904075
+          y: 0.32608584
+          z: -0.0812774
+          w: 0.9369442
+    - Position:
+        x: 322.33313
+        y: -30.8
+        z: 943.99255
+      TangentIn:
+        x: -0
+        y: -0
+        z: -66.3713
+      TangentOut:
+        x: 0
+        y: 0
+        z: 76.26579
+      Rotation:
+        value:
+          x: 0.19112496
+          y: 0.56557935
+          z: -0.13375042
+          w: 0.7910133
+    - Position:
+        x: 544.5082
+        y: -145.99
+        z: 965.4425
+      TangentIn:
+        x: -0
+        y: -0
+        z: -25.11784
+      TangentOut:
+        x: 0
+        y: 0
+        z: 25.11784
+      Rotation:
+        value:
+          x: 0.17810933
+          y: 0.6523637
+          z: -0.15485384
+          w: 0.72022146
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 4
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1 &989838500
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +3937,490 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1 &1161353001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1161353002}
+  - component: {fileID: 1161353003}
+  m_Layer: 17
+  m_Name: Spline A_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1161353002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161353001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1161353003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161353001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -323.64172
+        y: -157.33636
+        z: -572.8817
+      TangentIn:
+        x: -0
+        y: -0
+        z: -40.512463
+      TangentOut:
+        x: 0
+        y: 0
+        z: 40.512463
+      Rotation:
+        value:
+          x: 0.25982773
+          y: 0.05835461
+          z: 0.018953476
+          w: 0.9637038
+    - Position:
+        x: -274.0859
+        y: -359.32416
+        z: -225.2165
+      TangentIn:
+        x: -0
+        y: -0
+        z: -90.018036
+      TangentOut:
+        x: 0
+        y: 0
+        z: 55.054237
+      Rotation:
+        value:
+          x: 0.01574357
+          y: 0.06806518
+          z: 0.058455918
+          w: 0.9958425
+    - Position:
+        x: -256.04822
+        y: -290
+        z: -91.68202
+      TangentIn:
+        x: -0
+        y: -0
+        z: -33.78855
+      TangentOut:
+        x: 0
+        y: 0
+        z: 17.731756
+      Rotation:
+        value:
+          x: -0.13158466
+          y: 0.009957403
+          z: -0.36412457
+          w: 0.9219543
+    - Position:
+        x: -251.75394
+        y: -290
+        z: -50.17095
+      TangentIn:
+        x: 0
+        y: 0
+        z: -19.870836
+      TangentOut:
+        x: 0
+        y: 0
+        z: 30.931065
+      Rotation:
+        value:
+          x: -0.000068471694
+          y: 0.06556332
+          z: -0.0010421177
+          w: 0.9978478
+    - Position:
+        x: -331.45392
+        y: -290
+        z: 59.42905
+      TangentIn:
+        x: -0
+        y: -0
+        z: -45.942654
+      TangentOut:
+        x: 0
+        y: 0
+        z: 59.016655
+      Rotation:
+        value:
+          x: 0.065712705
+          y: -0.12269868
+          z: 0.1765656
+          w: 0.97439796
+    - Position:
+        x: -287.27075
+        y: -359.32416
+        z: 267.38647
+      TangentIn:
+        x: -0
+        y: -0
+        z: -67.9363
+      TangentOut:
+        x: 0
+        y: 0
+        z: 64.58681
+      Rotation:
+        value:
+          x: 0.24785957
+          y: 0.2236988
+          z: 0.22501889
+          w: 0.91536385
+    - Position:
+        x: -130.25394
+        y: -430.12415
+        z: 373.12903
+      TangentIn:
+        x: -0
+        y: -0
+        z: -74.82708
+      TangentOut:
+        x: 0
+        y: 0
+        z: 105.65333
+      Rotation:
+        value:
+          x: 0.11912854
+          y: 0.6015337
+          z: -0.07960654
+          w: 0.7858934
+    - Position:
+        x: 265.02808
+        y: -505.33917
+        z: 351.85803
+      TangentIn:
+        x: -0
+        y: -0
+        z: -40.293625
+      TangentOut:
+        x: 0
+        y: 0
+        z: 40.293625
+      Rotation:
+        value:
+          x: 0.086335585
+          y: 0.7203757
+          z: -0.04727919
+          w: 0.68656373
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &1251249810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251249811}
+  - component: {fileID: 1251249812}
+  m_Layer: 0
+  m_Name: Spline C_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251249811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251249810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 465.09808, y: -359.32416, z: -383.4726}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1251249812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251249810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -6.976013
+        y: 31.409
+        z: 11.661652
+      TangentIn:
+        x: -0
+        y: -0
+        z: -30.440248
+      TangentOut:
+        x: 0
+        y: 0
+        z: 30.440248
+      Rotation:
+        value:
+          x: 0.047762685
+          y: -0.4429342
+          z: 0.019959847
+          w: 0.89505845
+    - Position:
+        x: -247.75757
+        y: -0.000030517578
+        z: 195.2334
+      TangentIn:
+        x: -0
+        y: -0
+        z: -102.65227
+      TangentOut:
+        x: 0
+        y: 0
+        z: 107.14104
+      Rotation:
+        value:
+          x: 0.022978162
+          y: -0.5001632
+          z: 0.012305919
+          w: 0.8655388
+    - Position:
+        x: -553.8455
+        y: 0
+        z: 322.79877
+      TangentIn:
+        x: -0
+        y: -0
+        z: -82.84553
+      TangentOut:
+        x: 0
+        y: 0
+        z: 49.653687
+      Rotation:
+        value:
+          x: 0.000000034128963
+          y: -0.5553784
+          z: 0.000000022792852
+          w: 0.8315978
+    - Position:
+        x: -663.9556
+        y: -0.000030517578
+        z: 368.24686
+      TangentIn:
+        x: 0
+        y: 0
+        z: -38.221375
+      TangentOut:
+        x: 0
+        y: 0
+        z: 42.6629
+      Rotation:
+        value:
+          x: -0.0000003594543
+          y: -0.6322495
+          z: -0.00000012521484
+          w: 0.7747649
+    - Position:
+        x: -745.5194
+        y: 0
+        z: 438.83273
+      TangentIn:
+        x: -0
+        y: -0
+        z: -36.644108
+      TangentOut:
+        x: 0
+        y: 0
+        z: 56.738804
+      Rotation:
+        value:
+          x: -0.000000055457278
+          y: -0.65688384
+          z: -0.00000006473075
+          w: 0.7539917
+    - Position:
+        x: -979.65784
+        y: 0
+        z: 329.03595
+      TangentIn:
+        x: -0
+        y: -0
+        z: -79.08701
+      TangentOut:
+        x: 0
+        y: 0
+        z: 73.40764
+      Rotation:
+        value:
+          x: 0
+          y: 0.9162495
+          z: 0
+          w: -0.4006082
+    - Position:
+        x: -1089.6676
+        y: 0
+        z: 135.29382
+      TangentIn:
+        x: -0
+        y: -0
+        z: -80.41079
+      TangentOut:
+        x: 0
+        y: 0
+        z: 114.91878
+      Rotation:
+        value:
+          x: 0
+          y: 0.99837106
+          z: 0
+          w: -0.05705531
+    - Position:
+        x: -960.385
+        y: 0
+        z: -301.00708
+      TangentIn:
+        x: -0
+        y: -0
+        z: -84.84139
+      TangentOut:
+        x: 0
+        y: 0
+        z: 67.44902
+      Rotation:
+        value:
+          x: -0.10050688
+          y: 0.8460864
+          z: 0.2758477
+          w: 0.44490921
+    - Position:
+        x: -788.7851
+        y: 202.0246
+        z: -189.39917
+      TangentIn:
+        x: -0
+        y: -0
+        z: -28.760529
+      TangentOut:
+        x: 0
+        y: 0
+        z: 28.760529
+      Rotation:
+        value:
+          x: -0.21329698
+          y: 0.5103673
+          z: 0.37787494
+          w: 0.7424556
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1001 &1357270756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2345,31 +4431,35 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: Outputs.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: Outputs.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 378090676}
     - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: Outputs.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1454238904}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1732941903}
     - target: {fileID: 3717268473254952940, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: m_Name
-      value: Path Node A01
+      value: Path Node Enter
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 230.9194
+      value: 330.079
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -345.2
+      value: -359.329
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -101.236
+      value: -1210.7794
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2445,6 +4535,274 @@ Transform:
   - {fileID: 1582999228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1454238904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454238905}
+  - component: {fileID: 1454238906}
+  m_Layer: 0
+  m_Name: Spline B_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1454238905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454238904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 334.29395, y: -359.32416, z: -1212.1714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1454238906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454238904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -4.237152
+        y: 0
+        z: 1.3795166
+      TangentIn:
+        x: -0
+        y: -0
+        z: -157.08719
+      TangentOut:
+        x: 0
+        y: 0
+        z: 157.08719
+      Rotation:
+        value:
+          x: 0.046314877
+          y: -0.021199051
+          z: 0.0103174085
+          w: 0.9986486
+    - Position:
+        x: -69.24786
+        y: -146
+        z: 1564.1003
+      TangentIn:
+        x: -0
+        y: -0
+        z: -157.08719
+      TangentOut:
+        x: 0
+        y: 0
+        z: 157.08719
+      Rotation:
+        value:
+          x: 0.046314873
+          y: -0.021199051
+          z: 0.010317449
+          w: 0.9986486
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1001 &1532914231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1891420866}
+    m_Modifications:
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[0]
+      value: 
+      objectReference: {fileID: 522031241}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[1]
+      value: 
+      objectReference: {fileID: 943674783}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1161353001}
+    - target: {fileID: 3717268473254952940, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_Name
+      value: Path Node A01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -323.6415
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -157.3363
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -572.8874
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+--- !u!4 &1532914232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+  m_PrefabInstance: {fileID: 1532914231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1578360575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1891420866}
+    m_Modifications:
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[0]
+      value: 
+      objectReference: {fileID: 281759805}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[1]
+      value: 
+      objectReference: {fileID: 686668561}
+    - target: {fileID: 1621454097232157192, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: Outputs.Array.data[2]
+      value: 
+      objectReference: {fileID: 893783566}
+    - target: {fileID: 3717268473254952940, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_Name
+      value: Path Node B01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 265.0557
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -505.326
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 351.877
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+--- !u!4 &1578360576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
+  m_PrefabInstance: {fileID: 1578360575}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582999227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,6 +5135,350 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1 &1732941903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732941904}
+  - component: {fileID: 1732941905}
+  m_Layer: 0
+  m_Name: Spline C_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732941904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732941903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 334.29395, y: -359.32416, z: -1212.1714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1732941905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732941903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -4.237152
+        y: 0
+        z: 1.3795166
+      TangentIn:
+        x: -0
+        y: -0
+        z: -84.93227
+      TangentOut:
+        x: 0
+        y: 0
+        z: 84.93227
+      Rotation:
+        value:
+          x: -0.018413207
+          y: 0.075667806
+          z: 0.00169237
+          w: 0.9969616
+    - Position:
+        x: 123.85214
+        y: 31.4
+        z: 840.4004
+      TangentIn:
+        x: -0
+        y: -0
+        z: -84.93227
+      TangentOut:
+        x: 0
+        y: 0
+        z: 84.93227
+      Rotation:
+        value:
+          x: -0.018413207
+          y: 0.075667806
+          z: 0.0016923735
+          w: 0.9969616
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
+--- !u!1 &1794831077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1794831078}
+  - component: {fileID: 1794831079}
+  m_Layer: 0
+  m_Name: Spline C_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1794831078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794831077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 458.5658, y: -359.32416, z: -383.45203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1891420866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794831079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794831077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -0.42962646
+        y: 31.411
+        z: 11.6380005
+      TangentIn:
+        x: -0
+        y: -0
+        z: -49.273697
+      TangentOut:
+        x: 0
+        y: 0
+        z: 49.273697
+      Rotation:
+        value:
+          x: 0.03159859
+          y: -0.1008607
+          z: 0.0044886316
+          w: 0.9943885
+    - Position:
+        x: -99.127686
+        y: 0
+        z: 493.3659
+      TangentIn:
+        x: -0
+        y: -0
+        z: -131.65047
+      TangentOut:
+        x: 0
+        y: 0
+        z: 93.82702
+      Rotation:
+        value:
+          x: 0.016011922
+          y: -0.23435616
+          z: 0.004197625
+          w: 0.97200984
+    - Position:
+        x: -268.5681
+        y: 0.000030517578
+        z: 677.56696
+      TangentIn:
+        x: -0
+        y: -0
+        z: -69.19362
+      TangentOut:
+        x: 0
+        y: 0
+        z: 61.962296
+      Rotation:
+        value:
+          x: 0.0000000069739503
+          y: -0.5823555
+          z: 0.0000000049958766
+          w: 0.8129342
+    - Position:
+        x: -466.30695
+        y: 0
+        z: 643.21375
+      TangentIn:
+        x: -0
+        y: -0
+        z: -56.312153
+      TangentOut:
+        x: 0
+        y: 0
+        z: 43.248215
+      Rotation:
+        value:
+          x: -0.0007799143
+          y: 0.839572
+          z: -0.0010531221
+          w: -0.54324687
+    - Position:
+        x: -558.91974
+        y: -0.6
+        z: 569.4811
+      TangentIn:
+        x: 0
+        y: 0
+        z: -39.57468
+      TangentOut:
+        x: 0
+        y: 0
+        z: 41.655945
+      Rotation:
+        value:
+          x: -0.0005283311
+          y: 0.926209
+          z: -0.000603367
+          w: -0.37700987
+    - Position:
+        x: -682.96625
+        y: 0
+        z: 544.30994
+      TangentIn:
+        x: -0
+        y: -0
+        z: -49.38384
+      TangentOut:
+        x: 0
+        y: 0
+        z: 103.00032
+      Rotation:
+        value:
+          x: 0.00064657105
+          y: 0.9117411
+          z: 0.0012099158
+          w: -0.4107629
+    - Position:
+        x: -857.5197
+        y: 0
+        z: 22.081085
+      TangentIn:
+        x: -0
+        y: -0
+        z: -139.04501
+      TangentOut:
+        x: 0
+        y: 0
+        z: 102.97391
+      Rotation:
+        value:
+          x: 0.026780607
+          y: 0.98093987
+          z: 0.19087395
+          w: -0.024637535
+    - Position:
+        x: -782.2776
+        y: 202.0641
+        z: -189.36823
+      TangentIn:
+        x: -0
+        y: -0
+        z: -30.199686
+      TangentOut:
+        x: 0
+        y: 0
+        z: 30.199686
+      Rotation:
+        value:
+          x: 0.008282991
+          y: 0.92196345
+          z: 0.36404783
+          w: 0.1318479
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 3
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!1001 &1881853977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2874,6 +5576,21 @@ Transform:
   m_Children:
   - {fileID: 1357270757}
   - {fileID: 922463862}
+  - {fileID: 1532914232}
+  - {fileID: 378090677}
+  - {fileID: 522031242}
+  - {fileID: 943674784}
+  - {fileID: 1161353002}
+  - {fileID: 1578360576}
+  - {fileID: 1454238905}
+  - {fileID: 281759806}
+  - {fileID: 686668562}
+  - {fileID: 893783567}
+  - {fileID: 203927089}
+  - {fileID: 1732941904}
+  - {fileID: 444939066}
+  - {fileID: 1251249811}
+  - {fileID: 1794831078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
