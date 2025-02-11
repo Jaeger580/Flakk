@@ -218,13 +218,17 @@ namespace GeneralUtility
                 float flatRes = combatInstance.FlatResistance;
 
                 if (resistance >= 0f) //If stat modifier is positive, then the damage output should be the original val over the percent increase from the stat mod
-                    newDamage = Mathf.CeilToInt(newDamage / 1f + (resistance / 100f));
+                {
+                    //newDamage = Mathf.CeilToInt(newDamage / 1f + (resistance / 100f));
+                    newDamage = Mathf.CeilToInt(newDamage * (1f - (resistance / 100f)));
+                }
                 else //If stat modifier is negative, then the damage output should be 2x original val - original val over percent decrease from stat mod
                     newDamage = Mathf.CeilToInt(2f * newDamage - (newDamage / (1f - resistance / 100f)));
 
                 newDamage = Mathf.CeilToInt(newDamage - flatRes);
 
-                if (newDamage <= 0) newDamage = 1;
+                //if (newDamage <= 0) newDamage = 1;
+                if (newDamage < 0) newDamage = 0;
 
                 return newDamage;
             }

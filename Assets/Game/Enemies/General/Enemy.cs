@@ -54,6 +54,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
+    [SerializeField]
+    protected List<GameObject> gunsList;
 
     protected virtual void Start()
     {
@@ -61,6 +63,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         fireRateTimer = fireRate;
 
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
+
+        gunsList = new List<GameObject>();
+
+        foreach (GameObject gun in attackPoints)
+            gunsList.Add(gun);
     }
 
     protected virtual void Update()
@@ -85,7 +92,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             {
                 if (hit.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hit, attackPoints);
+                    Attack(hit, gunsList);
                     fireRateTimer = 0;
                     canShoot = false;
                 }
@@ -141,10 +148,15 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
+
+        Debug.Log("Final Damage: " + finalDamage);
+
         currenthealth -= finalDamage;
 
+        OnHit();
+
         //Debug.Log(finalDamage + " final damage taken.");
-        Debug.Log("Current Health " + currenthealth);
+        //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
             Death();
@@ -175,12 +187,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Destroy(transform.parent.gameObject);
     }
 
-    protected virtual void Attack(RaycastHit hit, GameObject[] pointsOfAttack) 
+    protected virtual void Attack(RaycastHit hit, List<GameObject> pointsOfAttack) 
     {
         StartCoroutine(BurstAttack(hit, pointsOfAttack));
     }
 
-    protected virtual IEnumerator BurstAttack(RaycastHit hit, GameObject[] pointsOfAttack) 
+    protected virtual IEnumerator BurstAttack(RaycastHit hit, List<GameObject> pointsOfAttack) 
     {
         var target = hit.collider.gameObject;
 
@@ -189,13 +201,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             
             //var dir = transform.position - target.transform.position;
 
-            foreach (GameObject AP in pointsOfAttack) 
+            //foreach (GameObject AP in pointsOfAttack) 
+            //{
+            //    var dir = AP.transform.position - target.transform.position;
+            //    Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
+            //}
+
+            for (int j = 0; j < pointsOfAttack.Count; j++)
             {
-                var dir = AP.transform.position - target.transform.position;
-                Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
+                var dir = pointsOfAttack[j].transform.position - target.transform.position;
+                Instantiate(attackProjectile, pointsOfAttack[j].transform.position, Quaternion.LookRotation(-dir));
             }
 
             yield return new WaitForSeconds(shotDelay);
         }
     }
+
+    // Optional Method for some enemies to trigger on hit effects
+    protected virtual void OnHit() 
+    {
+    }
+
 }
