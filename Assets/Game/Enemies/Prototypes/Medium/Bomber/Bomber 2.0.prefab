@@ -204,10 +204,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 100
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 1412202413980280536}
   partBroken: {fileID: 6933895903815314718}
+  speedMultipler: 0.9
+  bonusDamage: 2
 --- !u!65 &6535922985115993984
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -900,10 +902,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
-  mainResistance: 0
+  mainResistance: 100
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 856742033038864038}
   partBroken: {fileID: 9025972194146814905}
+  speedMultipler: 0.9
+  bonusDamage: 2
 --- !u!65 &1980807542243182650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1001,7 +1005,7 @@ MonoBehaviour:
   attackRadius: 10
   fireRate: 5
   burstSize: 3
-  shotDelay: 0.15
+  shotDelay: 0.2
   attackPoints:
   - {fileID: 4481953635753938690}
   - {fileID: 3989354954145185693}
@@ -1031,6 +1035,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   rotateSpeed: 5
+  gunsList: []
+  hitsToStun: 3
 --- !u!1 &5225842605926512082
 GameObject:
   m_ObjectHideFlags: 0
