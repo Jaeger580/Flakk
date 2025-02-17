@@ -210,8 +210,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -939,8 +939,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1179,32 +1179,97 @@ PrefabInstance:
       objectReference: {fileID: 401789114}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.size
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[0].text
-      value: Shoot the gun
+      value: Use your mouse to looks around.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[1].text
-      value: Reload the Gun
+      value: Use WASD to move.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[2].text
-      value: Swap the gun mag
+      value: Press SPACE to jump.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[3].text
+      value: Interact with objects with E.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[4].text
+      value: Enter the gun by interacting with the Control console or by entering
+        the cockpit at the gun's base.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[5].text
+      value: Press Left Click to shoot.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[6].text
+      value: Hold down R to reload from current Mag.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[7].text
+      value: Press TAB to swap Mags.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[8].text
+      value: Hold Right Click to zoom.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[9].text
+      value: Press E to exit the gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[10].text
+      value: Press ESC to pause and unpause.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[0].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
+      objectReference: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[1].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+      objectReference: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[2].targetEvent
       value: 
+      objectReference: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[3].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[4].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[5].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[6].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[7].targetEvent
+      value: 
       objectReference: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[8].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[9].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[10].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
