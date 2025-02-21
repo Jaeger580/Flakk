@@ -62,6 +62,11 @@ public class MouseLook : MonoBehaviour
 
         float inputH = targetMouseDelta.x * sensitivity.x;
         float inputV = targetMouseDelta.y * sensitivity.y;
+
+        if(inputH != 0 || inputV != 0) 
+        {
+            inputEVLook.Trigger();
+        }
         if (relative)
         {
             // wrap values to avoid springing quickly the wrong way from positive to negative
