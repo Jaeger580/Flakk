@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1acf5ac8e1340539fe6ec10b7d98d8, type: 3}
+  m_Name: Upgrade - Base Gun Reload Rate Increase
+  m_EditorClassIdentifier: 
+  upgradeName: Reload Rate Increase
+  upgradeDesc: Doubles reload rate of both magazines.
+  cost: 10
+  bought: 0
+  statToIncrease: {fileID: 11400000, guid: 3a4105a351d7a41da8d7daa6ca235534, type: 2}
+  initialStatValue: 2
+  amtToAugmentBy: 2
+  augmentType: 1

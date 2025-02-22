@@ -110,6 +110,9 @@ public abstract class GunType : MonoBehaviour
     protected CinemachineVirtualCamera vCam;
     protected GameObject gunBase, gunBulletPoint;
 
+    public delegate void OnMagSwap(bool primary);
+    public OnMagSwap MagSwapEvent;
+
     public delegate void OnAmmoChange(float newAmmo, float maxAmmo);
     public OnAmmoChange PrimaryMagAmmoChangeEvent, SecondaryMagAmmoChangeEvent;
     public OnAmmoChange PrimaryStockpileAmmoChangeEvent, SecondaryStockpileAmmoChangeEvent;
@@ -393,11 +396,13 @@ public abstract class GunType : MonoBehaviour
         {
             currentMag = secondaryMag;
             currentStockpile = secondaryStockpile;
+            MagSwapEvent?.Invoke(false);
         }
         else
         {
             currentMag = primaryMag;
             currentStockpile = primaryStockpile;
+            MagSwapEvent?.Invoke(true);
         }
     }
     #endregion
