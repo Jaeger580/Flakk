@@ -79,11 +79,13 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     {
         if (partFixed != null)
         {
-            partFixed.GetComponent<MeshRenderer>().enabled = false;
+            //partFixed.GetComponent<MeshRenderer>().enabled = false;
+            partFixed.SetActive(false);
         }
         if (partBroken != null) 
         {
-            partBroken.GetComponent<MeshRenderer>().enabled = true;
+            //partBroken.GetComponent<MeshRenderer>().enabled = true;
+            partBroken.SetActive(true);
         }
     }
 
