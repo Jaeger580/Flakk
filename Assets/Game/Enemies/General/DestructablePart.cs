@@ -39,7 +39,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
     protected bool debuffTriggered = false;
 
-    public bool ApplyDamage(CombatPacket p)
+    virtual public bool ApplyDamage(CombatPacket p)
     {
         if (localHealth <= 0)
         {
