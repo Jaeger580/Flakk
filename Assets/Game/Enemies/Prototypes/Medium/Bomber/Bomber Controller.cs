@@ -24,6 +24,19 @@ public class BomberController : Enemy
         propertyBlock = new MaterialPropertyBlock();
     }
 
+    private void OnTriggerEnter(Collider collider)
+    {
+        // if we collide with this node, get ready for a sweep attack.
+        if (collider.gameObject.GetComponent<BomberNode>() != null)
+        {
+            propertyBlock.SetColor("_Color_Main", Color.yellow);
+            propertyBlock.SetColor("_Color_Shift", Color.yellow);
+            meshRenderer.SetPropertyBlock(propertyBlock);
+            meshRendererTwo.SetPropertyBlock(propertyBlock);
+            meshRendererThree.SetPropertyBlock(propertyBlock);
+        }
+    }
+
     protected override void FixedUpdate()
     {
         if (canShoot) 
