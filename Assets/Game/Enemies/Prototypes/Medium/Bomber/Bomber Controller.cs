@@ -10,6 +10,20 @@ public class BomberController : Enemy
 
     private bool burstReady = true;
 
+    MaterialPropertyBlock propertyBlock;
+
+    [SerializeField]
+    MeshRenderer meshRenderer;
+    [SerializeField]
+    MeshRenderer meshRendererTwo;
+    [SerializeField]
+    MeshRenderer meshRendererThree;
+
+    private void Awake()
+    {
+        propertyBlock = new MaterialPropertyBlock();
+    }
+
     protected override void FixedUpdate()
     {
         if (canShoot) 
@@ -51,6 +65,13 @@ public class BomberController : Enemy
         fireRateTimer = 0;
         canShoot = false;
         burstReady = true;
+
+        propertyBlock.SetColor("_Color_Main", Color.red);
+        propertyBlock.SetColor("_Color_Shift", Color.red);
+        meshRenderer.SetPropertyBlock(propertyBlock);
+        meshRendererTwo.SetPropertyBlock(propertyBlock);
+        meshRendererThree.SetPropertyBlock(propertyBlock);
+
         hitCount = 0;
     }
 
@@ -63,6 +84,13 @@ public class BomberController : Enemy
             if (hitCount >= hitsToStun)
             {
                 burstReady = false;
+                propertyBlock.SetColor("_Color_Main", Color.green);
+                propertyBlock.SetColor("_Color_Shift", Color.green);
+                meshRenderer.SetPropertyBlock(propertyBlock);
+                meshRendererTwo.SetPropertyBlock(propertyBlock);
+                meshRendererThree.SetPropertyBlock(propertyBlock);
+
+                Debug.Log("Color Changed to green?");
             }
         }
     }
