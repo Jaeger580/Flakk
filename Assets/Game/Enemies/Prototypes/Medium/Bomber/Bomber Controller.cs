@@ -8,7 +8,7 @@ public class BomberController : Enemy
     private int hitsToStun = 3;
     private int hitCount = 0;
 
-    private bool burstReady = true;
+    private bool burstReady = false;
 
     MaterialPropertyBlock propertyBlock;
 
@@ -34,6 +34,8 @@ public class BomberController : Enemy
             meshRenderer.SetPropertyBlock(propertyBlock);
             meshRendererTwo.SetPropertyBlock(propertyBlock);
             meshRendererThree.SetPropertyBlock(propertyBlock);
+
+            StartSweep();
         }
     }
 
@@ -49,14 +51,16 @@ public class BomberController : Enemy
                     // If burst ready, shoot as normal
                     if (burstReady) 
                     {
+                        propertyBlock.SetColor("_Color_Main", Color.red);
+                        propertyBlock.SetColor("_Color_Shift", Color.red);
+                        meshRenderer.SetPropertyBlock(propertyBlock);
+                        meshRendererTwo.SetPropertyBlock(propertyBlock);
+                        meshRendererThree.SetPropertyBlock(propertyBlock);
+
                         Attack(hit, gunsList);
                         fireRateTimer = 0;
                         canShoot = false;
-                    }
-                    // else reset canShoot and start the next burst cycle.
-                    else if (!burstReady) 
-                    {
-                        StartSweep();
+                        burstReady = false;
                     }
                 }
             }
@@ -75,15 +79,15 @@ public class BomberController : Enemy
     // sets a boolean to tell the enemy to attack the next chance they get. Resets counter of the number of hits taken before sweep is cancelled.
     private void StartSweep() 
     {
-        fireRateTimer = 0;
-        canShoot = false;
+        //fireRateTimer = 0;
+        //canShoot = false;
         burstReady = true;
 
-        propertyBlock.SetColor("_Color_Main", Color.red);
-        propertyBlock.SetColor("_Color_Shift", Color.red);
-        meshRenderer.SetPropertyBlock(propertyBlock);
-        meshRendererTwo.SetPropertyBlock(propertyBlock);
-        meshRendererThree.SetPropertyBlock(propertyBlock);
+        //propertyBlock.SetColor("_Color_Main", Color.red);
+        //propertyBlock.SetColor("_Color_Shift", Color.red);
+        //meshRenderer.SetPropertyBlock(propertyBlock);
+        //meshRendererTwo.SetPropertyBlock(propertyBlock);
+        //meshRendererThree.SetPropertyBlock(propertyBlock);
 
         hitCount = 0;
     }
@@ -102,8 +106,6 @@ public class BomberController : Enemy
                 meshRenderer.SetPropertyBlock(propertyBlock);
                 meshRendererTwo.SetPropertyBlock(propertyBlock);
                 meshRendererThree.SetPropertyBlock(propertyBlock);
-
-                Debug.Log("Color Changed to green?");
             }
         }
     }
