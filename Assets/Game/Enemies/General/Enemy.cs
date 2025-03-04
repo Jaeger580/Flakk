@@ -49,6 +49,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected AnimationCurve moveCurve;
     [SerializeField]
     protected float rotateSpeed = 5f;
+    [SerializeField]
+    protected AnimationCurve rotateCurve;
 
     public int MaxHealth => throw new System.NotImplementedException();
 
@@ -138,7 +140,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         //objTransform.rotation = Quaternion.LookRotation(rotatDir);
 
-        objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateSpeed * Time.deltaTime);
+        //objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateSpeed * Time.deltaTime);
+        var rotateStep = rotateCurve.Evaluate(Quaternion.Angle(objTransform.rotation, targetRot));
+
+        //Debug.Log(rotateStep);
+
+        objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateStep * Time.deltaTime);
+
     }
 
 

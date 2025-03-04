@@ -39,7 +39,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
     protected bool debuffTriggered = false;
 
-    public bool ApplyDamage(CombatPacket p)
+    virtual public bool ApplyDamage(CombatPacket p)
     {
         if (localHealth <= 0)
         {
@@ -79,11 +79,13 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     {
         if (partFixed != null)
         {
-            partFixed.GetComponent<MeshRenderer>().enabled = false;
+            //partFixed.GetComponent<MeshRenderer>().enabled = false;
+            partFixed.SetActive(false);
         }
         if (partBroken != null) 
         {
-            partBroken.GetComponent<MeshRenderer>().enabled = true;
+            //partBroken.GetComponent<MeshRenderer>().enabled = true;
+            partBroken.SetActive(true);
         }
     }
 
