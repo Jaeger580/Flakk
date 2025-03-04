@@ -43,6 +43,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected int currenthealth;
     protected int targetLayer;
 
+    protected float permMaxSpeed;
+    protected float tempSpeedMulti = 1f;
+
+
     //protected bool isAlive = false;
     // Animation curve for handling how enemies move towards leadpoints
     [SerializeField]
@@ -63,6 +67,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         currenthealth = maxHealth;
         fireRateTimer = fireRate;
+
+        permMaxSpeed = leadPoint.GetComponent<SplineAnimate>().MaxSpeed;
 
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
 
@@ -176,10 +182,27 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void SpeedMulti(float newSpeed)
     {
         var followScript = leadPoint.GetComponent<SplineAnimate>();
-        float oldSpeed = followScript.MaxSpeed;
+        float oldSpeed = permMaxSpeed;
 
         float prevProgress = followScript.NormalizedTime;
-        
+
+        permMaxSpeed = oldSpeed * newSpeed;
+
+        followScript.MaxSpeed = permMaxSpeed * tempSpeedMulti;
+
+        followScript.NormalizedTime = prevProgress;
+
+    }
+
+    public virtual void TempSpeedMulti(float newSpeed)
+    {
+        tempSpeedMulti = newSpeed;
+
+        var followScript = leadPoint.GetComponent<SplineAnimate>();
+        float oldSpeed = permMaxSpeed;
+
+        float prevProgress = followScript.NormalizedTime;
+
         followScript.MaxSpeed = oldSpeed * newSpeed;
 
         followScript.NormalizedTime = prevProgress;

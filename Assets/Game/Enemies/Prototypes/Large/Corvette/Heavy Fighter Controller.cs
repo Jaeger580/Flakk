@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class HeavyFighterController : Enemy
 {
@@ -18,6 +19,8 @@ public class HeavyFighterController : Enemy
     {
         currenthealth = maxHealth;
         fireRateTimer = fireRate;
+
+        permMaxSpeed = leadPoint.GetComponent<SplineAnimate>().MaxSpeed;
 
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
 
