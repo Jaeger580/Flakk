@@ -8,6 +8,7 @@ public class AmmoCounterUI : MonoBehaviour
     [SerializeField] private TMP_Text primaryMagAmmo, secondaryMagAmmo, primaryStockpileAmmo, secondaryStockpileAmmo;
     [SerializeField] private Image primaryMagBar, secondaryMagBar, primaryStockpileBar, secondaryStockpileBar;
     [SerializeField] private Image reloadBar;
+    [SerializeField] private RectTransform primaryCanvas, secondaryCanvas;
 
     private void Awake()
     {
@@ -18,6 +19,22 @@ public class AmmoCounterUI : MonoBehaviour
         gun.PrimaryStockpileAmmoChangeEvent += (newAmmo, maxAmmo) => HandleAmmoChange(newAmmo, maxAmmo, primaryStockpileAmmo, primaryStockpileBar);
         gun.SecondaryStockpileAmmoChangeEvent += (newAmmo, maxAmmo) => HandleAmmoChange(newAmmo, maxAmmo, secondaryStockpileAmmo, secondaryStockpileBar);
         gun.ReloadTimerChangeEvent += (newReloadTimer, maxReloadTimer) => HandleReloadTimerChange(newReloadTimer, maxReloadTimer, reloadBar);
+
+        gun.MagSwapEvent += (primary) => HandleMagSwap(primary);
+    }
+
+    private void HandleMagSwap(bool primary)
+    {
+        if (primary)
+        {
+            primaryCanvas.localScale = Vector3.one;
+            secondaryCanvas.localScale = Vector3.one * 0.85f;
+        }
+        else
+        {
+            secondaryCanvas.localScale = Vector3.one;
+            primaryCanvas.localScale = Vector3.one * 0.85f;
+        }
     }
 
     private void HandleAmmoChange(float newAmmo, float maxAmmo, TMP_Text ammoElement, Image ammoBar)

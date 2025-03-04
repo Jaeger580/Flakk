@@ -5,9 +5,10 @@ namespace GeneralUtility
 {
     namespace VariableObject
     {
-        public class VariableObject : ScriptableObject { }
+        [Serializable] public class VariableObject : ScriptableObject { }
         public class VariableReference { }
 
+        [Serializable]
         public class VariableObject<T> : VariableObject
         {
             public T Value;
