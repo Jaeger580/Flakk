@@ -44,3 +44,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ba039d7164c0b4999063cd0740bb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObjectiveText: {fileID: 0}
+  objectives:
+  - text: Use your mouse to looks around.
+    targetEvent: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+  - text: Use WASD to move.
+    targetEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
+  - text: Press SPACE to jump.
+    targetEvent: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
+  - text: Interact with objects with E.
+    targetEvent: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
+  - text: Press ESC to pause and unpause.
+    targetEvent: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
+  - text: Enter the gun by interacting with the Control console or by entering the
+      cockpit at the gun's base.
+    targetEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
+  - text: Press Left Click to shoot.
+    targetEvent: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
+  - text: Hold down R to reload from current Mag.
+    targetEvent: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+  - text: Press TAB to swap Mags.
+    targetEvent: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
+  - text: Hold Right Click to zoom.
+    targetEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
+  - text: Enemies will attack your ship, draining its health over time. If the ships
+      health reaches 0 you lose.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Shoot enemies to deal damage to them and destroy their individual components.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Destroy all before they destroy you to complete the mission and earn rewards.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Press E to exit the gun.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Press E on an ammo crate to pick it up.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: While holding a crate, press E on in the deposit area to add it to a magazines
+      reserve ammo.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Use the terminal in the Armory to puchase upgrades and more ammo.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Use the terminal in the Contracts area to start a mission and finish the
+      tutorial..
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
