@@ -1,4 +1,5 @@
 using GeneralUtility.CombatSystem;
+using GeneralUtility.GameEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,9 @@ public class TutorialBomber : Enemy
     MeshRenderer meshRendererThree;
 
     public bool isInvincible = true;
+
+    [SerializeField]
+    private GameEvent deathEvent;
 
     private void Awake()
     {
@@ -133,6 +137,7 @@ public class TutorialBomber : Enemy
         //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
+            deathEvent.Trigger();
             Death();
         }
 

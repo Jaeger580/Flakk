@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!23 &245878860 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5833820458348773448, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &401789112
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,16 +432,6 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
---- !u!23 &517287745 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8248199800414357285, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &565682487 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8568482091102684781, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &603695974
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,11 +707,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &855073733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4481953635753938690, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931440126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,10 +997,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2652887669094424, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1823848423}
+    - target: {fileID: 2950966993821118213, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: deathEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
     - target: {fileID: 3892451404971573873, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: entrySpline
       value: 
       objectReference: {fileID: 989838502}
+    - target: {fileID: 4786057831724042205, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1823848423}
+    - target: {fileID: 4911136376565361675, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1823848423}
     - target: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: m_Name
       value: Bomber Tutorial
@@ -1065,20 +1061,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9180726343200480494, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+    - target: {fileID: 6961370365919883700, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1823848423}
+    - target: {fileID: 7454829681816620978, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4911050270570361200, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1823848423}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
---- !u!1 &1364567125 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3471579149652576933, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1571329715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1149,94 +1144,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 1571329715}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1673701352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3989354954145185693, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1823848419 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4911050270570361200, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1823848423
+--- !u!114 &1823848423 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2950966993821118213, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+  m_PrefabInstance: {fileID: 1164439066}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823848419}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad67af744573c874ca4a581239d42c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leadPoint: {fileID: 1364567125}
-  maxHealth: 35
-  attackRange: 200
-  attackRadius: 10
-  fireRate: 5
-  burstSize: 3
-  shotDelay: 0.2
-  attackPoints:
-  - {fileID: 855073733}
-  - {fileID: 1673701352}
-  attackProjectile: {fileID: 0}
-  moveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 10
-      value: 10
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotateSpeed: 5
-  rotateCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 8
-      value: 4
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  gunsList: []
-  hitsToStun: 3
-  meshRenderer: {fileID: 245878860}
-  meshRendererTwo: {fileID: 517287745}
-  meshRendererThree: {fileID: 565682487}
-  isInvincible: 1
 --- !u!1001 &1881853977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1307,28 +1225,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 1881853977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2043323270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1465089138199329810, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-  m_PrefabInstance: {fileID: 7259759471729674496}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2043323271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043323270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd4af9364a830664eb5db4b15275aae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyWaves:
-  - enemies: []
-  timeBetweenWaves: 60
-  timeBetweenSpawns: 2
-  winEvent: {fileID: 0}
 --- !u!1001 &2070378532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,13 +1338,27 @@ PrefabInstance:
       propertyPath: ObjectiveText
       value: 
       objectReference: {fileID: 401789114}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[12].text
+      value: Destroy all enemies  before they destroy you to complete the mission
+        and earn rewards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[10].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[11].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[12].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1465089138199329810, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2043323271}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
