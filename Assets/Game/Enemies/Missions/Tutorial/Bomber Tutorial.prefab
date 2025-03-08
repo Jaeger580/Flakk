@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9124122142510121122}
-  - component: {fileID: 4911136376565361675}
+  - component: {fileID: 5127784823839107503}
   - component: {fileID: 6292500136627321407}
   - component: {fileID: 2753065593081978949}
   - component: {fileID: 5655118046269078445}
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4398958687493778091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4911136376565361675
+--- !u!114 &5127784823839107503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,16 +44,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 336803536230607823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1571b372c8a2fa2428b788f7f1b9cae8, type: 3}
+  m_Script: {fileID: 11500000, guid: b222b9c6e921d384a9cef54e57bd2089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
   mainResistance: 0
-  mainBody: {fileID: 9180726343200480494}
+  mainBody: {fileID: 2950966993821118213}
   partFixed: {fileID: 6102214213259634592}
   partBroken: {fileID: 5383622579927018534}
   speedMultipler: 0.75
+  eventTrigger: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
 --- !u!65 &6292500136627321407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ MonoBehaviour:
   localHealth: 10
   localResistance: 0
   mainResistance: 100
-  mainBody: {fileID: 9180726343200480494}
+  mainBody: {fileID: 0}
   partFixed: {fileID: 5376593291653901838}
   partBroken: {fileID: 8389262866682980343}
   speedMultipler: 0.9
@@ -626,7 +627,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4642710091038621679}
-  - component: {fileID: 7634098528211779109}
   - component: {fileID: 8318905722225004245}
   m_Layer: 9
   m_Name: Other Collider
@@ -650,25 +650,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8249169583853286238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
---- !u!114 &7634098528211779109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2973007197224434629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b20511bc81c1c14eab88771981ae98e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localHealth: 0
-  localResistance: 0
-  mainResistance: 0
-  mainBody: {fileID: 0}
-  partFixed: {fileID: 0}
-  partBroken: {fileID: 0}
-  part: {fileID: 2652887669094424}
 --- !u!65 &8318905722225004245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -791,7 +772,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5952188718357691564}
-  - component: {fileID: 2117684921580095721}
   - component: {fileID: 1198645089112833412}
   m_Layer: 9
   m_Name: Other Collider
@@ -815,25 +795,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5071700102660608751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
---- !u!114 &2117684921580095721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3602467215659318212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b20511bc81c1c14eab88771981ae98e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localHealth: 0
-  localResistance: 0
-  mainResistance: 0
-  mainBody: {fileID: 0}
-  partFixed: {fileID: 0}
-  partBroken: {fileID: 0}
-  part: {fileID: 4786057831724042205}
 --- !u!65 &1198645089112833412
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1108,7 +1069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8249169583853286238}
-  - component: {fileID: 2652887669094424}
+  - component: {fileID: 7513080098949083126}
   - component: {fileID: 3385048526583554033}
   - component: {fileID: 8456796738351235224}
   m_Layer: 9
@@ -1134,7 +1095,7 @@ Transform:
   - {fileID: 4642710091038621679}
   m_Father: {fileID: 4398958687493778091}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -30}
---- !u!114 &2652887669094424
+--- !u!114 &7513080098949083126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1143,17 +1104,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4412839011928697635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ff89bdf0f24a84b9be2b568fbec02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
   mainResistance: 100
-  mainBody: {fileID: 9180726343200480494}
+  mainBody: {fileID: 2950966993821118213}
   partFixed: {fileID: 5376593291653901838}
   partBroken: {fileID: 8389262866682980343}
   speedMultipler: 0.9
   bonusDamage: 2
+  eventTrigger: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
 --- !u!65 &3385048526583554033
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1236,7 +1198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5071700102660608751}
-  - component: {fileID: 4786057831724042205}
+  - component: {fileID: 3109133450314479285}
   - component: {fileID: 1980807542243182650}
   - component: {fileID: 6720429076079356172}
   m_Layer: 9
@@ -1262,7 +1224,7 @@ Transform:
   - {fileID: 5952188718357691564}
   m_Father: {fileID: 4398958687493778091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
---- !u!114 &4786057831724042205
+--- !u!114 &3109133450314479285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1271,17 +1233,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4841845340170309717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5831e5764e28a6f41a01bf29f4312756, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ff89bdf0f24a84b9be2b568fbec02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
   mainResistance: 100
-  mainBody: {fileID: 9180726343200480494}
+  mainBody: {fileID: 2950966993821118213}
   partFixed: {fileID: 4019954346876387729}
   partBroken: {fileID: 6564331923376110534}
   speedMultipler: 0.9
   bonusDamage: 2
+  eventTrigger: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
 --- !u!65 &1980807542243182650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1333,7 +1296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7924519492169408134}
-  - component: {fileID: 9180726343200480494}
+  - component: {fileID: 2950966993821118213}
   - component: {fileID: 5099970687110769057}
   m_Layer: 9
   m_Name: Ship
@@ -1362,7 +1325,7 @@ Transform:
   - {fileID: 1778337835004126258}
   m_Father: {fileID: 6778802439524851972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9180726343200480494
+--- !u!114 &2950966993821118213
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1371,7 +1334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4911050270570361200}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194c6881407dd9342999ba82afe6aa00, type: 3}
+  m_Script: {fileID: 11500000, guid: ad67af744573c874ca4a581239d42c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leadPoint: {fileID: 3471579149652576933}
@@ -1384,7 +1347,7 @@ MonoBehaviour:
   attackPoints:
   - {fileID: 4481953635753938690}
   - {fileID: 3989354954145185693}
-  attackProjectile: {fileID: 7287566418581035305, guid: be0c5189769b6044f8533f742295f1eb, type: 3}
+  attackProjectile: {fileID: 7287566418581035305, guid: 267f138e09aa0224a8631a285a01645b, type: 3}
   moveCurve:
     serializedVersion: 2
     m_Curve:
@@ -1439,6 +1402,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 5833820458348773448}
   meshRendererTwo: {fileID: 8248199800414357285}
   meshRendererThree: {fileID: 8568482091102684781}
+  isInvincible: 1
+  deathEvent: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
 --- !u!135 &5099970687110769057
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1470,7 +1435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6778802439524851972}
   m_Layer: 9
-  m_Name: Bomber 2.0
+  m_Name: Bomber Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2261,7 +2226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 290792977530645909}
-  - component: {fileID: 6961370365919883700}
+  - component: {fileID: 3809365206575343640}
   - component: {fileID: 150034926922168608}
   - component: {fileID: 7330296957783376651}
   m_Layer: 9
@@ -2286,7 +2251,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4398958687493778091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6961370365919883700
+--- !u!114 &3809365206575343640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2295,13 +2260,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7270600069908344999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 590de0134f5a042479e2ddca5f55485b, type: 3}
+  m_Script: {fileID: 11500000, guid: b8de39aad3a1fcf4190bb32cf9840a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   localHealth: 35
   localResistance: 0
   mainResistance: 0
-  mainBody: {fileID: 9180726343200480494}
+  mainBody: {fileID: 2950966993821118213}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
 --- !u!65 &150034926922168608

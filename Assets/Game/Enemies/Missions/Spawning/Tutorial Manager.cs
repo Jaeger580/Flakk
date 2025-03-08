@@ -60,6 +60,11 @@ public class TutorialManager : MonoBehaviour
     // updates the objective text and exchanges listeners for the new objective.
     private void ObjectiveComplete() 
     {
+        if(objectives[currentCount].completeEvent != null) 
+        {
+            objectives[currentCount].completeEvent.Trigger();
+        }
+
         currentCount++;
 
         // If there is a next objective
@@ -112,4 +117,5 @@ public class tutorialObjective
     public string text;
     public GameEvent targetEvent;
 
+    public GameEvent completeEvent;
 }

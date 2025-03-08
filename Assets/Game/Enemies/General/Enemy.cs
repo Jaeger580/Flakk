@@ -158,7 +158,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     // Damage should likely be moved to another script for
     // systems involving multiple hitzones and complex enemies.
-    public bool ApplyDamage(CombatPacket packet)
+    public virtual bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
