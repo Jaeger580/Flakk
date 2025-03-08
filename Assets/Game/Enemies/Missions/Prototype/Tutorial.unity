@@ -997,26 +997,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2652887669094424, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: mainBody
-      value: 
-      objectReference: {fileID: 1823848423}
     - target: {fileID: 2950966993821118213, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: deathEvent
+      propertyPath: protectionEvent
       value: 
-      objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
+      objectReference: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
     - target: {fileID: 3892451404971573873, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: entrySpline
       value: 
       objectReference: {fileID: 989838502}
-    - target: {fileID: 4786057831724042205, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: mainBody
-      value: 
-      objectReference: {fileID: 1823848423}
-    - target: {fileID: 4911136376565361675, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: mainBody
-      value: 
-      objectReference: {fileID: 1823848423}
     - target: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: m_Name
       value: Bomber Tutorial
@@ -1060,14 +1048,6 @@ PrefabInstance:
     - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6961370365919883700, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: mainBody
-      value: 
-      objectReference: {fileID: 1823848423}
-    - target: {fileID: 7454829681816620978, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-      propertyPath: mainBody
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1144,17 +1124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 1571329715}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1823848423 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2950966993821118213, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
-  m_PrefabInstance: {fileID: 1164439066}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad67af744573c874ca4a581239d42c28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1881853977
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,10 +25,24 @@ public class TutorialBomber : Enemy
 
     [SerializeField]
     private GameEvent deathEvent;
+    [SerializeField]
+    private GameEvent protectionEvent;
+
+    private GameEventListener eventListener;
+
 
     private void Awake()
     {
         propertyBlock = new MaterialPropertyBlock();
+
+        // set up a new event listener for the new event
+        eventListener = gameObject.AddComponent<GameEventListener>();
+        eventListener.Events.Add(protectionEvent);
+        eventListener.Response = new();
+        eventListener.Response.AddListener(() => RemoveProtection());
+
+        // register
+        protectionEvent.RegisterListener(eventListener);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -119,14 +133,14 @@ public class TutorialBomber : Enemy
 
     public bool Sweeping { get { return burstReady; } }
 
-    public virtual bool ApplyDamage(CombatPacket packet)
+    public override bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
 
         Debug.Log("Final Damage: " + finalDamage);
 
-        if (isInvincible) 
+        if (!isInvincible) 
         {
             currenthealth -= finalDamage;
         }
@@ -142,5 +156,10 @@ public class TutorialBomber : Enemy
         }
 
         return true;
+    }
+
+    private void RemoveProtection() 
+    {
+        isInvincible = false;
     }
 }
