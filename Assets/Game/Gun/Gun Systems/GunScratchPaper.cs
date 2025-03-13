@@ -436,7 +436,7 @@ abstract public class BaseGunAmmo : ImpactBehavior
 public abstract class ImpactBehavior : MonoBehaviour
 {
     [Tooltip("VFX to trigger at the point of collision, for feedback.")]
-    [SerializeField] protected GameObjectReference vfxPrefab;
+    [SerializeField] protected GameObject vfxPrefab;
     [Tooltip("SFX to trigger on impact, for feedback.")]
     [SerializeField] protected AudioClip[] sfxOnImpact;
     protected float effectValue;
