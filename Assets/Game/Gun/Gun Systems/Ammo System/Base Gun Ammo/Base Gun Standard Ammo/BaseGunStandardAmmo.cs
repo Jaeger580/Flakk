@@ -18,6 +18,7 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
         if (!TriggerEffect(p)) return;
 
         //do vfx/sfx and other cleanup IF it lands correctly
+        vfxPrefab.GetComponent<ParticleSystem>().Play();
 
         CustomAudio.PlayClipAt(this.GetComponent<AudioSource>(), p.CollisionInfo.transform.position);
 

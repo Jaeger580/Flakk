@@ -46,6 +46,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected float permMaxSpeed;
     protected float tempSpeedMulti = 1f;
 
+    [SerializeField]
+    protected GameObject vfxDamage;
+    [SerializeField]
+    protected GameObject vfxDeath;
+    [SerializeField]
+    protected GameObject vfxNearDeath;
+    [SerializeField]
+    protected GameObject vfxTrail;
 
     //protected bool isAlive = false;
     // Animation curve for handling how enemies move towards leadpoints
@@ -164,16 +172,20 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         int finalDamage = CombatManager.DamageCalculator(packet);
 
         Debug.Log("Final Damage: " + finalDamage);
-
+        
         currenthealth -= finalDamage;
-
         OnHit();
 
         //Debug.Log(finalDamage + " final damage taken.");
         //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
+            //Debug.Log("DEATH CALL");
             Death();
+        }
+        else if(currenthealth <= (maxHealth/3))
+        {
+            vfxNearDeath.GetComponent<ParticleSystem>().Play();
         }
 
         return true;
@@ -210,6 +222,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Death() 
     {
+        vfxTrail.GetComponent<ParticleSystem>().Stop();
+
+        GameObject vfxD = Instantiate(vfxDeath, transform.position, transform.rotation);
+        //Debug.Log("PE NAMe " + pe.name);
+        Destroy(vfxD, 3);
+        //Debug.Log("pe deleted");
+
         // Proper death needs added later
         StopAllCoroutines();
 
@@ -251,6 +270,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     // Optional Method for some enemies to trigger on hit effects
     protected virtual void OnHit() 
     {
+        vfxDamage.GetComponent<ParticleSystem>().Play();
     }
-
 }
