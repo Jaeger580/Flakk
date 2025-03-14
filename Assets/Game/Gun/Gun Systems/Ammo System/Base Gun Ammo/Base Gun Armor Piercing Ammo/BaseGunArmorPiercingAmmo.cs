@@ -20,6 +20,7 @@ public class BaseGunArmorPiercingAmmo : BaseGunAmmo, IEffect
     {
         if (!TriggerEffect(p)) return;
 
+        Destroy(this.gameObject);
         //do vfx/sfx and other cleanup IF it lands correctly
     }
 
@@ -54,7 +55,6 @@ public class BaseGunArmorShreddingAmmo : BaseGunAmmo, IEffect
     public override void OnImpact(CombatPacket p)
     {
         if (!TriggerEffect(p)) return;
-
         //do vfx/sfx and other cleanup IF it lands correctly
     }
 
