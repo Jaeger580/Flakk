@@ -101,8 +101,8 @@ public class BomberController : Enemy
             if (hitCount >= hitsToStun)
             {
                 burstReady = false;
-                propertyBlock.SetColor("_Color_Main", Color.green);
-                propertyBlock.SetColor("_Color_Shift", Color.green);
+                propertyBlock.SetColor("_Color_Main", Color.red);
+                propertyBlock.SetColor("_Color_Shift", Color.red);
                 meshRenderer.SetPropertyBlock(propertyBlock);
                 meshRendererTwo.SetPropertyBlock(propertyBlock);
                 meshRendererThree.SetPropertyBlock(propertyBlock);
