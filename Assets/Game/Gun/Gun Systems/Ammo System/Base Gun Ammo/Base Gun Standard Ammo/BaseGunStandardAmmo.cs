@@ -17,7 +17,10 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
     {
         if (!TriggerEffect(p)) return;
 
+        Destroy(this.gameObject);
+
         //do vfx/sfx and other cleanup IF it lands correctly
+        vfxPrefab.GetComponent<ParticleSystem>().Play();
 
         CustomAudio.PlayClipAt(this.GetComponent<AudioSource>(), p.CollisionInfo.transform.position);
 
@@ -26,7 +29,6 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
         //    AudioSource.PlayClipAtPoint(clip, p.CollisionInfo.transform.position);
         //}
 
-        Destroy(this.gameObject);
     }
 
     public void OnKill()
