@@ -499,71 +499,71 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -30.2454
+        z: -24.722471
       TangentOut:
         x: 0
         y: 0
-        z: 30.2454
+        z: 24.722471
       Rotation:
         value:
-          x: 0.23822148
-          y: 0.95624095
-          z: 0.080942415
-          w: 0.14933957
+          x: 0.23619643
+          y: 0.9474722
+          z: 0.10144633
+          w: 0.19030577
     - Position:
-        x: 386.18127
+        x: 389.1352
         y: 25.324158
-        z: -278.6253
+        z: -217.85434
       TangentIn:
         x: -0
         y: -0
-        z: -101.70308
+        z: -86.08407
       TangentOut:
         x: 0
         y: 0
-        z: 136.4757
+        z: 125.68474
       Rotation:
         value:
-          x: -0.004285932
-          y: 0.9165593
-          z: 0.009826796
-          w: 0.39975506
+          x: -0.005934977
+          y: 0.8972491
+          z: 0.014462536
+          w: 0.441248
     - Position:
-        x: 912.1813
+        x: 908.1352
         y: 0.3241577
-        z: -417.6253
+        z: -305.85434
       TangentIn:
         x: -0
         y: -0
-        z: -173.17807
+        z: -161.82312
       TangentOut:
         x: 0
         y: 0
-        z: 168.46756
+        z: 142.01965
       Rotation:
         value:
-          x: 0.008379104
-          y: 0.70795774
-          z: -0.008400492
-          w: 0.7061552
+          x: 0.008478216
+          y: 0.7065163
+          z: -0.008543199
+          w: 0.70759445
     - Position:
-        x: 1411.1813
+        x: 1308.1353
         y: 0.3241577
-        z: -288.6253
+        z: -236.85434
       TangentIn:
         x: -0
         y: -0
-        z: -129.16728
+        z: -116.54157
       TangentOut:
         x: 0
         y: 0
-        z: 100.06081
+        z: 101.23277
       Rotation:
         value:
-          x: 0
-          y: 0.38232797
-          z: 0
-          w: 0.9240266
+          x: 5.539132e-13
+          y: 0.48559996
+          z: 9.971591e-13
+          w: 0.8741811
     - Position:
         x: 1488.1332
         y: 0.3241577
@@ -571,17 +571,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -30.92939
+        z: -30.62723
       TangentOut:
         x: 0
         y: 0
-        z: 30.92939
+        z: 30.62723
       Rotation:
         value:
-          x: 6.335654e-18
-          y: 0.12538894
-          z: 5.0129226e-17
-          w: 0.9921077
+          x: 1.5519098e-17
+          y: 0.3089701
+          z: 4.777088e-17
+          w: 0.9510717
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -707,6 +707,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &779714843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+  m_PrefabInstance: {fileID: 2070378532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &931440126
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +737,7 @@ Transform:
   m_GameObject: {fileID: 931440126}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127, y: 479, z: 212}
+  m_LocalPosition: {x: 127, y: 479, z: -99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -741,6 +746,7 @@ Transform:
   - {fileID: 603695975}
   - {fileID: 1571329716}
   - {fileID: 481856229}
+  - {fileID: 779714843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989838500
@@ -1200,7 +1206,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 931440127}
     m_Modifications:
     - target: {fileID: 3717268473254952940, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_Name
@@ -1208,15 +1214,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -473
+      value: -600
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119.7098
+      value: -359.2902
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 280.22
+      value: 68.22
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1224,15 +1230,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1308,22 +1314,76 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 401789114}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.size
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[10].text
+      value: Press W to raise the gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[11].text
+      value: Press S to lower the gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[12].text
+      value: Shoot enemies to deal damage to them and destroy their individual components.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[13].text
+      value: Enemies will attack your ship, draining its health over time. If the
+        ships health reaches 0 you lose.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[14].text
       value: Destroy all enemies  before they destroy you to complete the mission
         and earn rewards.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[15].text
+      value: Press E to exit the gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[16].text
+      value: Press E on an ammo crate to pick it up.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[17].text
+      value: While holding a crate, press E on in the deposit area to add it to a
+        magazines reserve ammo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[18].text
+      value: Use the terminal in the Armory to puchase upgrades and more ammo.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[10].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
+      objectReference: {fileID: 11400000, guid: f830b3969dee52242ad4fae6972fccbe, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[11].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
+      objectReference: {fileID: 11400000, guid: 77f8f68f990ca3c4292e496a57287fa4, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[12].targetEvent
       value: 
+      objectReference: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[13].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[14].targetEvent
+      value: 
       objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[12].completeEvent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[13].completeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1337,4 +1397,3 @@ SceneRoots:
   - {fileID: 931440127}
   - {fileID: 737074340}
   - {fileID: 1164439066}
-  - {fileID: 2070378532}

@@ -55,6 +55,10 @@ public class GunVerticalMovement : MonoBehaviour
 
     [SerializeField]
     private GameEvent vertMoveInput;
+    [SerializeField]
+    private GameEvent vertUpInput;
+    [SerializeField]
+    private GameEvent vertDownInput;
 
     [SerializeField]
     private GameEvent GunExit;
@@ -67,9 +71,8 @@ public class GunVerticalMovement : MonoBehaviour
     {
         var lookListener = gameObject.AddComponent<GameEventListener>();
         lookListener.Events.Add(vertMoveInput);
-
         lookListener.FloatResponse = new();
-        lookListener.FloatResponse.AddListener((input) => vertMove(input));
+        lookListener.FloatResponse.AddListener((input) => VertMove(input));
         vertMoveInput.RegisterListener(lookListener);
 
         var exitListener = gameObject.AddComponent<GameEventListener>();
@@ -94,13 +97,17 @@ public class GunVerticalMovement : MonoBehaviour
         }
         else
         {
+            // If moving up
             if (moveValue == 1)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, maxHeight, 0), moveSpeed);
+                vertUpInput.Trigger();
             }
+            // If moving down
             else if (moveValue == -1)
             {
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight, 0), moveSpeed);
+                vertDownInput.Trigger();
             }
         }
 
@@ -115,7 +122,7 @@ public class GunVerticalMovement : MonoBehaviour
         //}
     }
 
-    private void vertMove(float moveInput) 
+    private void VertMove(float moveInput) 
     {
         moveValue = moveInput;
     }

@@ -77,15 +77,22 @@ MonoBehaviour:
   - text: Hold Right Click to zoom.
     targetEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
     completeEvent: {fileID: 0}
-  - text: Shoot enemies to deal damage to them and destroy their individual components.
+  - text: Press W to raise the gun.
     targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    completeEvent: {fileID: 0}
+  - text: Press S to lower the gun.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    completeEvent: {fileID: 0}
+  - text: Shoot enemies to deal damage to them and destroy their individual components.
+    targetEvent: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
     completeEvent: {fileID: 0}
   - text: Enemies will attack your ship, draining its health over time. If the ships
       health reaches 0 you lose.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
     completeEvent: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
-  - text: Destroy all before they destroy you to complete the mission and earn rewards.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Destroy all enemies  before they destroy you to complete the mission and
+      earn rewards.
+    targetEvent: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
     completeEvent: {fileID: 0}
   - text: Press E to exit the gun.
     targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
