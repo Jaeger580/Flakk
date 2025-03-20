@@ -432,6 +432,68 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1001 &598863383
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 931440127}
+    m_Modifications:
+    - target: {fileID: 3717268473254952940, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_Name
+      value: Bomber Node (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 533.9419
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -359.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 358.5637
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+--- !u!4 &598863384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+  m_PrefabInstance: {fileID: 598863383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &603695974
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +809,7 @@ Transform:
   - {fileID: 1571329716}
   - {fileID: 481856229}
   - {fileID: 779714843}
+  - {fileID: 598863384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989838500
@@ -1314,76 +1377,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 401789114}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[10].text
-      value: Press W to raise the gun.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[11].text
-      value: Press S to lower the gun.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[12].text
-      value: Shoot enemies to deal damage to them and destroy their individual components.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[13].text
-      value: Enemies will attack your ship, draining its health over time. If the
-        ships health reaches 0 you lose.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[14].text
-      value: Destroy all enemies  before they destroy you to complete the mission
-        and earn rewards.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[15].text
-      value: Press E to exit the gun.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[16].text
-      value: Press E on an ammo crate to pick it up.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[17].text
-      value: While holding a crate, press E on in the deposit area to add it to a
-        magazines reserve ammo.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[18].text
       value: Use the terminal in the Armory to puchase upgrades and more ammo.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[10].targetEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: f830b3969dee52242ad4fae6972fccbe, type: 2}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[11].targetEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 77f8f68f990ca3c4292e496a57287fa4, type: 2}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[12].targetEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[13].targetEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[14].targetEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
-    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[12].completeEvent
-      value: 
+      propertyPath: objectives.Array.data[18].text
+      value: Press E on an ammo crate to pick it up.
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
-      propertyPath: objectives.Array.data[13].completeEvent
+      propertyPath: objectives.Array.data[17].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
+      objectReference: {fileID: 11400000, guid: 11d451524e4d7b3449e9cd1018f8389b, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[18].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: b781d13ffc20a9940887ba59b1811d32, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[20].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f016097210892745986a8067a9f3f5b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

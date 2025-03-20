@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GeneralUtility.GameEventSystem;
+using System.Collections;
 using UnityEngine;
 
 public class StockpileBusInteract : MonoBehaviour, IInteractable
@@ -9,6 +10,8 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
     [Tooltip("How long should a single ammo crate load into this bus (in seconds per crate)?")]
     [SerializeField] private float loadingRate = 1f;
 
+
+    [SerializeField] private GameEvent CrateDeposit;
     public void Interact(object interactor)
     {
         print("Trying to interact with stockpile bus.");
@@ -16,6 +19,8 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
         if (!playerInteractor.TryGetComponent(out AmmoCrateHolder ammoCrateHolder)) return;
 
         if (!ammoCrateHolder.TryPopTopCrate(out var poppedCrate)) return;
+
+        CrateDeposit.Trigger();
 
         StartCoroutine(LoadStockpile(poppedCrate));
     }
