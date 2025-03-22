@@ -122,8 +122,8 @@ public class TutorialBomber : Enemy
             if (hitCount >= hitsToStun)
             {
                 burstReady = false;
-                propertyBlock.SetColor("_Color_Main", Color.green);
-                propertyBlock.SetColor("_Color_Shift", Color.green);
+                propertyBlock.SetColor("_Color_Main", Color.red);
+                propertyBlock.SetColor("_Color_Shift", Color.red);
                 meshRenderer.SetPropertyBlock(propertyBlock);
                 meshRendererTwo.SetPropertyBlock(propertyBlock);
                 meshRendererThree.SetPropertyBlock(propertyBlock);
@@ -135,24 +135,50 @@ public class TutorialBomber : Enemy
 
     public override bool ApplyDamage(CombatPacket packet)
     {
+        ////Deal damage to the enemy
+        //int finalDamage = CombatManager.DamageCalculator(packet);
+
+        //Debug.Log("Final Damage: " + finalDamage);
+
+        //if (!isInvincible) 
+        //{
+        //    currenthealth -= finalDamage;
+        //}
+
+        //OnHit();
+
+        ////Debug.Log(finalDamage + " final damage taken.");
+        ////Debug.Log("Current Health " + currenthealth);
+        //if (currenthealth <= 0)
+        //{
+        //    deathEvent.Trigger();
+        //    Death();
+        //}
+
+        //return true;
+
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
 
         Debug.Log("Final Damage: " + finalDamage);
 
-        if (!isInvincible) 
+        if (!isInvincible)
         {
             currenthealth -= finalDamage;
         }
-
         OnHit();
 
         //Debug.Log(finalDamage + " final damage taken.");
         //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
+            //Debug.Log("DEATH CALL");
             deathEvent.Trigger();
             Death();
+        }
+        else if (currenthealth <= (maxHealth / 3))
+        {
+            vfxNearDeath.GetComponent<ParticleSystem>().Play();
         }
 
         return true;

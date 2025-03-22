@@ -46,11 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectiveText: {fileID: 0}
   objectives:
+  - text: Use WASD to move.
+    targetEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
+    completeEvent: {fileID: 0}
   - text: Use your mouse to looks around.
     targetEvent: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
     completeEvent: {fileID: 0}
-  - text: Use WASD to move.
-    targetEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
+  - text: Press SHIFT to sprint.
+    targetEvent: {fileID: 11400000, guid: 04b0e2e32b31741d3a56ebcba93ec5d3, type: 2}
     completeEvent: {fileID: 0}
   - text: Press SPACE to jump.
     targetEvent: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
@@ -77,30 +80,37 @@ MonoBehaviour:
   - text: Hold Right Click to zoom.
     targetEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
     completeEvent: {fileID: 0}
+  - text: Press W to raise the gun.
+    targetEvent: {fileID: 11400000, guid: f830b3969dee52242ad4fae6972fccbe, type: 2}
+    completeEvent: {fileID: 0}
+  - text: Press S to lower the gun.
+    targetEvent: {fileID: 11400000, guid: 77f8f68f990ca3c4292e496a57287fa4, type: 2}
+    completeEvent: {fileID: 0}
   - text: Shoot enemies to deal damage to them and destroy their individual components.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
     completeEvent: {fileID: 0}
   - text: Enemies will attack your ship, draining its health over time. If the ships
       health reaches 0 you lose.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
     completeEvent: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
-  - text: Destroy all before they destroy you to complete the mission and earn rewards.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+  - text: Destroy all enemies  before they destroy you to complete the mission and
+      earn rewards.
+    targetEvent: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
     completeEvent: {fileID: 0}
   - text: Press E to exit the gun.
     targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
     completeEvent: {fileID: 0}
   - text: Press E on an ammo crate to pick it up.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 11400000, guid: b781d13ffc20a9940887ba59b1811d32, type: 2}
+    completeEvent: {fileID: 0}
+  - text: Use the terminal in the Armory to puchase upgrades and more ammo.
+    targetEvent: {fileID: 11400000, guid: 11d451524e4d7b3449e9cd1018f8389b, type: 2}
     completeEvent: {fileID: 0}
   - text: While holding a crate, press E on in the deposit area to add it to a magazines
       reserve ammo.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
-    completeEvent: {fileID: 0}
-  - text: Use the terminal in the Armory to puchase upgrades and more ammo.
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 11400000, guid: 80f70f50551c3f7429131b6677563587, type: 2}
     completeEvent: {fileID: 0}
   - text: Use the terminal in the Contracts area to start a mission and finish the
       tutorial..
-    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    targetEvent: {fileID: 0}
     completeEvent: {fileID: 0}

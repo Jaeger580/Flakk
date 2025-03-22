@@ -222,12 +222,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Death() 
     {
-        vfxTrail.GetComponent<ParticleSystem>().Stop();
+        if (vfxTrail != null) 
+        {
+            vfxTrail.GetComponent<ParticleSystem>().Stop();
+        }
 
-        GameObject vfxD = Instantiate(vfxDeath, transform.position, transform.rotation);
-        //Debug.Log("PE NAMe " + pe.name);
-        Destroy(vfxD, 3);
-        //Debug.Log("pe deleted");
+        if (vfxDeath != null)
+        {
+            GameObject vfxD = Instantiate(vfxDeath, transform.position, transform.rotation);
+            //Debug.Log("PE NAMe " + pe.name);
+            Destroy(vfxD, 3);
+            //Debug.Log("pe deleted");
+        }
+
 
         // Proper death needs added later
         StopAllCoroutines();

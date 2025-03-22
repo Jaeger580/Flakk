@@ -1,4 +1,5 @@
 using GeneralUtility;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 
 public class AmmoCrateInteract : MonoBehaviour, IInteractable
@@ -10,6 +11,8 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
     [SerializeField] private Camera mainCam;
 
     [SerializeField] private AmmoStack crateConfig;
+
+    [SerializeField] private GameEvent CrateLifted;
 
     private bool attached, deposited;
 
@@ -37,6 +40,9 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
             return;
         }
         attached = true;
+
+        CrateLifted.Trigger();
+
         deposited = false;
         //Physics.IgnoreCollision(col, playerTrans.GetComponent<Collider>(), true);
         col.enabled = false;
