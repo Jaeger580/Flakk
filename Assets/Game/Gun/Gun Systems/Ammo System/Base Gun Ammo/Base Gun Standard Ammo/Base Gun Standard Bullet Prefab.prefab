@@ -13,6 +13,10 @@ PrefabInstance:
       value: Base Gun Standard Bullet Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1124305881703776443, guid: ac1cd62467021485fbef057f75334857, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ca065b9827c0a4d068be0e97d2d8ea02, type: 2}
@@ -58,7 +62,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2266636577297655461}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1095541231815003720, guid: ac1cd62467021485fbef057f75334857, type: 3}
       insertIndex: -1
@@ -84,12 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00be0f4cb84394d31a7d572a50d19848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxPrefab:
-    UseConstant: 1
-    ConstantValue: {fileID: 425654604393365199, guid: 2fe2ae9fe48b9674aaf1279d8d4f597a, type: 3}
-    Variable: {fileID: 0}
+  vfxPrefab: {fileID: 0}
   sfxOnImpact: []
-  pfx: {fileID: 0}
 --- !u!82 &7153181928825221850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -195,3 +198,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &7508893932993087128 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7407166119363331563, guid: ac1cd62467021485fbef057f75334857, type: 3}
+  m_PrefabInstance: {fileID: 1080715926209708915}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5304182910457007658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7508893932993087128}
+    m_Modifications:
+    - target: {fileID: 656365517227786793, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_Name
+      value: Standard Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+--- !u!4 &2266636577297655461 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+  m_PrefabInstance: {fileID: 5304182910457007658}
+  m_PrefabAsset: {fileID: 0}
