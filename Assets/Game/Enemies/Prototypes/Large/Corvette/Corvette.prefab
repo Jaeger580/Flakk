@@ -280,6 +280,43 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &512809549124853366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8183960798432001669}
+  m_Layer: 9
+  m_Name: Trail Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8183960798432001669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512809549124853366}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1146441879378620454}
+  - {fileID: 666302234977512036}
+  - {fileID: 4280987602573019070}
+  - {fileID: 4363627556213827779}
+  - {fileID: 1886066286107960607}
+  - {fileID: 2925023637904764122}
+  m_Father: {fileID: 5704244078447911438}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &550589315152370313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,6 +4383,10 @@ MonoBehaviour:
   shotDelay: 0.5
   attackPoints: []
   attackProjectile: {fileID: 8976202572985408777, guid: d6ecea416712bee48ad7fedbeabadbe4, type: 3}
+  vfxDamage: {fileID: 1358926831230127890, guid: 6078b6650509a5445be31b05d30a5e96, type: 3}
+  vfxDeath: {fileID: 6621216141782909081, guid: 45fe8fdb2bb3f6d4a8af2f2a4e0923a5, type: 3}
+  vfxNearDeath: {fileID: 5354536251072989641, guid: c3ecf958479fb554aaf258710109689f, type: 3}
+  vfxTrail: {fileID: 1465830639894358159}
   moveCurve:
     serializedVersion: 2
     m_Curve:
@@ -6085,6 +6126,7 @@ Transform:
   m_Children:
   - {fileID: 5669799060229722986}
   - {fileID: 6403741378760775164}
+  - {fileID: 8183960798432001669}
   m_Father: {fileID: 7924519492169408134}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &6280648235746971152
@@ -8443,3 +8485,452 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &918528144164951309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Right-Mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -87.70001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!4 &2925023637904764122 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 918528144164951309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1776170736238629140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Left-Bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -100.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!4 &4363627556213827779 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 1776170736238629140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2252255499766398569
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Right-Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -98.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!1 &1465830639894358159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 2252255499766398569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4280987602573019070 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 2252255499766398569}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3152655167971117553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Left-Mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -87.70001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!4 &1146441879378620454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 3152655167971117553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3249258763960161203
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Left-Top
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -53.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -100.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!4 &666302234977512036 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 3249258763960161203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4468739267807911112
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8183960798432001669}
+    m_Modifications:
+    - target: {fileID: 798882346512652006, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_Name
+      value: Corvette Trail VFX Right-Bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -98.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.400008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d835841b3517e164db6a68f343839888, type: 3}
+--- !u!4 &1886066286107960607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: d835841b3517e164db6a68f343839888, type: 3}
+  m_PrefabInstance: {fileID: 4468739267807911112}
+  m_PrefabAsset: {fileID: 0}
