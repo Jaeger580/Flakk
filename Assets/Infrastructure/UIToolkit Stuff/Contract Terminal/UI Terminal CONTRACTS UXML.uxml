@@ -1,7 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
-    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/FLAKK_BG.png?fileID=2800000&amp;guid=fbbd172fe81f347bda948adb12e2378c&amp;type=3#FLAKK_BG&quot;);">
         <ui:VisualElement name="ScreenParent" class="screenParent">
+            <ui:Label tabindex="-1" text="Contracts" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentTitle" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; position: absolute; left: 43%; top: 14%;" />
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors">
                     <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="basicButton" />
@@ -12,15 +13,15 @@
             <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 60%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: row; align-items: flex-start;">
-                    <ui:VisualElement name="MissionContainer" class="contentContainer" style="flex-grow: 1; width: 100%; height: 100%; flex-direction: row;">
+                    <ui:VisualElement name="MissionContainer" class="contentContainer" style="flex-grow: 1; width: 100%; height: 90%; flex-direction: row; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-color: rgba(51, 51, 51, 0);">
                         <ui:VisualElement name="ContractArea" class="statDetailContainer" style="flex-grow: 1; width: 20%;">
-                            <ui:Label tabindex="-1" text="Contracts" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionTitle" class="contentTitle" />
+                            <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionTitle" class="contentTitle" />
                             <ui:VisualElement name="ContractList">
                                 <ui:Button text="Contract 1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionButton" class="textButton statText" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement class="statDetailContainer" style="flex-grow: 1; width: 80%;">
-                            <ui:Label tabindex="-1" text="Description" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" />
+                            <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" />
                             <ui:VisualElement style="flex-grow: 1;">
                                 <ui:Label tabindex="-1" text="Lorem ipsum" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionDesc" class="statText" />
                             </ui:VisualElement>

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
-    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/FLAKK_BG.png?fileID=2800000&amp;guid=fbbd172fe81f347bda948adb12e2378c&amp;type=3#FLAKK_BG&quot;); -unity-background-image-tint-color: rgb(255, 255, 255);">
         <ui:VisualElement name="ScreenParent" class="screenParent">
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors">

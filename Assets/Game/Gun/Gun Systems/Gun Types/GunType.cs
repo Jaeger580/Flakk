@@ -77,6 +77,7 @@ public abstract class GunType : MonoBehaviour
 
     [Tooltip("Default magazines, mostly for testing and/or before we have stockpiles ready.")]
     [SerializeField] protected AmmoStack defaultPrimaryMag, defaultSecondaryMag;
+    [SerializeField] protected AmmoStack defaultPrimaryStockpile, defaultSecondaryStockpile;
 
     [Header("Gun Specifications and Handling")]
     [Tooltip("How many bullets can be fired per second?")]
@@ -139,8 +140,8 @@ public abstract class GunType : MonoBehaviour
 
         InitMag(primaryMag, defaultPrimaryMag);
         InitMag(secondaryMag, defaultSecondaryMag);
-        InitMag(primaryStockpile, defaultPrimaryMag);
-        InitMag(secondaryStockpile, defaultSecondaryMag);
+        InitMag(primaryStockpile, defaultPrimaryStockpile);
+        InitMag(secondaryStockpile, defaultSecondaryStockpile);
 
         currentMag = primaryMag;
         currentStockpile = primaryStockpile;
