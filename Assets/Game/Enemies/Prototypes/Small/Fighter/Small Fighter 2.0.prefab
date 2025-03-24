@@ -62,6 +62,7 @@ MonoBehaviour:
   partFixed: {fileID: 3794653479375327997}
   partBroken: {fileID: 6087203542243673315}
   speedMultipler: 0.75
+  trail: {fileID: 0}
 --- !u!65 &8884450652400215447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1912,6 +1913,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3813838146774200894, guid: fda14ff15359c2f4d9a108c9d2e467c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910633897649001771, guid: fda14ff15359c2f4d9a108c9d2e467c2, type: 3}
+      propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6621216141782909081, guid: fda14ff15359c2f4d9a108c9d2e467c2, type: 3}
