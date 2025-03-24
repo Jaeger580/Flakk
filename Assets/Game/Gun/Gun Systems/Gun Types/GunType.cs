@@ -128,13 +128,19 @@ public abstract class GunType : MonoBehaviour
 
         static void InitMag(AmmoStack mag, AmmoStack defaultAmmo)
         {//Fill the mag with default ammo, with a max mag size
-            if (mag.stack.Count <= 0)
-            {//If the mag is empty,
-                foreach (var ammo in defaultAmmo.stack)
-                {//DO NOT POP, add each bullet without removing it from the default mag
-                    if (mag.stack.Count >= mag.maxStackSize.Value) break;
-                    mag.Push(ammo);
-                }
+            //if (mag.stack.Count <= 0)
+            //{//If the mag is empty,
+            //    foreach (var ammo in defaultAmmo.stack)
+            //    {//DO NOT POP, add each bullet without removing it from the default mag
+            //        if (mag.stack.Count >= mag.maxStackSize.Value) break;
+            //        mag.Push(ammo);
+            //    }
+            //}
+            mag.stack.Clear();
+            foreach (var ammo in defaultAmmo.stack)
+            {//DO NOT POP, add each bullet without removing it from the default mag
+                if (mag.stack.Count >= mag.maxStackSize.Value) break;
+                mag.Push(ammo);
             }
         }
 
