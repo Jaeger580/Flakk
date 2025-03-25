@@ -738,7 +738,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1596174811518097120}
   cameras: []
   movement:
-    walkSpeed: 16
+    walkSpeed: 8
     sprintSpeed: 20
     jumpCooldown: 0.4
     groundDrag: 1.5
@@ -802,7 +802,9 @@ MonoBehaviour:
   playerBody: {fileID: 954564910784181713}
   cameraBody: {fileID: 3570702464864103966}
   exitOptionsEvent: {fileID: 11400000, guid: a81822f6f828e4c13a20a8f15793f6ae, type: 2}
+  gameUnpausedEvent: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
   inputEVLook: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+  playInput: {fileID: 6692938035077926624}
 --- !u!114 &7043883736311624466
 MonoBehaviour:
   m_ObjectHideFlags: 0
