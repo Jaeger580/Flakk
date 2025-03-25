@@ -51,7 +51,7 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
             }
         }
 
-        Destroy(gameObject);
+        Destroy(this.gameObject);
         //if (triggered)
         //{
 

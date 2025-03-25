@@ -14,5 +14,4 @@ public class GunTypeSetup : MonoBehaviour
     public GameEvent inputEvReloadPress, inputEvReloadRelease;
     public GameEvent inputEvMagSwapPress;
     public GameEvent zoomEnterEvent, zoomExitEvent;
-    public GameEvent gunEnterEvent, gunExitEvent, exitMonitorEvent;
 }

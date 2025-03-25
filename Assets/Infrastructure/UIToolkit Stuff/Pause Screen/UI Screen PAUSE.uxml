@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <Style src="project://database/Assets/Game/Code/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
     <ui:VisualElement name="ScreenView" style="width: 100%; height: 100%;">
         <ui:VisualElement name="PauseScreen" style="width: 100%; height: 100%; justify-content: flex-start; padding-left: 5%; padding-right: 5%; padding-top: 5%; padding-bottom: 5%; position: absolute; background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; display: none;">
             <ui:VisualElement name="LeftAnchor" style="width: 30%;">
@@ -24,7 +24,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="OptionsBody" style="justify-content: space-between; display: flex; height: auto; flex-grow: 1; flex-shrink: 0;">
-                <ui:VisualElement name="AudioOptions" class="optionsContainer" style="display: flex;">
+                <ui:VisualElement name="AudioOptions" class="optionsContainer" style="display: none;">
                     <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
                         <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 50%;">
                             <ui:Slider picking-mode="Ignore" label="Master Volume : " value="1" high-value="1" name="MasterSlider" low-value="0.0001" style="flex-grow: 1; flex-shrink: 0;" />
@@ -37,7 +37,7 @@
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="VisualOptions" class="optionsContainer" style="display: none;">
+                <ui:VisualElement name="VisualOptions" class="optionsContainer" style="display: flex;">
                     <ui:VisualElement name="OptionBox" style="align-items: flex-start; margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px;">
                         <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
                             <ui:Toggle label="Full Screen :" name="FullScreenToggle" class="optionsToggle" />
@@ -101,17 +101,11 @@
                         <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
                             <ui:Slider picking-mode="Ignore" label="Vertical Zoomed Sensitivity :" value="1" name="yScopedSensitivity" show-input-field="true" high-value="2" low-value="0" style="flex-grow: 1; flex-shrink: 0;" />
                         </ui:VisualElement>
-                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
-                            <ui:Slider picking-mode="Ignore" label="Horizontal Hub Sensitivity :" value="1" high-value="2" name="xHubSensitivity" low-value="0" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
-                        </ui:VisualElement>
-                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="flex-direction: row; align-items: stretch; justify-content: flex-start; width: 100%;">
-                            <ui:Slider picking-mode="Ignore" label="Vertical Hub Sensitivity :" value="1" name="yHubSensitivity" show-input-field="true" high-value="2" low-value="0" style="flex-grow: 1; flex-shrink: 0;" />
-                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="SubmitBox" style="align-items: flex-start; flex-direction: row;">
-                <ui:Button text="Exit Terminal" display-tooltip-when-elided="true" name="Exit" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+                <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
                 <ui:Button text="Apply" display-tooltip-when-elided="true" name="Apply" class="mainMenuButton" style="display: none;" />
                 <ui:Button text="Revert" display-tooltip-when-elided="true" name="Revert" class="mainMenuButton" style="display: none;" />
                 <ui:Button text="Default" display-tooltip-when-elided="true" name="Default" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
