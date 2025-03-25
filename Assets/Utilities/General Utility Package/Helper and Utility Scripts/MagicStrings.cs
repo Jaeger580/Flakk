@@ -16,6 +16,8 @@
             OPTIONS_X_SENS_BASE = "xUnscopedSensitivity",
             OPTIONS_X_SENS_ZOOM = "xScopedSensitivity",
             OPTIONS_Y_SENS_BASE = "yUnscopedSensitivity",
-            OPTIONS_Y_SENS_ZOOM = "yScopedSensitivity";
+            OPTIONS_Y_SENS_ZOOM = "yScopedSensitivity",
+            OPTIONS_X_SENS_HUB = "xHubSensitivity",
+            OPTIONS_Y_SENS_HUB = "yHubSensitivity";
     }
 }
