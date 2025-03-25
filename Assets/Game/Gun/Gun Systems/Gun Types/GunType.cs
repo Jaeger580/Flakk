@@ -196,6 +196,18 @@ public abstract class GunType : MonoBehaviour
         zoomExitListener.Response.AddListener(() => { Zoom(false); gunSetup.zoomExitEvent?.Trigger(); });
         gunSetup.inputEvAdsRelease.RegisterListener(zoomExitListener);
 
+        var enterGunListener = gameObject.AddComponent<GameEventListener>();
+        enterGunListener.Events.Add(gunSetup.gunEnterEvent);
+        enterGunListener.Response = new();
+        enterGunListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        gunSetup.gunEnterEvent.RegisterListener(enterGunListener);
+
+        var exitGunListener = gameObject.AddComponent<GameEventListener>();
+        exitGunListener.Events.Add(gunSetup.gunExitEvent);
+        exitGunListener.Response = new();
+        exitGunListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        gunSetup.gunExitEvent.RegisterListener(exitGunListener);
+
         //Continued setup using the gunTypeSetup component
         gunBase = gunSetup.gunBase;
         gunCamera = gunSetup.gunCamera;
@@ -210,12 +222,17 @@ public abstract class GunType : MonoBehaviour
         onReloadStartPitch = sfxOnReload.pitch;
     }
 
-    virtual protected void Start()
+    protected void ArbitrarilyUpdateMags()
     {
         PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
         SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
         PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
         SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+    }
+
+    virtual protected void Start()
+    {
+        ArbitrarilyUpdateMags();
     }
 
     virtual protected void OnDisable()
