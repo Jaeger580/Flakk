@@ -61,6 +61,7 @@ MonoBehaviour:
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 3794653479375327997}
   partBroken: {fileID: 6087203542243673315}
+  partBreak: {fileID: 1717102592259884264}
   speedMultipler: 0.75
   trail: {fileID: 0}
 --- !u!65 &8884450652400215447
@@ -424,6 +425,7 @@ MonoBehaviour:
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
+  partBreak: {fileID: 1717102592259884264}
 --- !u!65 &2981057135227789643
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -518,9 +520,9 @@ AudioSource:
   m_GameObject: {fileID: 3122202539681374710}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 50599d26d2eb2f541aa1df727979d8e5, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -530,9 +532,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10000
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -544,6 +546,15 @@ AudioSource:
       value: 1
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.84071225
+      value: 0.5284342
+      inSlope: -1.4974347
+      outSlope: -1.4974347
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -1639,6 +1650,7 @@ MonoBehaviour:
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8484718262341809154}
   partBroken: {fileID: 7044771121744535168}
+  partBreak: {fileID: 1717102592259884264}
   speedMultipler: 0.9
   bonusDamage: 2
 --- !u!65 &8093054196579080115
@@ -1744,6 +1756,7 @@ MonoBehaviour:
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8208177467257087200}
   partBroken: {fileID: 921783524971915179}
+  partBreak: {fileID: 1717102592259884264}
   speedMultipler: 0.9
   bonusDamage: 2
 --- !u!65 &4776361355456488331
