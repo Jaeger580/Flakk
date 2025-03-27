@@ -65,7 +65,15 @@ public class TutorialManager : MonoBehaviour
             objectives[currentCount].completeEvent.Trigger();
         }
 
+        
+
         currentCount++;
+
+        // After switching objectives, activate objects attached to it.
+        if (objectives[currentCount].objectToActivate != null)
+        {
+            objectives[currentCount].objectToActivate.SetActive(true);
+        }
 
         // If there is a next objective
         if (currentCount < objCount) 
@@ -118,4 +126,6 @@ public class tutorialObjective
     public GameEvent targetEvent;
 
     public GameEvent completeEvent;
+
+    public GameObject objectToActivate;
 }
