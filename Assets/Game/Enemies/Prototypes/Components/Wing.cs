@@ -32,6 +32,6 @@ public class Wing : DestructablePart
         //mainBody.speed--;
         //trigger VFX
         //enable/disable model
-        //Destroy(this);
+        Destroy(this.gameObject);
     }
 }

@@ -29,5 +29,7 @@ public class WingTutorial : DestructablePart
         Debug.Log("Wing DETROYED");
 
         eventTrigger.Trigger();
+
+        Destroy(this.gameObject);
     }
 }

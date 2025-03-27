@@ -25,15 +25,18 @@ public class AmmoCounterUI : MonoBehaviour
 
     private void HandleMagSwap(bool primary)
     {
-        if (primary)
+        if(primaryCanvas != null && secondaryCanvas != null) 
         {
-            primaryCanvas.localScale = Vector3.one;
-            secondaryCanvas.localScale = Vector3.one * 0.85f;
-        }
-        else
-        {
-            secondaryCanvas.localScale = Vector3.one;
-            primaryCanvas.localScale = Vector3.one * 0.85f;
+            if (primary)
+            {
+                primaryCanvas.localScale = Vector3.one;
+                secondaryCanvas.localScale = Vector3.one * 0.85f;
+            }
+            else
+            {
+                secondaryCanvas.localScale = Vector3.one;
+                primaryCanvas.localScale = Vector3.one * 0.85f;
+            }
         }
     }
 

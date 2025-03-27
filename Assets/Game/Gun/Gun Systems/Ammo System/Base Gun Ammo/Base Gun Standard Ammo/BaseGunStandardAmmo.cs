@@ -20,8 +20,14 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
         Destroy(this.gameObject);
 
         //do vfx/sfx and other cleanup IF it lands correctly
-        vfxPrefab.GetComponent<ParticleSystem>().Play();
+        if (vfxPrefab != null) 
+        {
+            vfxPrefab.TryGetComponent<ParticleSystem>(out ParticleSystem particle);
+            particle.Play();
+        }
 
+        //vfxPrefab.GetComponent<ParticleSystem>().Play();
+        
         CustomAudio.PlayClipAt(this.GetComponent<AudioSource>(), p.CollisionInfo.transform.position);
 
         //foreach(AudioClip clip in sfxOnImpact) 

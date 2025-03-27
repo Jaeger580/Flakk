@@ -1078,6 +1078,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1538
@@ -1123,6 +1127,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+--- !u!1 &1164439067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+  m_PrefabInstance: {fileID: 1164439066}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1571329715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1396,6 +1405,10 @@ PrefabInstance:
       propertyPath: objectives.Array.data[20].targetEvent
       value: 
       objectReference: {fileID: 11400000, guid: 9f016097210892745986a8067a9f3f5b, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[13].objectToActivate
+      value: 
+      objectReference: {fileID: 1164439067}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
