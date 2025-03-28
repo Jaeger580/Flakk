@@ -66,7 +66,12 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
         if (localHealth <= 0 && !debuffTriggered) 
         {
             TriggerSpecialDebuff();
-            CustomAudio.PlayClipAt(partBreak, this.gameObject.transform.position);
+
+            if(partBreak != null) 
+            {
+                CustomAudio.PlayClipAt(partBreak, this.gameObject.transform.position);
+            }
+
             debuffTriggered = true;
         }
 

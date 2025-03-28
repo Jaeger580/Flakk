@@ -103,6 +103,12 @@ public abstract class GunType : MonoBehaviour
     [SerializeField] protected GameObjectReference vfxOnShot;
     [SerializeField] protected AudioSource sfxOnShot;
     [SerializeField] protected AudioSource sfxOnReload;
+    [SerializeField] protected AudioSource sfxDryFire;
+    [SerializeField] protected AudioSource sfxFireLast;
+    [SerializeField] protected AudioSource sfxDuringReload;
+    [SerializeField] protected AudioSource sfxSwapMag;
+
+
 
     protected float onShotStartPitch;
     protected float onReloadStartPitch;
@@ -253,10 +259,21 @@ public abstract class GunType : MonoBehaviour
         if (isReloading.Value)
         {//if I'm pressing reload, handle that
             HandleReload();
+            if (!sfxDuringReload.isPlaying) 
+            {
+                sfxDuringReload.Play();
+            }
         }
         else if (isFiring.Value)
         {//if I'm firing, handle that
             HandleFire();
+        }
+        else 
+        {
+            if (sfxDuringReload.isPlaying) 
+            {
+                sfxDuringReload.Stop();
+            }
         }
     }
 
@@ -265,8 +282,15 @@ public abstract class GunType : MonoBehaviour
 
     virtual protected void HandleFire()
     {
-        if (!currentMag.TryPeek(out var ammoType)) return;      //if there's no bullet in the magazine, return
         if (fireTimer < 1f / fireRate.Value) return;          //if the timer isn't ready, return
+
+        //if there's no bullet in the magazine, return
+        if (!currentMag.TryPeek(out var ammoType))
+        {
+            CustomAudio.PlayWithPitch(sfxDryFire, sfxDryFire.pitch);
+            fireTimer = 0f;
+            return;
+        }
 
         var bulletInstance = Fire(ammoType);
         var imp = bulletInstance.GetComponent<ImpactBehavior>();
@@ -292,17 +316,11 @@ public abstract class GunType : MonoBehaviour
 
         if (sfxOnShot != null)
         {
-            //Debug.Log("Playing Audio");
-
-            //// Try randomizing the pitch before playing the clip
-            //float minPitch = startPitch - (startPitch * 0.05f);
-            //float maxPitch = startPitch + (startPitch * 0.05f);
-
-            //float ranPitch = Random.Range(minPitch, maxPitch);
-
-            //sfxOnShot.pitch = ranPitch;
-            //sfxOnShot.PlayOneShot(sfxOnShot.clip);
-            CustomAudio.PlayOnceWithPitch(sfxOnShot, onShotStartPitch);
+            var bulletCount = currentMag.stack.Count;
+            if(bulletCount > 0) 
+                CustomAudio.PlayOnceWithPitch(sfxOnShot, onShotStartPitch);
+            else
+                CustomAudio.PlayOnceWithPitch(sfxFireLast, sfxFireLast.pitch);
         }
     }
 
@@ -428,6 +446,8 @@ public abstract class GunType : MonoBehaviour
             currentStockpile = primaryStockpile;
             MagSwapEvent?.Invoke(true);
         }
+
+        CustomAudio.PlayOnceWithPitch(sfxSwapMag, sfxSwapMag.pitch);
     }
     #endregion
 }
