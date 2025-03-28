@@ -16,6 +16,11 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
 
     private bool attached, deposited;
 
+    [SerializeField]
+    private AudioClip[] collisionSounds;
+
+    
+
     public void Interact(object interactor)
     {
         if (interactor is not Interactor player)
@@ -98,5 +103,19 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
         transform.parent = null;
         col.enabled = true;
         rb.isKinematic = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.transform.tag.Equals("Player")) 
+        {
+            int ranClip = Random.Range(0, collisionSounds.Length);
+
+            AudioSource audioSource = this.GetComponent<AudioSource>();
+
+            audioSource.clip = collisionSounds[ranClip];
+
+            CustomAudio.PlayWithPitch(audioSource, audioSource.pitch);
+        }   
     }
 }

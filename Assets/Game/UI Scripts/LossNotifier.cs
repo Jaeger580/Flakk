@@ -41,6 +41,7 @@ public class LossNotifier : MonoBehaviour
     [ContextMenu("Lose")]
     public void ShowLoss()
     {
+        this.gameObject.GetComponent<AudioSource>().Play();
         lossScreen.SetActive(true);
         playInput.SwitchCurrentActionMap("UI");
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;

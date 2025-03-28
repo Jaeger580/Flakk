@@ -12,6 +12,14 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
 
 
     [SerializeField] private GameEvent CrateDeposit;
+
+    [SerializeField]
+    private AudioSource insertSFX;
+    [SerializeField]
+    private AudioSource loadSFX;
+    [SerializeField]
+    private AudioSource ejectSFX;
+
     public void Interact(object interactor)
     {
         print("Trying to interact with stockpile bus.");
@@ -34,6 +42,12 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
         var waitPerAmmo = new WaitForSeconds(loadingRate / ammoInCrate);
 
         physicalCrate.DepositInBus(busCenterTransform);
+        CustomAudio.PlayOnceWithPitch(insertSFX, insertSFX.pitch);
+        yield return new WaitForSeconds(0.25f);
+
+        CustomAudio.PlayOnceWithPitch(loadSFX, loadSFX.pitch);
+        yield return new WaitForSeconds(0.5f);
+
 
         while (ammoInCrate > 0)
         {//While there's still ammo in this crate,
@@ -51,6 +65,9 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
 
             yield return waitPerAmmo;
         }
+
+        // Forced delay to give time between insert and eject (For audio Primarly).
+        CustomAudio.PlayOnceWithPitch(ejectSFX, ejectSFX.pitch);
         physicalCrate.EjectFromBus(ejectTransform.position);
     }
 }

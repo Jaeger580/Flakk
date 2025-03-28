@@ -55,6 +55,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     protected GameObject vfxTrail;
 
+    [SerializeField]
+    protected AudioSource sfxDeath;
+
     //protected bool isAlive = false;
     // Animation curve for handling how enemies move towards leadpoints
     [SerializeField]
@@ -235,6 +238,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             //Debug.Log("pe deleted");
         }
 
+        CustomAudio.PlayClipAt(sfxDeath, transform.position);
 
         // Proper death needs added later
         StopAllCoroutines();

@@ -28,6 +28,6 @@ public class Engine : DestructablePart
         }
 
         //enable/disable model
-        //Destroy(this);
+        Destroy(this.gameObject);
     }
 }

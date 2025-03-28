@@ -35,6 +35,9 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     [SerializeField]
     protected GameObject partBroken;
 
+    [SerializeField]
+    protected AudioSource partBreak;
+
     public int MaxHealth => localHealth;
 
     protected bool debuffTriggered = false;
@@ -63,6 +66,12 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
         if (localHealth <= 0 && !debuffTriggered) 
         {
             TriggerSpecialDebuff();
+
+            if(partBreak != null) 
+            {
+                CustomAudio.PlayClipAt(partBreak, this.gameObject.transform.position);
+            }
+
             debuffTriggered = true;
         }
 
