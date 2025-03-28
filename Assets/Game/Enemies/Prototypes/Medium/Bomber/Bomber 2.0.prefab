@@ -53,7 +53,9 @@ MonoBehaviour:
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 6102214213259634592}
   partBroken: {fileID: 5383622579927018534}
+  partBreak: {fileID: 5194989777261616446}
   speedMultipler: 0.75
+  trail: {fileID: 0}
 --- !u!65 &6292500136627321407
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -169,6 +171,7 @@ MonoBehaviour:
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 5376593291653901838}
   partBroken: {fileID: 8389262866682980343}
+  partBreak: {fileID: 0}
   speedMultipler: 0.9
   bonusDamage: 2
 --- !u!65 &6535922985115993984
@@ -334,6 +337,7 @@ MonoBehaviour:
   mainBody: {fileID: 0}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
+  partBreak: {fileID: 0}
   part: {fileID: 2652887669094424}
 --- !u!65 &8318905722225004245
 BoxCollider:
@@ -499,6 +503,7 @@ MonoBehaviour:
   mainBody: {fileID: 0}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
+  partBreak: {fileID: 0}
   part: {fileID: 4786057831724042205}
 --- !u!65 &1198645089112833412
 BoxCollider:
@@ -562,8 +567,8 @@ AudioSource:
   m_GameObject: {fileID: 3611387544643219488}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fd28f4d08b6ec5c4a8a1dabd4f28f643, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -818,6 +823,7 @@ MonoBehaviour:
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 5376593291653901838}
   partBroken: {fileID: 8389262866682980343}
+  partBreak: {fileID: 5194989777261616446}
   speedMultipler: 0.9
   bonusDamage: 2
 --- !u!65 &3385048526583554033
@@ -1031,6 +1037,7 @@ MonoBehaviour:
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 4019954346876387729}
   partBroken: {fileID: 6564331923376110534}
+  partBreak: {fileID: 5194989777261616446}
   speedMultipler: 0.9
   bonusDamage: 2
 --- !u!65 &1980807542243182650
@@ -1835,6 +1842,7 @@ MonoBehaviour:
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
+  partBreak: {fileID: 5194989777261616446}
 --- !u!65 &150034926922168608
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -92,7 +92,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 0}
-  sfxOnImpact: []
+  sfxOnImpact:
+  - {fileID: 8300000, guid: a7d15cedd5c96104e9d4ae19b1c0aa61, type: 3}
+  - {fileID: 8300000, guid: 565e0eafe85dba548a3df88623c7e28e, type: 3}
 --- !u!82 &7153181928825221850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103,7 +105,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1c495fe31a278434493346473870b1aa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a7d15cedd5c96104e9d4ae19b1c0aa61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

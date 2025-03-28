@@ -548,6 +548,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 3753722472423466228}
   partBroken: {fileID: 4133161510945005839}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 30
 --- !u!1 &1018061521377753063
 GameObject:
@@ -766,6 +767,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 4812727757347471020}
   partBroken: {fileID: 8071220433361594660}
+  partBreak: {fileID: 6245870771244427426}
   speedMultipler: 0.75
   trail: {fileID: 1147431781126320688}
 --- !u!136 &6186705931361398586
@@ -1091,6 +1093,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 6686924228049616547}
   partBroken: {fileID: 5941878754890536949}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 5483132318446581085}
   isLeft: 1
@@ -1281,6 +1284,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 4242213993861583385}
   partBroken: {fileID: 5736374234560625292}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 5745120365852263550}
   isLeft: 0
@@ -1439,6 +1443,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 2864457780347158825}
   partBroken: {fileID: 3849769581247323681}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 907956526557626928}
   isLeft: 1
@@ -2141,6 +2146,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 4836939040084346092}
   partBroken: {fileID: 2096222244468450678}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 3973479896972893959}
   isLeft: 0
@@ -2920,6 +2926,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 3517376636559558058}
   partBroken: {fileID: 4281798977068910903}
+  partBreak: {fileID: 6245870771244427426}
   speedMultipler: 0.75
   trail: {fileID: 4205774219367035031}
 --- !u!136 &1501671933302450593
@@ -5189,6 +5196,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 5994383885003268123}
   partBroken: {fileID: 6580621751584454327}
+  partBreak: {fileID: 6245870771244427426}
   speedMultipler: 0.75
   trail: {fileID: 4447954378469564394}
 --- !u!136 &5281021907830673123
@@ -5349,6 +5357,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 8248231566380678678}
   partBroken: {fileID: 6079677266299617738}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 1639322009249756181}
   isLeft: 1
@@ -7182,6 +7191,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 3150874338498780126}
   partBroken: {fileID: 3851535413336779489}
+  partBreak: {fileID: 6245870771244427426}
   bonusDamage: 10
   attackPoint: {fileID: 376186388835229287}
   isLeft: 0
@@ -7257,6 +7267,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 8694570909718022082}
   partBroken: {fileID: 6555234796927184881}
+  partBreak: {fileID: 6245870771244427426}
   speedMultipler: 0.75
   trail: {fileID: 2089659443589102923}
 --- !u!136 &8891274453263111216
@@ -7490,8 +7501,8 @@ AudioSource:
   m_GameObject: {fileID: 7855892986785377974}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fd28f4d08b6ec5c4a8a1dabd4f28f643, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8130,6 +8141,7 @@ MonoBehaviour:
   mainBody: {fileID: 6959418651261929473}
   partFixed: {fileID: 0}
   partBroken: {fileID: 0}
+  partBreak: {fileID: 6245870771244427426}
 --- !u!65 &833807102794798942
 BoxCollider:
   m_ObjectHideFlags: 0

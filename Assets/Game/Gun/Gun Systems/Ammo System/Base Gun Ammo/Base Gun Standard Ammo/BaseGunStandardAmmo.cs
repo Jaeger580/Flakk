@@ -28,7 +28,14 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
 
         //vfxPrefab.GetComponent<ParticleSystem>().Play();
         
-        CustomAudio.PlayClipAt(this.GetComponent<AudioSource>(), p.CollisionInfo.transform.position);
+        
+        // choose a random clip and play it.
+        int coinFlip = Random.Range(0, sfxOnImpact.Length);
+        AudioSource audioSource = this.GetComponent<AudioSource>();
+
+        audioSource.clip = sfxOnImpact[coinFlip];
+
+        CustomAudio.PlayClipAt(audioSource, p.CollisionInfo.transform.position);
 
         //foreach(AudioClip clip in sfxOnImpact) 
         //{
