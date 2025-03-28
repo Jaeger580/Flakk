@@ -34,6 +34,9 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
 
     private void AttachToPlayer(Transform playerTrans)
     {
+        if (!playerTrans.TryGetComponent(out AmmoCrateHolder holder)) return;
+        if (!holder.TryPushCrateOnTop(this, crateConfig)) return;
+
         transform.parent = playerTrans;
         var pos = Vector3.zero;
         pos.z += 1f;
@@ -53,9 +56,6 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
         col.enabled = false;
         rb.isKinematic = true;
         //col.excludeLayers = (playerMask);
-
-        if (!playerTrans.TryGetComponent(out AmmoCrateHolder holder)) return;
-        holder.PushCrateOnTop(this, crateConfig);
     }
 
     public void DepositInBus(Transform busTransform)
