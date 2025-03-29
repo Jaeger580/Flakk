@@ -108,8 +108,6 @@ public abstract class GunType : MonoBehaviour
     [SerializeField] protected AudioSource sfxDuringReload;
     [SerializeField] protected AudioSource sfxSwapMag;
 
-
-
     protected float onShotStartPitch;
     protected float onReloadStartPitch;
 
@@ -439,12 +437,14 @@ public abstract class GunType : MonoBehaviour
             currentMag = secondaryMag;
             currentStockpile = secondaryStockpile;
             MagSwapEvent?.Invoke(false);
+            gunSetup.magSwapTriggered?.Trigger();
         }
         else
         {
             currentMag = primaryMag;
             currentStockpile = primaryStockpile;
             MagSwapEvent?.Invoke(true);
+            gunSetup.magSwapTriggered?.Trigger();
         }
 
         CustomAudio.PlayOnceWithPitch(sfxSwapMag, sfxSwapMag.pitch);
