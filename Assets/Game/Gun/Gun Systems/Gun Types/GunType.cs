@@ -122,6 +122,8 @@ public abstract class GunType : MonoBehaviour
     public OnAmmoChange PrimaryMagAmmoChangeEvent, SecondaryMagAmmoChangeEvent;
     public OnAmmoChange PrimaryStockpileAmmoChangeEvent, SecondaryStockpileAmmoChangeEvent;
 
+    public GameEvent primaryStockpileAmmoChanged, secondaryStockpileAmmoChanged;
+
     public delegate void OnReloadTimerChange(float newReloadTimer, float maxReloadTimer);
     public OnReloadTimerChange ReloadTimerChangeEvent;
 
@@ -232,6 +234,8 @@ public abstract class GunType : MonoBehaviour
         SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
         PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
         SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+        primaryStockpileAmmoChanged?.Trigger();
+        secondaryStockpileAmmoChanged?.Trigger();
     }
 
     virtual protected void Start()
@@ -410,11 +414,13 @@ public abstract class GunType : MonoBehaviour
         {
             PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
             PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+            primaryStockpileAmmoChanged?.Trigger();
         }
         else
         {
             SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
             SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+            secondaryStockpileAmmoChanged?.Trigger();
         }
 
         return true;
