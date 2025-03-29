@@ -1,6 +1,8 @@
 ﻿using GeneralUtility.GameEventSystem;
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StockpileBusInteract : MonoBehaviour, IInteractable
 {
@@ -10,6 +12,8 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
     [Tooltip("How long should a single ammo crate load into this bus (in seconds per crate)?")]
     [SerializeField] private float loadingRate = 1f;
 
+    [SerializeField] private GameEvent stockpileAmmoChanged;
+    [SerializeField] private TMP_Text stockpileBusAmt;
 
     [SerializeField] private GameEvent CrateDeposit;
 
@@ -19,6 +23,22 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
     private AudioSource loadSFX;
     [SerializeField]
     private AudioSource ejectSFX;
+
+    private void Start()
+    {
+        var stockpileListener = gameObject.AddComponent<GameEventListener>();
+        stockpileListener.Response = new();
+        stockpileListener.Response.AddListener(() => HandleAmmoChange());
+        stockpileListener.Events.Add(stockpileAmmoChanged);
+        stockpileAmmoChanged.RegisterListener(stockpileListener);
+
+        stockpileAmmoChanged?.Trigger();
+    }
+
+    private void HandleAmmoChange()
+    {
+        stockpileBusAmt.text = $"{stockpileToLoad.stack.Count}/{stockpileToLoad.maxStackSize.Value}";
+    }
 
     public void Interact(object interactor)
     {
@@ -56,6 +76,7 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
             {//If I can fit it, try pushing ammo into the stockpile
                 print("Loaded!");
                 ammoInCrate--;  //If you did, register that you did
+                stockpileAmmoChanged?.Trigger();
             }
             else
             {//otherwise, wait until I CAN fit ammo into the stockpile
