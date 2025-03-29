@@ -120,6 +120,7 @@ public class GunRotationControl : MonoBehaviour
         else
         {
             rotateSFX.volume = Mathf.Lerp(0f, 0.3f, tempDirection.magnitude / 5f);
+            rotateSFX.pitch = Mathf.Lerp(0.7f, 0.9f, tempDirection.magnitude / 10f);
             playAudio = true;
         }
 
