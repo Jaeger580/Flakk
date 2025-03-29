@@ -108,8 +108,6 @@ public abstract class GunType : MonoBehaviour
     [SerializeField] protected AudioSource sfxDuringReload;
     [SerializeField] protected AudioSource sfxSwapMag;
 
-
-
     protected float onShotStartPitch;
     protected float onReloadStartPitch;
 
@@ -123,6 +121,8 @@ public abstract class GunType : MonoBehaviour
     public delegate void OnAmmoChange(float newAmmo, float maxAmmo);
     public OnAmmoChange PrimaryMagAmmoChangeEvent, SecondaryMagAmmoChangeEvent;
     public OnAmmoChange PrimaryStockpileAmmoChangeEvent, SecondaryStockpileAmmoChangeEvent;
+
+    public GameEvent primaryStockpileAmmoChanged, secondaryStockpileAmmoChanged;
 
     public delegate void OnReloadTimerChange(float newReloadTimer, float maxReloadTimer);
     public OnReloadTimerChange ReloadTimerChangeEvent;
@@ -234,6 +234,8 @@ public abstract class GunType : MonoBehaviour
         SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
         PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
         SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+        primaryStockpileAmmoChanged?.Trigger();
+        secondaryStockpileAmmoChanged?.Trigger();
     }
 
     virtual protected void Start()
@@ -412,11 +414,13 @@ public abstract class GunType : MonoBehaviour
         {
             PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
             PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+            primaryStockpileAmmoChanged?.Trigger();
         }
         else
         {
             SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
             SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+            secondaryStockpileAmmoChanged?.Trigger();
         }
 
         return true;
@@ -439,15 +443,17 @@ public abstract class GunType : MonoBehaviour
             currentMag = secondaryMag;
             currentStockpile = secondaryStockpile;
             MagSwapEvent?.Invoke(false);
+            gunSetup.magSwapTriggered?.Trigger();
         }
         else
         {
             currentMag = primaryMag;
             currentStockpile = primaryStockpile;
             MagSwapEvent?.Invoke(true);
+            gunSetup.magSwapTriggered?.Trigger();
         }
 
-        CustomAudio.PlayOnceWithPitch(sfxSwapMag, sfxSwapMag.pitch);
+        CustomAudio.PlayWithMinorPitch(sfxSwapMag, sfxSwapMag.pitch);
     }
     #endregion
 }

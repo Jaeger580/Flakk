@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -100}
+  m_AnchoredPosition: {x: -50, y: -75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &401789114
@@ -210,15 +210,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -23.033875, y: 0, z: 0, w: -102.16315}
+  m_margin: {x: -24.124374, y: 0, z: 0, w: -102.16315}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -666,6 +666,88 @@ MonoBehaviour:
       m_Data: []
   m_Knots:
     m_KnotsLink: []
+--- !u!1001 &696285400
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1138578881830993359, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1728189074}
+    - target: {fileID: 3664303406564890731, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1728189074}
+    - target: {fileID: 4149406275197564022, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_Name
+      value: Small Fighter Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 4209547042558864597, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: entrySpline
+      value: 
+      objectReference: {fileID: 989838502}
+    - target: {fileID: 6813552327125539762, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1728189074}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1456.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313711460855388773, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352917189493961174, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+      propertyPath: mainBody
+      value: 
+      objectReference: {fileID: 1728189074}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+--- !u!1 &696285401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4149406275197564022, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+  m_PrefabInstance: {fileID: 696285400}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &737074336
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,7 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1202,6 +1284,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 1571329715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1728189074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4173924646617911488, guid: 896bc1e64f5520e469152055232987a9, type: 3}
+  m_PrefabInstance: {fileID: 696285400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6e31183d1b2cd44970f4af864fe619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1881853977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1272,6 +1365,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3877249870089972610, guid: 208eba86de2c919428ff8a6b121f236b, type: 3}
   m_PrefabInstance: {fileID: 1881853977}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2041396119
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2950966993821118213, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: protectionEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
+    - target: {fileID: 3892451404971573873, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: entrySpline
+      value: 
+      objectReference: {fileID: 989838502}
+    - target: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_Name
+      value: Bomber Tutorial (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1538
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 367
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778802439524851972, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+--- !u!1 &2041396120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5225842605926512082, guid: 78c2a96cb61e33c498e840446fee2ffd, type: 3}
+  m_PrefabInstance: {fileID: 2041396119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2070378532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1284,17 +1451,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber Node
       objectReference: {fileID: 0}
+    - target: {fileID: 3717268473254952940, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -600
+      value: -270.014
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -359.2902
+      value: -343.159
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68.22
+      value: -227.752
       objectReference: {fileID: 0}
     - target: {fileID: 3877249870089972610, guid: 653e7b4fc82df4241b6c3afc84a90bc3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1381,34 +1552,145 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3802431805272678017, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: ObjectiveText
+      value: 
+      objectReference: {fileID: 401789114}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: ObjectiveText
       value: 
       objectReference: {fileID: 401789114}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.size
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[15].text
+      value: This is a bomber. It will target the horizontal cooler that keeps our
+        reactors running. It's slow but quite resistant to even our Flakk Cannon.
+        In a pinch you can stall it. Press R to continue.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[16].text
+      value: 'While it is approaching its target the lights on the bomber will turn
+        yellow, during this time: light it up! if you see the lights suddenly turn
+        red, you know you''ve stalled it for now. It will now skip dropping the bombs
+        for one run.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[17].text
-      value: Use the terminal in the Armory to puchase upgrades and more ammo.
+      value: Defeat all hostile enemies in the quadrant to complete your mission,
+        you'll be rewarded on mission completion
       objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[18].text
-      value: Press E on an ammo crate to pick it up.
+      value: Press E to exit the gun.
       objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[19].text
+      value: Next, Head to the Armory, you can't miss it! The console in there can
+        be used to purchase Ammo and Upgrades!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[20].text
+      value: Press E To pick up an Ammo Crate. basic ammo is free, but don't forget
+        to try the other types!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[21].text
+      value: Now take this crate just behind the cockpit you entered before. On each
+        side you should see a port atop a large container. These are your stockpiles.
+        You can load ammo here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[22].text
+      value: Each Stockpile loads into its own Magazine. This is how you refill that
+        'reserve' ammo you saw in the cockpit. Bullets always load first in-last
+        out. Keep that in-mind. Press E To acknowledge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[23].text
+      value: Now you can return to the Contracts Terminal and select your first mission!
+        Each time you complete one of these missions you'll receive credits to spend
+        at the upgrade & ammo shops in the Armory. Currently all missions are repeatable,
+        make sure to read their descriptions.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[15].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: aa7142357d292456f9db17c4c62fb233, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[16].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[17].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: 11d451524e4d7b3449e9cd1018f8389b, type: 2}
+      objectReference: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[18].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: b781d13ffc20a9940887ba59b1811d32, type: 2}
+      objectReference: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[19].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 11d451524e4d7b3449e9cd1018f8389b, type: 2}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[20].targetEvent
       value: 
+      objectReference: {fileID: 11400000, guid: b781d13ffc20a9940887ba59b1811d32, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[21].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 80f70f50551c3f7429131b6677563587, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[22].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 24582c83429a44ff4a8aec49cdab34ea, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[23].targetEvent
+      value: 
       objectReference: {fileID: 11400000, guid: 9f016097210892745986a8067a9f3f5b, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[15].completeEvent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[16].completeEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[22].completeEvent
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[23].completeEvent
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
       propertyPath: objectives.Array.data[13].objectToActivate
       value: 
+      objectReference: {fileID: 696285401}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[14].objectToActivate
+      value: 
       objectReference: {fileID: 1164439067}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[15].objectToActivate
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[16].objectToActivate
+      value: 
+      objectReference: {fileID: 2041396120}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[22].objectToActivate
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598900257883413293, guid: eec46cffefed27640a1b35d3c2011555, type: 3}
+      propertyPath: objectives.Array.data[23].objectToActivate
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1422,3 +1704,5 @@ SceneRoots:
   - {fileID: 931440127}
   - {fileID: 737074340}
   - {fileID: 1164439066}
+  - {fileID: 2041396119}
+  - {fileID: 696285400}

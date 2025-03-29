@@ -65,25 +65,22 @@ public class TutorialManager : MonoBehaviour
             objectives[currentCount].completeEvent.Trigger();
         }
 
-        
-
         currentCount++;
-
-        // After switching objectives, activate objects attached to it.
-        if (objectives[currentCount].objectToActivate != null)
-        {
-            objectives[currentCount].objectToActivate.SetActive(true);
-        }
 
         // If there is a next objective
         if (currentCount < objCount) 
         {
+            // After switching objectives, activate objects attached to it.
+            if (objectives[currentCount].objectToActivate != null)
+            {
+                objectives[currentCount].objectToActivate.SetActive(true);
+            }
+
             tutorialObjective nextObj = objectives[currentCount];
 
             // if there was a previous objective loaded, remove its old event listener from the event.
             if (currentObjEvent != null)
             {
-                //currentObjEvent.UnregisterListener(currentListener);
                 currentObjEvent.UnregisterListener(currentListener);
                 currentListener.Events.Remove(currentObjEvent);
             }
@@ -99,22 +96,16 @@ public class TutorialManager : MonoBehaviour
         }
         else 
         {
+            Debug.Log("MISSION ENDED MAYBE");
             EndMission();
         }
-        
-
-        //// set up a new event listener for the new event
-        //currentListener = gameObject.AddComponent<GameEventListener>();
-        //currentListener.Events.Add(currentObjEvent);
-        //currentListener.Response = new();
-        //currentListener.Response.AddListener(() => objectiveComplete(new tutorialObjective()));
-
-        //// register
-        //currentObjEvent.RegisterListener(currentListener);
     }
 
     private void EndMission()
     {
+        //currentObjEvent.UnregisterAllListeners();
+        Destroy(currentListener);
+        
         ObjectiveText.text = "Tutorial complete. Use the contract terminal to start a real mission!";
     }
 }

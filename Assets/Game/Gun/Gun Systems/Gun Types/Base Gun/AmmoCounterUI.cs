@@ -21,6 +21,8 @@ public class AmmoCounterUI : MonoBehaviour
         gun.ReloadTimerChangeEvent += (newReloadTimer, maxReloadTimer) => HandleReloadTimerChange(newReloadTimer, maxReloadTimer, reloadBar);
 
         gun.MagSwapEvent += (primary) => HandleMagSwap(primary);
+
+        secondaryCanvas.localScale = Vector3.one * 0.9f;
     }
 
     private void HandleMagSwap(bool primary)
@@ -30,12 +32,12 @@ public class AmmoCounterUI : MonoBehaviour
             if (primary)
             {
                 primaryCanvas.localScale = Vector3.one;
-                secondaryCanvas.localScale = Vector3.one * 0.85f;
+                secondaryCanvas.localScale = Vector3.one * 0.9f;
             }
             else
             {
                 secondaryCanvas.localScale = Vector3.one;
-                primaryCanvas.localScale = Vector3.one * 0.85f;
+                primaryCanvas.localScale = Vector3.one * 0.9f;
             }
         }
     }
