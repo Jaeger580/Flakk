@@ -73,9 +73,12 @@ public class PlayerController : MonoBehaviour
     private float airDrag => movement.airDrag;
     private float jumpCooldown => movement.jumpCooldown;
     [ReadOnly] [SerializeField] private bool readyToJump, jumpPressed, jumpStarted;
+    
+    [SerializeField] private bool playWalkSound = false;
 
     private Coroutine startSprint, stopSprint;
     [ReadOnly] [SerializeField] private float actualSpeed;
+
     #endregion
 
     #region Slope Handling
@@ -122,6 +125,8 @@ public class PlayerController : MonoBehaviour
     [Header("Sound Effects")]
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioClip[] sfxJump;
+    [SerializeField]
+    private AudioClip[] footSteps;
 
     [Header("Input Events")]
     [SerializeField] private GameEvent playerMoveEvent;
@@ -140,6 +145,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float heightPreDeceleration, timePreDeceleration, decelerationDistance, decelerationTime;
     [SerializeField] private float maxSlideTime = 1f;
     private float isKinematicTimer;
+
+    private Coroutine walking;
 
     private void Awake()
     {
@@ -331,9 +338,21 @@ public class PlayerController : MonoBehaviour
         if (vec.x != 0 || vec.y != 0)
         {
             playerMoveEvent.Trigger();
+
+            if (!playWalkSound) 
+            {
+                playWalkSound = true;
+                walking = StartCoroutine(WalkSounds());
+            }
         }
         else
         {
+            if (playWalkSound)
+            {
+                playWalkSound = false;
+                StopCoroutine(walking);
+            }
+
             playerStopEvent.Trigger();
         }
     }
@@ -499,6 +518,28 @@ public class PlayerController : MonoBehaviour
             if (value < 0)
                 throw new System.Exception("Cannot have negative speed!");
             actualSpeed = value;
+        }
+    }
+
+    // Handles walking and sprinting sound effects
+    private IEnumerator WalkSounds() 
+    {
+        while (playWalkSound) 
+        {
+            int ran = Random.Range(0, footSteps.Length);
+            sfxSource.clip = footSteps[ran];
+
+            CustomAudio.PlayOnceWithPitch(sfxSource, sfxSource.pitch);
+
+            if (pressSprint)
+            {
+                yield return new WaitForSeconds(0.4f);
+            }
+            else 
+            {
+                yield return new WaitForSeconds(0.8f);
+            }
+
         }
     }
 }
