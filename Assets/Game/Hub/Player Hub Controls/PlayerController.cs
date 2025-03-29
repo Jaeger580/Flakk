@@ -526,10 +526,13 @@ public class PlayerController : MonoBehaviour
     {
         while (playWalkSound) 
         {
-            int ran = Random.Range(0, footSteps.Length);
-            sfxSource.clip = footSteps[ran];
+            if (isGrounded) 
+            {
+                int ran = Random.Range(0, footSteps.Length);
+                sfxSource.clip = footSteps[ran];
 
-            CustomAudio.PlayOnceWithPitch(sfxSource, sfxSource.pitch);
+                CustomAudio.PlayOnceWithPitch(sfxSource, sfxSource.pitch);
+            }
 
             if (pressSprint)
             {
@@ -539,7 +542,6 @@ public class PlayerController : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.8f);
             }
-
         }
     }
 }

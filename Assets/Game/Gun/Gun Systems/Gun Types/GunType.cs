@@ -453,7 +453,7 @@ public abstract class GunType : MonoBehaviour
             gunSetup.magSwapTriggered?.Trigger();
         }
 
-        CustomAudio.PlayOnceWithPitch(sfxSwapMag, sfxSwapMag.pitch);
+        CustomAudio.PlayWithMinorPitch(sfxSwapMag, sfxSwapMag.pitch);
     }
     #endregion
 }

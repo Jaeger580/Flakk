@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
+using static UnityEditor.PlayerSettings;
 
 
 // Contains public methods for handling reocurring tasks related to audio. Example: randomizing the pitch of any audio played.
@@ -11,6 +12,8 @@ public static class CustomAudio
 
     public static void PlayWithPitch(AudioSource source, float startPitch) 
     {
+        startPitch = 1f;
+
         // Try randomizing the pitch before playing the clip
         float minPitch = startPitch - (startPitch * 0.05f);
         float maxPitch = startPitch + (startPitch * 0.05f);
@@ -23,9 +26,25 @@ public static class CustomAudio
 
     public static void PlayOnceWithPitch(AudioSource source, float startPitch)
     {
+        startPitch = 1f;
+
         // Try randomizing the pitch before playing the clip
         float minPitch = startPitch - (startPitch * 0.05f);
         float maxPitch = startPitch + (startPitch * 0.05f);
+
+        float ranPitch = Random.Range(minPitch, maxPitch);
+
+        source.pitch = ranPitch;
+        source.PlayOneShot(source.clip);
+    }
+
+    public static void PlayWithMinorPitch(AudioSource source, float startPitch)
+    {
+        startPitch = 1f;
+
+        // Try randomizing the pitch before playing the clip
+        float minPitch = startPitch - (startPitch * 0.025f);
+        float maxPitch = startPitch + (startPitch * 0.025f);
 
         float ranPitch = Random.Range(minPitch, maxPitch);
 
