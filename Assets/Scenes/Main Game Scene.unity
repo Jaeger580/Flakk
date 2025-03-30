@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 58544cde1f3eda14dbbda99ec4cea21a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 473ae3e6187607c4fbcbf1e67f185ce4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -17577,11 +17577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1719486680163052469, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9434165
+      value: 0.9434164
       objectReference: {fileID: 0}
     - target: {fileID: 1719486680163052469, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.33161035
+      value: 0.3316104
       objectReference: {fileID: 0}
     - target: {fileID: 1719486680163052469, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -30859,13 +30859,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745685065}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09729796, y: -0.7003807, z: 0.09729796, w: 0.7003807}
+  m_LocalRotation: {x: 0.12278779, y: -0.6963643, z: 0.12278779, w: 0.6963643}
   m_LocalPosition: {x: 81.69, y: 13.8, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351174536}
-  m_LocalEulerAnglesHint: {x: 15.818, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: -90, z: 0}
 --- !u!108 &1745685067
 Light:
   m_ObjectHideFlags: 0
@@ -30878,7 +30878,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.9
+  m_Intensity: 1.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -32293,13 +32293,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877600190}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70708877, y: -0.0050497795, z: -0.70708877, w: 0.0050497795}
+  m_LocalRotation: {x: 0.6963643, y: 0.12278774, z: 0.6963643, w: -0.12278774}
   m_LocalPosition: {x: 81.69, y: 13.799999, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351174536}
-  m_LocalEulerAnglesHint: {x: -179.182, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 200, y: -90, z: 0}
 --- !u!114 &1877600192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32335,7 +32335,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.8490566, g: 0.46325487, b: 0.25231397, a: 1}
-  m_Intensity: 0.25
+  m_Intensity: 0.35
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -34251,11 +34251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].name
-      value: O_BasicLevel_1.1
+      value: Delta Squad
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[1].name
-      value: 1_BasicLevel_1.0
+      value: Alpha Assault
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[2].name
@@ -34263,7 +34263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].cashReward
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[1].cashReward
@@ -34271,11 +34271,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[2].cashReward
-      value: 20
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[0].description
+      value: A Simple level that gives you breathing room between waves
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[1].description
-      value: Jakob's Testing Level. Testing for longer enemy appoarches.
+      value: A much harder level that challenges the gunner. Upgrades recommended.
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[2].description
