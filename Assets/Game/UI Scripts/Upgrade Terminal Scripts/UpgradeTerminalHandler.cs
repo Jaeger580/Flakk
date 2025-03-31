@@ -13,6 +13,15 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     [SerializeField] private VisualTreeAsset upgradeReadoutAsset;
 
+    // Quick Initilizer to reset the bought status on upgrades when restarting game.
+    private void Awake()
+    {
+        foreach (UpgradeSO upgrade in upgrades.items) 
+        {
+            upgrade.bought = false;
+        }
+    }
+
     private VisualElement CreateNewUpgradeReadout(UpgradeSO upg)
     {
         var readout = upgradeReadoutAsset.CloneTree();

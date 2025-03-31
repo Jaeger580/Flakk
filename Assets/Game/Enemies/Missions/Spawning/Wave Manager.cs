@@ -28,6 +28,7 @@ public class WaveManager : MonoBehaviour
     private bool missionOver = false;
 
     public static int currentEnemies;
+    public static int defeatedEnemies;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        if (!isSpawning && waveIndex == enemyWaves.Count - 1 && currentEnemies == 0) 
+        if (!isSpawning && waveIndex == enemyWaves.Count - 1 && currentEnemies == defeatedEnemies) 
         {
             if (!missionOver) 
             {
@@ -98,7 +99,7 @@ public class WaveManager : MonoBehaviour
 
             currentEnemies++;
 
-            //Debug.Log("Spline Containter Set?");
+            Debug.Log("Enemy Spawned: Count " + currentEnemies);
 
             //newEnemy.GetComponentInChildren<SimpleSpline>().
             yield return new WaitForSeconds(timeBetweenSpawns);
@@ -110,11 +111,12 @@ public class WaveManager : MonoBehaviour
     private void EndMission() 
     {
         winEvent.Trigger();
-        Debug.Log("VICTORY");
+        //Debug.Log("VICTORY");
     }
 
     public static void ReduceCount() 
     {
-        currentEnemies--;
+        defeatedEnemies++;
+        Debug.Log("Enemy SLAIN: Count " + defeatedEnemies);
     }
 }
