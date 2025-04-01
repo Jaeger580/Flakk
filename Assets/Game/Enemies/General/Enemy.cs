@@ -243,7 +243,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         // Proper death needs added later
         StopAllCoroutines();
 
-        WaveManager.ReduceCount();
+        WaveManager.ReduceCount(transform.parent.gameObject);
 
         Destroy(transform.parent.gameObject);
     }

@@ -30,10 +30,17 @@ public class WaveManager : MonoBehaviour
     public static int currentEnemies;
     public static int defeatedEnemies;
 
+    private static List<GameObject> livingEnemies = new();
+
     private void Start()
     {
         waveIndex = 0;
         currentWave = enemyWaves[waveIndex];
+        currentEnemies = 0;
+        defeatedEnemies = 0;
+        livingEnemies.Clear();
+
+
         StartCoroutine(spawnEnemies(currentWave));
         waveTimer = 0;
     }
@@ -55,7 +62,15 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        if (!isSpawning && waveIndex == enemyWaves.Count - 1 && currentEnemies == defeatedEnemies) 
+        //if (!isSpawning && waveIndex == enemyWaves.Count - 1 && currentEnemies == defeatedEnemies) 
+        //{
+        //    if (!missionOver) 
+        //    {
+        //        EndMission();
+        //        missionOver = true;
+        //    }
+        //}
+        if (!isSpawning && waveIndex == enemyWaves.Count - 1 && livingEnemies.Count <= 0) 
         {
             if (!missionOver) 
             {
@@ -75,6 +90,8 @@ public class WaveManager : MonoBehaviour
         foreach(waveObject enemy in enemies) 
         {
             GameObject newEnemy = Instantiate(enemy.enemy);
+
+            livingEnemies.Add(newEnemy);
 
             newEnemy.GetComponentInChildren<SplineAnimate>().Container = enemy.splineToFollow;
 
@@ -114,9 +131,22 @@ public class WaveManager : MonoBehaviour
         //Debug.Log("VICTORY");
     }
 
-    public static void ReduceCount() 
+    public static void ReduceCount(GameObject deadEnemy) 
     {
+        if (livingEnemies.Contains(deadEnemy)) 
+        {
+            livingEnemies.Remove(deadEnemy);
+        }
+
         defeatedEnemies++;
         Debug.Log("Enemy SLAIN: Count " + defeatedEnemies);
+    }
+
+    private void OnDestroy()
+    {
+        foreach(var enemy in livingEnemies) 
+        {
+            Destroy(enemy);
+        }
     }
 }
