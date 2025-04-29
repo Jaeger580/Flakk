@@ -31,10 +31,11 @@ public class AmmoCrateHolder : MonoBehaviour
         inputEvDropCrate.RegisterListener(dropCratesListener);
     }
 
-    public void PushCrateOnTop(AmmoCrateInteract physicalCrate, AmmoStack ammoCrate)
+    public bool TryPushCrateOnTop(AmmoCrateInteract physicalCrate, AmmoStack ammoCrate)
     {
-        if (registeredAmmoCrates.Count > 0) { Editor_Utility.ThrowWarning("I can't hold all these lemons", this); return; }
+        if (registeredAmmoCrates.Count > 0) { Editor_Utility.ThrowWarning("I can't hold all these lemons", this); return false; }
         registeredAmmoCrates.Push((physicalCrate, ammoCrate));
+        return true;
     }
 
     public bool TryPopTopCrate(out (AmmoCrateInteract physicalCrate, AmmoStack ammoCrate) registeredCrate)

@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using GeneralUtility.GameEventSystem;
+using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StockpileBusInteract : MonoBehaviour, IInteractable
 {
@@ -9,6 +12,34 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
     [Tooltip("How long should a single ammo crate load into this bus (in seconds per crate)?")]
     [SerializeField] private float loadingRate = 1f;
 
+    [SerializeField] private GameEvent stockpileAmmoChanged;
+    [SerializeField] private TMP_Text stockpileBusAmt;
+
+    [SerializeField] private GameEvent CrateDeposit;
+
+    [SerializeField]
+    private AudioSource insertSFX;
+    [SerializeField]
+    private AudioSource loadSFX;
+    [SerializeField]
+    private AudioSource ejectSFX;
+
+    private void Start()
+    {
+        var stockpileListener = gameObject.AddComponent<GameEventListener>();
+        stockpileListener.Response = new();
+        stockpileListener.Response.AddListener(() => HandleAmmoChange());
+        stockpileListener.Events.Add(stockpileAmmoChanged);
+        stockpileAmmoChanged.RegisterListener(stockpileListener);
+
+        stockpileAmmoChanged?.Trigger();
+    }
+
+    private void HandleAmmoChange()
+    {
+        stockpileBusAmt.text = $"{stockpileToLoad.stack.Count}/{stockpileToLoad.maxStackSize.Value}";
+    }
+
     public void Interact(object interactor)
     {
         print("Trying to interact with stockpile bus.");
@@ -16,6 +47,8 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
         if (!playerInteractor.TryGetComponent(out AmmoCrateHolder ammoCrateHolder)) return;
 
         if (!ammoCrateHolder.TryPopTopCrate(out var poppedCrate)) return;
+
+        CrateDeposit.Trigger();
 
         StartCoroutine(LoadStockpile(poppedCrate));
     }
@@ -29,6 +62,12 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
         var waitPerAmmo = new WaitForSeconds(loadingRate / ammoInCrate);
 
         physicalCrate.DepositInBus(busCenterTransform);
+        CustomAudio.PlayOnceWithPitch(insertSFX, insertSFX.pitch);
+        yield return new WaitForSeconds(0.25f);
+
+        CustomAudio.PlayOnceWithPitch(loadSFX, loadSFX.pitch);
+        yield return new WaitForSeconds(0.5f);
+
 
         while (ammoInCrate > 0)
         {//While there's still ammo in this crate,
@@ -37,6 +76,7 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
             {//If I can fit it, try pushing ammo into the stockpile
                 print("Loaded!");
                 ammoInCrate--;  //If you did, register that you did
+                stockpileAmmoChanged?.Trigger();
             }
             else
             {//otherwise, wait until I CAN fit ammo into the stockpile
@@ -46,6 +86,9 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
 
             yield return waitPerAmmo;
         }
+
+        // Forced delay to give time between insert and eject (For audio Primarly).
+        CustomAudio.PlayOnceWithPitch(ejectSFX, ejectSFX.pitch);
         physicalCrate.EjectFromBus(ejectTransform.position);
     }
 }

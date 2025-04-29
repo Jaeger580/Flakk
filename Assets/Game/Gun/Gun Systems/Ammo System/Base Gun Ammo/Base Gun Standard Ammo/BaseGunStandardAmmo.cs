@@ -17,16 +17,31 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
     {
         if (!TriggerEffect(p)) return;
 
-        //do vfx/sfx and other cleanup IF it lands correctly
+        Destroy(this.gameObject);
 
-        CustomAudio.PlayClipAt(this.GetComponent<AudioSource>(), p.CollisionInfo.transform.position);
+        //do vfx/sfx and other cleanup IF it lands correctly
+        if (vfxPrefab != null) 
+        {
+            vfxPrefab.TryGetComponent<ParticleSystem>(out ParticleSystem particle);
+            particle.Play();
+        }
+
+        //vfxPrefab.GetComponent<ParticleSystem>().Play();
+        
+        
+        // choose a random clip and play it.
+        int coinFlip = Random.Range(0, sfxOnImpact.Length);
+        AudioSource audioSource = this.GetComponent<AudioSource>();
+
+        audioSource.clip = sfxOnImpact[coinFlip];
+
+        CustomAudio.PlayClipAt(audioSource, p.CollisionInfo.transform.position);
 
         //foreach(AudioClip clip in sfxOnImpact) 
         //{
         //    AudioSource.PlayClipAtPoint(clip, p.CollisionInfo.transform.position);
         //}
 
-        Destroy(this.gameObject);
     }
 
     public void OnKill()

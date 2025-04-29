@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 static public class MagicStrings
@@ -26,41 +27,52 @@ static public class MagicStrings
 
 public class ButtonSFXHookup : MonoBehaviour, IUIScreenRefresh
 {
+    [SerializeField]
+    private AudioClip clickSFX;
+    [SerializeField]
+    private AudioClip hoverSFX;
+
+    [SerializeField]
+    private AudioSource sfxSource;
+
     private void Start()
     {
-        AttachSounds();
+        StartCoroutine(AttachSounds());
     }
 
-    private void AttachSounds()
+    private IEnumerator AttachSounds()
     {
+        yield return null;
         var root = GetComponent<UIDocument>().rootVisualElement;
         root.Query<Button>().ForEach(AddSFX);
     }
 
     private void AddSFX(Button btn)
     {//RegisterCallback example. The signature of the method being called must match the callback's return value
-        btn.RegisterCallback<MouseOverEvent, string>(TriggerSFX, MagicStrings.BTN_HOVER);
-        btn.RegisterCallback<ClickEvent, string>(TriggerSFX, MagicStrings.BTN_CLICK);
+        btn.RegisterCallback<MouseOverEvent, AudioClip>(TriggerSFX, hoverSFX);
+        btn.RegisterCallback<ClickEvent, AudioClip>(TriggerSFX, clickSFX);
     }
 
-    public void TriggerSFX(EventBase evt, string clipName)
+    public void TriggerSFX(EventBase evt, AudioClip clip)
     {
         //AudioManager.instance.ForcePlay(clipName, AudioManager.instance.UISounds);
+        sfxSource.PlayOneShot(clip);
     }
 
     public void AddSFXWorkaround(Button btn)
     {//stupid bullshit, loadout options refuse to trigger their click sfx for some reason so w/e this will do
-        btn.RegisterCallback<MouseOverEvent, string>(TriggerSFX, MagicStrings.BTN_HOVER);
-        btn.clicked += () => TriggerSFX(MagicStrings.BTN_CLICK);
+        btn.RegisterCallback<MouseOverEvent, AudioClip>(TriggerSFX, hoverSFX);
+        btn.clicked += () => TriggerSFX(clickSFX);
     }
 
-    public void TriggerSFX(string clipName)
+    public void TriggerSFX(AudioClip clip)
     {
         //AudioManager.instance.ForcePlay(clipName, AudioManager.instance.UISounds);
+        sfxSource.PlayOneShot(clip);
     }
 
     public void RefreshUI()
     {
-        AttachSounds();
+        StartCoroutine(AttachSounds());
     }
 }

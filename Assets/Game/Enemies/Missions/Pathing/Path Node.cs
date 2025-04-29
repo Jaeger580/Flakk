@@ -11,14 +11,15 @@ public class PathNode : MonoBehaviour
     private GameObject[] Inputs;
 
     [SerializeField]
-    private GameObject[] Outputs;   // Primary varible that will be used. Inputs are for specific cases such as refersed movement.
+    private PathOutputs[] Outputs;   // Primary varible that will be used. Inputs are for specific cases such as reversed movement.
 
     // Will likely need to add some sort of "Key" argument for choosing paths in the future.
-    public SplineContainer GetExit() 
+    public PathOutputs GetExit() 
     {
         int rand = Random.Range(0, Outputs.Length);
+        var outputContainer = Outputs[rand];
 
-        return Outputs[rand].GetComponent<SplineContainer>();
+        return outputContainer;
     }
 
 #if UNITY_EDITOR
@@ -31,4 +32,25 @@ public class PathNode : MonoBehaviour
         Gizmos.DrawSphere(transform.position, distance / 20);
     }
 #endif
+}
+
+[System.Serializable]
+public class PathOutputs 
+{
+    [SerializeField]
+    private GameObject outPath;
+
+    [SerializeField]
+    private float speedMulti = 1f;
+
+    public GameObject GetPath() 
+    {
+        return outPath;
+    }
+
+    public float GetMulti() 
+    {
+        return speedMulti;
+    }
+
 }

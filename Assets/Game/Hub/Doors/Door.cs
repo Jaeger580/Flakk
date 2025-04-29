@@ -7,17 +7,17 @@ public class Door : MonoBehaviour
     [SerializeField]
     private GameObject doorModel;   // Needs moved along Z
 
-    [SerializeField]
-    private GameObject doorCollider; // Needs moved along Z
+    //[SerializeField]
+    //private GameObject doorCollider; // Needs moved along Z
 
     [SerializeField]
     private float doorSpeed = 5;
 
     private Transform modelPos;
-    private Transform colliderPos;
+    //private Transform colliderPos;
 
     private Vector3 modelStart;
-    private Vector3 colliderStart;
+    //private Vector3 colliderStart;
 
     private bool nearDoor;
 
@@ -29,10 +29,10 @@ public class Door : MonoBehaviour
     private void Start()
     {
         modelPos = doorModel.transform;
-        colliderPos = doorCollider.transform;
+        //colliderPos = doorCollider.transform;
 
         modelStart = modelPos.position;
-        colliderStart = colliderPos.position;
+        //colliderStart = colliderPos.position;
     }
 
     private void Update()
@@ -41,13 +41,13 @@ public class Door : MonoBehaviour
 
         if (nearDoor)
         {
-            doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, new Vector3(colliderPos.position.x, 3, colliderPos.position.z), finalSpeed);
+            //doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, new Vector3(colliderPos.position.x, 3, colliderPos.position.z), finalSpeed);
 
             doorModel.transform.position = Vector3.MoveTowards(modelPos.position, new Vector3(modelPos.position.x, 3, modelPos.position.z), finalSpeed);
         }
         else if(!nearDoor) 
         {
-            doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, colliderStart, finalSpeed);
+            //doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, colliderStart, finalSpeed);
 
             doorModel.transform.position = Vector3.MoveTowards(modelPos.position, modelStart, finalSpeed);
         }
@@ -55,6 +55,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Door Triggered");
         Open();
     }
 

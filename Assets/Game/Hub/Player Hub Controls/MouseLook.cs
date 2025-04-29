@@ -1,4 +1,5 @@
-﻿using GeneralUtility.GameEventSystem;
+﻿using System.Collections;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,9 +26,11 @@ public class MouseLook : MonoBehaviour
 
     private Vector2 sensitivity;
     public Transform playerBody, cameraBody;
-    public GameEvent exitOptionsEvent, inputEVLook;
+    public GameEvent exitOptionsEvent, gameUnpausedEvent, inputEVLook;
 
     //float xRotation = 0f, yRotation;
+    [SerializeField] private PlayerInput playInput;
+    private InputActionMap hubInput;
 
     private void Start()
     {
@@ -35,12 +38,14 @@ public class MouseLook : MonoBehaviour
         m_CameraOriginalRotation = cameraBody.localRotation;
 
         Cursor.lockState = CursorLockMode.Locked;
-        Sensitivity = new Vector2(PlayerPrefs.GetFloat("xUnscopedSensitivity", 1f), PlayerPrefs.GetFloat("yUnscopedSensitivity", 1f));
+        StartCoroutine(UpdateSens());
         var senslistener = gameObject.AddComponent<GameEventListener>();
         senslistener.Events.Add(exitOptionsEvent);
+        senslistener.Events.Add(gameUnpausedEvent);
         senslistener.Response = new();
-        senslistener.Response.AddListener(UpdateSens);
+        senslistener.Response.AddListener(() => StartCoroutine(UpdateSens()));
         exitOptionsEvent.RegisterListener(senslistener);
+        gameUnpausedEvent.RegisterListener(senslistener);
 
         //var lookListener = gameObject.AddComponent<GameEventListener>();
         //lookListener.Event = inputEVLook;
@@ -49,10 +54,13 @@ public class MouseLook : MonoBehaviour
         //lookListener.Event.RegisterListener(lookListener);
 
         //yRotation = playerBody.rotation.y;
+        hubInput = playInput.actions.FindActionMap("Hub");
     }
 
     private void Update()
     {
+        if (playInput.currentActionMap != hubInput) return;
+
         // we make initial calculations from the original local rotation
         playerBody.localRotation = m_PlayerOriginalRotation;
         cameraBody.localRotation = m_CameraOriginalRotation;
@@ -62,6 +70,11 @@ public class MouseLook : MonoBehaviour
 
         float inputH = targetMouseDelta.x * sensitivity.x;
         float inputV = targetMouseDelta.y * sensitivity.y;
+
+        if(inputH != 0 || inputV != 0) 
+        {
+            inputEVLook.Trigger();
+        }
         if (relative)
         {
             // wrap values to avoid springing quickly the wrong way from positive to negative
@@ -108,9 +121,11 @@ public class MouseLook : MonoBehaviour
         cameraBody.localRotation = m_CameraOriginalRotation * Quaternion.Euler(-m_FollowAngles.x, 0, 0);
     }
 
-    private void UpdateSens()
+    private IEnumerator UpdateSens()
     {
-        Sensitivity = new Vector2(PlayerPrefs.GetFloat("xUnscopedSensitivity", 1f), PlayerPrefs.GetFloat("yUnscopedSensitivity", 1f));
+        yield return null;
+        Sensitivity = new Vector2(PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_HUB, 1f), PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_HUB, 1f));
+        print($"Hub Sens Update: {Sensitivity} | {sensitivity}");
     }
 
     public Vector2 Sensitivity

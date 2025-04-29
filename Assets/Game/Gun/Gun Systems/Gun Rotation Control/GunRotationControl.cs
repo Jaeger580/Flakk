@@ -24,6 +24,10 @@ public partial class InputHandler : MonoBehaviour
 
 public class GunRotationControl : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource rotateSFX;
+    private bool playAudio = false;
+
     private Vector2 mouseInput;
 
     [Header("Weapon Movement")]
@@ -68,6 +72,15 @@ public class GunRotationControl : MonoBehaviour
     {
         CamLook(mouseInput);
 
+        if (playAudio && !rotateSFX.isPlaying)
+        {
+            rotateSFX.Play();
+        }
+        else if (!playAudio && rotateSFX.isPlaying)
+        {
+            rotateSFX.Stop();
+        }
+
         if (!isReloading.Value)
         {
             GunLook();
@@ -96,9 +109,26 @@ public class GunRotationControl : MonoBehaviour
         float deadZone = 0.05f;
 
         Vector2 tempDirection = new Vector2((pivotRotation.x - gunRotation.x), (pivotRotation.y - gunRotation.y));
+
+        bool xInDeadZone = Mathf.Abs(tempDirection.x) <= deadZone;
+        bool yInDeadZone = Mathf.Abs(tempDirection.y) <= deadZone;
+
+        if (xInDeadZone && yInDeadZone)
+        {
+            playAudio = false;
+        }
+        else
+        {
+            rotateSFX.volume = Mathf.Lerp(0f, 0.3f, tempDirection.magnitude / 5f);
+            rotateSFX.pitch = Mathf.Lerp(0.7f, 0.9f, tempDirection.magnitude / 10f);
+            playAudio = true;
+        }
+
         tempDirection.Normalize();
-        if (Mathf.Abs(tempDirection.x) <= deadZone) tempDirection.x = 0f;
-        if (Mathf.Abs(tempDirection.y) <= deadZone) tempDirection.y = 0f;
+        
+        if (xInDeadZone) tempDirection.x = 0f;
+        if (yInDeadZone) tempDirection.y = 0f;
+        
 
         gunRotation.x += tempDirection.x * xSens * sensitivityScaler * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunRotation.x = Mathf.Clamp(gunRotation.x, pivotRotation.x - angleClamp, pivotRotation.x + angleClamp);

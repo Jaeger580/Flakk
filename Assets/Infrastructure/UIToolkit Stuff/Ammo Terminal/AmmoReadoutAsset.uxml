@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="UpgradeReadoutParent" style="flex-grow: 0; flex-shrink: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: rgba(0, 0, 0, 0.5); background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/FLAKK_BAR.png?fileID=1239685814&amp;guid=582c2d89e22d74e7394b3a518e211a4e&amp;type=3#FLAKK_BAR_0&quot;); -unity-background-image-tint-color: rgba(128, 199, 255, 0.5);">
+        <ui:Label tabindex="-1" text="A title for the thing probably" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoTitle" class="statTitle" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+        <ui:VisualElement style="flex-direction: row; flex-shrink: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px; align-items: center; justify-content: space-between;">
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="A looooooooooooooooooooooooooooong description of some sort probably, idk man like it&apos;s possible it gets even longer but hopefully not." parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoDesc" class="statText" style="white-space: normal;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-shrink: 0;">
+                <ui:VisualElement style="flex-direction: row; flex-wrap: wrap; justify-content: center; flex-shrink: 0;">
+                    <ui:Label tabindex="-1" text="Cost:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoCostTitle" class="statText" style="font-size: 12px;" />
+                    <ui:Label tabindex="-1" text="000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoCost" class="statText" style="font-size: 12px;" />
+                </ui:VisualElement>
+                <ui:Button text="Buy" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BuyButton" class="upgradeButton" style="border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

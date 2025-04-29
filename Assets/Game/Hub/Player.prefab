@@ -268,7 +268,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2886818909849609237}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3d914e962ec91476da3b852720c4e40a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -669,6 +669,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8cdb45ec-658a-4007-ba96-efeaa9aebefb
     m_ActionName: Gun/Up/Down[/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 290473895424421710}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: PausePressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c86d62a4-6910-4f5d-a95c-dba021025bee
+    m_ActionName: Gun/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Hub
@@ -722,7 +738,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1596174811518097120}
   cameras: []
   movement:
-    walkSpeed: 16
+    walkSpeed: 8
     sprintSpeed: 20
     jumpCooldown: 0.4
     groundDrag: 1.5
@@ -786,7 +802,9 @@ MonoBehaviour:
   playerBody: {fileID: 954564910784181713}
   cameraBody: {fileID: 3570702464864103966}
   exitOptionsEvent: {fileID: 11400000, guid: a81822f6f828e4c13a20a8f15793f6ae, type: 2}
+  gameUnpausedEvent: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
   inputEVLook: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+  playInput: {fileID: 6692938035077926624}
 --- !u!114 &7043883736311624466
 MonoBehaviour:
   m_ObjectHideFlags: 0

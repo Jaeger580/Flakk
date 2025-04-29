@@ -77,6 +77,7 @@ public abstract class GunType : MonoBehaviour
 
     [Tooltip("Default magazines, mostly for testing and/or before we have stockpiles ready.")]
     [SerializeField] protected AmmoStack defaultPrimaryMag, defaultSecondaryMag;
+    [SerializeField] protected AmmoStack defaultPrimaryStockpile, defaultSecondaryStockpile;
 
     [Header("Gun Specifications and Handling")]
     [Tooltip("How many bullets can be fired per second?")]
@@ -102,18 +103,29 @@ public abstract class GunType : MonoBehaviour
     [SerializeField] protected GameObjectReference vfxOnShot;
     [SerializeField] protected AudioSource sfxOnShot;
     [SerializeField] protected AudioSource sfxOnReload;
+    [SerializeField] protected AudioSource sfxDryFire;
+    [SerializeField] protected AudioSource sfxFireLast;
+    [SerializeField] protected AudioSource sfxDuringReload;
+    [SerializeField] protected AudioSource sfxSwapMag;
 
     protected float onShotStartPitch;
     protected float onReloadStartPitch;
-
-
 
     protected GameObject gunCamera;
     protected CinemachineVirtualCamera vCam;
     protected GameObject gunBase, gunBulletPoint;
 
-    public delegate void OnAmmoChange(float newAmmo);
-    public OnAmmoChange AmmoChangeEvent;
+    public delegate void OnMagSwap(bool primary);
+    public OnMagSwap MagSwapEvent;
+
+    public delegate void OnAmmoChange(float newAmmo, float maxAmmo);
+    public OnAmmoChange PrimaryMagAmmoChangeEvent, SecondaryMagAmmoChangeEvent;
+    public OnAmmoChange PrimaryStockpileAmmoChangeEvent, SecondaryStockpileAmmoChangeEvent;
+
+    public GameEvent primaryStockpileAmmoChanged, secondaryStockpileAmmoChanged;
+
+    public delegate void OnReloadTimerChange(float newReloadTimer, float maxReloadTimer);
+    public OnReloadTimerChange ReloadTimerChangeEvent;
 
     protected GunTypeSetup gunSetup;
 
@@ -122,20 +134,26 @@ public abstract class GunType : MonoBehaviour
 
         static void InitMag(AmmoStack mag, AmmoStack defaultAmmo)
         {//Fill the mag with default ammo, with a max mag size
-            if (mag.stack.Count <= 0)
-            {//If the mag is empty,
-                foreach (var ammo in defaultAmmo.stack)
-                {//DO NOT POP, add each bullet without removing it from the default mag
-                    if (mag.stack.Count >= mag.maxStackSize.Value) break;
-                    mag.Push(ammo);
-                }
+            //if (mag.stack.Count <= 0)
+            //{//If the mag is empty,
+            //    foreach (var ammo in defaultAmmo.stack)
+            //    {//DO NOT POP, add each bullet without removing it from the default mag
+            //        if (mag.stack.Count >= mag.maxStackSize.Value) break;
+            //        mag.Push(ammo);
+            //    }
+            //}
+            mag.stack.Clear();
+            foreach (var ammo in defaultAmmo.stack)
+            {//DO NOT POP, add each bullet without removing it from the default mag
+                if (mag.stack.Count >= mag.maxStackSize.Value) break;
+                mag.Push(ammo);
             }
         }
 
         InitMag(primaryMag, defaultPrimaryMag);
         InitMag(secondaryMag, defaultSecondaryMag);
-        InitMag(primaryStockpile, defaultPrimaryMag);
-        InitMag(secondaryStockpile, defaultSecondaryMag);
+        InitMag(primaryStockpile, defaultPrimaryStockpile);
+        InitMag(secondaryStockpile, defaultSecondaryStockpile);
 
         currentMag = primaryMag;
         currentStockpile = primaryStockpile;
@@ -184,6 +202,18 @@ public abstract class GunType : MonoBehaviour
         zoomExitListener.Response.AddListener(() => { Zoom(false); gunSetup.zoomExitEvent?.Trigger(); });
         gunSetup.inputEvAdsRelease.RegisterListener(zoomExitListener);
 
+        var enterGunListener = gameObject.AddComponent<GameEventListener>();
+        enterGunListener.Events.Add(gunSetup.gunEnterEvent);
+        enterGunListener.Response = new();
+        enterGunListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        gunSetup.gunEnterEvent.RegisterListener(enterGunListener);
+
+        var exitGunListener = gameObject.AddComponent<GameEventListener>();
+        exitGunListener.Events.Add(gunSetup.gunExitEvent);
+        exitGunListener.Response = new();
+        exitGunListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        gunSetup.gunExitEvent.RegisterListener(exitGunListener);
+
         //Continued setup using the gunTypeSetup component
         gunBase = gunSetup.gunBase;
         gunCamera = gunSetup.gunCamera;
@@ -196,17 +226,29 @@ public abstract class GunType : MonoBehaviour
         // Audio Setup
         onShotStartPitch = sfxOnShot.pitch;
         onReloadStartPitch = sfxOnReload.pitch;
+    }
 
+    protected void ArbitrarilyUpdateMags()
+    {
+        PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+        SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+        PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+        SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+        primaryStockpileAmmoChanged?.Trigger();
+        secondaryStockpileAmmoChanged?.Trigger();
     }
 
     virtual protected void Start()
     {
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+        ArbitrarilyUpdateMags();
     }
 
     virtual protected void OnDisable()
     {
-        AmmoChangeEvent = null;
+        PrimaryMagAmmoChangeEvent = null;
+        SecondaryMagAmmoChangeEvent = null;
+        PrimaryStockpileAmmoChangeEvent = null;
+        SecondaryStockpileAmmoChangeEvent = null;
     }
 
     virtual protected void Update()
@@ -219,10 +261,21 @@ public abstract class GunType : MonoBehaviour
         if (isReloading.Value)
         {//if I'm pressing reload, handle that
             HandleReload();
+            if (!sfxDuringReload.isPlaying) 
+            {
+                sfxDuringReload.Play();
+            }
         }
         else if (isFiring.Value)
         {//if I'm firing, handle that
             HandleFire();
+        }
+        else 
+        {
+            if (sfxDuringReload.isPlaying) 
+            {
+                sfxDuringReload.Stop();
+            }
         }
     }
 
@@ -231,8 +284,15 @@ public abstract class GunType : MonoBehaviour
 
     virtual protected void HandleFire()
     {
-        if (!currentMag.TryPeek(out var ammoType)) return;      //if there's no bullet in the magazine, return
         if (fireTimer < 1f / fireRate.Value) return;          //if the timer isn't ready, return
+
+        //if there's no bullet in the magazine, return
+        if (!currentMag.TryPeek(out var ammoType))
+        {
+            CustomAudio.PlayWithPitch(sfxDryFire, sfxDryFire.pitch);
+            fireTimer = 0f;
+            return;
+        }
 
         var bulletInstance = Fire(ammoType);
         var imp = bulletInstance.GetComponent<ImpactBehavior>();
@@ -240,7 +300,14 @@ public abstract class GunType : MonoBehaviour
 
         //Cleanup
         currentMag.Pop();
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+        if(currentMag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+        }
 
         fireTimer = 0f;
         //trigger sfx and vfx?
@@ -251,17 +318,11 @@ public abstract class GunType : MonoBehaviour
 
         if (sfxOnShot != null)
         {
-            Debug.Log("Playing Audio");
-
-            //// Try randomizing the pitch before playing the clip
-            //float minPitch = startPitch - (startPitch * 0.05f);
-            //float maxPitch = startPitch + (startPitch * 0.05f);
-
-            //float ranPitch = Random.Range(minPitch, maxPitch);
-
-            //sfxOnShot.pitch = ranPitch;
-            //sfxOnShot.PlayOneShot(sfxOnShot.clip);
-            CustomAudio.PlayOnceWithPitch(sfxOnShot, onShotStartPitch);
+            var bulletCount = currentMag.stack.Count;
+            if(bulletCount > 0) 
+                CustomAudio.PlayOnceWithPitch(sfxOnShot, onShotStartPitch);
+            else
+                CustomAudio.PlayOnceWithPitch(sfxFireLast, sfxFireLast.pitch);
         }
     }
 
@@ -312,11 +373,13 @@ public abstract class GunType : MonoBehaviour
         if (reloadTimer < 1f / reloadRate.Value)
         {
             reloadTimer += Time.deltaTime;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
         else
         {
             ReloadInputIntake(TryReload());
             reloadTimer = 0f;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
     }
 
@@ -330,6 +393,7 @@ public abstract class GunType : MonoBehaviour
         {//If you released the reload button, reset the reload timer
             isReloading.Value = false;
             reloadTimer = 0f;
+            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
     }
 
@@ -345,7 +409,19 @@ public abstract class GunType : MonoBehaviour
         }
 
         currentStockpile.Pop(); //Stockpile DOES have ammo, and current mag DID take from it, so pop
-        AmmoChangeEvent?.Invoke(currentMag.stack.Count);
+
+        if (currentMag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+            PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+            primaryStockpileAmmoChanged?.Trigger();
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+            SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+            secondaryStockpileAmmoChanged?.Trigger();
+        }
 
         return true;
     }
@@ -366,12 +442,18 @@ public abstract class GunType : MonoBehaviour
         {
             currentMag = secondaryMag;
             currentStockpile = secondaryStockpile;
+            MagSwapEvent?.Invoke(false);
+            gunSetup.magSwapTriggered?.Trigger();
         }
         else
         {
             currentMag = primaryMag;
             currentStockpile = primaryStockpile;
+            MagSwapEvent?.Invoke(true);
+            gunSetup.magSwapTriggered?.Trigger();
         }
+
+        CustomAudio.PlayWithMinorPitch(sfxSwapMag, sfxSwapMag.pitch);
     }
     #endregion
 }

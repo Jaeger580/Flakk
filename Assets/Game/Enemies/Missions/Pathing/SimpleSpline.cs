@@ -68,8 +68,11 @@ public class SimpleSpline : MonoBehaviour
             // If the node belongs to the same set of splines
             if (nextNode.gameObject.transform.parent.Equals(targetSpline.gameObject.transform.parent)) 
             {
+                var pathSpline = nextNode.GetExit();
+                targetSpline = pathSpline.GetPath().GetComponent<SplineContainer>();
 
-                targetSpline = nextNode.GetExit();
+                // TERRIBLE CODE HERE: Searches for the main ship object under the same parent as the lead point, in order to apply the temp speed modifier.
+                gameObject.transform.parent.GetComponentInChildren<Enemy>().TempSpeedMulti(pathSpline.GetMulti());
             }
         }
     }

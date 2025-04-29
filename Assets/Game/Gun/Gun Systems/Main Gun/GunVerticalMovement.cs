@@ -55,32 +55,62 @@ public class GunVerticalMovement : MonoBehaviour
 
     [SerializeField]
     private GameEvent vertMoveInput;
+    [SerializeField]
+    private GameEvent vertUpInput;
+    [SerializeField]
+    private GameEvent vertDownInput;
+
+    [SerializeField]
+    private GameEvent GunExit;
 
     private float moveValue = 0f;
+
+    private bool isResetting = false;
 
     private void Awake()
     {
         var lookListener = gameObject.AddComponent<GameEventListener>();
         lookListener.Events.Add(vertMoveInput);
-
         lookListener.FloatResponse = new();
-        lookListener.FloatResponse.AddListener((input) => vertMove(input));
+        lookListener.FloatResponse.AddListener((input) => VertMove(input));
         vertMoveInput.RegisterListener(lookListener);
-    }
 
+        var exitListener = gameObject.AddComponent<GameEventListener>();
+        exitListener.Events.Add(GunExit);
+        exitListener.Response = new();
+        exitListener.Response.AddListener(() => PositionReset());
+        GunExit.RegisterListener(exitListener);
+    }
 
     private void FixedUpdate()
     {
         var speed = moveSpeed * Time.deltaTime;
 
-        if (moveValue == 1)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, maxHeight, 0), moveSpeed);
-        }
-        else if (moveValue == -1)
+        if (isResetting) 
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight, 0), moveSpeed);
+
+            if(transform.position.y == minHeight) 
+            {
+                isResetting = false;
+            }
         }
+        else
+        {
+            // If moving up
+            if (moveValue == 1)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, maxHeight, 0), moveSpeed);
+                vertUpInput.Trigger();
+            }
+            // If moving down
+            else if (moveValue == -1)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(0, minHeight, 0), moveSpeed);
+                vertDownInput.Trigger();
+            }
+        }
+
 
         //if(moveValue == 1) 
         //{
@@ -92,8 +122,14 @@ public class GunVerticalMovement : MonoBehaviour
         //}
     }
 
-    private void vertMove(float moveInput) 
+    private void VertMove(float moveInput) 
     {
         moveValue = moveInput;
+    }
+
+    public void PositionReset()
+    {
+        //transform.position = new Vector3(0, minHeight, 0);
+        isResetting = true;
     }
 }

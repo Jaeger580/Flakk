@@ -12,6 +12,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
     [SerializeField] private GameEvent inputEventExitMonitor, exittedMonitorEvent;
     [SerializeField] private bool startInTerminal;
 
+    [SerializeField] private GameEvent tutorialEvent;
+
     private PlayerInput playInput;
     private bool monitorEngaged = false;
 
@@ -47,6 +49,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
     private void EnableMonitor()
     {
+        tutorialEvent.Trigger();
+
         doc.enabled = true;
         mapper.enabled = true;
 

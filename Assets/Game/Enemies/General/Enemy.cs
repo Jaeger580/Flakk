@@ -43,24 +43,50 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected int currenthealth;
     protected int targetLayer;
 
+    protected float permMaxSpeed;
+    protected float tempSpeedMulti = 1f;
+
+    [SerializeField]
+    protected GameObject vfxDamage;
+    [SerializeField]
+    protected GameObject vfxDeath;
+    [SerializeField]
+    protected GameObject vfxNearDeath;
+    [SerializeField]
+    protected GameObject vfxTrail;
+
+    [SerializeField]
+    protected AudioSource sfxDeath;
+
     //protected bool isAlive = false;
     // Animation curve for handling how enemies move towards leadpoints
     [SerializeField]
     protected AnimationCurve moveCurve;
     [SerializeField]
     protected float rotateSpeed = 5f;
+    [SerializeField]
+    protected AnimationCurve rotateCurve;
 
     public int MaxHealth => throw new System.NotImplementedException();
 
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
+    [SerializeField]
+    protected List<GameObject> gunsList;
 
     protected virtual void Start()
     {
         currenthealth = maxHealth;
         fireRateTimer = fireRate;
 
+        permMaxSpeed = leadPoint.GetComponent<SplineAnimate>().MaxSpeed;
+
         targetLayer = LayerMask.NameToLayer("Weakpoint (Player)");
+
+        gunsList = new List<GameObject>();
+
+        foreach (GameObject gun in attackPoints)
+            gunsList.Add(gun);
     }
 
     protected virtual void Update()
@@ -85,7 +111,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             {
                 if (hit.transform.gameObject.layer == targetLayer)
                 {
-                    Attack(hit, attackPoints);
+                    Attack(hit, gunsList);
                     fireRateTimer = 0;
                     canShoot = false;
                 }
@@ -131,23 +157,38 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         //objTransform.rotation = Quaternion.LookRotation(rotatDir);
 
-        objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateSpeed * Time.deltaTime);
+        //objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateSpeed * Time.deltaTime);
+        var rotateStep = rotateCurve.Evaluate(Quaternion.Angle(objTransform.rotation, targetRot));
+
+        //Debug.Log(rotateStep);
+
+        objTransform.rotation = Quaternion.Lerp(objTransform.rotation, targetRot, rotateStep * Time.deltaTime);
+
     }
 
 
     // Damage should likely be moved to another script for
     // systems involving multiple hitzones and complex enemies.
-    public bool ApplyDamage(CombatPacket packet)
+    public virtual bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
+
+        Debug.Log("Final Damage: " + finalDamage);
+        
         currenthealth -= finalDamage;
+        OnHit();
 
         //Debug.Log(finalDamage + " final damage taken.");
-        Debug.Log("Current Health " + currenthealth);
+        //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {
+            //Debug.Log("DEATH CALL");
             Death();
+        }
+        else if(currenthealth <= (maxHealth/3))
+        {
+            vfxNearDeath.GetComponent<ParticleSystem>().Play();
         }
 
         return true;
@@ -156,10 +197,27 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void SpeedMulti(float newSpeed)
     {
         var followScript = leadPoint.GetComponent<SplineAnimate>();
-        float oldSpeed = followScript.MaxSpeed;
+        float oldSpeed = permMaxSpeed;
 
         float prevProgress = followScript.NormalizedTime;
-        
+
+        permMaxSpeed = oldSpeed * newSpeed;
+
+        followScript.MaxSpeed = permMaxSpeed * tempSpeedMulti;
+
+        followScript.NormalizedTime = prevProgress;
+
+    }
+
+    public virtual void TempSpeedMulti(float newSpeed)
+    {
+        tempSpeedMulti = newSpeed;
+
+        var followScript = leadPoint.GetComponent<SplineAnimate>();
+        float oldSpeed = permMaxSpeed;
+
+        float prevProgress = followScript.NormalizedTime;
+
         followScript.MaxSpeed = oldSpeed * newSpeed;
 
         followScript.NormalizedTime = prevProgress;
@@ -167,20 +225,35 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Death() 
     {
+        if (vfxTrail != null) 
+        {
+            vfxTrail.GetComponent<ParticleSystem>().Stop();
+        }
+
+        if (vfxDeath != null)
+        {
+            GameObject vfxD = Instantiate(vfxDeath, transform.position, transform.rotation);
+            //Debug.Log("PE NAMe " + pe.name);
+            Destroy(vfxD, 3);
+            //Debug.Log("pe deleted");
+        }
+
+        CustomAudio.PlayClipAt(sfxDeath, transform.position);
+
         // Proper death needs added later
         StopAllCoroutines();
 
-        // Not being handled directly by wave manager. Could be source of future bugs?
-        WaveManager.currentEnemies--;
+        WaveManager.ReduceCount(transform.parent.gameObject);
+
         Destroy(transform.parent.gameObject);
     }
 
-    protected virtual void Attack(RaycastHit hit, GameObject[] pointsOfAttack) 
+    protected virtual void Attack(RaycastHit hit, List<GameObject> pointsOfAttack) 
     {
         StartCoroutine(BurstAttack(hit, pointsOfAttack));
     }
 
-    protected virtual IEnumerator BurstAttack(RaycastHit hit, GameObject[] pointsOfAttack) 
+    protected virtual IEnumerator BurstAttack(RaycastHit hit, List<GameObject> pointsOfAttack) 
     {
         var target = hit.collider.gameObject;
 
@@ -189,13 +262,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             
             //var dir = transform.position - target.transform.position;
 
-            foreach (GameObject AP in pointsOfAttack) 
+            //foreach (GameObject AP in pointsOfAttack) 
+            //{
+            //    var dir = AP.transform.position - target.transform.position;
+            //    Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
+            //}
+
+            for (int j = 0; j < pointsOfAttack.Count; j++)
             {
-                var dir = AP.transform.position - target.transform.position;
-                Instantiate(attackProjectile, AP.transform.position, Quaternion.LookRotation(-dir));
+                var dir = pointsOfAttack[j].transform.position - target.transform.position;
+                Instantiate(attackProjectile, pointsOfAttack[j].transform.position, Quaternion.LookRotation(-dir));
             }
 
             yield return new WaitForSeconds(shotDelay);
         }
+    }
+
+    // Optional Method for some enemies to trigger on hit effects
+    protected virtual void OnHit() 
+    {
+        vfxDamage.GetComponent<ParticleSystem>().Play();
     }
 }

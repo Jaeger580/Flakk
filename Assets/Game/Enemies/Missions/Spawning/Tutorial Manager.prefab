@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1465089138199329810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460552663764174569}
+  - component: {fileID: 8598900257883413293}
+  - component: {fileID: 3802431805272678017}
+  m_Layer: 0
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460552663764174569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465089138199329810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -79.8124, y: -2.430127, z: 77.84401}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8598900257883413293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465089138199329810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ba039d7164c0b4999063cd0740bb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectiveText: {fileID: 0}
+  objectives:
+  - text: Use WASD to move.
+    targetEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Use your mouse to looks around.
+    targetEvent: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press SHIFT to sprint.
+    targetEvent: {fileID: 11400000, guid: 04b0e2e32b31741d3a56ebcba93ec5d3, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press SPACE to jump.
+    targetEvent: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Interact with objects with E.
+    targetEvent: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press ESC to pause and unpause.
+    targetEvent: {fileID: 11400000, guid: cee14e13b3c2c42feb8c9217e4c8b846, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: First up, let's get you gunnin! In the Center of the Gunnery Deck you'll
+      find the main Flakk Cannon. You can enter the weapon via the blue-shelled cockpit
+      found in the center of the floor.
+    targetEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Left Click - To fire the Flakk
+    targetEvent: {fileID: 11400000, guid: 8b6d06822f48f498686f5338132ff945, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: 'Your Flakk has two horizontally-mounted Magazines. You can view their
+      current capacity to the left and right and beside that: the Stockpile or ''reserve''
+      ammo remaining. You can reload from your current Magazine by holding down R'
+    targetEvent: {fileID: 11400000, guid: bdc6289e674594958baa3aa6950ee4e6, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press TAB to swap Mags.
+    targetEvent: {fileID: 11400000, guid: e89755a249363403cab2bce14acd23b5, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Hold Right Click to zoom.
+    targetEvent: {fileID: 11400000, guid: b98a805fe622048c5a7d704dcbe3ea0a, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: You can change your elevation to assist in lining up your shots Press W
+      to Raise
+    targetEvent: {fileID: 11400000, guid: f830b3969dee52242ad4fae6972fccbe, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: You can change your elevation to assist in lining up your shots Press S
+      to Lower
+    targetEvent: {fileID: 11400000, guid: 77f8f68f990ca3c4292e496a57287fa4, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Enemies will fly around you, your task is to take them down. Each opponent
+      has multiple parts, clip their wings or engine to slow them down, but they
+      can survive without those wings, the best damage will always be around center
+      mass.
+    targetEvent: {fileID: 11400000, guid: 44510072aaa86a7478a2d22a75198d83, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: While the enemies buzz around you, they'll attack the glowing towers that
+      support your ships systems. You can refer to the green bar to see how much
+      health the mothership has. Protect her at all cost!
+    targetEvent: {fileID: 11400000, guid: 448d6de5b2223404fb6d99866d6ccf2d, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: 'This is a bomber. It will target the horizontal cooler that keeps our
+      reactors running. It''s slow but quite resistant to even our Flakk Cannon.
+      In a pinch you can stall it. While it is approaching its target the lights
+      on the bomber will turn yellow, during this time: light it up! if you see the
+      lights suddenly turn red, you know you''ve stalled it for now. It will now
+      skip dropping the bombs for one run.'
+    targetEvent: {fileID: 11400000, guid: 7955c384af137574083fbac2f199e0c1, type: 2}
+    completeEvent: {fileID: 11400000, guid: 21d64b0982846af47b4592da6c417e93, type: 2}
+    objectToActivate: {fileID: 0}
+  - text: Defeat all hostile enemies in the quadrant to complete your mission, you'll
+      be rewarded on mission completion
+    targetEvent: {fileID: 11400000, guid: f9aaf937d3d24bd4599fb1e08ab1bbff, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press E to exit the gun.
+    targetEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Next, Head to the Armory, you can't miss it! The console in there can be
+      used to purchase Ammo and Upgrades!
+    targetEvent: {fileID: 11400000, guid: 11d451524e4d7b3449e9cd1018f8389b, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press E To pick up an Ammo Crate. basic ammo is free, but don't forget
+      to try the other types!
+    targetEvent: {fileID: 11400000, guid: b781d13ffc20a9940887ba59b1811d32, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Now take this crate just behind the cockpit you entered before. On each
+      side you should see a port atop a large container. These are your stockpiles.
+      You can load ammo here.
+    targetEvent: {fileID: 11400000, guid: 80f70f50551c3f7429131b6677563587, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Each Stockpile loads into its own Magazine. This is how you refill that
+      'reserve' ammo you saw in the cockpit. Bullets always load first in-last out.
+      Keep that in-mind. Press E To acknowledge.
+    targetEvent: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Now you can return to the Contracts Terminal and select your first mission!
+      Each time you complete one of these missions you'll receive credits to spend
+      at the upgrade & ammo shops in the Armory. Currently all missions are repeatable,
+      make sure to read their descriptions.
+    targetEvent: {fileID: 11400000, guid: 9f016097210892745986a8067a9f3f5b, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+--- !u!114 &3802431805272678017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465089138199329810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ba039d7164c0b4999063cd0740bb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectiveText: {fileID: 0}
+  objectives:
+  - text: Use WASD to move.
+    targetEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Use your mouse to looks around.
+    targetEvent: {fileID: 11400000, guid: f57fac10d03ed4a179ace6872197e647, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press SHIFT to sprint.
+    targetEvent: {fileID: 11400000, guid: 04b0e2e32b31741d3a56ebcba93ec5d3, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Press SPACE to jump.
+    targetEvent: {fileID: 11400000, guid: 6833b4fe3203e483fac9c8d516f9e7c5, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}
+  - text: Interact with objects with E.
+    targetEvent: {fileID: 11400000, guid: 11440178cefdb41a4939c3b758e460a7, type: 2}
+    completeEvent: {fileID: 0}
+    objectToActivate: {fileID: 0}

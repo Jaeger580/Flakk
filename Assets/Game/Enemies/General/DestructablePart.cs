@@ -35,9 +35,14 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     [SerializeField]
     protected GameObject partBroken;
 
+    [SerializeField]
+    protected AudioSource partBreak;
+
     public int MaxHealth => localHealth;
 
-    public bool ApplyDamage(CombatPacket p)
+    protected bool debuffTriggered = false;
+
+    virtual public bool ApplyDamage(CombatPacket p)
     {
         if (localHealth <= 0)
         {
@@ -58,23 +63,38 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
 
         //Debug.Log(finalDamage + " local damage taken.");
 
-        if (localHealth <= 0)
+        if (localHealth <= 0 && !debuffTriggered) 
+        {
             TriggerSpecialDebuff();
+
+            if(partBreak != null) 
+            {
+                CustomAudio.PlayClipAt(partBreak, this.gameObject.transform.position);
+            }
+
+            debuffTriggered = true;
+        }
 
         var mainBodyPacket = new CombatPacket(p);
         mainBodyPacket.SetTarget(mainBody, this);
         //Add res here? unsure, depends on the part ig
+        mainBodyPacket.AddResistance(mainResistance, this);
         mainBody.ApplyDamage(mainBodyPacket);
 
         return true;    //eventually could switch to: return mainBody.ApplyDamage(p); if we just want to know that it applied damage to the main body
     }
 
-    public void SwapParts() 
+    public void SwapParts()
     {
-        if(partFixed != null && partBroken != null) 
+        if (partFixed != null)
         {
-            partFixed.GetComponent<MeshRenderer>().enabled = false;
-            partBroken.GetComponent<MeshRenderer>().enabled = true;
+            //partFixed.GetComponent<MeshRenderer>().enabled = false;
+            partFixed.SetActive(false);
+        }
+        if (partBroken != null) 
+        {
+            //partBroken.GetComponent<MeshRenderer>().enabled = true;
+            partBroken.SetActive(true);
         }
     }
 
