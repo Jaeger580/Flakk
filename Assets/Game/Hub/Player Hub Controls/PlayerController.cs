@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using GeneralUtility;
 using GeneralUtility.EditorQoL;
 using GeneralUtility.GameEventSystem;
@@ -309,12 +310,14 @@ public class PlayerController : MonoBehaviour
         else if (isGrounded && !exitingSlope)
         {
             rb.AddForce(50f * actualSpeed * normalizedMove, ForceMode.Force);
-            if (rb.velocity.y > maxDownwardVelocity && !rb.isKinematic)
-            {
-                var down = rb.velocity;
-                down.y = maxDownwardVelocity;
-                rb.velocity = down;
-            }
+
+            // Commented this out because it was conflicting with Step up. Did not notice problems yet without it. (Jakob Jaeger)
+            //if (rb.velocity.y > maxDownwardVelocity && !rb.isKinematic)
+            //{
+            //    var down = rb.velocity;
+            //    down.y = maxDownwardVelocity;
+            //    rb.velocity = down;
+            //}
         }
         else
         {
@@ -377,29 +380,48 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.magenta;
-    //    Gizmos.DrawRay(stepRayLower.transform.position, transform.TransformDirection(rawMove + new Vector3(0, 0, 1)));
-    //    Gizmos.DrawRay(stepRayLower.transform.position, transform.TransformDirection(rawMove + new Vector3(1.5f, 0, 1)));
-    //    Gizmos.DrawRay(stepRayLower.transform.position, transform.TransformDirection(rawMove + new Vector3(-1.5f, 0, 1)));
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(stepRayLower.transform.position, transform.TransformDirection(rawMove));
+        Gizmos.DrawRay(stepRayLower.transform.position + (Vector3.up * 0.25f), transform.TransformDirection(rawMove));
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(stepRayUpper.transform.position, transform.TransformDirection(rawMove));
+    }
 
     private void StepClimb()
     {
+        // if we are not touching the ground, break early. (Jakob)
+        if (!isGrounded) return;
+
+        // adding a bool so I can check if either of one of the raycast hit something, instead of both being required. (Jakob)
+        bool upperClear = false;
+        bool lowerClear = false;
+
         //something in front of my foot? if not, exit early
-        if (!Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) return;
+        if (!Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) upperClear = true;
+
+        //okay but fr, is there something I might trip on? if not, exit early
+        if (!Physics.Raycast(stepRayLower.transform.position + (Vector3.up * 0.25f), transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) lowerClear = true;
+
+        // if both checks return true, we hit nothing and should exit early. (Jakob)
+        if(upperClear && lowerClear) 
+        {
+            return;
+        }
 
         //am I on a slope? if not, exit early
         if (OnSlope()) return;
 
-        //okay but fr, is there something I might trip on? if not, exit early
-        if (!Physics.Raycast(stepRayLower.transform.position + (Vector3.up * 0.25f), transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) return;
+        
 
         //well I guess there's something, so I better check to make sure it's close enough in the direction I'm moving before trying to adjust
-        if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(rawMove), out RaycastHit hit, 6f, groundMask))
+        if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(rawMove), out RaycastHit hit, 1f, groundMask))
         {
-            rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            Debug.Log("Stepping Up");
+            //rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            rb.AddForce(Vector3.up, ForceMode.Impulse);
         }
     }
     private void JumpRelease()
