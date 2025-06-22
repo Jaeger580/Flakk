@@ -6,6 +6,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyFloorTrack : MonoBehaviour
@@ -15,6 +16,9 @@ public class EnemyFloorTrack : MonoBehaviour
     private int floorCount;
 
     private List<Collider> enemyArray = new List<Collider>();
+
+    [SerializeField]
+    private TMP_Text floorText;
 
     //private void OnTriggerEnter(Collider other)
     //{
@@ -60,7 +64,8 @@ public class EnemyFloorTrack : MonoBehaviour
     {
         //enemyCount = enemyArray.Count;
         int enemyCount = OverlapCheck();
-        Debug.Log("Floor " + floorCount + " has " + enemyCount + " enemies!");
+        //Debug.Log("Floor " + floorCount + " has " + enemyCount + " enemies!");
+        floorText.text = "FLOOR " + floorCount + ": " + enemyCount;
     }
 
     private void FixedUpdate()
