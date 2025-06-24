@@ -2,6 +2,7 @@
 using GeneralUtility.GameEventSystem;
 using GeneralUtility.VariableObject;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MothershipHealth : MonoBehaviour, IDamagable
@@ -15,6 +16,11 @@ public class MothershipHealth : MonoBehaviour, IDamagable
     [SerializeField] private float currentCoolDown, coolDownDelay, coolDownRate;
     [SerializeField] private int damageRate; // damage per second.
     [SerializeField] private bool isOverHeating;
+
+    [SerializeField]
+    private TMP_Text heatText;
+    [SerializeField]
+    private TMP_Text hullText;
 
     private void Start()
     {
@@ -73,7 +79,10 @@ public class MothershipHealth : MonoBehaviour, IDamagable
 
         healthChangeEvent?.Trigger();
 
-        Debug.Log("Current Heat raised to " + currentHeat.Value);
+        //Debug.Log("Current Heat raised to " + currentHeat.Value);
+        float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
+
+        heatText.text = "HEAT: " + currentHeatPercent + "%";
 
         // Old health system before over heat system:
         //currentHealth.Value -= _damage;
@@ -107,7 +116,9 @@ public class MothershipHealth : MonoBehaviour, IDamagable
                 else 
                 {
                     //Debug.Log($"Mothership now at {currentHealth.Value} health.");
-                    Debug.Log("Hull integrity at " + currentHealth.Value + "%.");
+                    //Debug.Log("Hull integrity at " + currentHealth.Value + "%.");
+                    hullText.text = "HULL: " + currentHealth.Value + "%";
+
                 }
 
                 yield return new WaitForSeconds(healthLossRate);
