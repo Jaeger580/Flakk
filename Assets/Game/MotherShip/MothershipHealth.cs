@@ -14,7 +14,7 @@ public class MothershipHealth : MonoBehaviour, IDamagable
     // Variables for over heat system
     [SerializeField] private IntReference maxHeat, currentHeat, overHeatThresholdPercent;
     [SerializeField] private float currentCoolDown, coolDownDelay, coolDownRate;
-    [SerializeField] private int damageRate; // damage per second.
+    [SerializeField] private float damageRate; // damage per second.
     [SerializeField] private bool isOverHeating;
 
     [SerializeField]
@@ -138,10 +138,13 @@ public class MothershipHealth : MonoBehaviour, IDamagable
             if (currentCoolDown >= coolDownDelay && currentHeat.Value > 0) 
             {
                 currentHeat.Value -= 1;
-                Debug.Log("Current Heat lowered to " + currentHeat.Value);
+
+                float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
+                heatText.text = "HEAT: " + currentHeatPercent + "%";
+
                 yield return new WaitForSeconds(heatCoolDownRate);
             }
-            else 
+            else
             {
                 yield return null;
             }

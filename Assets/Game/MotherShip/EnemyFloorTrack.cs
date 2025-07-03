@@ -20,6 +20,9 @@ public class EnemyFloorTrack : MonoBehaviour
     [SerializeField]
     private TMP_Text floorText;
 
+    [SerializeField]
+    private string floorName;
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    // Check if the enemy has the spline component so we only get one collider from the lead point.
@@ -65,7 +68,7 @@ public class EnemyFloorTrack : MonoBehaviour
         //enemyCount = enemyArray.Count;
         int enemyCount = OverlapCheck();
         //Debug.Log("Floor " + floorCount + " has " + enemyCount + " enemies!");
-        floorText.text = "FLOOR " + floorCount + ": " + enemyCount;
+        floorText.text = floorName + ": " + enemyCount;
     }
 
     private void FixedUpdate()

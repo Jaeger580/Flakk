@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using static Unity.VisualScripting.Member;
-using static UnityEditor.PlayerSettings;
-
 
 // Contains public methods for handling reocurring tasks related to audio. Example: randomizing the pitch of any audio played.
 public static class CustomAudio
