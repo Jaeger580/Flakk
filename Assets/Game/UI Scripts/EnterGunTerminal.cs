@@ -14,6 +14,8 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
 
     private bool monitorEngaged = false;
 
+    private float timeSinceEntered = 10f, delayTime = 4f;
+    private bool LockOutActive => timeSinceEntered < delayTime;
     private void Start()
     {
         playInput = FindObjectOfType<PlayerInput>();
@@ -32,20 +34,29 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
     private void TryExitMonitor()
     {
         if (!monitorEngaged) return;
-
+        if (LockOutActive) return;
+        timeSinceEntered = 0f;
         gunExitEvent.Trigger();
         Cursor.lockState = CursorLockMode.Locked;
         //gunVCAM.Priority = 101;
-        playerVCAM.Priority = 5;
+        playerVCAM.Priority = 100;
         //gunVCAM.Priority = 0;
         playInput.SwitchCurrentActionMap("Hub");
 
         monitorEngaged = false;
     }
 
+    private void Update()
+    {
+        if (!LockOutActive) return;
+        timeSinceEntered += Time.smoothDeltaTime;
+    }
+
     // Will change the players controlls and change there camera view to the gun / turret.
     public void Interact(object _)
     {
+        if (LockOutActive) return;
+        timeSinceEntered = 0f;
         //Debug.Log("It worked!");
         monitorEngaged = true;
         //monitorCam.Priority = 100;
