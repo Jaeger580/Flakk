@@ -3697,7 +3697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: timeBetweenSpawns
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.size
@@ -3810,7 +3810,7 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[0].enemy
       value: 
-      objectReference: {fileID: 5225842605926512082, guid: 16c62658092462c4ca002d7a0f4511d1, type: 3}
+      objectReference: {fileID: 6895504544599098394, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[1].enemy
       value: 
@@ -3822,11 +3822,11 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[3].enemy
       value: 
-      objectReference: {fileID: 6895504544599098394, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      objectReference: {fileID: 5225842605926512082, guid: 16c62658092462c4ca002d7a0f4511d1, type: 3}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[4].enemy
       value: 
-      objectReference: {fileID: 5225842605926512082, guid: 16c62658092462c4ca002d7a0f4511d1, type: 3}
+      objectReference: {fileID: 6895504544599098394, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[5].enemy
       value: 
@@ -3834,7 +3834,7 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[6].enemy
       value: 
-      objectReference: {fileID: 6895504544599098394, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      objectReference: {fileID: 5225842605926512082, guid: 16c62658092462c4ca002d7a0f4511d1, type: 3}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[7].enemy
       value: 
@@ -3998,31 +3998,31 @@ PrefabInstance:
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[0].splineToFollow
       value: 
-      objectReference: {fileID: 439481314}
+      objectReference: {fileID: 720401630}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[1].splineToFollow
       value: 
-      objectReference: {fileID: 720401630}
+      objectReference: {fileID: 174287789}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[2].splineToFollow
       value: 
-      objectReference: {fileID: 174287789}
+      objectReference: {fileID: 720401630}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[3].splineToFollow
       value: 
-      objectReference: {fileID: 720401630}
+      objectReference: {fileID: 439481314}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[4].splineToFollow
       value: 
-      objectReference: {fileID: 1468614873}
+      objectReference: {fileID: 174287789}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[5].splineToFollow
       value: 
-      objectReference: {fileID: 174287789}
+      objectReference: {fileID: 720401630}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[6].splineToFollow
       value: 
-      objectReference: {fileID: 720401630}
+      objectReference: {fileID: 1468614873}
     - target: {fileID: 7177364441144442811, guid: 916810091411e7240bfb8680adadb997, type: 3}
       propertyPath: enemyWaves.Array.data[0].enemies.Array.data[7].splineToFollow
       value: 
@@ -11379,59 +11379,41 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -0.07751465
-        y: -2.0013428
-        z: 0.19584656
+        x: 235.17651
+        y: 17.253662
+        z: 322.41183
       TangentIn:
         x: -0
         y: -0
-        z: -10.726295
+        z: -51.35121
       TangentOut:
         x: 0
         y: 0
-        z: 10.726295
+        z: 51.35121
       Rotation:
         value:
-          x: -0.006351178
-          y: 0.98008
-          z: 0.19844843
-          w: -0.004597401
+          x: -0.042780254
+          y: 0.95295197
+          z: 0.10102955
+          w: -0.2825696
     - Position:
-        x: -1.3145142
-        y: 39.716675
+        x: -45.814514
+        y: 103.716675
         z: -98.61417
       TangentIn:
         x: -0
         y: -0
-        z: -41.531788
+        z: -140.81476
       TangentOut:
         x: 0
         y: 0
-        z: 58.85102
+        z: 130.89243
       Rotation:
         value:
-          x: 0.004870901
-          y: 0.9881849
-          z: 0.14801267
-          w: 0.03948517
-    - Position:
-        x: 35.08551
-        y: 80.61664
-        z: -306.91415
-      TangentIn:
-        x: -0
-        y: -0
-        z: -70.06975
-      TangentOut:
-        x: 0
-        y: 0
-        z: 71.07675
-      Rotation:
-        value:
-          x: 0.0114482455
-          y: 0.9815495
-          z: 0.028155314
-          w: 0.18877715
+          x: -0.012221962
+          y: 0.99936324
+          z: 0.021057978
+          w: -0.026080703
     - Position:
         x: 157.08551
         y: 60.416656
@@ -11439,17 +11421,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -86.92208
+        z: -147.49336
       TangentOut:
         x: 0
         y: 0
-        z: 130.37212
+        z: 156.34378
       Rotation:
         value:
-          x: 0.0076945634
-          y: 0.9265938
-          z: -0.008602113
-          w: 0.37588653
+          x: 0.008631401
+          y: 0.9363768
+          z: -0.010280526
+          w: 0.35073972
     - Position:
         x: 563.5855
         y: 84.61664
@@ -11505,8 +11487,6 @@ MonoBehaviour:
           z: 0.03310227
           w: 0.9922043
     m_MetaData:
-    - Mode: 0
-      Tension: 0.5
     - Mode: 0
       Tension: 0.5
     - Mode: 0
