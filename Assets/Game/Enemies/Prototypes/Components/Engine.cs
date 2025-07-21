@@ -18,8 +18,8 @@ public class Engine : DestructablePart
 
         mainBody.GetComponent<Enemy>().SpeedMulti(speedMultipler); 
 
-        localResistance = 100;
-        mainResistance = 100;
+        //localResistance = 100;
+        //mainResistance = 100;
 
         //trigger VFX
         if(trail != null) 
