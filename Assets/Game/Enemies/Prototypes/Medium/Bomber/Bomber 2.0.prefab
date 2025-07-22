@@ -570,7 +570,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8127655978197763651, guid: 7c926ea7913945b41aadc85e63f6d68d, type: 2}
   m_audioClip: {fileID: 8300000, guid: fd28f4d08b6ec5c4a8a1dabd4f28f643, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -580,9 +580,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100000
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 0
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 5376593291653901838}
   partBroken: {fileID: 8389262866682980343}
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 10
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 0
   mainBody: {fileID: 9180726343200480494}
   partFixed: {fileID: 4019954346876387729}
   partBroken: {fileID: 6564331923376110534}
@@ -1633,7 +1633,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1940,7 +1940,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10000
+  MaxDistance: 100000
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -2078,7 +2078,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

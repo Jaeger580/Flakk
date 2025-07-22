@@ -63,7 +63,7 @@ MonoBehaviour:
   partBroken: {fileID: 6087203542243673315}
   partBreak: {fileID: 1717102592259884264}
   speedMultipler: 0.75
-  trail: {fileID: 0}
+  trail: {fileID: 8510256969764267049}
 --- !u!65 &8884450652400215447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -532,7 +532,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10000
+  MaxDistance: 100000
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -669,7 +669,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1223,8 +1223,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 8
-      value: 4
+      time: 15
+      value: 15
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1376,8 +1376,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 141309729494818375}
   - {fileID: 6098461249007897197}
@@ -1517,7 +1517,7 @@ MonoBehaviour:
   m_LoopMode: 0
   m_Method: 1
   m_Duration: 75
-  m_MaxSpeed: 125
+  m_MaxSpeed: 150
   m_EasingMode: 0
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 2
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 5
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8484718262341809154}
   partBroken: {fileID: 7044771121744535168}
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localHealth: 5
   localResistance: 0
-  mainResistance: 100
+  mainResistance: 0
   mainBody: {fileID: 7231779034791383381}
   partFixed: {fileID: 8208177467257087200}
   partBroken: {fileID: 921783524971915179}
@@ -2309,5 +2309,10 @@ GameObject:
 --- !u!4 &8127256688642391165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2605475300909890007, guid: f2a492ff4e41431479c40c9e2c7b88e4, type: 3}
+  m_PrefabInstance: {fileID: 6116258960941761962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8510256969764267049 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2520837670241608067, guid: f2a492ff4e41431479c40c9e2c7b88e4, type: 3}
   m_PrefabInstance: {fileID: 6116258960941761962}
   m_PrefabAsset: {fileID: 0}

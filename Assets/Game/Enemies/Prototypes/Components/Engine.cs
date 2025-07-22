@@ -18,16 +18,18 @@ public class Engine : DestructablePart
 
         mainBody.GetComponent<Enemy>().SpeedMulti(speedMultipler); 
 
-        localResistance = 100;
-        mainResistance = 100;
+        //localResistance = 100;
+        //mainResistance = 100;
 
         //trigger VFX
         if(trail != null) 
         {
-            trail.Stop();
+            //trail.Stop();
+            var partMain = trail.main;
+            partMain.startLifetime = partMain.startLifetime.constant / 2f;
         }
 
         //enable/disable model
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
     }
 }

@@ -749,6 +749,7 @@ MonoBehaviour:
   readyToJump: 0
   jumpPressed: 0
   jumpStarted: 0
+  playWalkSound: 0
   actualSpeed: 0
   slopeHandling:
     maxSlopeAngle: 60
@@ -766,6 +767,7 @@ MonoBehaviour:
   coyoteGrounded: 0
   sfxSource: {fileID: 0}
   sfxJump: []
+  footSteps: []
   playerMoveEvent: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
   playerStopEvent: {fileID: 11400000, guid: fe0c3da28ff1249848be1daf3d5119a6, type: 2}
   playerSprintEvent: {fileID: 11400000, guid: 30d8995c1d4294ef0a29518716b899b5, type: 2}
@@ -859,7 +861,7 @@ Transform:
   m_GameObject: {fileID: 6560453170434499441}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.884, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

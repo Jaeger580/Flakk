@@ -11,7 +11,7 @@ using UnityEngine;
 public class PillarEnemy : Enemy
 {
     [SerializeField]
-    private float rotateSpeed = 60f;    // Rotate speed in degrees per second
+    private float pillarRotateSpeed = 60f;    // Rotate speed in degrees per second
 
     // Variables for handling random orbits
     [SerializeField]
@@ -57,7 +57,7 @@ public class PillarEnemy : Enemy
 
         // Ask for help increasing the speed based of distance. Copy some turret code?
         transform.LookAt(targetPos);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, rotateSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, pillarRotateSpeed * Time.deltaTime);
     }
 
     
