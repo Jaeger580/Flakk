@@ -25,7 +25,7 @@ public class Wing : DestructablePart
         SwapParts();
 
         mainBody.GetComponent<Enemy>().SpeedMulti(speedMultipler);
-        mainBody.GetComponent<Enemy>().ApplyDamage(packet);
+        //mainBody.GetComponent<Enemy>().ApplyDamage(packet);
 
         Debug.Log("Wing DETROYED");
 
