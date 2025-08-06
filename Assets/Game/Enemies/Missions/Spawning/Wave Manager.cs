@@ -104,7 +104,8 @@ public class WaveManager : MonoBehaviour
 
             var firstKnot = enemy.splineToFollow.Spline.ToArray()[0];
 
-            GameObject ship = newEnemy.GetComponentInChildren<Enemy>().gameObject;
+            var enemyComponent = newEnemy.GetComponentInChildren<Enemy>();
+            GameObject ship = enemyComponent.gameObject;
             GameObject leadingPoint = newEnemy.GetComponentInChildren<SplineAnimate>().gameObject;
 
             ship.transform.position = position;
@@ -115,6 +116,7 @@ public class WaveManager : MonoBehaviour
             ship.transform.rotation = leadingPoint.transform.rotation;
 
             currentEnemies++;
+            enemyComponent.OnDeath += () => currentEnemies--;
 
             Debug.Log("Enemy Spawned: Count " + currentEnemies);
 

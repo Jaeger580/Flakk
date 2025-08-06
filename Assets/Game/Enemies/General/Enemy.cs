@@ -74,6 +74,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     protected List<GameObject> gunsList;
 
+    public delegate void EnemyDeathEvent();
+    public EnemyDeathEvent OnDeath;
+    public delegate void EnemyDamageEvent();
+    public EnemyDamageEvent OnDamage;
+
     protected virtual void Start()
     {
         currenthealth = maxHealth;
@@ -87,6 +92,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         foreach (GameObject gun in attackPoints)
             gunsList.Add(gun);
+    }
+
+    protected void OnDestroy()
+    {
+        OnDeath = null;
     }
 
     protected virtual void Update()
@@ -177,6 +187,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Debug.Log("Final Damage: " + finalDamage);
         
         currenthealth -= finalDamage;
+        OnDamage?.Invoke();
         OnHit();
 
         //Debug.Log(finalDamage + " final damage taken.");
@@ -244,6 +255,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         StopAllCoroutines();
 
         WaveManager.ReduceCount(transform.parent.gameObject);
+        OnDeath?.Invoke();
 
         Destroy(transform.parent.gameObject);
     }
