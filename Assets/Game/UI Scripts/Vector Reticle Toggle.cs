@@ -15,7 +15,7 @@ public class VectorReticleToggle : MonoBehaviour
     private Image dotImage;
     private void Start()
     {
-        dotImage = GetComponent<Image>();
+        dotImage = GetComponentInChildren<Image>();
 
         var enterListener = gameObject.AddComponent<GameEventListener>();
         enterListener.Events.Add(GunEnter);
