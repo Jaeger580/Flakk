@@ -1607,7 +1607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &831556920940339801
 Transform:
   m_ObjectHideFlags: 0
@@ -5833,7 +5833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7374400600223572005
 Transform:
   m_ObjectHideFlags: 0
@@ -7835,6 +7835,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9170858499426201412, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       insertIndex: -1
       addedObject: {fileID: 28681047606958725}
+    - targetCorrespondingSourceObject: {fileID: 7937127628342945535, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3558345582356945915}
   m_SourcePrefab: {fileID: 100100000, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
 --- !u!1 &1015118491093668174 stripped
 GameObject:
@@ -7868,6 +7871,26 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 8058851467359693319, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
   m_PrefabInstance: {fileID: 8165874762400808458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2266810701121837301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7937127628342945535, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+  m_PrefabInstance: {fileID: 8165874762400808458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3558345582356945915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2266810701121837301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0b855873b95ef4aadb116c112b622a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReticleCanvas: {fileID: 2266810701121837301}
+  GunEnter: {fileID: 0}
+  GunExit: {fileID: 0}
 --- !u!4 &2707657585797217702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6107034951514817452, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
