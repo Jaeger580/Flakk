@@ -70,6 +70,7 @@ public class BasicTutorialManager : MonoBehaviour
 [Serializable]
 public class Tutorials
 {
+    [TextArea(1,10)]
     public string text;
     
     // Highlight Focus targets if any
