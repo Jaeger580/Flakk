@@ -6,6 +6,20 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
+public partial class InputHandler : MonoBehaviour
+{
+    [Header("Tutorial Events")]
+    [SerializeField]
+    private GameEvent tutorialContinueInput;
+
+    public void TutorialContInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            tutorialContinueInput.Trigger();
+    }
+}
 
 public class BasicTutorialManager : MonoBehaviour
 {
@@ -23,8 +37,15 @@ public class BasicTutorialManager : MonoBehaviour
     private GameEvent nextTutorialEvent;
     private GameEventListener tutorialListener;
 
-    private void Start()
+    private bool tutorialActive = false;
+
+    private void Awake()
     {
+        tutorialQueue = new List<Tutorials>();
+    }
+
+    private void Start()
+    {   
         // Inititial an event listener for cycling through tutorials.
         tutorialListener = gameObject.AddComponent<GameEventListener>();
         tutorialListener = gameObject.AddComponent<GameEventListener>();
@@ -53,16 +74,46 @@ public class BasicTutorialManager : MonoBehaviour
 
     private void NextTutorial() 
     {
+        // Ignore input if there is no tutorial active at the moment.
+        if (!tutorialActive) 
+        {
+            return;
+        }
 
+        // if there are no more tutorials, close them.
+        else if (tutorialQueue.Count == 0) 
+        {
+            tutorialPanel.SetActive(false);
+            tutorialActive = false;
+            return;
+        }
+
+        objectiveText.text = tutorialQueue[0].text;
+        tutorialQueue.RemoveAt(0);
     }
 
     private void AddToQueue(TutorialSeries series) 
     {
+        // if this series has already been triggered, do nothing
+        if (series.IsTriggered()) 
+        {
+            return;
+        }
+
         List<Tutorials> tutorials = series.tutorials;
 
         foreach (Tutorials t in tutorials)
         {
             tutorialQueue.Add(t);
+        }
+
+        series.WasTriggered();
+
+        // if the tutorial isn't already on, start it.
+        if (!tutorialActive) 
+        {
+            tutorialPanel.SetActive(true);
+            tutorialActive = true;
         }
     }
 }
@@ -88,6 +139,11 @@ public class TutorialSeries
     public void WasTriggered() 
     {
         triggered = true;
+    }
+
+    public bool IsTriggered() 
+    {
+        return triggered;
     }
 }
 
