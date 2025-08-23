@@ -8,19 +8,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public partial class InputHandler : MonoBehaviour
-{
-    [Header("Tutorial Events")]
-    [SerializeField]
-    private GameEvent tutorialContinueInput;
-
-    public void TutorialContInput(InputAction.CallbackContext context)
-    {
-        if (context.started)
-            tutorialContinueInput.Trigger();
-    }
-}
-
 public class BasicTutorialManager : MonoBehaviour
 {
     [SerializeField]
@@ -38,6 +25,12 @@ public class BasicTutorialManager : MonoBehaviour
     private GameEventListener tutorialListener;
 
     private bool tutorialActive = false;
+    private bool tutorialSkipped = false;
+
+    [SerializeField]
+    private PlayerInput playerInput;
+    [SerializeField]
+    private GameObject skipScreen;
 
     private void Awake()
     {
@@ -70,6 +63,26 @@ public class BasicTutorialManager : MonoBehaviour
             // register
             series.targetEvent.RegisterListener(listener);
         }
+
+
+        Invoke(nameof(PresentChoice), 1f);
+
+    }
+
+    // Simple method for changing the player's cursor and control status until they choose to skip tutorial or not.
+    private void PresentChoice() 
+    {
+        skipScreen.SetActive(true);
+        UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+        playerInput.SwitchCurrentActionMap("UI");
+    }
+
+    // Close skip UI and return control to player.
+    public void EndChoice() 
+    {
+        skipScreen.SetActive(false);
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        playerInput.SwitchCurrentActionMap("Hub");
     }
 
     private void NextTutorial() 
@@ -95,7 +108,7 @@ public class BasicTutorialManager : MonoBehaviour
     private void AddToQueue(TutorialSeries series) 
     {
         // if this series has already been triggered, do nothing
-        if (series.IsTriggered()) 
+        if (tutorialSkipped || series.IsTriggered()) 
         {
             return;
         }
@@ -115,6 +128,24 @@ public class BasicTutorialManager : MonoBehaviour
             tutorialPanel.SetActive(true);
             tutorialActive = true;
         }
+    }
+
+    public void SkipTutorial()
+    {
+        tutorialSkipped = true;
+    }
+}
+
+public partial class InputHandler : MonoBehaviour
+{
+    [Header("Tutorial Events")]
+    [SerializeField]
+    private GameEvent tutorialContinueInput;
+
+    public void TutorialContInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            tutorialContinueInput.Trigger();
     }
 }
 
@@ -146,4 +177,3 @@ public class TutorialSeries
         return triggered;
     }
 }
-
