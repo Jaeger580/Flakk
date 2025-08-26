@@ -15,12 +15,17 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
     [SerializeField] private VisualTreeAsset upgradeReadoutAsset;
     private Dictionary<UpgradeSO, Button> upgradeEntries = new();
 
+    const string
+        FULLY_BOUGHT_TEXT = "COMPLETE",
+        INSUFFICIENT_CURRENCY_TEXT = "NOT ENOUGH CURRENCY";
+
+
     // Quick Initilizer to reset the bought status on upgrades when restarting game.
     private void Awake()
     {
         foreach (UpgradeSO upgrade in upgrades.items) 
         {
-            upgrade.bought = false;
+            upgrade.currentUpgradeIndex = 0;
         }
     }
 
@@ -33,23 +38,25 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
         var cost = readout.Q<Label>("UpgradeCost");
         var buyBtn = readout.Q<Button>("BuyButton");
 
-        name.text = upg.upgradeName;
-        desc.text = upg.upgradeDesc;
-        cost.text = $"{upg.cost:000}";
+        var nextUpgrade = upg.CheckNextUpgrade();
+
+        name.text = nextUpgrade?.upgradeName;
+        desc.text = nextUpgrade?.upgradeDesc;
+        cost.text = $"{nextUpgrade?.cost:000}";
         upgradeEntries.Add(upg, buyBtn);
         bool CheckBuyable()
         {
-            if (upg.bought)
+            if (nextUpgrade == null)
             {
                 buyBtn.SetEnabled(false);
-                buyBtn.text = "Bought";
+                buyBtn.text = FULLY_BOUGHT_TEXT;
                 return false;
             }
 
-            if (upg.cost > currentCurrency.Value)
+            if (nextUpgrade?.cost > currentCurrency.Value)
             {
                 buyBtn.SetEnabled(false);
-                buyBtn.text = "Not Enough Currency";
+                buyBtn.text = INSUFFICIENT_CURRENCY_TEXT;
                 return false;
             }
 
@@ -59,9 +66,7 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
         buyBtn.clicked += () =>
         {
-            currentCurrency.Value -= upg.cost;
-            currencyChangedEvent?.Trigger();
-            upg.IncreaseStat();
+            if (upg.BuyUpgrade(currentCurrency)) currencyChangedEvent?.Trigger();
 
             RecheckAllBtns();
             if (!CheckBuyable()) return;
@@ -77,17 +82,18 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
     {
         foreach(var (upg, btn) in upgradeEntries)
         {
-            if (upg.bought)
+            var nextUpg = upg.CheckNextUpgrade();
+            if (nextUpg == null)
             {
                 btn.SetEnabled(false);
-                btn.text = "Bought";
+                btn.text = FULLY_BOUGHT_TEXT;
                 continue;
             }
 
-            if (upg.cost > currentCurrency.Value)
+            if (nextUpg?.cost > currentCurrency.Value)
             {
                 btn.SetEnabled(false);
-                btn.text = "Not Enough Currency";
+                btn.text = INSUFFICIENT_CURRENCY_TEXT;
                 continue;
             }
             btn.SetEnabled(true);

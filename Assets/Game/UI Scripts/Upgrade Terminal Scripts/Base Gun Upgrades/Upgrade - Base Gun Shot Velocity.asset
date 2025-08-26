@@ -12,12 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1acf5ac8e1340539fe6ec10b7d98d8, type: 3}
   m_Name: Upgrade - Base Gun Shot Velocity
   m_EditorClassIdentifier: 
-  upgradeName: Shot Velocity Increase
-  upgradeDesc: Doubles shot velocity of the gun, theoretically making it easier to
-    land shots.
-  cost: 10
-  bought: 0
   statToIncrease: {fileID: 11400000, guid: ffc8f5447901c47a3bbe272158a11d4d, type: 2}
   initialStatValue: 1500
-  amtToAugmentBy: 2
-  augmentType: 1
+  currentUpgradeIndex: 0
+  upgrades:
+  - upgradeName: Shot Velocity Increase 1
+    upgradeDesc: Increases shot velocity by 25% of its initial value.
+    amtToAugmentBy: 375
+    augmentType: 0
+    cost: 5
+  - upgradeName: Shot Velocity Increase 2
+    upgradeDesc: Increases shot velocity by another 25% of its initial value.
+    amtToAugmentBy: 375
+    augmentType: 0
+    cost: 10
+  - upgradeName: Shot Velocity Increase 3
+    upgradeDesc: Increases shot velocity by 50% of its initial value.
+    amtToAugmentBy: 750
+    augmentType: 0
+    cost: 20
+  - upgradeName: Shot Velocity Increase 4
+    upgradeDesc: Increases shot velocity by 50% of its initial value.
+    amtToAugmentBy: 750
+    augmentType: 0
+    cost: 40
