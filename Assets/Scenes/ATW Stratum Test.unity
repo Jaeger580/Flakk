@@ -11452,6 +11452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorCount: 3
   floorText: {fileID: 183785214}
+  floorName: 
 --- !u!1 &665267570
 GameObject:
   m_ObjectHideFlags: 0
@@ -12990,6 +12991,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6154213115653627427, guid: bb406526bcf261a41a96ace20720d2ed, type: 3}
   m_PrefabInstance: {fileID: 1550064782}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &801834714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.250217
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 59.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 97.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532450216113318409, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895504544599098394, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
+      propertyPath: m_Name
+      value: Small Fighter 2.0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63553eba42aa2c3489b72d630be9ef08, type: 3}
 --- !u!1 &802726496
 GameObject:
   m_ObjectHideFlags: 0
@@ -16614,6 +16672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorCount: 1
   floorText: {fileID: 1420233787}
+  floorName: 
 --- !u!1001 &1068491945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26759,6 +26818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorCount: 2
   floorText: {fileID: 150583917}
+  floorName: 
 --- !u!1001 &1587931719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48120,3 +48180,4 @@ SceneRoots:
   - {fileID: 604969526}
   - {fileID: 1920472003}
   - {fileID: 845597586}
+  - {fileID: 801834714}
