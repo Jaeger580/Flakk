@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 using GeneralUtility.CombatSystem;
 using UnityEngine;
 
-abstract public class DestructablePart : MonoBehaviour, IDamageable
+abstract public class DestructablePart : Damageable<DestructablePart>
 {
     // Tracks the local health of the part that was hit, and then applies damage 
     [SerializeField]
@@ -38,11 +38,18 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
     [SerializeField]
     protected AudioSource partBreak;
 
-    public int MaxHealth => localHealth;
+    override public int MaxHealth => localHealth;
 
     protected bool debuffTriggered = false;
 
-    virtual public bool ApplyDamage(CombatPacket p)
+    override public System.Action OnDamage { get; set; }
+
+    virtual public void Start()
+    {
+        OnDamage = () => { };
+    }
+
+    override public bool ApplyDamage(CombatPacket p)
     {
         if (localHealth <= 0)
         {
@@ -60,6 +67,7 @@ abstract public class DestructablePart : MonoBehaviour, IDamageable
         var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
 
         localHealth -= finalDamage; //Apply that damage locally
+        OnDamage?.Invoke();
 
         //Debug.Log(finalDamage + " local damage taken.");
 

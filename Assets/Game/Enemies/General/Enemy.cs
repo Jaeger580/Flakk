@@ -10,16 +10,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using GeneralUtility.CombatSystem;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UIElements;
 
-public abstract class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : Damageable<Enemy>
 {
     [SerializeField]
     protected GameObject leadPoint;
     [SerializeField]
     protected int maxHealth;
+    override public int MaxHealth => maxHealth;
 
     [SerializeField]
     protected float attackRange;
@@ -67,8 +69,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     protected AnimationCurve rotateCurve;
 
-    public int MaxHealth => throw new System.NotImplementedException();
-
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
     [SerializeField]
@@ -76,13 +76,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public delegate void EnemyDeathEvent();
     public EnemyDeathEvent OnDeath;
-    public delegate void EnemyDamageEvent();
-    public EnemyDamageEvent OnDamage;
+    override public System.Action OnDamage { get; set; }
+
+    public GameEvent enemySpawnedEvent;
 
     protected virtual void Start()
     {
         currenthealth = maxHealth;
         fireRateTimer = fireRate;
+
+        OnDamage = () => { };
 
         permMaxSpeed = leadPoint.GetComponent<SplineAnimate>().MaxSpeed;
 
@@ -92,6 +95,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         foreach (GameObject gun in attackPoints)
             gunsList.Add(gun);
+
+        enemySpawnedEvent?.Trigger();
     }
 
     protected void OnDestroy()
@@ -179,7 +184,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     // Damage should likely be moved to another script for
     // systems involving multiple hitzones and complex enemies.
-    public virtual bool ApplyDamage(CombatPacket packet)
+    override public bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);

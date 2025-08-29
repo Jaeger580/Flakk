@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using GeneralUtility.CombatSystem;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,12 @@ public class TargettingBox : MonoBehaviour
     [SerializeField] private float rotationDuration;
     [SerializeField] private float rotationDelay;
 
+    [SerializeField] private AnimationCurve visibilityCurve;
+    [Tooltip("Lock-On Zone multiplier that represents area where enemies should be visible.")]
+    [SerializeField] private float visibilityAsLockonMultiplier = 2f;
+    [Tooltip("Threshold percentage of the screen away from the lockon threshold where the reticle disappears.")]
+    [SerializeField] private float visibilityThreshold = 0.135f;
+    private float visibilityMag;
     [SerializeField] private AnimationCurve lockonCurve;
     [SerializeField] private float lockonDuration;
     [SerializeField] private Vector2 lockonZonePercent;
@@ -21,25 +29,32 @@ public class TargettingBox : MonoBehaviour
     [ColorUsage(true, true)]
     [SerializeField] private Color damagedColor;
 
+    [SerializeField] private GameEvent gunEntered, gunExited;
+
     private const float
+        HIDDEN_THRESHOLD = 0.6f,
         LOCKED_OFF_THRESHOLD = 1f,
         LOCKED_ON_THRESHOLD = 1.3f,
         DAMAGED_THRESHOLD = 4f;
     private const float
         LOCKED_OFF_POWER = 0.4f,
         DAMAGED_POWER = 4f;
+    private const float
+        NEAR_AO_CLIP = 0.05f,
+        FAR_AO_CLIP = 0.25f;
 
     [Header("References")]
     [SerializeField] private RectTransform rect;
-    [SerializeField] private Image rend;
-    [SerializeField] private Enemy enemy;
-    private Material mat;
-    private Camera gunCam;
+    [SerializeField] private SpriteRenderer rend;
+    [SerializeField] private Damageable target;
+    private MaterialPropertyBlock mat;
+    [SerializeField] private Camera gunCam;
 
     private int radiusScaleID = Shader.PropertyToID("_Radial_Scale"),
         outerColorID = Shader.PropertyToID("_Outer_Color"),
         radialColorID = Shader.PropertyToID("_Radial_Color"),
-        radialPowerID = Shader.PropertyToID("_Radial_Power");
+        radialPowerID = Shader.PropertyToID("_Radial_Power"),
+        aoClipID = Shader.PropertyToID("_AO_Clip");
 
     private Coroutine rotationRoutine;
     private Coroutine lockOnRoutine;
@@ -48,11 +63,20 @@ public class TargettingBox : MonoBehaviour
     //misc vals
     private Vector2 screenDims;
     private bool lockedOn;
+    static private bool inGun;
+
+    private void OnDestroy()
+    {
+        mat.SetFloat(aoClipID, FAR_AO_CLIP);
+        mat.SetFloat(radiusScaleID, LOCKED_OFF_THRESHOLD);
+        mat.SetColor(outerColorID, og_color);
+    }
 
     private void Start()
     {
+        mat = new();
         if (rend != null && rend.material != null)
-            mat = rend.material;
+            rend.GetPropertyBlock(mat);
         rotationRoutine = StartCoroutine(RotateBox());
 
         if (gunCam == null)
@@ -60,21 +84,50 @@ public class TargettingBox : MonoBehaviour
             gunCam = Camera.main;
         }
 
-        enemy.OnDamage += Damage;
+        visibilityMag = (lockonZonePercent).magnitude * visibilityAsLockonMultiplier;
+
+        target.OnDamage += Damage;
 
         screenDims = new Vector2(Screen.width, Screen.height);
         mat.SetFloat(radiusScaleID, LOCKED_OFF_THRESHOLD);
         mat.SetColor(outerColorID, og_color);
+        rend.SetPropertyBlock(mat);
+
+        var gunEnterListener = gameObject.AddComponent<GameEventListener>();
+        gunEnterListener.Events.Add(gunEntered);
+        gunEnterListener.Response = new();
+        gunEnterListener.Response.AddListener(() => inGun = true);
+        gunEntered.RegisterListener(gunEnterListener);
+
+        var gunExitListener = gameObject.AddComponent<GameEventListener>();
+        gunExitListener.Events.Add(gunExited);
+        gunExitListener.Response = new();
+        gunExitListener.Response.AddListener(() => inGun = false);
+        gunExited.RegisterListener(gunExitListener);
     }
 
     private void Update()
     {
+        if (!inGun)
+        {
+            mat.SetFloat(radiusScaleID, HIDDEN_THRESHOLD);
+            rend.SetPropertyBlock(mat);
+            return;
+        }
+        else if (mat.GetFloat(radiusScaleID) < LOCKED_OFF_THRESHOLD)
+        {
+            mat.SetFloat(radiusScaleID, LOCKED_OFF_THRESHOLD);
+            rend.SetPropertyBlock(mat);
+        }
+
         Vector3 objectScreenPosition = gunCam.WorldToScreenPoint(transform.position);
         //print($"Ratio: {objectScreenPosition.x / Screen.width}/{objectScreenPosition.y / Screen.height}");
 
         bool inDeadZone =
             Mathf.Abs((objectScreenPosition.x / screenDims.x) - .5f) <= lockonZonePercent.x &&
             Mathf.Abs((objectScreenPosition.y / screenDims.y) - .5f) <= lockonZonePercent.y;
+
+        float actualMag = ((objectScreenPosition / screenDims) - (Vector2.one * 0.5f)).magnitude;
 
         if (!lockedOn && inDeadZone)
         {
@@ -83,6 +136,12 @@ public class TargettingBox : MonoBehaviour
         else if (lockedOn && !inDeadZone)
         {
             LockOff();
+        }
+        else if (!lockedOn && actualMag >= visibilityMag)
+        {
+            //print($"{actualMag} - {lockonMaxMag} = {(actualMag - lockonMaxMag)} => percent = {(actualMag - lockonMaxMag) / visibleThrehold}");
+            mat.SetFloat(aoClipID, Mathf.Lerp(NEAR_AO_CLIP, FAR_AO_CLIP, visibilityCurve.Evaluate(actualMag - visibilityMag) / visibilityThreshold));
+            rend.SetPropertyBlock(mat);
         }
     }
 
@@ -153,6 +212,7 @@ public class TargettingBox : MonoBehaviour
         Action<float> lockonAction = (float percent) => {
             rect.localEulerAngles = Vector3.Lerp(og_angles, Vector3.zero, percent);
             mat.SetFloat(radiusScaleID, Mathf.Lerp(LOCKED_OFF_THRESHOLD, LOCKED_ON_THRESHOLD, percent));
+            rend.SetPropertyBlock(mat);
         };
         yield return GenericRoutine(lockonDuration, lockonCurve, lockonAction);
         //float journey = 0f;
@@ -176,6 +236,7 @@ public class TargettingBox : MonoBehaviour
 
         Action<float> lockoffAction = (float percent) => {
             mat.SetFloat(radiusScaleID, Mathf.Lerp(LOCKED_ON_THRESHOLD, LOCKED_OFF_THRESHOLD, percent));
+            rend.SetPropertyBlock(mat);
         };
 
         yield return GenericRoutine(lockonDuration, lockonCurve, lockoffAction);
@@ -198,6 +259,7 @@ public class TargettingBox : MonoBehaviour
     {
         Action<float> damageAction = (float percent) => {
             mat.SetVector(outerColorID, Color.LerpUnclamped(damagedColor, og_color, percent));
+            rend.SetPropertyBlock(mat);
         };
         yield return GenericRoutine(damagedDuration, damagedCurve, damageAction);
 
