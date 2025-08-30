@@ -152,7 +152,7 @@ namespace GeneralUtility
 
                         SetSensitivity(sliderXHub.name, rounded);
                         SetSensitivity(sliderYHub.name, rounded);
-                        print($"XYHUB SENS: {rounded}");
+                        //print($"XYHUB SENS: {rounded}");
                     }
                 }
             }
@@ -161,7 +161,7 @@ namespace GeneralUtility
             {//Parameter: evt is an object that holds data about the recent slider movement
                 PlayerPrefs.SetFloat(name, val);
                 sensitivityChangedEvent?.Trigger();
-                print($"SENS: {name}|{val}");
+                //print($"SENS: {name}|{val}");
             }
 
             public void DefaultSensitivity()

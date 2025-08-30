@@ -1,11 +1,13 @@
-﻿using GeneralUtility.EditorQoL;
+﻿using GeneralUtility.CombatSystem;
+using GeneralUtility.EditorQoL;
 using GeneralUtility.GameEventSystem;
 using GeneralUtility.VariableObject;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class MothershipHealth : MonoBehaviour, IDamagable
+public class MothershipHealth : Damageable<MothershipHealth>
 {
     [SerializeField] private IntReference maxHealth, currentHealth;
     [SerializeField] private GameEvent healthChangeEvent, deathEvent, winEvent;
@@ -21,6 +23,10 @@ public class MothershipHealth : MonoBehaviour, IDamagable
     private TMP_Text heatText;
     [SerializeField]
     private TMP_Text hullText;
+
+    override public int MaxHealth => maxHealth.Value;
+
+    override public Action OnDamage { get; set; }
 
     private void Start()
     {
@@ -70,9 +76,16 @@ public class MothershipHealth : MonoBehaviour, IDamagable
         healthChangeEvent?.Trigger();
     }
 
-    public void TakeDamage(int _damage)
+    public void ApplyDamage(int _damage)
     {
-        currentHeat.Value += _damage;
+        CombatPacket p = new();
+        p.SetDamage(_damage, this);
+        ApplyDamage(p);
+    }
+
+    override public bool ApplyDamage(CombatPacket p)
+    {
+        currentHeat.Value += p.Damage;
         if (currentHeat.Value > maxHeat.Value) currentHeat.Value = maxHeat.Value;
 
         currentCoolDown = 0f;
@@ -83,7 +96,7 @@ public class MothershipHealth : MonoBehaviour, IDamagable
         float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
 
         heatText.text = "HEAT: " + currentHeatPercent + "%";
-
+        return true;
         // Old health system before over heat system:
         //currentHealth.Value -= _damage;
         //if (currentHealth.Value <= 0) currentHealth.Value = 0;

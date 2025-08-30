@@ -10,16 +10,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using GeneralUtility.CombatSystem;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UIElements;
 
-public abstract class Enemy : MonoBehaviour, IDamageable
+public abstract class Enemy : Damageable<Enemy>
 {
     [SerializeField]
     protected GameObject leadPoint;
     [SerializeField]
     protected int maxHealth;
+    override public int MaxHealth => maxHealth;
 
     [SerializeField]
     protected float attackRange;
@@ -67,17 +69,23 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField]
     protected AnimationCurve rotateCurve;
 
-    public int MaxHealth => throw new System.NotImplementedException();
-
     //[SerializeField]
     //protected float moveSpeed;    // Need to decide how moveSpeed works with how the leadPoint follows splines
     [SerializeField]
     protected List<GameObject> gunsList;
 
+    public delegate void EnemyDeathEvent();
+    public EnemyDeathEvent OnDeath;
+    override public System.Action OnDamage { get; set; }
+
+    public GameEvent enemySpawnedEvent;
+
     protected virtual void Start()
     {
         currenthealth = maxHealth;
         fireRateTimer = fireRate;
+
+        OnDamage = () => { };
 
         permMaxSpeed = leadPoint.GetComponent<SplineAnimate>().MaxSpeed;
 
@@ -87,6 +95,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         foreach (GameObject gun in attackPoints)
             gunsList.Add(gun);
+
+        enemySpawnedEvent?.Trigger();
+    }
+
+    protected void OnDestroy()
+    {
+        OnDeath = null;
     }
 
     protected virtual void Update()
@@ -169,7 +184,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     // Damage should likely be moved to another script for
     // systems involving multiple hitzones and complex enemies.
-    public virtual bool ApplyDamage(CombatPacket packet)
+    override public bool ApplyDamage(CombatPacket packet)
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
@@ -177,6 +192,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Debug.Log("Final Damage: " + finalDamage);
         
         currenthealth -= finalDamage;
+        OnDamage?.Invoke();
         OnHit();
 
         //Debug.Log(finalDamage + " final damage taken.");
@@ -244,6 +260,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         StopAllCoroutines();
 
         WaveManager.ReduceCount(transform.parent.gameObject);
+        OnDeath?.Invoke();
 
         Destroy(transform.parent.gameObject);
     }

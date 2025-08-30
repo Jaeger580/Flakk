@@ -13,7 +13,7 @@ public class BombTutorial : EnemyProjectile
         if (other.transform.gameObject.layer == targetLayer)
         {
             //Debug.Log(damage + " damage dealt to weakpoint");
-            other.gameObject.GetComponentInParent<MothershipHealth>().TakeDamage(damage);
+            other.gameObject.GetComponentInParent<MothershipHealth>().ApplyDamage(damage);
 
             tutorialTrigger.Trigger();
 

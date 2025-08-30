@@ -125,7 +125,7 @@ public class MouseLook : MonoBehaviour
     {
         yield return null;
         Sensitivity = new Vector2(PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_X_SENS_HUB, 1f), PlayerPrefs.GetFloat(GeneralUtility.MagicStrings.OPTIONS_Y_SENS_HUB, 1f));
-        print($"Hub Sens Update: {Sensitivity} | {sensitivity}");
+        //print($"Hub Sens Update: {Sensitivity} | {sensitivity}");
     }
 
     public Vector2 Sensitivity
