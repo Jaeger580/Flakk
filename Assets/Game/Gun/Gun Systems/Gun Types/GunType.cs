@@ -431,9 +431,9 @@ public abstract class GunType : MonoBehaviour
     #region Misc. Mechanics
     public void Zoom(bool zoomEnter)
     {
-        vCam.m_Lens.FieldOfView = zoomEnter ? 36f : 52f;
+        vCam.m_Lens.FieldOfView = zoomEnter ? 30f : 59f;
         Vector3 camPos = gunCamera.transform.localPosition;
-        gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + (zoomEnter ? 2f : -2f));
+        //gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + (zoomEnter ? 2f : -2f));
     }
 
     protected void SwapMag()

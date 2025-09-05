@@ -38,9 +38,12 @@ public class TrueReticle : MonoBehaviour
 
     private void Update()
     {
-        if (isActive) 
+
+        if (isActive)
         {
-            var screenPos = Camera.main.WorldToScreenPoint(targetPositionObject.transform.position);
+            var targetPos = targetPositionObject.transform.position;
+            targetPos.y += 5f;
+            var screenPos = Camera.main.WorldToScreenPoint(targetPos);
 
             var recticlePos = WholeReticle.transform.position;
 
