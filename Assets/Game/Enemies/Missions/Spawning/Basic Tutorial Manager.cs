@@ -127,6 +127,8 @@ public class BasicTutorialManager : MonoBehaviour
         {
             tutorialPanel.SetActive(true);
             tutorialActive = true;
+            //Actually calls the first tutorial to appear
+            NextTutorial();
         }
     }
 

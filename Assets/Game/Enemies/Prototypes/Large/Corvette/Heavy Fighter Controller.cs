@@ -31,6 +31,8 @@ public class HeavyFighterController : Enemy
             leftGunsList.Add(gun);
         foreach (GameObject gun in rightGuns)
             rightGunsList.Add(gun);
+
+        enemySpawnedEvent?.Trigger();
     }
 
     protected override void FixedUpdate()
