@@ -3577,6 +3577,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 6675e747a5140534da425deb005c3285, type: 2}
+        m_TargetAssemblyTypeName: GeneralUtility.GameEventSystem.GameEvent, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &292707271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13744,7 +13756,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -23543,15 +23555,27 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: da8196fdcea6a624eb962219baa27386, type: 2}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].targetEvent
       value: 
-      objectReference: {fileID: 11400000, guid: da8196fdcea6a624eb962219baa27386, type: 2}
+      objectReference: {fileID: 11400000, guid: 6675e747a5140534da425deb005c3285, type: 2}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[1].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: c5daef0b3b0fb43af8731dcac7baceb5, type: 2}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[2].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a4d06bd427584092a872cedb82a9dfb, type: 2}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[3].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: d233ced7a9c5f451e80b6706566d0b27, type: 2}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[1].tutorials.Array.size
@@ -23559,23 +23583,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[2].tutorials.Array.size
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[3].tutorials.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.data[0].text
-      value: Ammo is a thing
+      value: Use WASD to walk around, SHIFT' to run, and SPACE to jump.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].text
-      value: You should load your ammo.
+      value: Press E on the terminals to interact with them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].text
+      value: Using the shop terminal will allow you to buy ammo, which you can carry
+        over to either stock to load the gun's magazines.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[3].text
+      value: Using the contract terminal will allow you to start a mission.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[1].tutorials.Array.data[0].text
-      value: Bombers are a thing.
+      value: Fighters are the most common and basic enemy. They rely on their mobility
+        above all else, but can not sustain much damage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[1].tutorials.Array.data[1].text
+      value: You should load your ammo.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[2].tutorials.Array.data[0].text
-      value: Fighters are a thing
+      value: Bombers are heavily armored enemies that make bombing runs as the pass
+        over a target.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[2].tutorials.Array.data[1].text
+      value: If you do enough damage to a bomber as it is approaching, it will stop
+        its attack until it makes another run. The bombers lights will be yellow
+        when it is vulnerable.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[3].tutorials.Array.data[0].text
+      value: Corvettes are the most dangerous foe you face. The unleash barrages
+        of gun fire from a distance, and are difficult to take down.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[3].tutorials.Array.data[1].text
+      value: To bring down a corvette, you must focus on destroying different parts
+        of the vessel. These include guns, engines, and the bridge.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30750,6 +30809,10 @@ PrefabInstance:
     - target: {fileID: 7992663913556779879, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792345162564705112, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_text
+      value: Filler Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
