@@ -43,7 +43,7 @@ public class Door : MonoBehaviour
         {
             //doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, new Vector3(colliderPos.position.x, 3, colliderPos.position.z), finalSpeed);
 
-            doorModel.transform.position = Vector3.MoveTowards(modelPos.position, new Vector3(modelPos.position.x, 3, modelPos.position.z), finalSpeed);
+            doorModel.transform.position = Vector3.MoveTowards(modelPos.position, new Vector3(modelPos.position.x, 10, modelPos.position.z), finalSpeed);
         }
         else if(!nearDoor) 
         {
