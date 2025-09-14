@@ -74,6 +74,12 @@ public class MothershipHealth : Damageable<MothershipHealth>
         currentHealth.Value = maxHealth.Value;
         currentHeat.Value = 0;
         healthChangeEvent?.Trigger();
+
+        // May want to change currentHeatPercent into a private variable since it is used so often.
+        float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
+        heatText.text = "HEAT: " + currentHeatPercent + "%";
+        hullText.text = "HULL: " + currentHealth.Value + "%";
+
     }
 
     public void ApplyDamage(int _damage)

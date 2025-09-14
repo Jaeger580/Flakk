@@ -12359,7 +12359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.5882353, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12848,7 +12848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1141552163528023790, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 1141552163528023790, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_Color.r
@@ -29646,6 +29646,14 @@ PrefabInstance:
       propertyPath: hullText
       value: 
       objectReference: {fileID: 2029410345}
+    - target: {fileID: 4711749616878997094, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+      propertyPath: coolDownRate
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711749616878997094, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+      propertyPath: coolDownDelay
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
