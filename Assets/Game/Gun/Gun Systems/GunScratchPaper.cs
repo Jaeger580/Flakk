@@ -418,8 +418,12 @@ abstract public class BaseGunAmmo : ImpactBehavior
     protected void OnCollisionEnter(Collision collision)
     {
         var collided = collision.gameObject;
-        if (!((affectableMask & 1 << collided.layer) > 0)) return;      //If it's not on the right layer
-
+        if (!((affectableMask & 1 << collided.layer) > 0))
+        {
+            CombatPacket blank = new();
+            OnImpact(blank);
+            return;      //If it's not on the right layer
+        }
         if (!collided.TryGetComponent<IDamageable>(out var d)) return;  //If it's not damageable
 
         CombatPacket p = new();

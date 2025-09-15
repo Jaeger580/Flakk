@@ -15,9 +15,8 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
-        if (!TriggerEffect(p)) return;
-
         Destroy(this.gameObject);
+
 
         //do vfx/sfx and other cleanup IF it lands correctly
         if (vfxPrefab != null) 
@@ -27,8 +26,9 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
         }
 
         //vfxPrefab.GetComponent<ParticleSystem>().Play();
-        
-        
+
+        if (!TriggerEffect(p)) return;
+
         // choose a random clip and play it.
         int coinFlip = Random.Range(0, sfxOnImpact.Length);
         AudioSource audioSource = this.GetComponent<AudioSource>();
