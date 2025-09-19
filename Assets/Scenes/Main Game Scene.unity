@@ -17464,6 +17464,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7568586313863773626, guid: 35a9c5af0492f444f8d7e1933170f42c, type: 3}
+      propertyPath: exitMonitorEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: ab00d8e276bcc4e929b1cf488688f298, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30916,6 +30920,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 290473895424421710, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: inputEvExitGun
+      value: 
+      objectReference: {fileID: 11400000, guid: ab00d8e276bcc4e929b1cf488688f298, type: 2}
+    - target: {fileID: 290473895424421710, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: tutorialContinueInput
       value: 
       objectReference: {fileID: 11400000, guid: da8196fdcea6a624eb962219baa27386, type: 2}
@@ -30971,13 +30979,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5016058780351955179, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: inputEVPause
+      value: 
+      objectReference: {fileID: 11400000, guid: 37963cb5e31014a7eb9a1ffd41764096, type: 2}
     - target: {fileID: 5033008627668251323, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: cameras.Array.data[0]
       value: 
       objectReference: {fileID: 1609654400}
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.data[26].m_ActionId
@@ -30988,8 +31000,16 @@ PrefabInstance:
       value: Gun/Confirm[/Keyboard/backquote]
       objectReference: {fileID: 0}
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.data[26].m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[27].m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.data[26].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -31002,6 +31022,22 @@ PrefabInstance:
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.data[26].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UICancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PausePressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[22].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UICancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+      propertyPath: m_ActionEvents.Array.data[24].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UICancel
       objectReference: {fileID: 0}
     - target: {fileID: 6692938035077926624, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
       propertyPath: m_ActionEvents.Array.data[25].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
