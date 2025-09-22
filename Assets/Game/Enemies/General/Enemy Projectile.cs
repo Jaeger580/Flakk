@@ -23,7 +23,7 @@ public abstract class EnemyProjectile : MonoBehaviour
         if (other.transform.gameObject.layer == targetLayer) 
         {
             //Debug.Log(damage + " damage dealt to weakpoint");
-            other.gameObject.GetComponentInParent<MothershipHealth>().TakeDamage(damage);
+            other.gameObject.GetComponentInParent<MothershipHealth>().ApplyDamage(damage);
             Destroy(this.gameObject);
         }
     }

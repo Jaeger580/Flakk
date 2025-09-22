@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GeneralUtility
@@ -25,9 +26,19 @@ namespace GeneralUtility
 
         public interface IDamageable
         {
-            public bool ApplyDamage(CombatPacket combatPacket);
-            public int MaxHealth { get; }
+            abstract public int MaxHealth { get; }
+            abstract System.Action OnDamage { set; get; }
+            abstract public bool ApplyDamage(CombatPacket combatPacket);
         }
+
+        abstract public class Damageable : MonoBehaviour, IDamageable
+        {
+            abstract public int MaxHealth { get; }
+            abstract public Action OnDamage { get; set; }
+            abstract public bool ApplyDamage(CombatPacket combatPacket);
+        }
+
+        abstract public class Damageable<T> : Damageable where T : MonoBehaviour { }
 
         public class CombatPacket
         {

@@ -12,11 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1acf5ac8e1340539fe6ec10b7d98d8, type: 3}
   m_Name: Upgrade - Base Gun Reload Rate Increase
   m_EditorClassIdentifier: 
-  upgradeName: Reload Rate Increase
-  upgradeDesc: Doubles reload rate of both magazines.
-  cost: 10
-  bought: 0
   statToIncrease: {fileID: 11400000, guid: 3a4105a351d7a41da8d7daa6ca235534, type: 2}
   initialStatValue: 2
-  amtToAugmentBy: 2
-  augmentType: 1
+  currentUpgradeIndex: 0
+  upgrades:
+  - upgradeName: Reload Rate Increase 1
+    upgradeDesc: Increases reload rate from 2 bullets per second to 2.5 bullets per
+      second.
+    amtToAugmentBy: 0.5
+    augmentType: 0
+    cost: 5
+  - upgradeName: Reload Rate Increase 2
+    upgradeDesc: Increases reload rate by another 0.5 bullets per second.
+    amtToAugmentBy: 0.5
+    augmentType: 0
+    cost: 10
+  - upgradeName: Reload Rate Increase 3
+    upgradeDesc: Further increases reload rate by 1 bullet per second.
+    amtToAugmentBy: 1
+    augmentType: 0
+    cost: 20
+  - upgradeName: Reload Rate Increase 4
+    upgradeDesc: Further increases reload rate by 1 bullet per second.
+    amtToAugmentBy: 1
+    augmentType: 0
+    cost: 40

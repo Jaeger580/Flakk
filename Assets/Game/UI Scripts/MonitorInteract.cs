@@ -26,14 +26,13 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         playInput = FindObjectOfType<PlayerInput>();
         doc = GetComponent<UIDocument>();
         mapper = GetComponent<UI_InputMapper>();
-
         var exitMonitorListener = gameObject.AddComponent<GameEventListener>();
         exitMonitorListener.Events.Add(inputEventExitMonitor);
         exitMonitorListener.Response = new();
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
         inputEventExitMonitor.RegisterListener(exitMonitorListener);
 
-        foreach(var refresh in GetComponents<IUIScreenRefresh>())
+        foreach (var refresh in GetComponents<IUIScreenRefresh>())
         {
             toRefresh.Add(refresh);
         }
@@ -84,8 +83,9 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
     private void TryExitMonitor()
     {
+        //Debug.Log("AAAA", gameObject);
         if (!monitorEngaged) return;
-
+        //Debug.Log("Disengaging", gameObject);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
         var hubInput = playInput.actions.FindActionMap("Hub");

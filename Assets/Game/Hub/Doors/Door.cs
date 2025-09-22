@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -43,7 +44,7 @@ public class Door : MonoBehaviour
         {
             //doorCollider.transform.position = Vector3.MoveTowards(colliderPos.position, new Vector3(colliderPos.position.x, 3, colliderPos.position.z), finalSpeed);
 
-            doorModel.transform.position = Vector3.MoveTowards(modelPos.position, new Vector3(modelPos.position.x, 3, modelPos.position.z), finalSpeed);
+            doorModel.transform.position = Vector3.MoveTowards(modelPos.position, new Vector3(modelPos.position.x, modelStart.y + 5, modelPos.position.z), finalSpeed);
         }
         else if(!nearDoor) 
         {

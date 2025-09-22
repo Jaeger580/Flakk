@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1acf5ac8e1340539fe6ec10b7d98d8, type: 3}
   m_Name: Upgrade - Base Gun Mag Capacity Increase
   m_EditorClassIdentifier: 
-  upgradeName: Mag Capacity Increase
-  upgradeDesc: Doubles capacity of both magazines.
-  cost: 10
-  bought: 0
   statToIncrease: {fileID: 11400000, guid: cbcb9dca5804c41a8aae3af93a0b962f, type: 2}
   initialStatValue: 20
-  amtToAugmentBy: 2
-  augmentType: 1
+  currentUpgradeIndex: 0
+  upgrades:
+  - upgradeName: Mag Size Increase 1
+    upgradeDesc: Increases magazine size by 4.
+    amtToAugmentBy: 4
+    augmentType: 0
+    cost: 5
+  - upgradeName: Mag Size Increase 2
+    upgradeDesc: Increases magazine size by 6.
+    amtToAugmentBy: 6
+    augmentType: 0
+    cost: 10
+  - upgradeName: Mag Size Increase 3
+    upgradeDesc: Increases magazine size by 10.
+    amtToAugmentBy: 10
+    augmentType: 0
+    cost: 20
+  - upgradeName: Mag Size Increase 4
+    upgradeDesc: Increases magazine size by another 10.
+    amtToAugmentBy: 10
+    augmentType: 0
+    cost: 30

@@ -32,6 +32,11 @@ public class TruePauseHandler : MonoBehaviour
     private Button btnResume, btnOptions, btnReloadScene, btnQuit;
     private Button btnOptionsExit;
 
+    [Header("Other")]
+    [SerializeField] private PlayerInput playerInput;
+    private InputActionMap lastActionMap;
+
+
     private void Awake()
     {
         var pauseListener = gameObject.AddComponent<GameEventListener>();
@@ -60,6 +65,7 @@ public class TruePauseHandler : MonoBehaviour
 
         HandleUnpause();
     }
+
     private void Resume()
     {
         HandleUnpause();
@@ -112,6 +118,10 @@ public class TruePauseHandler : MonoBehaviour
 
         UI_Utility.ToggleContainer(pauseScreen, true);
 
+        // Added to stop player from performing actions while paused.
+        lastActionMap = playerInput.currentActionMap;
+        playerInput.SwitchCurrentActionMap("UI");
+
         gamePausedEvent?.Trigger();
     }
 
@@ -120,6 +130,12 @@ public class TruePauseHandler : MonoBehaviour
         isPaused.Value = false;
         Time.timeScale = unpausedTimeScale.Value > 0f ? unpausedTimeScale.Value : 1f;
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+
+        // Added to stop player from performing actions while paused.
+        if (lastActionMap != null) 
+        {
+            playerInput.SwitchCurrentActionMap(lastActionMap.name);
+        }
 
         UI_Utility.ToggleContainer(pauseScreen, false);
         UI_Utility.ToggleContainer(optionsScreen, false);
