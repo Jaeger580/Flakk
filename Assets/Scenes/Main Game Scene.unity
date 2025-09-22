@@ -23764,7 +23764,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: da8196fdcea6a624eb962219baa27386, type: 2}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].targetEvent
@@ -23783,6 +23783,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d233ced7a9c5f451e80b6706566d0b27, type: 2}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].targetEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -23796,6 +23800,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[3].tutorials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
@@ -23844,6 +23852,24 @@ PrefabInstance:
       propertyPath: tutorialList.Array.data[3].tutorials.Array.data[1].text
       value: To bring down a corvette, you must focus on destroying different parts
         of the vessel. These include guns, engines, and the bridge.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[0].text
+      value: 'While in the gun, use your mouse to aim.
+
+        Press Left Click
+        to Shoot.
+
+        Hold R to reload.
+
+        Press Tab to swap magazines.
+
+        Hold
+        W / S to raise / lower the gun.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[1].text
+      value: Bullets have travel time, so make sure you lead your shots!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
