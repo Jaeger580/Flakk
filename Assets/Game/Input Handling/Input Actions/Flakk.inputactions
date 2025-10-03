@@ -366,7 +366,7 @@
                 {
                     "name": "",
                     "id": "02dc2ec3-80f7-4082-9750-9af90f358cd6",
-                    "path": "<Keyboard>/backquote",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -620,7 +620,7 @@
                 {
                     "name": "",
                     "id": "b28d51ef-fa0b-459d-a1cc-fa31aca03bb8",
-                    "path": "<Keyboard>/backquote",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -720,6 +720,15 @@
                     "type": "PassThrough",
                     "id": "06aee11b-1c3a-40ce-b70c-83a2f9f60451",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "f0f6a38e-c155-49f6-abd1-8319d65cad1c",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -1152,6 +1161,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34de5ed2-aaaf-40e2-9b62-2fe6c8c5fa0f",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Confirm",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
