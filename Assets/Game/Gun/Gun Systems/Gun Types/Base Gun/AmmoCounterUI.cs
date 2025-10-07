@@ -44,8 +44,9 @@ public class AmmoCounterUI : MonoBehaviour
 
     private void HandleAmmoChange(float newAmmo, float maxAmmo, TMP_Text ammoElement, Image ammoBar)
     {
-        ammoElement.text = $"{newAmmo}/{maxAmmo}";
-        if(ammoBar != null)
+        //ammoElement.text = $"{newAmmo}/{maxAmmo}";
+        ammoElement.text = $"{newAmmo}";
+        if (ammoBar != null)
             ammoBar.fillAmount = newAmmo / maxAmmo;
     }
 

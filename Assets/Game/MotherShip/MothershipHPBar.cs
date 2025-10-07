@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MothershipHPBar : MonoBehaviour
 {
     [SerializeField] private GameEvent healthChangeEvent;
-    [SerializeField] private Image healthBar;
+    [SerializeField] private Image healthBarOne, healthBarTwo;
     [SerializeField] private IntReference maxHealth, currentHealth;
 
     private IEnumerator Start()
@@ -25,6 +25,7 @@ public class MothershipHPBar : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        healthBar.fillAmount = (float)currentHealth.Value / maxHealth.Value;
+        healthBarOne.fillAmount = (float)currentHealth.Value / maxHealth.Value;
+        healthBarTwo.fillAmount = (float)currentHealth.Value / maxHealth.Value;
     }
 }
