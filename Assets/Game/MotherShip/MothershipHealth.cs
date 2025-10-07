@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MothershipHealth : Damageable<MothershipHealth>
 {
@@ -23,6 +24,8 @@ public class MothershipHealth : Damageable<MothershipHealth>
     private TMP_Text heatText;
     [SerializeField]
     private TMP_Text hullText;
+    [SerializeField]
+    private Image heatBar;
 
     override public int MaxHealth => maxHealth.Value;
 
@@ -78,6 +81,8 @@ public class MothershipHealth : Damageable<MothershipHealth>
         // May want to change currentHeatPercent into a private variable since it is used so often.
         float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
         heatText.text = "HEAT: " + currentHeatPercent + "%";
+        heatBar.fillAmount = currentHeatPercent / 100f;
+
         hullText.text = "HULL: " + currentHealth.Value + "%";
 
     }
@@ -102,6 +107,8 @@ public class MothershipHealth : Damageable<MothershipHealth>
         float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
 
         heatText.text = "HEAT: " + currentHeatPercent + "%";
+        heatBar.fillAmount = currentHeatPercent / 100f;
+
         return true;
         // Old health system before over heat system:
         //currentHealth.Value -= _damage;
@@ -160,6 +167,7 @@ public class MothershipHealth : Damageable<MothershipHealth>
 
                 float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
                 heatText.text = "HEAT: " + currentHeatPercent + "%";
+                heatBar.fillAmount = currentHeatPercent / 100f;
 
                 yield return new WaitForSeconds(heatCoolDownRate);
             }
