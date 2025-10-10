@@ -51,16 +51,18 @@ public class TrueReticle : MonoBehaviour
         }
     }
 
+
+    // Commented these out since their functions are being moved to animations
     private void HideReticle()
     {
-        ReticleCanvas.SetActive(false);
-        isActive = false;
+        //ReticleCanvas.SetActive(false);
+        //isActive = false;
     }
 
     private void ShowReticle()
     {
-        ReticleCanvas.SetActive(true);
-        isActive = true;
+        //ReticleCanvas.SetActive(true);
+        //isActive = true;
     }
 
     

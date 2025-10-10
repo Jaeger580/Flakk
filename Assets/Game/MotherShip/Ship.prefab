@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5451616525571292725}
   - component: {fileID: 321835349211174118}
   - component: {fileID: 2130499635385680186}
+  - component: {fileID: 4184206651195444490}
+  - component: {fileID: 5084698187701719247}
   m_Layer: 20
   m_Name: Obstacles
   m_TagString: Untagged
@@ -55,8 +57,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1900, y: 300, z: 3000}
-  m_Center: {x: 0, y: 35, z: 0}
+  m_Size: {x: 1900, y: 300, z: 1854.8235}
+  m_Center: {x: 0, y: 35, z: -572.58826}
 --- !u!65 &1983885819095773722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -141,6 +143,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 540, y: 150, z: 100}
   m_Center: {x: -320, y: 400, z: -1300}
+--- !u!65 &4184206651195444490
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414672495510272742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1900, y: 300, z: 688.78625}
+  m_Center: {x: 0, y: 35, z: 1055.0103}
+--- !u!65 &5084698187701719247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414672495510272742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1900, y: 100, z: 300}
+  m_Center: {x: 0, y: 94.3, z: 550}
 --- !u!1 &1349979492639145421
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +303,7 @@ GameObject:
   - component: {fileID: 2609377010135529156}
   - component: {fileID: 2387325169650126206}
   - component: {fileID: 5335721825879003624}
+  - component: {fileID: 3560235589915830000}
   m_Layer: 16
   m_Name: Horizontal Weakpoint (1)
   m_TagString: Untagged
@@ -351,8 +396,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 82.5, y: 26.302225, z: 45}
-  m_Center: {x: 0, y: 0.65111256, z: 0}
+  m_Size: {x: 82.35142, y: 14.625857, z: 45}
+  m_Center: {x: 0.074292, y: -1.8313137, z: 0}
+--- !u!65 &3560235589915830000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043450736430989968}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 63.32246, y: 8.433847, z: 45}
+  m_Center: {x: -0.011541748, y: 9.806027, z: 0}
 --- !u!1 &2601714951117874002
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,12 +602,13 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 1f87117438a300b4db045467afb8418c, type: 2}
   currentCoolDown: 0
-  coolDownDelay: 10
-  coolDownRate: 1
+  coolDownDelay: 8
+  coolDownRate: 0.1
   damageRate: 1
   isOverHeating: 0
   heatText: {fileID: 0}
   hullText: {fileID: 0}
+  heatBar: {fileID: 0}
 --- !u!114 &1153258425457038751
 MonoBehaviour:
   m_ObjectHideFlags: 0

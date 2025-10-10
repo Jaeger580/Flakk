@@ -36,6 +36,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float RayCastDistance;
     [SerializeField] private GameEvent inputEVInteractPress;
 
+    [SerializeField] private LayerMask IgnorePlayer;
+
     private void Start()
     {
         var interactListener = gameObject.AddComponent<GameEventListener>();
@@ -49,7 +51,7 @@ public class Interactor : MonoBehaviour
     {
         Ray ray = new Ray(RayCastSource.position, RayCastSource.forward);
 
-        if (!Physics.Raycast(RayCastSource.position, RayCastSource.forward, out var hit, RayCastDistance)) return;
+        if (!Physics.Raycast(RayCastSource.position, RayCastSource.forward, out var hit, RayCastDistance, ~IgnorePlayer)) return;
 
         if (hit.collider.gameObject.TryGetComponent(out IInteractable target))
         {
