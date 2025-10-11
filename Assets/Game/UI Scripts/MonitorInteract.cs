@@ -65,6 +65,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
     private void DisableMonitor()
     {
+        monitorEngaged = false;
         doc.enabled = false;
         mapper.enabled = false;
     }
@@ -75,8 +76,8 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         monitorEngaged = true;
         monitorCam.Priority = 100;
         playInput.SwitchCurrentActionMap("UI");
-        var hubInput = playInput.actions.FindActionMap("Hub");
-        hubInput.Disable();
+        //var hubInput = playInput.actions.FindActionMap("Hub");
+        //hubInput.Disable();
 
         EnableMonitor();
     }
@@ -88,12 +89,13 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         //Debug.Log("Disengaging", gameObject);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         monitorCam.Priority = 0;
-        var hubInput = playInput.actions.FindActionMap("Hub");
-        hubInput.Enable();
+        //var hubInput = playInput.actions.FindActionMap("Hub");
+        //hubInput.Enable();
         playInput.SwitchCurrentActionMap("Hub");
 
         exittedMonitorEvent?.Trigger();
 
         DisableMonitor();
+
     }
 }
