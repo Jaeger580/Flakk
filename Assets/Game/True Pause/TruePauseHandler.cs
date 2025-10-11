@@ -120,9 +120,11 @@ public class TruePauseHandler : MonoBehaviour
 
         // Added to stop player from performing actions while paused.
         lastActionMap = playerInput.currentActionMap;
+
         playerInput.SwitchCurrentActionMap("UI");
 
         gamePausedEvent?.Trigger();
+
     }
 
     private void HandleUnpause()

@@ -384,7 +384,7 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawRay(stepRayLower.transform.position, transform.TransformDirection(rawMove));
-        Gizmos.DrawRay(stepRayLower.transform.position + (Vector3.up * 0.25f), transform.TransformDirection(rawMove));
+        Gizmos.DrawRay(stepRayLower.transform.position + (Vector3.up * 0.15f), transform.TransformDirection(rawMove));
 
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(stepRayUpper.transform.position, transform.TransformDirection(rawMove));
@@ -400,10 +400,10 @@ public class PlayerController : MonoBehaviour
         bool lowerClear = false;
 
         //something in front of my foot? if not, exit early
-        if (!Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) upperClear = true;
+        if (!Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(rawMove), out RaycastHit _, 0.75f, groundMask)) upperClear = true;
 
         //okay but fr, is there something I might trip on? if not, exit early
-        if (!Physics.Raycast(stepRayLower.transform.position + (Vector3.up * 0.25f), transform.TransformDirection(rawMove), out RaycastHit _, 1f, groundMask)) lowerClear = true;
+        if (!Physics.Raycast(stepRayLower.transform.position + (Vector3.up * 0.15f), transform.TransformDirection(rawMove), out RaycastHit _, 0.75f, groundMask)) lowerClear = true;
 
         // if both checks return true, we hit nothing and should exit early. (Jakob)
         if(upperClear && lowerClear) 
@@ -417,7 +417,7 @@ public class PlayerController : MonoBehaviour
         
 
         //well I guess there's something, so I better check to make sure it's close enough in the direction I'm moving before trying to adjust
-        if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(rawMove), out RaycastHit hit, 1f, groundMask))
+        if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(rawMove), out RaycastHit hit, 0.75f, groundMask))
         {
             Debug.Log("Stepping Up");
             //rb.position -= new Vector3(0f, -stepSmooth, 0f);
