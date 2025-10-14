@@ -2,6 +2,7 @@ using GeneralUtility.GameEventSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TrueReticle : MonoBehaviour
 {
@@ -19,8 +20,12 @@ public class TrueReticle : MonoBehaviour
 
     private bool isActive = false;
 
+    private Image reticleImage;
+
     private void Start()
     {
+        reticleImage = WholeReticle.GetComponent<Image>();
+
         var enterListener = gameObject.AddComponent<GameEventListener>();
         enterListener.Events.Add(GunEnter);
         enterListener.Response = new();
@@ -39,13 +44,20 @@ public class TrueReticle : MonoBehaviour
     private void Update()
     {
 
-        if (isActive)
+        //if (isActive)
+        if (reticleImage.enabled)
         {
             var targetPos = targetPositionObject.transform.position;
             targetPos.y += 5f;
             var screenPos = Camera.main.WorldToScreenPoint(targetPos);
 
             var recticlePos = WholeReticle.transform.position;
+
+            // Stop duplicate UI
+            if (screenPos.z < 0)
+            {
+                screenPos *= -1;
+            }
 
             WholeReticle.transform.position = screenPos;
         }

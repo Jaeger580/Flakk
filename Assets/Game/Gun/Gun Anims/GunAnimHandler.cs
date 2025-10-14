@@ -8,8 +8,12 @@ public class GunAnimHandler : MonoBehaviour
     [SerializeField] private GameEvent gunEnterEvent, gunExitEvent;
     [SerializeField] private Animator anim;
 
+    // For calling gun exit methods through animations.
+    EnterGunTerminal gunTerminal;
+
     private void Start()
     {
+        gunTerminal = GetComponentInChildren<EnterGunTerminal>();
         var gunEnterListener = gameObject.AddComponent<GameEventListener>();
         gunEnterListener.Events.Add(gunEnterEvent);
         gunEnterListener.Response = new();
@@ -33,5 +37,10 @@ public class GunAnimHandler : MonoBehaviour
     {
         print("EXITING");
         anim.SetTrigger("ExitingGun");
+    }
+
+    public void FinishGunExit() 
+    {
+        gunTerminal.SwitchToHub();
     }
 }

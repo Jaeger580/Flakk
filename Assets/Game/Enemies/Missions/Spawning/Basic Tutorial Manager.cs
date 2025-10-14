@@ -32,9 +32,19 @@ public class BasicTutorialManager : MonoBehaviour
     [SerializeField]
     private GameObject skipScreen;
 
+    // List of active tutorial Highlights
+    private List<GameObject> activeHighlights;
+
+    [SerializeField]
+    private GameObject highlightPrefab;
+
+    [SerializeField]
+    private Canvas canvasForHighlight;
+
     private void Awake()
     {
         tutorialQueue = new List<Tutorials>();
+        activeHighlights = new List<GameObject>();
     }
 
     private void Start()
@@ -98,10 +108,40 @@ public class BasicTutorialManager : MonoBehaviour
         {
             tutorialPanel.SetActive(false);
             tutorialActive = false;
+
+            // Clear activeHighlights
+            while (activeHighlights.Count > 0)
+            {
+                Destroy(activeHighlights[0].gameObject);
+
+                activeHighlights.RemoveAt(0);
+            }
+
             return;
         }
 
         objectiveText.text = tutorialQueue[0].text;
+
+        // Clear activeHighlights
+        while (activeHighlights.Count > 0)
+        {
+            Destroy(activeHighlights[0].gameObject);
+
+            activeHighlights.RemoveAt(0);
+        }
+
+        // For each transform in tutorial, instantiate a ui prefab under the canvas
+        foreach (Transform t in tutorialQueue[0].highlightTargets) 
+        {
+            var newObj = Instantiate(highlightPrefab, canvasForHighlight.gameObject.transform);
+            //newObj.transform.SetParent(canvasForHighlight.gameObject.transform);
+
+            newObj.GetComponent<TaskHighlight>().targetPositionObject = t.gameObject;
+
+            // Add them to THE LIST
+            activeHighlights.Add(newObj);
+        }
+        
         tutorialQueue.RemoveAt(0);
     }
 
@@ -156,8 +196,9 @@ public class Tutorials
 {
     [TextArea(1,10)]
     public string text;
-    
+
     // Highlight Focus targets if any
+    public Transform[] highlightTargets;
 }
 
 [Serializable]
