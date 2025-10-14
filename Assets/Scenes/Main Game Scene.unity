@@ -3707,6 +3707,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.618457, y: 21.83773, z: 16.74618}
   m_Center: {x: 0.5354981, y: 33.767822, z: -0.33561403}
+--- !u!4 &319995166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 536586498369889212, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+  m_PrefabInstance: {fileID: 3654101330023064172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &320792505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,6 +4730,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 756778420438270626, guid: c4acc348cd5af7c4cacd7fecebe4aa63, type: 3}
+--- !u!1 &397305209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3752437435035544971, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+  m_PrefabInstance: {fileID: 1232027278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &416559148
 GameObject:
   m_ObjectHideFlags: 0
@@ -10380,6 +10390,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.618457, y: 21.83773, z: 16.74618}
   m_Center: {x: 0.5354981, y: 33.767822, z: -0.33561403}
+--- !u!4 &965849138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1142344104301000107, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+  m_PrefabInstance: {fileID: 3654101330023064172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &972257686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0e7a5bd5e3c8f99449a44356f8a9e012, type: 3}
@@ -11860,6 +11875,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c0d5068a393d9e45a3d4f56ba69bd4e, type: 3}
+--- !u!4 &1081826913 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1693072525660225259, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+  m_PrefabInstance: {fileID: 3654101330023064172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1085606736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12677,6 +12697,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1332376342580776114, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: objs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1389179843}
+    - target: {fileID: 1332376342580776114, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: objs.Array.data[1]
+      value: 
+      objectReference: {fileID: 397305209}
     - target: {fileID: 1697024684362960612, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -12687,6 +12715,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558345582356945915, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752437435035544971, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4502944241402590324, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
@@ -13125,6 +13157,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5531337297005175605, guid: 5dcc9aadd5c0e0a418c5eed7c412a857, type: 3}
   m_PrefabInstance: {fileID: 1262696965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1265492037 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2246862785046600420, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+  m_PrefabInstance: {fileID: 1232027278}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1266369597
 PrefabInstance:
@@ -14616,6 +14653,16 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383246371}
   m_Mesh: {fileID: 6214211361116151601, guid: 5c4b859375175d64fb3d6fec07e10e29, type: 3}
+--- !u!223 &1384943475 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6114282529210393591, guid: 19dfca2ea87b4d147872b006481f7569, type: 3}
+  m_PrefabInstance: {fileID: 7885954901347621904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389179843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4569167612067827208, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+  m_PrefabInstance: {fileID: 1232027278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1404023535
 GameObject:
   m_ObjectHideFlags: 0
@@ -14744,6 +14791,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &1412541620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1278054701544965951, guid: 36e147b1931fc4f6b9b1dc228acc0410, type: 3}
+  m_PrefabInstance: {fileID: 727214049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1415156409
 GameObject:
   m_ObjectHideFlags: 0
@@ -15470,6 +15522,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7d8a32d5bddf3742957d8ad62e6e932, type: 3}
+--- !u!4 &1458673547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5053003215124414479, guid: 254df076a26764a888802cf86d1dea00, type: 3}
+  m_PrefabInstance: {fileID: 2066696253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1481384536
 GameObject:
   m_ObjectHideFlags: 0
@@ -23965,9 +24022,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7885954901347621906}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: highlightPrefab
+      value: 
+      objectReference: {fileID: 8996447137225067829, guid: e05d2952e62b6a74bbc12b47877a33ec, type: 3}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: nextTutorialEvent
       value: 
       objectReference: {fileID: 11400000, guid: da8196fdcea6a624eb962219baa27386, type: 2}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: canvasForHighlight
+      value: 
+      objectReference: {fileID: 1384943475}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.size
       value: 7
@@ -24022,7 +24087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[5].tutorials.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[6].tutorials.Array.size
@@ -24112,21 +24177,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[5].tutorials.Array.data[0].text
-      value: Bullets have travel time, so make sure you lead your shots!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[1].text
       value: Purchased ammo will drop next the terminal in the form of a crate, which
         can be picked up and carried.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[2].text
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[1].text
       value: Carry the ammo crate to one of the two ammo stockpiles, and interact
         with them to deposit the ammo for loading.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[3].text
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[2].text
       value: Loaded ammo will be ready for reloading while you are inside the gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[3].text
+      value: Bullets have travel time, so make sure you lead your shots!
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[6].tutorials.Array.data[0].text
@@ -24145,6 +24210,74 @@ PrefabInstance:
       propertyPath: tutorialList.Array.data[6].tutorials.Array.data[3].text
       value: Loaded ammo will be ready for reloading while you are inside the gun.
       objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].highlightTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[3].highlightTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].highlightTargets.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[1].highlightTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[6].tutorials.Array.data[1].highlightTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1458673547}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1412541620}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1412541620}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[3].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1458673547}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1081826913}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].highlightTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 965849138}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].highlightTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 319995166}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].highlightTargets.Array.data[3]
+      value: 
+      objectReference: {fileID: 1860238124}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[1].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1424338923}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[5].tutorials.Array.data[1].highlightTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 292476645}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[6].tutorials.Array.data[1].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1265492037}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -25331,6 +25464,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.618457, y: 21.83773, z: 16.74618}
   m_Center: {x: 0.5354981, y: 33.767822, z: -0.33561403}
+--- !u!4 &1860238124 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8821082123752210424, guid: 462d5605c572e4ea1ba4194b95d4b43e, type: 3}
+  m_PrefabInstance: {fileID: 3654101330023064172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1877600190
 GameObject:
   m_ObjectHideFlags: 0
