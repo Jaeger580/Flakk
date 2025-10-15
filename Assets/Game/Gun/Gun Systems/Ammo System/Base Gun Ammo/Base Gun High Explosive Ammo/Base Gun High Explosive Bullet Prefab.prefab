@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 0}
   sfxOnImpact: []
+  bulletGraphic: {fileID: 3203270219764386399}
   explosionRadius:
     UseConstant: 0
     ConstantValue: 0
@@ -268,6 +269,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45f4e70cac827649879121be3dd8cc6, type: 3}
+--- !u!23 &3203270219764386399 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4454672949001167541, guid: c45f4e70cac827649879121be3dd8cc6, type: 3}
+  m_PrefabInstance: {fileID: 1271809750952405226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8670350426196753753 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7635050509769397683, guid: c45f4e70cac827649879121be3dd8cc6, type: 3}

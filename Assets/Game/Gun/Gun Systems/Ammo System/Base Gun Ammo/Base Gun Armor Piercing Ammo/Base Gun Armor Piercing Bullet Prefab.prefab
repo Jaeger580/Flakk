@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfxPrefab: {fileID: 0}
   sfxOnImpact: []
+  bulletGraphic: {fileID: 1405170598776760621}
   armorPierceValue:
     UseConstant: 0
     ConstantValue: 0
@@ -268,6 +269,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+--- !u!23 &1405170598776760621 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5810495399365496588, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
+  m_PrefabInstance: {fileID: 4837760938856785441}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1570531710839721646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6262408887635749007, guid: 4e1517f1ddcec0e42a241a60ed861714, type: 3}
