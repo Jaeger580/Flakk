@@ -13,8 +13,11 @@ public abstract class EnemyProjectile : MonoBehaviour
     [SerializeField]
     protected MeshRenderer bulletGraphic;
     [SerializeField]
-    protected GameObject sonicVFX;
+    protected GameObject[] sonicVFX;
+    [SerializeField]
+    protected GameObject flash;
 
+    protected bool hasStopped = false;
     protected int targetLayer;
     protected virtual void Start() 
     {
@@ -28,28 +31,44 @@ public abstract class EnemyProjectile : MonoBehaviour
         {
             //Debug.Log(damage + " damage dealt to weakpoint");
             other.gameObject.GetComponentInParent<MothershipHealth>().ApplyDamage(damage);
+
+            //flash.Clear();
+            //flash.Play();
+
+            flash.SetActive(true);
+            flash.GetComponent<ParticleSystem>().Clear();
+            flash.GetComponent<ParticleSystem>().Play();
+
             //Destroy(this.gameObject);
-            DestroySelf();
+            StartCoroutine(DestroySelf());
         }
     }
 
     protected virtual void FixedUpdate() 
     {
-        transform.position += transform.forward * travelSpeed * Time.deltaTime;
+        if (!hasStopped)
+        {
+            transform.position += transform.forward * travelSpeed * Time.deltaTime;
+        }
     }
 
     protected private IEnumerator DestroySelf()
     {
+        
         this.gameObject.GetComponent<Collider>().enabled = false;
         bulletGraphic.enabled = false;
-        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
-        rb.isKinematic = true;
+        //Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+        //rb.velocity = Vector3.zero;
+        //rb.isKinematic = true;
 
+        hasStopped = true;
 
-        sonicVFX.GetComponent<ParticleSystem>().Stop();
+        for(int i = 0; i < sonicVFX.Length; i++) 
+        {
+            sonicVFX[i].GetComponent<ParticleSystem>().Stop();
+        }
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
     }
 }

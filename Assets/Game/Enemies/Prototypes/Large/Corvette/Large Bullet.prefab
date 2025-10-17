@@ -50,7 +50,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -14783,6 +14783,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   travelSpeed: 200
+  bulletGraphic: {fileID: 5626607834533180275}
+  sonicVFX:
+  - {fileID: 1254954435551157898}
+  - {fileID: 2064034574065127980}
+  flash: {fileID: 1234012448100489931}
 --- !u!54 &2676970325865497215
 Rigidbody:
   m_ObjectHideFlags: 0
