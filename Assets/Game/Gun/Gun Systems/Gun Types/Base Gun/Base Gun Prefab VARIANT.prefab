@@ -3288,7 +3288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2336037489170711898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373782719163606846}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -10037,6 +10037,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 7505802390465136295}
+    - target: {fileID: 848131746885994338, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: healthBarOne
+      value: 
+      objectReference: {fileID: 7505802390465136295}
+    - target: {fileID: 848131746885994338, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: healthBarTwo
+      value: 
+      objectReference: {fileID: 7739720200118297176}
     - target: {fileID: 905032124286955217, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10737,6 +10745,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -7.012775e-14
       objectReference: {fileID: 0}
+    - target: {fileID: 7146806809449427640, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: objs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4569167612067827208}
+    - target: {fileID: 7146806809449427640, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: objs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3752437435035544971}
     - target: {fileID: 7241425763800347603, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10929,6 +10945,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9116579152819953892, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11050,7 +11070,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266810701121837301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0b855873b95ef4aadb116c112b622a, type: 3}
   m_Name: 
