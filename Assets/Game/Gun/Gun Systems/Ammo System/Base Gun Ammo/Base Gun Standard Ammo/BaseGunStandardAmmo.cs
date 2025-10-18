@@ -1,4 +1,5 @@
 ﻿using GeneralUtility.CombatSystem;
+using System.Collections;
 using UnityEngine;
 
 public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
@@ -15,11 +16,12 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        StartCoroutine(DestroySelf());
 
 
-        //do vfx/sfx and other cleanup IF it lands correctly
-        if (vfxPrefab != null) 
+        ////do vfx/sfx and other cleanup IF it lands correctly
+        if (vfxPrefab != null)
         {
             vfxPrefab.TryGetComponent<ParticleSystem>(out ParticleSystem particle);
             particle.Play();
@@ -56,4 +58,6 @@ public class BaseGunStandardAmmo : BaseGunAmmo, IEffect
         p.SetDamage(Mathf.CeilToInt(effectValue), this);
         return d.ApplyDamage(p);
     }
+
+    
 }
