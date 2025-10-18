@@ -14652,13 +14652,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4624717655334403765}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.92387956, y: -0.38268343, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.92387956, w: 0.38268343}
   m_LocalPosition: {x: 0, y: 0, z: 0.3025}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.46}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 910939490722844931}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 45}
 --- !u!33 &8172464010812309177
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14786,8 +14786,7 @@ MonoBehaviour:
   bulletGraphic: {fileID: 5626607834533180275}
   sonicVFX:
   - {fileID: 1254954435551157898}
-  - {fileID: 2064034574065127980}
-  flash: {fileID: 1234012448100489931}
+  flash: {fileID: 2064034574065127980}
 --- !u!54 &2676970325865497215
 Rigidbody:
   m_ObjectHideFlags: 0
