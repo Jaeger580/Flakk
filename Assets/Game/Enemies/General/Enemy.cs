@@ -202,7 +202,7 @@ public abstract class Enemy : Damageable<Enemy>
             //Debug.Log("DEATH CALL");
             Death();
         }
-        else if(currenthealth <= (maxHealth/3))
+        else if(currenthealth <= (maxHealth/2))
         {
             vfxNearDeath.GetComponent<ParticleSystem>().Play();
         }
@@ -250,6 +250,7 @@ public abstract class Enemy : Damageable<Enemy>
         {
             GameObject vfxD = Instantiate(vfxDeath, transform.position, transform.rotation);
             //Debug.Log("PE NAMe " + pe.name);
+            vfxD.GetComponent<ParticleSystem>().Play();
             Destroy(vfxD, 3);
             //Debug.Log("pe deleted");
         }
