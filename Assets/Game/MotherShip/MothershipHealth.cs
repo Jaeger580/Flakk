@@ -85,6 +85,9 @@ public class MothershipHealth : Damageable<MothershipHealth>
 
         hullText.text = "HULL: " + currentHealth.Value + "%";
 
+        // Needed to restart these after they were stopped above.
+        StartCoroutine(HullDamage(damageRate));
+        StartCoroutine(CoolDownTracker(coolDownRate));
     }
 
     public void ApplyDamage(int _damage)
