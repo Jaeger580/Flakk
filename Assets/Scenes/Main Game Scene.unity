@@ -9745,6 +9745,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &877335727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2210031102805835053, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+  m_PrefabInstance: {fileID: 1232027278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &878548203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5417866238386239349, guid: ea35a5fae731e7a43910628c3b168ab6, type: 3}
@@ -12625,6 +12630,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881888723704363409, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.6
@@ -12637,6 +12658,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: reloadWheel
+      value: 
+      objectReference: {fileID: 877335727}
+    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: wheelRotateSpeed
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: reloadWheel.ConstantValue
+      value: 
+      objectReference: {fileID: 877335727}
     - target: {fileID: 5485844109790296138, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_CullTransparentMesh
       value: 1
@@ -26114,7 +26147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].name
@@ -26129,16 +26162,32 @@ PrefabInstance:
       value: Third Assault
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[3].name
+      value: Fourth Encounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[4].name
+      value: Fifth Attempt
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].cashReward
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[1].cashReward
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[2].cashReward
-      value: 5
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[3].cashReward
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[4].cashReward
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].description
@@ -26150,7 +26199,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[2].description
-      value: Most Challenging mission. Upgrades recommended.
+      value: An even more difficult mission. The enemy are upping their arsenal.
+        Upgrades recommended.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[3].description
+      value: A large number of bombers are on the way. Prepare yourself!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
+      propertyPath: missions.Array.data[4].description
+      value: Our Most Challenging mission. Bring your A game!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
