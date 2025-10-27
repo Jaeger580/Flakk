@@ -39,7 +39,6 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(0.01f);
 
-
         if (!startInTerminal)
             DisableMonitor();
         else
@@ -96,6 +95,10 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         exittedMonitorEvent?.Trigger();
 
         DisableMonitor();
+    }
 
+    public void ForceExitMonitor()
+    {
+        TryExitMonitor();
     }
 }

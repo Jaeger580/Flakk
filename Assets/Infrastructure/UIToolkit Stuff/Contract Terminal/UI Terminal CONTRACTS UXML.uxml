@@ -1,12 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
     <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/FLAKK_BG.png?fileID=2800000&amp;guid=fbbd172fe81f347bda948adb12e2378c&amp;type=3#FLAKK_BG&quot;);">
-        <ui:VisualElement name="ScreenParent" class="screenParent">
+        <ui:VisualElement name="ScreenParent" class="screenParent" style="position: absolute;">
             <ui:Label tabindex="-1" text="Contracts" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentTitle" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; position: absolute; left: 43%; top: 14%;" />
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
-                <ui:VisualElement name="TopAnchor" class="ttbAnchors">
-                    <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="basicButton" />
-                </ui:VisualElement>
+                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
             </ui:VisualElement>
@@ -36,6 +34,14 @@
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;">
                     <ui:Button text="Start Contract" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartMission" class="basicButton" />
                 </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="MissionStartedScreen" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); justify-content: center; align-self: center; align-items: center; display: none;">
+            <ui:Label tabindex="-1" text="MISSION: ONGOING" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionStartedText" style="justify-content: center; align-items: center; align-self: center; color: rgb(255, 255, 255); font-size: 60px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-text-align: middle-center; text-shadow: 1px 0 4px rgb(0, 255, 255);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="ScreenParent" picking-mode="Ignore" class="screenParent" style="position: absolute;">
+            <ui:VisualElement name="LeftAnchor" picking-mode="Ignore" class="ltrAnchors" style="width: 20%;">
+                <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="basicButton" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
