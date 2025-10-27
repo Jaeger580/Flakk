@@ -1,31 +1,62 @@
-﻿using GeneralUtility.GameEventSystem;
+﻿using System.Collections;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MissionUI : MonoBehaviour, IUIScreenRefresh
 {
-    [SerializeField] private GameEvent contractEnterEvent, contractStartEvent;
+    [SerializeField] private GameEvent contractEnterEvent, contractStartEvent, missionCompleteEvent;
     private bool previouslyEntered = false, afterStart = false;
 
     private int chosenMission = 0;
     private MissionManager missionManager;
+    private MonitorInteract monitorInteract;
 
+    private VisualElement missionStartedScreen;
+
+    private bool inMission = false;
+    private UIDocument doc;
+ 
     private void Start()
     {
         missionManager = FindObjectOfType<MissionManager>();
+        monitorInteract = GetComponent<MonitorInteract>();
+
+        var missionCompleteListener = gameObject.AddComponent<GameEventListener>();
+        missionCompleteListener.Events.Add(missionCompleteEvent);
+        missionCompleteListener.Response = new();
+        missionCompleteListener.Response.AddListener(() =>
+        {
+            inMission = false;
+            doc.enabled = true;
+            RefreshUI();
+            StartCoroutine(ForceExitMonitorRoutine());
+        });
+        missionCompleteEvent.RegisterListener(missionCompleteListener);
 
         RefreshUI();
     }
 
     private void StartMission()
     {
+        inMission = true;
+        if (missionStartedScreen != null)
+            missionStartedScreen.style.display = DisplayStyle.Flex;
         missionManager.LoadMission(chosenMission);
         contractStartEvent?.Trigger();
+        StartCoroutine(ForceExitMonitorRoutine());
+    }
+
+    private IEnumerator ForceExitMonitorRoutine()
+    {//doing it like this because otherwise it doesn't immediately reflect on the screen
+        yield return null;
+        monitorInteract.ForceExitMonitor();
     }
 
     public void RefreshUI()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        doc = GetComponent<UIDocument>();
+        var root = doc.rootVisualElement;
 
         var missionList = root.Q<VisualElement>($"ContractList");
         missionList.Clear();
@@ -33,6 +64,11 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         missionDesc.text = "";
         var startMissionButton = root.Q<Button>($"StartMission");
         startMissionButton.SetEnabled(false);
+
+        missionStartedScreen = null;
+        missionStartedScreen = root.Q<VisualElement>("MissionStartedScreen");
+        if(missionStartedScreen != null)
+            missionStartedScreen.style.display = inMission ? DisplayStyle.Flex : DisplayStyle.None;
 
         void SwapChosenMission(int index, Mission mis, Label descLabel)
         {
@@ -53,7 +89,6 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
             misButton.clicked += () => SwapChosenMission(index, mis, missionDesc);
             missionList.Add(misButton);
         }
-
 
         startMissionButton.clicked += StartMission;
 
