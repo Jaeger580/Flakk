@@ -16,7 +16,9 @@ public class Rotate : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var rotation = thisTransform.rotation;
-        thisTransform.rotation = Quaternion.Euler(rotation.x, rotation.y, rotateSpeed * Time.deltaTime);
+        //var rotation = thisTransform.rotation;
+        //thisTransform.rotation = Quaternion.Euler(rotation.x, rotateSpeed * Time.deltaTime, rotation.z);
+
+        thisTransform.Rotate(new Vector3(0, rotateSpeed, 0) * Time.deltaTime);
     }
 }

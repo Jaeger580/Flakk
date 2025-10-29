@@ -2136,6 +2136,24 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &177322229 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6883318246688776159, guid: 6973848bf9821674d985647488953281, type: 3}
+  m_PrefabInstance: {fileID: 2028473021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &177322233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177322229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6f179e0e85c8f4ea019e3821ebe73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 20
 --- !u!1 &190590892
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,11 +9763,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &877335727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2210031102805835053, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-  m_PrefabInstance: {fileID: 1232027278}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &878548203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5417866238386239349, guid: ea35a5fae731e7a43910628c3b168ab6, type: 3}
@@ -12224,6 +12237,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 992445071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1178007204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6531726685909325030, guid: 6973848bf9821674d985647488953281, type: 3}
+  m_PrefabInstance: {fileID: 2028473021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1178007208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178007204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc6f179e0e85c8f4ea019e3821ebe73c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: -20
 --- !u!1 &1188178810
 GameObject:
   m_ObjectHideFlags: 0
@@ -12626,54 +12657,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1141552163528023790, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2528394241109502534, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881888723704363409, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881888723704363409, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881888723704363409, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: reloadWheel
-      value: 
-      objectReference: {fileID: 877335727}
-    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: wheelRotateSpeed
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311776882725190943, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: reloadWheel.ConstantValue
-      value: 
-      objectReference: {fileID: 877335727}
-    - target: {fileID: 5485844109790296138, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6083009513345767736, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12689,22 +12672,6 @@ PrefabInstance:
     - target: {fileID: 6083009513345767736, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390905850691852717, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390905850691852717, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390905850691852717, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7390905850691852717, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8359329690269774280, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_Name
@@ -12748,10 +12715,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8414943872671212142, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8749636106332375135, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -24022,7 +23985,7 @@ PrefabInstance:
         Use WASD to walk around
 
         Hold
-        SHIFT'' to run.
+        SHIFT to run.
 
         Press SPACE to jump.'
       objectReference: {fileID: 0}
@@ -24051,7 +24014,7 @@ PrefabInstance:
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[2].tutorials.Array.data[0].text
       value: Bombers are heavily armored enemies that make bombing runs as they pass
-        over a target.
+        over their target.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[2].tutorials.Array.data[1].text
@@ -24125,7 +24088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[6].tutorials.Array.data[2].text
-      value: When A mission is complete, you will earn currency that can be spend
+      value: When A mission is complete, you will earn currency that can be spent
         at the shop.
       objectReference: {fileID: 0}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
@@ -26164,7 +26127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[3].name
-      value: Fourth Encounter
+      value: Fourth Attack
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[4].name
@@ -26192,7 +26155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[0].description
-      value: A Simple level that gives you breathing room between waves
+      value: A Simple level that gives you breathing room between waves.
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[1].description
@@ -26209,7 +26172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: missions.Array.data[4].description
-      value: Our Most Challenging mission. Bring your A game!
+      value: Our most Challenging mission. Bring your A game!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26894,7 +26857,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6883318246688776159, guid: 6973848bf9821674d985647488953281, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 177322233}
+    - targetCorrespondingSourceObject: {fileID: -6531726685909325030, guid: 6973848bf9821674d985647488953281, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1178007208}
   m_SourcePrefab: {fileID: 100100000, guid: 6973848bf9821674d985647488953281, type: 3}
 --- !u!4 &2028473022 stripped
 Transform:
