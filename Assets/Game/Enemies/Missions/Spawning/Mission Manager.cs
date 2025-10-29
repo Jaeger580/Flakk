@@ -28,6 +28,7 @@ public class MissionManager : MonoBehaviour
         SceneManager.LoadScene(missions[missionNum].Name(), LoadSceneMode.Additive);
         //SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
         activeMission = missions[missionNum].Name();
+
     }
 
     public Mission GetMission(int missionNum) 

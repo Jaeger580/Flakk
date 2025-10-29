@@ -16,9 +16,12 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
 
     private bool inMission = false;
     private UIDocument doc;
- 
+
+    bool wasRegistered;
+
     private void Start()
     {
+        wasRegistered = false;
         missionManager = FindObjectOfType<MissionManager>();
         monitorInteract = GetComponent<MonitorInteract>();
 
@@ -67,7 +70,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
 
         missionStartedScreen = null;
         missionStartedScreen = root.Q<VisualElement>("MissionStartedScreen");
-        if(missionStartedScreen != null)
+        if (missionStartedScreen != null)
             missionStartedScreen.style.display = inMission ? DisplayStyle.Flex : DisplayStyle.None;
 
         void SwapChosenMission(int index, Mission mis, Label descLabel)
@@ -90,7 +93,14 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
             missionList.Add(misButton);
         }
 
+        if (wasRegistered) 
+        {
+            startMissionButton.clicked -= StartMission;
+        }
+
         startMissionButton.clicked += StartMission;
+
+        if(!wasRegistered) wasRegistered = true;
 
         if (!afterStart) { afterStart = true; return; }
 
