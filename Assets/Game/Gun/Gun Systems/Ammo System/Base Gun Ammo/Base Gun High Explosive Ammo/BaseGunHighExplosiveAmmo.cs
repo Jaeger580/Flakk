@@ -19,6 +19,9 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
+        StartCoroutine(DestroySelf());
+        if (!TriggerEffect(p)) return;
+
         //Check for enemies
         var newPos = p.HitCollider.ClosestPointOnBounds(transform.position);
         Collider[] affectedColliders = Physics.OverlapSphere(newPos, explosionRadius.Value, affectableMask);
@@ -51,7 +54,6 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
             }
         }
 
-        Destroy(gameObject);
         //if (triggered)
         //{
 

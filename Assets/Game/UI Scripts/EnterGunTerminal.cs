@@ -35,10 +35,12 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
 
         gunExitEvent.Trigger();
         Cursor.lockState = CursorLockMode.Locked;
-        //gunVCAM.Priority = 101;
-        playerVCAM.Priority = 5;
-        //gunVCAM.Priority = 0;
-        playInput.SwitchCurrentActionMap("Hub");
+
+        // moved to animation controlled.
+        //playerVCAM.Priority = 5;
+        //playInput.SwitchCurrentActionMap("Hub");
+
+        playInput.currentActionMap.Disable();
 
         monitorEngaged = false;
     }
@@ -63,5 +65,14 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         //gunVCAM.Priority = 101;
         playerVCAM.Priority = 0;
         //gunVCAM.Priority = 5;
+    }
+
+    // Method that will be called by the animation when it is done
+    // DOES NOT WORK DO TO NOT TURNING OFF GUN CONTROLS FIRST
+    // Clear controlls?
+    public void SwitchToHub() 
+    {
+        playerVCAM.Priority = 5;
+        playInput.SwitchCurrentActionMap("Hub");
     }
 }

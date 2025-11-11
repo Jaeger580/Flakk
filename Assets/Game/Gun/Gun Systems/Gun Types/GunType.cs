@@ -96,6 +96,9 @@ public abstract class GunType : MonoBehaviour
     [Tooltip("What is the maximum distance any given bullet should be expectetd to stray from the center at its inaccuracy range?")]
     [SerializeField] protected Vector2Reference inaccuracyRadius;
 
+    [SerializeField] protected GameObject reloadWheel;
+    [SerializeField] protected float wheelRotateSpeed;
+
     protected float fireTimer;
     protected float reloadTimer;
 
@@ -374,6 +377,7 @@ public abstract class GunType : MonoBehaviour
         {
             reloadTimer += Time.deltaTime;
             ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
+            reloadWheel.transform.Rotate(0, 0, wheelRotateSpeed * Time.deltaTime);
         }
         else
         {
@@ -381,6 +385,7 @@ public abstract class GunType : MonoBehaviour
             reloadTimer = 0f;
             ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
         }
+
     }
 
     protected void ReloadInputIntake(bool pressedReload)

@@ -444,6 +444,12 @@ public abstract class ImpactBehavior : MonoBehaviour
     [Tooltip("SFX to trigger on impact, for feedback.")]
     [SerializeField] protected AudioClip[] sfxOnImpact;
     protected float effectValue;
+
+    [Tooltip("Graphic to disable on destroy.")]
+    [SerializeField] protected MeshRenderer bulletGraphic;
+    [SerializeField] protected GameObject trailVFX;
+    [SerializeField] protected GameObject sonicVFX;
+
     static public LayerMask affectableMask => EnemyMask();
 
     static public LayerMask EnemyMask()
@@ -462,6 +468,21 @@ public abstract class ImpactBehavior : MonoBehaviour
     }
 
     abstract public void OnImpact(CombatPacket p);
+
+    protected private IEnumerator DestroySelf()
+    {
+        this.gameObject.GetComponent<Collider>().enabled = false;
+        bulletGraphic.enabled = false;
+        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
+
+
+        sonicVFX.GetComponent<ParticleSystem>().Stop();
+
+        yield return new WaitForSeconds(1f);
+        Destroy(this.gameObject);
+    }
 }
 
 /*
