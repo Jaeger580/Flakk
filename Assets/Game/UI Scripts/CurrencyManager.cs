@@ -15,6 +15,8 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
         currencyChangedListener.Response = new();
         currencyChangedListener.Response.AddListener(() => RefreshUI());
         currencyChangedEvent.RegisterListener(currencyChangedListener);
+
+        currencyChangedEvent?.Trigger();
     }
 
     public void RefreshUI()
@@ -26,13 +28,13 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
 
         var root = uidoc.rootVisualElement;
 
-        if (root == null)
-            return;
+        //if (root == null)
+        //    return;
 
         var currencyText = root.Q<Label>($"CurrencyText");
 
-        if (currencyText == null)
-            return;
+        //if (currencyText == null)
+        //    return;
 
         currencyText.text = $"${currency.Value}";
 
