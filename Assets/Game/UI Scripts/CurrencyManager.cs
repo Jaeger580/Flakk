@@ -19,12 +19,12 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
-        if(!TryGetComponent<UIDocument>(out var UIDoc)) 
-        {
-            return;
-        }
+        if (!TryGetComponent(out UIDocument uidoc)) return;
 
-        var root = UIDoc.rootVisualElement;
+        bool previouslyEnabled = uidoc.enabled;
+        if (!previouslyEnabled) uidoc.enabled = true;
+
+        var root = uidoc.rootVisualElement;
 
         if (root == null)
             return;
@@ -35,5 +35,7 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
             return;
 
         currencyText.text = $"${currency.Value}";
+
+        if (!previouslyEnabled) uidoc.enabled = false;
     }
 }

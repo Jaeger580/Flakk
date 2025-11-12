@@ -29,6 +29,27 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
         }
     }
 
+    private void Start()
+    {
+        if (resetOnReload)
+        {
+            ResetStats();
+        }
+
+        var currencyChangedListener = gameObject.AddComponent<GameEventListener>();
+        currencyChangedListener.Events.Add(currencyChangedEvent);
+        currencyChangedListener.Response = new();
+        currencyChangedListener.Response.AddListener(() => RefreshUI());
+        currencyChangedEvent.RegisterListener(currencyChangedListener);
+
+        RefreshInfo();
+    }
+
+    private void OnDisable()
+    {
+        ResetStats();
+    }
+
     private VisualElement CreateNewUpgradeReadout(UpgradeSO upg)
     {
         var readout = upgradeReadoutAsset.CloneTree();
@@ -115,31 +136,15 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
+        if (!TryGetComponent(out UIDocument uidoc)) return;
+
+        bool previouslyEnabled = uidoc.enabled;
+        if(!previouslyEnabled) uidoc.enabled = true;
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         if (root == null) return;
         RefreshInfo();
-    }
-
-    private void Start()
-    {
-        if (resetOnReload)
-        {
-            ResetStats();
-        }
-
-        var currencyChangedListener = gameObject.AddComponent<GameEventListener>();
-        currencyChangedListener.Events.Add(currencyChangedEvent);
-        currencyChangedListener.Response = new();
-        currencyChangedListener.Response.AddListener(() => RefreshUI());
-        currencyChangedEvent.RegisterListener(currencyChangedListener);
-
-        RefreshInfo();
-    }
-
-    private void OnDisable()
-    {
-        ResetStats();
+        if (!previouslyEnabled) uidoc.enabled = false;
     }
 
     public void ResetStats()
