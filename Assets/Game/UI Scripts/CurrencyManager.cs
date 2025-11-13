@@ -21,23 +21,18 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
-        if (!TryGetComponent(out UIDocument uidoc)) return;
+        //if (!TryGetComponent(out UIDocument uidoc)) return;
 
-        bool previouslyEnabled = uidoc.enabled;
-        if (!previouslyEnabled) uidoc.enabled = true;
+        //bool previouslyEnabled = uidoc.enabled;
+        //if (!previouslyEnabled) uidoc.enabled = true;
 
-        var root = uidoc.rootVisualElement;
+        //var root = uidoc.rootVisualElement;
 
-        //if (root == null)
-        //    return;
+        //if (root == null) return;
 
-        var currencyText = root.Q<Label>($"CurrencyText");
+        //var currencyText = root.Q<Label>($"CurrencyText");
+        //currencyText.text = $"${currency.Value}";
 
-        //if (currencyText == null)
-        //    return;
-
-        currencyText.text = $"${currency.Value}";
-
-        if (!previouslyEnabled) uidoc.enabled = false;
+        //if (!previouslyEnabled) uidoc.enabled = false;
     }
 }
