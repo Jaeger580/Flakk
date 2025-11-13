@@ -16,4 +16,5 @@ public class GunTypeSetup : MonoBehaviour
     public GameEvent zoomEnterEvent, zoomExitEvent;
     public GameEvent gunEnterEvent, gunExitEvent, exitMonitorEvent;
     public GameEvent magSwapTriggered;
+    public GameEvent[] ammoUpdatedEvents;
 }

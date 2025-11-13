@@ -1,4 +1,5 @@
 ﻿using GeneralUtility;
+using GeneralUtility.GameEventSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

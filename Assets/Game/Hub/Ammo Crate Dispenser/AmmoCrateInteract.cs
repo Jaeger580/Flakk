@@ -87,7 +87,7 @@ public class AmmoCrateInteract : MonoBehaviour, IInteractable
         attached = false;
         deposited = false;
 
-        rb.AddExplosionForce(1500f, ejectPos, 0f, 10f, ForceMode.Impulse);
+        rb.AddExplosionForce(1750f, ejectPos, 5f, 5f, ForceMode.Impulse);
         Destroy(gameObject, 3f);
         col.enabled = false;
     }

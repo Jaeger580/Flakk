@@ -3,6 +3,7 @@ using GeneralUtility.VariableObject;
 using UnityEngine.UIElements;
 using GeneralUtility.GameEventSystem;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 {
@@ -14,6 +15,8 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     [SerializeField] private VisualTreeAsset upgradeReadoutAsset;
     private Dictionary<UpgradeSO, Button> upgradeEntries = new();
+
+    private UIDocument uidoc;
 
     const string
         FULLY_BOUGHT_TEXT = "COMPLETE",
@@ -27,6 +30,27 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
         {
             upgrade.currentUpgradeIndex = 0;
         }
+    }
+
+    private void Start()
+    {
+        if (resetOnReload)
+        {
+            ResetStats();
+        }
+
+        var currencyChangedListener = gameObject.AddComponent<GameEventListener>();
+        currencyChangedListener.Events.Add(currencyChangedEvent);
+        currencyChangedListener.Response = new();
+        currencyChangedListener.Response.AddListener(() => RefreshUI());
+        currencyChangedEvent.RegisterListener(currencyChangedListener);
+
+        RefreshUI();
+    }
+
+    private void OnDisable()
+    {
+        ResetStats();
     }
 
     private VisualElement CreateNewUpgradeReadout(UpgradeSO upg)
@@ -102,8 +126,10 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshInfo()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        var root = uidoc.rootVisualElement;
 
+        var currencyText = root.Q<Label>($"CurrencyText");
+        currencyText.text = $"${currentCurrency.Value}";
         var upgradeContainer = root.Q<VisualElement>($"UpgradeContainer");
         upgradeContainer.Clear();
         upgradeEntries.Clear();
@@ -115,31 +141,23 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        if (!TryGetComponent(out uidoc)) return;
+
+        bool previouslyEnabled = uidoc.enabled;
+        if(!previouslyEnabled) uidoc.enabled = true;
+
+        var root = uidoc.rootVisualElement;
 
         if (root == null) return;
-        RefreshInfo();
-    }
-
-    private void Start()
-    {
-        if (resetOnReload)
-        {
-            ResetStats();
-        }
-
-        var currencyChangedListener = gameObject.AddComponent<GameEventListener>();
-        currencyChangedListener.Events.Add(currencyChangedEvent);
-        currencyChangedListener.Response = new();
-        currencyChangedListener.Response.AddListener(() => RefreshUI());
-        currencyChangedEvent.RegisterListener(currencyChangedListener);
 
         RefreshInfo();
+        if (!previouslyEnabled) StartCoroutine(EnableTimer());
     }
 
-    private void OnDisable()
+    private IEnumerator EnableTimer()
     {
-        ResetStats();
+        yield return new WaitForSeconds(0.5f);
+        uidoc.enabled = false;
     }
 
     public void ResetStats()

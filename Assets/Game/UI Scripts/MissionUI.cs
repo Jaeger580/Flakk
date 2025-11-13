@@ -15,7 +15,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
     private VisualElement missionStartedScreen;
 
     private bool inMission = false;
-    private UIDocument doc;
+    private UIDocument uidoc;
 
     bool wasRegistered;
 
@@ -31,7 +31,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         missionCompleteListener.Response.AddListener(() =>
         {
             inMission = false;
-            doc.enabled = true;
+            uidoc.enabled = true;
             RefreshUI();
             StartCoroutine(ForceExitMonitorRoutine());
         });
@@ -58,8 +58,12 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
-        doc = GetComponent<UIDocument>();
-        var root = doc.rootVisualElement;
+        if (!TryGetComponent(out uidoc)) return;
+
+        bool previouslyEnabled = uidoc.enabled;
+        if (!previouslyEnabled) uidoc.enabled = true;
+
+        var root = uidoc.rootVisualElement;
 
         var missionList = root.Q<VisualElement>($"ContractList");
         missionList.Clear();
@@ -100,7 +104,9 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
 
         startMissionButton.clicked += StartMission;
 
-        if(!wasRegistered) wasRegistered = true;
+        if (!previouslyEnabled) uidoc.enabled = false;
+
+        if (!wasRegistered) wasRegistered = true;
 
         if (!afterStart) { afterStart = true; return; }
 
