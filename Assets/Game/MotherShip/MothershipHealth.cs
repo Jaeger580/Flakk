@@ -31,6 +31,9 @@ public class MothershipHealth : Damageable<MothershipHealth>
 
     override public Action OnDamage { get; set; }
 
+    [SerializeField]
+    private Material[] heatMaterials;
+
     private void Start()
     {
         var winListener = gameObject.AddComponent<GameEventListener>();
@@ -48,6 +51,11 @@ public class MothershipHealth : Damageable<MothershipHealth>
     {
         // heat values are ints that needed to be calculated as floats
         float currentHeatPercent = ((float)currentHeat.Value / maxHeat.Value) * 100f;
+
+        foreach (Material m in heatMaterials) 
+        {
+            m.SetFloat("_Heat", currentHeatPercent);
+        }
 
         // if the current heat is greater than a specified percent of the max heat, then we are over heating.
         if ((currentHeatPercent >= overHeatThresholdPercent.Value))
