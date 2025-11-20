@@ -89,7 +89,7 @@ namespace GeneralUtility
 
                 resolutionDropdown = root.Q<DropdownField>("ResolutionDropdown"); //the name of the element in UI Builder
 
-                FOVSlider = root.Q<Slider>("FieldOfView", MagicStrings.OPTIONS_FOV_HUB);
+                FOVSlider = root.Q<Slider>("FieldOfView");
                 FOVSlider.value = PlayerPrefs.GetFloat(FOVSlider.name, 90);
                 FOVValue = FOVSlider.value;
                 FOVSlider.RegisterValueChangedCallback((evt) => TempFOV(evt));
