@@ -66,7 +66,7 @@ public class MouseLook : MonoBehaviour
         cameraBody.localRotation = m_CameraOriginalRotation;
 
         // read input from mouse or mobile controls
-        Vector2 targetMouseDelta = Mouse.current.delta.ReadValue() * Time.smoothDeltaTime;
+        Vector2 targetMouseDelta = Mouse.current.delta.ReadValue() * Time.fixedDeltaTime;
 
         float inputH = targetMouseDelta.x * sensitivity.x;
         float inputV = targetMouseDelta.y * sensitivity.y;
