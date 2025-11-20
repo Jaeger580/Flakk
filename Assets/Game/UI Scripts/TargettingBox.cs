@@ -87,6 +87,10 @@ public class TargettingBox : MonoBehaviour
         visibilityMag = (lockonZonePercent).magnitude * visibilityAsLockonMultiplier;
 
         target.OnDamage += Damage;
+        if(target is DestructablePart destructable)
+        {
+            destructable.OnDestruct += () => { Destroy(this); Destroy(rend); };
+        }
 
         screenDims = new Vector2(Screen.width, Screen.height);
         mat.SetFloat(radiusScaleID, LOCKED_OFF_THRESHOLD);
