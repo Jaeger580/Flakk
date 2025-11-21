@@ -47,7 +47,11 @@
                             <ui:DropdownField label="Resolution : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="ResolutionDropdown" style="width: 100%;" />
                         </ui:VisualElement>
                         <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
-                            <ui:Toggle label="V-Sync : " name="VSyncToggle" class="optionsToggle" style="width: 100%;" />
+                            <ui:Toggle label="V-Sync : " name="VSyncToggle" value="false" class="optionsToggle" style="width: 100%;" />
+                            <ui:DropdownField label="V-Sync : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="display: none;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
+                            <ui:Slider picking-mode="Ignore" label="FOV:" value="1" high-value="120" name="FieldOfView" low-value="60" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
                             <ui:DropdownField label="V-Sync : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="display: none;" />
                         </ui:VisualElement>
                     </ui:VisualElement>

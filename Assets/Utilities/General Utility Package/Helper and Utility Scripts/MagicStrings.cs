@@ -7,7 +7,11 @@
             OPTIONS_VSYNC = "VSyncBool",
             OPTIONS_RESOLUTION_INDEX = "ResolutionIndex",
             OPTIONS_RESOLUTION_WIDTH = "ResolutionWidth",
-            OPTIONS_RESOLUTION_HEIGHT = "ResolutionHeight";
+            OPTIONS_RESOLUTION_HEIGHT = "ResolutionHeight",
+            OPTIONS_FOV_HUB = "fieldOfView",
+            OPTIONS_FPS_CAP = "FPSCap";
+
+
 
         //public const string
         //    SCENE_ etc etc etc = "";

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cinemachine;
 using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -18,6 +19,13 @@ namespace GeneralUtility
             protected List<string> resolutionNames = new();
             protected (int width, int height) nativeResolution;
 
+            // Jakob's FOV and FPS additions
+            protected Slider FOVSlider;
+            protected float FOVValue;
+            protected float defaultFOV;
+            [SerializeField]
+            protected CinemachineVirtualCamera hubCam;
+
             protected void Start()
             {
                 nativeResolution.width = Display.main.systemWidth;
@@ -34,6 +42,7 @@ namespace GeneralUtility
                 applyListener.Response = new();
                 applyListener.Response.AddListener(() => SetVSync());
                 applyListener.Response.AddListener(() => SetFullScreen());
+                applyListener.Response.AddListener(() => SetFOV());
                 //applyListener.Response.AddListener(() => SetResolution());
                 applyOptionsEvent.RegisterListener(applyListener);
 
@@ -43,6 +52,7 @@ namespace GeneralUtility
                 revertListener.Response.AddListener(() => RevertVSync());
                 revertListener.Response.AddListener(() => RevertFullScreen());
                 revertListener.Response.AddListener(() => RevertResolution());
+                revertListener.Response.AddListener(() => RevertFOV());
                 revertOptionsEvent.RegisterListener(revertListener);
 
                 var defaultListener = gameObject.AddComponent<GameEventListener>();
@@ -51,6 +61,7 @@ namespace GeneralUtility
                 defaultListener.Response.AddListener(() => DefaultVSync());
                 defaultListener.Response.AddListener(() => DefaultFullScreen());
                 defaultListener.Response.AddListener(() => DefaultResolution());
+                defaultListener.Response.AddListener(() => DefaultFOV());
                 defaultOptionsEvent.RegisterListener(defaultListener);
 
                 var exitListener = gameObject.AddComponent<GameEventListener>();
@@ -59,6 +70,7 @@ namespace GeneralUtility
                 exitListener.Response.AddListener(() => RevertVSync());
                 exitListener.Response.AddListener(() => RevertFullScreen());
                 exitListener.Response.AddListener(() => RevertResolution());
+                exitListener.Response.AddListener(() => RevertFOV());
                 exitOptionsEvent.RegisterListener(exitListener);
             }
 
@@ -77,6 +89,15 @@ namespace GeneralUtility
                 toggleFullScreen.RegisterValueChangedCallback((evt) => TempFullScreen(evt));     //Tell the system "when slider changes, call "SetMasterVolume"
 
                 resolutionDropdown = root.Q<DropdownField>("ResolutionDropdown"); //the name of the element in UI Builder
+
+                FOVSlider = root.Q<Slider>("FieldOfView");
+                defaultFOV = Camera.HorizontalToVerticalFieldOfView(90, Camera.main.aspect);
+                FOVSlider.value = PlayerPrefs.GetFloat(FOVSlider.name, Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect));
+                FOVValue = Camera.HorizontalToVerticalFieldOfView(FOVSlider.value, Camera.main.aspect);
+                SetFOV();
+                FOVSlider.RegisterValueChangedCallback((evt) => TempFOV(evt));
+
+
                 for (int i = Screen.resolutions.Length - 1; i >= 0; i--)
                 {
                     resolutions.Add(Screen.resolutions[i]);
@@ -187,6 +208,43 @@ namespace GeneralUtility
                 resolutionDropdown.value = resolutionNames[PlayerPrefs.GetInt(MagicStrings.OPTIONS_RESOLUTION_INDEX, defaultResIndex)];
                 Screen.SetResolution(resolutions[resolutionIndex].width, resolutions[resolutionIndex].height, toggleFullScreen.value);
             }
+            #endregion
+
+            #region FOV and FPS
+            protected void TempFOV(ChangeEvent<float> evt)
+            {
+                FOVValue = Camera.HorizontalToVerticalFieldOfView(evt.newValue, Camera.main.aspect);
+                SetFOV();
+            }
+
+            protected void SetFOV()
+            {
+                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, FOVValue);
+                // APPLY TO CAMERA HERE?
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+            }
+            protected void RevertFOV()
+            {
+                FOVSlider.value = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect));
+                //FOVValue = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+
+                // APPLY TO CAMERA HERE?
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+            }
+            protected void DefaultFOV()
+            {
+                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+                FOVSlider.value = Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect);
+
+                // APPLY TO CAMERA HERE?
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+            }
+
+            //protected float ConvertHorzToVert(float targetFOV, float aspectRatio) 
+            //{
+            //    float vertFOV = 0f;
+            //    return vertFOV;
+            //}
             #endregion
         }
     }
