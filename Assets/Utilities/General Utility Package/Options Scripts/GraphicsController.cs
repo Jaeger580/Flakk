@@ -22,6 +22,7 @@ namespace GeneralUtility
             // Jakob's FOV and FPS additions
             protected Slider FOVSlider;
             protected float FOVValue;
+            protected float defaultFOV;
             [SerializeField]
             protected CinemachineVirtualCamera hubCam;
 
@@ -90,8 +91,10 @@ namespace GeneralUtility
                 resolutionDropdown = root.Q<DropdownField>("ResolutionDropdown"); //the name of the element in UI Builder
 
                 FOVSlider = root.Q<Slider>("FieldOfView");
-                FOVSlider.value = PlayerPrefs.GetFloat(FOVSlider.name, 90);
-                FOVValue = FOVSlider.value;
+                defaultFOV = Camera.HorizontalToVerticalFieldOfView(90, Camera.main.aspect);
+                FOVSlider.value = PlayerPrefs.GetFloat(FOVSlider.name, Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect));
+                FOVValue = Camera.HorizontalToVerticalFieldOfView(FOVSlider.value, Camera.main.aspect);
+                SetFOV();
                 FOVSlider.RegisterValueChangedCallback((evt) => TempFOV(evt));
 
 
@@ -210,32 +213,38 @@ namespace GeneralUtility
             #region FOV and FPS
             protected void TempFOV(ChangeEvent<float> evt)
             {
-                FOVValue = evt.newValue;
+                FOVValue = Camera.HorizontalToVerticalFieldOfView(evt.newValue, Camera.main.aspect);
                 SetFOV();
             }
 
             protected void SetFOV()
             {
-                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, FOVValue);
                 // APPLY TO CAMERA HERE?
-                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
             }
             protected void RevertFOV()
             {
-                FOVSlider.value = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
-                FOVValue = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                FOVSlider.value = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect));
+                //FOVValue = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
 
                 // APPLY TO CAMERA HERE?
-                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
             }
             protected void DefaultFOV()
             {
-                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
-                FOVSlider.value = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                PlayerPrefs.SetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
+                FOVSlider.value = Camera.VerticalToHorizontalFieldOfView(defaultFOV, Camera.main.aspect);
 
                 // APPLY TO CAMERA HERE?
-                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, 90);
+                hubCam.m_Lens.FieldOfView = PlayerPrefs.GetFloat(MagicStrings.OPTIONS_FOV_HUB, defaultFOV);
             }
+
+            //protected float ConvertHorzToVert(float targetFOV, float aspectRatio) 
+            //{
+            //    float vertFOV = 0f;
+            //    return vertFOV;
+            //}
             #endregion
         }
     }
