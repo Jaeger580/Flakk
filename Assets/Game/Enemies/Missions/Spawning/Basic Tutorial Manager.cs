@@ -75,7 +75,7 @@ public class BasicTutorialManager : MonoBehaviour
         }
 
 
-        Invoke(nameof(PresentChoice), 1f);
+        Invoke(nameof(PresentChoice), 0.25f);
 
     }
 

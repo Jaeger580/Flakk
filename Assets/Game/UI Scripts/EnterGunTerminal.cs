@@ -45,7 +45,7 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         monitorEngaged = false;
     }
 
-    // Will change the players controlls and change there camera view to the gun / turret.
+    // Will change the players controls and change there camera view to the gun / turret.
     public void Interact(object _)
     {
         //Debug.Log("It worked!");
@@ -53,7 +53,8 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         //monitorCam.Priority = 100;
         StartCoroutine(nameof(CamCoroutine));
         //playerVCAM.Priority = 0;
-        playInput.SwitchCurrentActionMap("Gun");
+        //playInput.SwitchCurrentActionMap("Gun");
+        playInput.enabled = false;
         gunEnterEvent.Trigger();
         //AudioManager.instance.SetVolume("BGM", 0.015f);
     }
@@ -64,12 +65,15 @@ public class EnterGunTerminal : MonoBehaviour, IInteractable
         //yield return new WaitForSeconds(1.8f);
         //gunVCAM.Priority = 101;
         playerVCAM.Priority = 0;
+        yield return new WaitForSeconds(2f);
+        playInput.enabled = true;
+        playInput.SwitchCurrentActionMap("Gun");
         //gunVCAM.Priority = 5;
     }
 
     // Method that will be called by the animation when it is done
     // DOES NOT WORK DO TO NOT TURNING OFF GUN CONTROLS FIRST
-    // Clear controlls?
+    // Clear controls?
     public void SwitchToHub() 
     {
         playerVCAM.Priority = 5;
