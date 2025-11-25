@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
     public Mission[] Missions => missions;
     [SerializeField] private GameEvent levelEndEvent;
     private Mission activeMission;
+    public Mission ActiveMission => activeMission;
     private CurrencyGainer currencyGainer;
     private void Start()
     {
