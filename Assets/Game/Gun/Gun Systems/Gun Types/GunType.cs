@@ -214,8 +214,17 @@ public abstract class GunType : MonoBehaviour
         var exitGunListener = gameObject.AddComponent<GameEventListener>();
         exitGunListener.Events.Add(gunSetup.gunExitEvent);
         exitGunListener.Response = new();
-        exitGunListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        exitGunListener.Response.AddListener(() => ArbitrarilyUpdateMags()); 
         gunSetup.gunExitEvent.RegisterListener(exitGunListener);
+
+        var ammoListener = gameObject.AddComponent<GameEventListener>();
+        ammoListener.Response = new();
+        ammoListener.Response.AddListener(() => ArbitrarilyUpdateMags());
+        foreach(var evt in gunSetup.ammoUpdatedEvents)
+        {
+            ammoListener.Events.Add(evt);
+            evt.RegisterListener(ammoListener);
+        }
 
         //Continued setup using the gunTypeSetup component
         gunBase = gunSetup.gunBase;

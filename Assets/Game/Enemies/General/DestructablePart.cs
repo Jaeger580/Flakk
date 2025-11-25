@@ -43,10 +43,12 @@ abstract public class DestructablePart : Damageable<DestructablePart>
     protected bool debuffTriggered = false;
 
     override public System.Action OnDamage { get; set; }
+    public System.Action OnDestruct { get; set; }
 
     virtual public void Start()
     {
         OnDamage = () => { };
+        OnDestruct = () => { };
     }
 
     override public bool ApplyDamage(CombatPacket p)
@@ -81,6 +83,8 @@ abstract public class DestructablePart : Damageable<DestructablePart>
             }
 
             debuffTriggered = true;
+
+            OnDestruct?.Invoke();
         }
 
         var mainBodyPacket = new CombatPacket(p);

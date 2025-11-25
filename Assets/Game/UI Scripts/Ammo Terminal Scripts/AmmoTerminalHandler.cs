@@ -2,6 +2,7 @@
 using GeneralUtility.VariableObject;
 using UnityEngine.UIElements;
 using GeneralUtility.GameEventSystem;
+using System.Collections;
 
 public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 {
@@ -13,6 +14,8 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
     [SerializeField] private VisualTreeAsset ammoReadoutAsset;
 
     [SerializeField] private AmmoCrateSpawner crateSpawner;
+
+    private UIDocument uidoc;
 
     private VisualElement CreateNewUpgradeReadout(AmmoType ammo)
     {
@@ -55,7 +58,11 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshInfo()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        var root = uidoc.rootVisualElement;
+
+        var currencyText = root.Q<Label>($"CurrencyText");
+        currencyText.text = $"${currentCurrency.Value}";
+        print("Currency should've updated.");
 
         var ammoContainer = root.Q<VisualElement>($"AmmoContainer");
         ammoContainer.Clear();
@@ -68,11 +75,33 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     public void RefreshUI()
     {
+        if (!TryGetComponent(out uidoc)) return;
+
+        bool previouslyEnabled = uidoc.enabled;
+        if (!previouslyEnabled) uidoc.enabled = true;
+
+        var root = uidoc.rootVisualElement;
+
+        if (root == null) return;
+
         RefreshInfo();
+        if (!previouslyEnabled) StartCoroutine(EnableTimer());
+    }
+
+    private IEnumerator EnableTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        uidoc.enabled = false;
     }
 
     private void Start()
     {
-        RefreshInfo();
+        var currencyChangedListener = gameObject.AddComponent<GameEventListener>();
+        currencyChangedListener.Events.Add(currencyChangedEvent);
+        currencyChangedListener.Response = new();
+        currencyChangedListener.Response.AddListener(() => RefreshUI());
+        currencyChangedEvent.RegisterListener(currencyChangedListener);
+
+        RefreshUI();
     }
 }

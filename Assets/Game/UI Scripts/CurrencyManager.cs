@@ -15,25 +15,24 @@ public class CurrencyManager : MonoBehaviour, IUIScreenRefresh
         currencyChangedListener.Response = new();
         currencyChangedListener.Response.AddListener(() => RefreshUI());
         currencyChangedEvent.RegisterListener(currencyChangedListener);
+
+        currencyChangedEvent?.Trigger();
     }
 
     public void RefreshUI()
     {
-        if(!TryGetComponent<UIDocument>(out var UIDoc)) 
-        {
-            return;
-        }
+        //if (!TryGetComponent(out UIDocument uidoc)) return;
 
-        var root = UIDoc.rootVisualElement;
+        //bool previouslyEnabled = uidoc.enabled;
+        //if (!previouslyEnabled) uidoc.enabled = true;
 
-        if (root == null)
-            return;
+        //var root = uidoc.rootVisualElement;
 
-        var currencyText = root.Q<Label>($"CurrencyText");
+        //if (root == null) return;
 
-        if (currencyText == null)
-            return;
+        //var currencyText = root.Q<Label>($"CurrencyText");
+        //currencyText.text = $"${currency.Value}";
 
-        currencyText.text = $"${currency.Value}";
+        //if (!previouslyEnabled) uidoc.enabled = false;
     }
 }
