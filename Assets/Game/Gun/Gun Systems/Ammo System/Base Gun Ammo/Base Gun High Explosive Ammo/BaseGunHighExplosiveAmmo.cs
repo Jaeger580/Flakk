@@ -19,12 +19,17 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
-        StartCoroutine(DestroySelf());
         if (!TriggerEffect(p)) return;
 
+        StartCoroutine(DestroySelf());
+        var vfx = Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+        vfx.transform.parent = null;
+        vfx.SetActive(true);
+        Destroy(vfx, 0.25f);
+
         //Check for enemies
-        var newPos = p.HitCollider.ClosestPointOnBounds(transform.position);
-        Collider[] affectedColliders = Physics.OverlapSphere(newPos, explosionRadius.Value, affectableMask);
+        //var newPos = p.HitCollider.ClosestPointOnBounds(transform.position);
+        Collider[] affectedColliders = Physics.OverlapSphere(transform.position, explosionRadius.Value, affectableMask);
         List<GameObject> affectedObjs = new();
 
         foreach (var c in affectedColliders)
