@@ -196,7 +196,7 @@ MonoBehaviour:
   hideEvent: {fileID: 11400000, guid: 9393bc8136ead44caafbcda84f4198c9, type: 2}
   uidoc: {fileID: 5174650173709554925}
   opacityTimer: 1
-  textTimer: 3
+  textTimer: 5
   opacityCurve:
     serializedVersion: 2
     m_Curve:
@@ -230,26 +230,44 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
+      weightedMode: 2
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.5273562
+    - serializedVersion: 3
+      time: 0.25
+      value: 0.45
+      inSlope: 0.8507627
+      outSlope: 0.8507627
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.73816395
+      outWeight: 0.21848033
     - serializedVersion: 3
       time: 0.5
       value: 0.5
-      inSlope: 0.1363656
-      outSlope: 0.1363656
+      inSlope: 0.036983535
+      outSlope: 0.036983535
       tangentMode: 0
       weightedMode: 3
-      inWeight: 0.9968701
-      outWeight: 1
+      inWeight: 0.46679196
+      outWeight: 0.5101721
+    - serializedVersion: 3
+      time: 0.75
+      value: 0.55
+      inSlope: 1.0827173
+      outSlope: 1.0827173
+      tangentMode: 0
+      weightedMode: 3
+      inWeight: 0.19593973
+      outWeight: 0.6689769
     - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
+      weightedMode: 1
+      inWeight: 0.5678778
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
