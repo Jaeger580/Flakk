@@ -70,7 +70,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         var missionDesc = root.Q<Label>($"MissionDesc");
         missionDesc.text = "";
         var missionReward = root.Q<Label>($"MissionReward");
-        missionDesc.text = "";
+        missionReward.text = "";
 
         var startMissionButton = root.Q<Button>($"StartMission");
         startMissionButton.SetEnabled(false);
