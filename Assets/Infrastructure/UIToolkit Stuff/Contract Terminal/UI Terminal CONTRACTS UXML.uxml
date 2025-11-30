@@ -21,7 +21,8 @@
                         <ui:VisualElement class="statDetailContainer" style="flex-grow: 1; width: 80%;">
                             <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" />
                             <ui:VisualElement style="flex-grow: 1;">
-                                <ui:Label tabindex="-1" text="Lorem ipsum" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionDesc" class="statText" style="white-space: normal;" />
+                                <ui:Label tabindex="-1" text="Lorem ipsum" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionDesc" class="statText" style="white-space: normal; font-size: 32px; -unity-text-align: middle-left;" />
+                                <ui:Label tabindex="-1" text="Lorem ipsum" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MissionReward" class="statText" style="white-space: normal; -unity-font-style: bold-and-italic; border-left-color: rgb(128, 199, 255); border-right-color: rgb(128, 199, 255); border-top-color: rgb(128, 199, 255); border-bottom-color: rgb(128, 199, 255); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; -unity-text-align: middle-right;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>

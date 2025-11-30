@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GeneralUtility.GameEventSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,25 +10,32 @@ public class MissionManager : MonoBehaviour
     [SerializeField]
     private Mission[] missions;
     public Mission[] Missions => missions;
-
-    private string activeMission;
-
-    //private void Start()
-    //{
-    //    LoadMission(0);
-    //}
+    [SerializeField] private GameEvent levelEndEvent;
+    private Mission activeMission;
+    public Mission ActiveMission => activeMission;
+    private CurrencyGainer currencyGainer;
+    private void Start()
+    {
+        currencyGainer = FindObjectOfType<CurrencyGainer>();
+        var levelEndListener = gameObject.AddComponent<GameEventListener>();
+        levelEndListener.Events.Add(levelEndEvent);
+        levelEndListener.Response = new();
+        levelEndListener.Response.AddListener(() => currencyGainer.GainCurrency(activeMission.CashReward()));
+        levelEndEvent.RegisterListener(levelEndListener);
+    }
 
     // If there is an active mission, remove it and load the correct mission
     public void LoadMission(int missionNum)
     {
         if(activeMission != null) 
         {
-            SceneManager.UnloadSceneAsync(activeMission);
+            SceneManager.UnloadSceneAsync(activeMission.Name());
         }
 
-        SceneManager.LoadScene(missions[missionNum].Name(), LoadSceneMode.Additive);
+        activeMission = missions[missionNum];
+
+        SceneManager.LoadScene(activeMission.Name(), LoadSceneMode.Additive);
         //SceneManager.LoadScene("O_BasicLevel_1.0", LoadSceneMode.Additive);
-        activeMission = missions[missionNum].Name();
 
     }
 
