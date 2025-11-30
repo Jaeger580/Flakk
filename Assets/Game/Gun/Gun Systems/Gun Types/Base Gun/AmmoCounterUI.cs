@@ -11,6 +11,8 @@ public class AmmoCounterUI : MonoBehaviour
     [SerializeField] private Image reloadBar;
     [SerializeField] private RectTransform primaryCanvas, secondaryCanvas;
 
+    private Vector3 reversedVector = new Vector3(-1,1,1);
+
     private void Awake()
     {
         if (!TryGetComponent(out GunType gun)) { Editor_Utility.ThrowWarning("ERR: NO GUN TYPE FOUND.", this); return; }
@@ -23,7 +25,7 @@ public class AmmoCounterUI : MonoBehaviour
 
         gun.MagSwapEvent += (primary) => HandleMagSwap(primary);
 
-        secondaryCanvas.localScale = Vector3.one * 0.9f;
+        secondaryCanvas.localScale = reversedVector * 0.9f;
     }
 
     private void HandleMagSwap(bool primary)
@@ -33,11 +35,11 @@ public class AmmoCounterUI : MonoBehaviour
             if (primary)
             {
                 primaryCanvas.localScale = Vector3.one;
-                secondaryCanvas.localScale = Vector3.one * 0.9f;
+                secondaryCanvas.localScale = reversedVector * 0.9f;
             }
             else
             {
-                secondaryCanvas.localScale = Vector3.one;
+                secondaryCanvas.localScale = reversedVector;
                 primaryCanvas.localScale = Vector3.one * 0.9f;
             }
         }
