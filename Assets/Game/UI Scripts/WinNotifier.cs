@@ -17,6 +17,8 @@ public class WinNotifier : MonoBehaviour
         completeLabelStartOffset, completeLabelEndOffset;
     [SerializeField] private Vector2 missionLabelStartSize, missionLabelEndSize,
         completeLabelStartSize, completeLabelEndSize;
+    [SerializeField] private Vector2 missionLabelStartGlowPos, missionLabelEndGlowPos,
+        completeLabelStartGlowPos, completeLabelEndGlowPos;
 
     [SerializeField] private MissionManager missionManager;
 
@@ -69,6 +71,29 @@ public class WinNotifier : MonoBehaviour
         }
     }
 
+    private void HandleLabelTranslateOffset(Label label, Vector2 startOffset, Vector2 endOffset, float curvedPercent)
+    {
+        var offset = Vector2.Lerp(startOffset, endOffset, curvedPercent);
+        label.style.translate = new Translate(new Length(offset.x, LengthUnit.Pixel), new Length(offset.y, LengthUnit.Pixel));
+    }
+
+    private void HandleLabelSize(Label label, Vector2 startSize, Vector2 endSize, float curvedPercent)
+    {
+        var size = Vector2.Lerp(startSize, endSize, curvedPercent);
+        label.style.scale = new Scale(size);
+    }
+
+    private void HandleLabelGlowOffset(Label label, Vector2 startOffset, Vector2 endOffset, float curvedPercent)
+    {
+        var offset = Vector2.Lerp(startOffset, endOffset, curvedPercent);
+        var current = label.style.textShadow.value;
+        //print($"Current color: {current.color}");
+        current.offset = offset;
+        current.color = new(1,1,1,0.5f);
+        current.blurRadius = 2f;
+        label.style.textShadow = current;
+    }
+
     private IEnumerator StartTextTransition()
     {
         float journey = 0f;
@@ -79,18 +104,16 @@ public class WinNotifier : MonoBehaviour
         {
             var posCurvedPercent = posCurve.Evaluate(journey / textTimer);
             var scaleCurvedPercent = scaleCurve.Evaluate(journey / textTimer);
+            var opacityCurvedPercent = opacityCurve.Evaluate(journey / textTimer);
 
-            var missionLabelOffset = Vector2.Lerp(missionLabelStartOffset, missionLabelEndOffset, posCurvedPercent);
-            missionLabel.style.translate = new Translate(new Length(missionLabelOffset.x, LengthUnit.Pixel), new Length(missionLabelOffset.y, LengthUnit.Pixel));
+            HandleLabelTranslateOffset(missionLabel, missionLabelStartOffset, missionLabelEndOffset, posCurvedPercent);
+            HandleLabelTranslateOffset(completeLabel, completeLabelStartOffset, completeLabelEndOffset, posCurvedPercent);
 
-            var completeLabelOffset = Vector2.Lerp(completeLabelStartOffset, completeLabelEndOffset, posCurvedPercent);
-            completeLabel.style.translate = new Translate(new Length(completeLabelOffset.x, LengthUnit.Pixel), new Length(completeLabelOffset.y, LengthUnit.Pixel));
+            HandleLabelSize(missionLabel, missionLabelStartSize, Vector2.one, scaleCurvedPercent);
+            HandleLabelSize(completeLabel, completeLabelStartSize, Vector2.one, scaleCurvedPercent);
 
-            var missionLabelSize = Vector2.Lerp(missionLabelStartSize, Vector2.one, scaleCurvedPercent);
-            missionLabel.style.scale = new Scale(missionLabelSize);
-
-            var completeLabelSize = Vector2.Lerp(completeLabelStartSize, Vector2.one, scaleCurvedPercent);
-            completeLabel.style.scale = new Scale(completeLabelSize);
+            HandleLabelGlowOffset(missionLabel, missionLabelStartGlowPos, missionLabelEndGlowPos, opacityCurvedPercent);
+            HandleLabelGlowOffset(completeLabel, completeLabelStartGlowPos, completeLabelEndGlowPos, opacityCurvedPercent);
 
             var reward = Mathf.CeilToInt(Mathf.Lerp(0, (float)intendedReward, journey / (textTimer / 4f)));
             rewardLabel.text = $"REWARD: ${reward:000}";
@@ -108,18 +131,16 @@ public class WinNotifier : MonoBehaviour
         {
             var posCurvedPercent = posCurve.Evaluate(journey / textTimer);
             var scaleCurvedPercent = scaleCurve.Evaluate(journey / textTimer);
+            var opacityCurvedPercent = opacityCurve.Evaluate(journey / textTimer);
 
-            var missionLabelOffset = Vector2.Lerp(missionLabelStartOffset, missionLabelEndOffset, posCurvedPercent);
-            missionLabel.style.translate = new Translate(new Length(missionLabelOffset.x, LengthUnit.Pixel), new Length(missionLabelOffset.y, LengthUnit.Pixel));
+            HandleLabelTranslateOffset(missionLabel, missionLabelStartOffset, missionLabelEndOffset, posCurvedPercent);
+            HandleLabelTranslateOffset(completeLabel, completeLabelStartOffset, completeLabelEndOffset, posCurvedPercent);
 
-            var completeLabelOffset = Vector2.Lerp(completeLabelStartOffset, completeLabelEndOffset, posCurvedPercent);
-            completeLabel.style.translate = new Translate(new Length(completeLabelOffset.x, LengthUnit.Pixel), new Length(completeLabelOffset.y, LengthUnit.Pixel));
+            HandleLabelSize(missionLabel, Vector2.one, missionLabelEndSize, scaleCurvedPercent);
+            HandleLabelSize(completeLabel, Vector2.one, completeLabelEndSize, scaleCurvedPercent);
 
-            var missionLabelSize = Vector2.Lerp(Vector2.one, missionLabelEndSize, scaleCurvedPercent);
-            missionLabel.style.scale = new Scale(missionLabelSize);
-
-            var completeLabelSize = Vector2.Lerp(Vector2.one, completeLabelEndSize, scaleCurvedPercent);
-            completeLabel.style.scale = new Scale(completeLabelSize);
+            HandleLabelGlowOffset(missionLabel, missionLabelStartGlowPos, missionLabelEndGlowPos, opacityCurvedPercent);
+            HandleLabelGlowOffset(completeLabel, completeLabelStartGlowPos, completeLabelEndGlowPos, opacityCurvedPercent);
 
             journey += Time.deltaTime;
             yield return null;
