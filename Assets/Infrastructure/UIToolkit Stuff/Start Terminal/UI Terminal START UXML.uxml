@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/Code/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
-    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%;">
+    <ui:Template name="UI Terminal OPTIONS UXML" src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/Options%20Terminal/UI%20Terminal%20OPTIONS%20UXML.uxml?fileID=9197481963319205126&amp;guid=bfdff6c542bd74becac605d138651f84&amp;type=3#UI Terminal OPTIONS UXML" />
+    <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/Start%20Terminal/britt_bg.png?fileID=2800000&amp;guid=6cdfcd51fdf254f0893abad1721a741c&amp;type=3#britt_bg&quot;);">
         <ui:VisualElement name="ScreenParent" class="screenParent">
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 10%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors">
@@ -11,12 +12,12 @@
             </ui:VisualElement>
             <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 80%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
-                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0); border-left-color: rgb(0, 227, 255); border-right-color: rgb(0, 227, 255); border-top-color: rgb(0, 227, 255); border-bottom-color: rgb(0, 227, 255); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgb(0, 0, 0); border-left-color: rgb(0, 227, 255); border-right-color: rgb(0, 227, 255); border-top-color: rgb(0, 227, 255); border-bottom-color: rgb(0, 227, 255); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-between;">
                     <ui:VisualElement>
                         <ui:Label tabindex="-1" text="F.L.A.K.K." parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" style="font-size: 64px;" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-between;">
-                        <ui:VisualElement style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; visibility: hidden;">
+                        <ui:VisualElement style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; visibility: hidden; width: 30%;">
                             <ui:Label tabindex="-1" text="Controls:" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentBody" />
                             <ui:Label tabindex="-1" text="Move : WASD" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                             <ui:Label tabindex="-1" text="Look : Mouse" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
@@ -27,11 +28,12 @@
                             <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                             <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                         </ui:VisualElement>
-                        <ui:VisualElement style="flex-grow: 1; justify-content: center;">
+                        <ui:VisualElement style="flex-grow: 1; justify-content: space-around; width: 30%;">
+                            <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
                             <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
                         </ui:VisualElement>
                         <ui:VisualElement style="justify-content: space-around; align-items: flex-end; align-self: auto; height: 100%; width: 30%;">
-                            <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%;" />
+                            <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%; display: none;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
@@ -42,8 +44,9 @@
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" style="justify-content: flex-end;" />
             </ui:VisualElement>
+            <ui:Instance template="UI Terminal OPTIONS UXML" name="OptionsScreen" style="position: absolute; width: 100%; height: 100%; display: none;" />
         </ui:VisualElement>
-        <ui:VisualElement name="ManualParent" picking-mode="Ignore" class="screenParent manualTabBaseline" style="position: absolute; display: flex;">
+        <ui:VisualElement name="ManualParent" picking-mode="Ignore" class="screenParent manualTabBaseline" style="position: absolute; display: none;">
             <ui:VisualElement name="LeftAnchor" picking-mode="Ignore" class="ltrAnchors" style="width: 10%;">
                 <ui:VisualElement name="TopAnchor" picking-mode="Ignore" class="ttbAnchors" />
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />

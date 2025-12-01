@@ -44,9 +44,9 @@ namespace GeneralUtility
             protected void InitUI()
             {
                 var root = GetComponent<UIDocument>().rootVisualElement;                //Get the root of the UI
-                //buttonOptions = root.Q<Button>("Options");                              //Find the "options" button
-                //buttonOptions.clicked += ToggleOptionsScreen;
-
+                buttonOptions = root.Q<Button>("Options");                              //Find the "options" button
+                buttonOptions.clickable = null;
+                buttonOptions.clicked += ToggleOptionsScreen;
                 screenOptions = root.Q<VisualElement>("OptionsScreen");
                 buttonAudioTab = screenOptions.Q<Button>("Audio");                      //Assign a reference to each tab button
                 buttonVisualTab = screenOptions.Q<Button>("Visual");
@@ -71,11 +71,22 @@ namespace GeneralUtility
                 buttonOptionsRevert = screenOptions.Q<Button>("Revert");
                 buttonOptionsDefault = screenOptions.Q<Button>("Default");
 
+                buttonAudioTab.clickable = null;
+                buttonVisualTab.clickable = null;
+                buttonKeysTab.clickable = null;
+                buttonAccessTab.clickable = null;
+                buttonGameTab.clickable = null;
+
                 buttonAudioTab.clicked += delegate { SelectOptions(optionsAudio); };    //Assign the SelectOptions function to each tab
                 buttonVisualTab.clicked += delegate { SelectOptions(optionsVisual); };
                 buttonKeysTab.clicked += delegate { SelectOptions(optionsKeys); };
                 buttonAccessTab.clicked += delegate { SelectOptions(optionsAccess); };
                 buttonGameTab.clicked += delegate { SelectOptions(optionsGame); };
+
+                buttonOptionsExit.clickable = null;
+                buttonOptionsApply.clickable = null;
+                buttonOptionsRevert.clickable = null;
+                buttonOptionsDefault.clickable = null;
 
                 //buttonOptionsExit.clicked += ToggleOptionsScreen;
                 buttonOptionsExit.clicked += ExitOptions;
@@ -96,18 +107,16 @@ namespace GeneralUtility
                 opt.style.display = showing;
                 visibleOptionsTab = opt.name;
             }
-            //private void ToggleOptionsScreen()
-            //{
-            //    if (screenOptions.style.display != hidden)
-            //        screenOptions.style.display = hidden;
-            //    else
-            //        screenOptions.style.display = showing;
-            //}
+
+            private void ToggleOptionsScreen()
+            {
+                UI_Utility.ToggleContainer(screenOptions);
+            }
 
             /*** Event-Sending Functions ***/
             protected void ApplyOptions() { applyOptionsEvent.Trigger(); }
             protected void RevertOptions() { revertOptionsEvent.Trigger(); }
-            public void ExitOptions() { exitOptionsEvent.Trigger(); }
+            public void ExitOptions() { UI_Utility.ToggleContainer(screenOptions, false); exitOptionsEvent.Trigger(); }
 
             protected void DefaultOptions()
             {

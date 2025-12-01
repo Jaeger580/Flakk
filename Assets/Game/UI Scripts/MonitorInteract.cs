@@ -47,7 +47,7 @@ public class MonitorInteract : MonoBehaviour, IInteractable
 
     private void EnableMonitor()
     {
-        tutorialEvent.Trigger();
+        tutorialEvent?.Trigger();
 
         doc.enabled = true;
         mapper.enabled = true;
