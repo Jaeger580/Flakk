@@ -14,6 +14,12 @@ public class BasicTutorialManager : MonoBehaviour
     private TextMeshProUGUI objectiveText;
     [SerializeField]
     private GameObject tutorialPanel;
+    [SerializeField]
+    private GameEvent startTutorialEvent;
+    private GameEventListener startListener;
+    private bool choicePresented = false;
+
+
 
     [SerializeField]
     private List<TutorialSeries> tutorialList;
@@ -25,7 +31,7 @@ public class BasicTutorialManager : MonoBehaviour
     private GameEventListener tutorialListener;
 
     private bool tutorialActive = false;
-    private bool tutorialSkipped = false;
+    private bool tutorialSkipped = true;
 
     [SerializeField]
     private PlayerInput playerInput;
@@ -48,7 +54,15 @@ public class BasicTutorialManager : MonoBehaviour
     }
 
     private void Start()
-    {   
+    {
+        // Inititial an event listener for starting tutorial prompt.
+        startListener = gameObject.AddComponent<GameEventListener>();
+        startListener = gameObject.AddComponent<GameEventListener>();
+        startListener.Events.Add(startTutorialEvent);
+        startListener.Response = new();
+        startListener.Response.AddListener(() => PresentChoice());
+        startTutorialEvent.RegisterListener(startListener);
+
         // Inititial an event listener for cycling through tutorials.
         tutorialListener = gameObject.AddComponent<GameEventListener>();
         tutorialListener = gameObject.AddComponent<GameEventListener>();
@@ -74,14 +88,18 @@ public class BasicTutorialManager : MonoBehaviour
             series.targetEvent.RegisterListener(listener);
         }
 
-
-        Invoke(nameof(PresentChoice), 0.25f);
+        
 
     }
 
     // Simple method for changing the player's cursor and control status until they choose to skip tutorial or not.
     private void PresentChoice() 
     {
+        if(choicePresented)
+            { return; }
+        else
+            choicePresented = true;
+
         skipScreen.SetActive(true);
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
         playerInput.SwitchCurrentActionMap("UI");
@@ -175,6 +193,12 @@ public class BasicTutorialManager : MonoBehaviour
     public void SkipTutorial()
     {
         tutorialSkipped = true;
+    }
+
+    // Only resets the skip check, as there is no actual reset function yet.
+    public void ResetTutorial()
+    {
+        tutorialSkipped = false;
     }
 }
 
