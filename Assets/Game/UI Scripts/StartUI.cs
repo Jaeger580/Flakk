@@ -19,8 +19,12 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
     }
     [EnumFlag] [SerializeField] [ReadOnly] private VoiceOverBitFlag voFlags;
 
+    private MonitorInteract monitorInteract;
+
     private IEnumerator Start()
     {
+        TryGetComponent(out monitorInteract);
+
         var monitorExitListener = gameObject.AddComponent<GameEventListener>();
         monitorExitListener.Events.Add(exitMonitorEvent);
         monitorExitListener.Response = new();
@@ -100,5 +104,14 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
 
         var quitBtn = root.Q<Button>("QuitGame");
         quitBtn.clicked += Application.Quit;
+
+        var playBtn = root.Q<Button>("StartGameButton");
+        playBtn.clicked += monitorInteract.ForceExitMonitor;
+
+        var creditsScreen = root.Q<VisualElement>("CreditsScreen");
+        var creditsBtn = root.Q<Button>("Credits");
+        creditsBtn.clicked += () => { UI_Utility.ToggleContainer(creditsScreen, true); };
+        var creditsExit = creditsScreen.Q<Button>("Exit");
+        creditsExit.clicked += () => { UI_Utility.ToggleContainer(creditsScreen, false); };
     }
 }
