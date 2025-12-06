@@ -77,7 +77,7 @@ public class BasicTutorialManager : MonoBehaviour
         foreach (TutorialSeries series in tutorialList) 
         {
             // set up a new event listener for the new event
-            GameEventListener listener = new GameEventListener();
+            var listener = gameObject.AddComponent<GameEventListener>();
 
             listener = gameObject.AddComponent<GameEventListener>();
             listener.Events.Add(series.targetEvent);

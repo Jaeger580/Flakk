@@ -39,6 +39,10 @@
                             <ui:Toggle label="V-Sync : " name="VSyncToggle" class="optionsToggle" style="width: 100%;" />
                             <ui:DropdownField label="V-Sync : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="display: none;" />
                         </ui:VisualElement>
+                        <ui:VisualElement name="OptionHolder" class="optionsHolder" style="width: 50%;">
+                            <ui:Slider picking-mode="Ignore" label="FOV:" value="1" high-value="120" name="FieldOfView" low-value="60" show-input-field="true" style="flex-grow: 1; flex-shrink: 0;" />
+                            <ui:DropdownField label="V-Sync : " index="-1" choices="System.Collections.Generic.List`1[System.String]" name="DisplayMode" style="display: none;" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="ControlsOptions" class="optionsContainer" style="display: none;">
@@ -100,7 +104,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="SubmitBox" style="align-items: flex-start; flex-direction: row;">
-                <ui:Button text="Exit Terminal" display-tooltip-when-elided="true" name="Exit" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+                <ui:Button text="Exit" display-tooltip-when-elided="true" name="Exit" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
                 <ui:Button text="Apply" display-tooltip-when-elided="true" name="Apply" class="mainMenuButton" style="display: none;" />
                 <ui:Button text="Revert" display-tooltip-when-elided="true" name="Revert" class="mainMenuButton" style="display: none;" />
                 <ui:Button text="Default" display-tooltip-when-elided="true" name="Default" usage-hints="DynamicColor" class="mainMenuButton" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />

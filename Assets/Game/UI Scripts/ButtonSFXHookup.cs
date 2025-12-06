@@ -44,7 +44,8 @@ public class ButtonSFXHookup : MonoBehaviour, IUIScreenRefresh
     {
         yield return null;
         var root = GetComponent<UIDocument>().rootVisualElement;
-        root.Query<Button>().ForEach(AddSFX);
+        if(root != null)
+            root.Query<Button>().ForEach(AddSFX);
     }
 
     private void AddSFX(Button btn)

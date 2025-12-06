@@ -64,9 +64,9 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
         var nextUpgrade = upg.CheckNextUpgrade();
 
-        name.text = nextUpgrade?.upgradeName;
-        desc.text = nextUpgrade?.upgradeDesc;
-        cost.text = $"{nextUpgrade?.cost:000}";
+        name.text = nextUpgrade != null ? nextUpgrade?.upgradeName : upg.upgrades[upg.currentUpgradeIndex].upgradeName;
+        desc.text = nextUpgrade != null ? nextUpgrade?.upgradeDesc : upg.upgrades[upg.currentUpgradeIndex].upgradeDesc;
+        cost.text = nextUpgrade != null ? $"{nextUpgrade?.cost:000}" : $"N/A";
         upgradeEntries.Add(upg, buyBtn);
         bool CheckBuyable()
         {
@@ -156,7 +156,7 @@ public class UpgradeTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     private IEnumerator EnableTimer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForEndOfFrame();
         uidoc.enabled = false;
     }
 

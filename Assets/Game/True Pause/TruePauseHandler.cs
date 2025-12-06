@@ -51,12 +51,12 @@ public class TruePauseHandler : MonoBehaviour
         optionsScreen = root.Q<VisualElement>("OptionsScreen");
 
         btnResume = pauseScreen.Q<Button>("Resume");
-        btnOptions = pauseScreen.Q<Button>("Options");
+        //btnOptions = pauseScreen.Q<Button>("Options");
         btnReloadScene = pauseScreen.Q<Button>("ReloadScene");
         btnQuit = pauseScreen.Q<Button>("QuitGame");
 
         btnResume.clicked += Resume;
-        btnOptions.clicked += ShowOptions;
+        //btnOptions.clicked += ShowOptions;
         btnReloadScene.clicked += ReloadScene;
         btnQuit.clicked += QuitGame;
 
