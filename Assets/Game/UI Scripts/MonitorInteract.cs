@@ -37,12 +37,14 @@ public class MonitorInteract : MonoBehaviour, IInteractable
             toRefresh.Add(refresh);
         }
 
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
 
         if (!startInTerminal)
             DisableMonitor();
         else
             Interact(this);
+
+        yield return null;
     }
 
     private void EnableMonitor()
