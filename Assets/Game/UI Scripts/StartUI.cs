@@ -46,18 +46,19 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
 
         RefreshUI();
 
-        yield return new WaitForSeconds(0.01f);
-
+        //yield return new WaitForSeconds(0.01f);
+        yield return null;
         startEvent?.Trigger();
         StartCoroutine(nameof(ManualTutorial));
     }
 
     private IEnumerator ManualTutorial()
     {//Wait for a few seconds to let the previous voice clip end, then if they haven't already checked the manual, tell them to
-        yield return new WaitForSeconds(11f);
-        if (!voFlags.HasFlag(VoiceOverBitFlag.MANUAL_CHECKED) &&
-            !voFlags.HasFlag(VoiceOverBitFlag.CONTRACT_STARTED)) manualEvent?.Trigger();
-        StartCoroutine(nameof(ExitPrompt));
+        yield return null;
+        //yield return new WaitForSeconds(11f);
+        //if (!voFlags.HasFlag(VoiceOverBitFlag.MANUAL_CHECKED) &&
+        //    !voFlags.HasFlag(VoiceOverBitFlag.CONTRACT_STARTED)) manualEvent?.Trigger();
+        //StartCoroutine(nameof(ExitPrompt));
     }
 
     private IEnumerator ExitPrompt()
