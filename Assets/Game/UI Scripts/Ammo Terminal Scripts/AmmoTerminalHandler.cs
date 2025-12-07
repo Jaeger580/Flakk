@@ -17,7 +17,7 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     private UIDocument uidoc;
 
-    private VisualElement CreateNewUpgradeReadout(AmmoType ammo)
+    private VisualElement CreateNewAmmoReadout(AmmoType ammo)
     {
         var readout = ammoReadoutAsset.CloneTree();
 
@@ -62,14 +62,13 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
         var currencyText = root.Q<Label>($"CurrencyText");
         currencyText.text = $"${currentCurrency.Value}";
-        print("Currency should've updated.");
 
         var ammoContainer = root.Q<VisualElement>($"AmmoContainer");
         ammoContainer.Clear();
 
         foreach (var ammoType in ammoTypes.items)
         {
-            ammoContainer.Add(CreateNewUpgradeReadout(ammoType));
+            ammoContainer.Add(CreateNewAmmoReadout(ammoType));
         }
     }
 
@@ -79,7 +78,6 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
         bool previouslyEnabled = uidoc.enabled;
         if (!previouslyEnabled) uidoc.enabled = true;
-
         var root = uidoc.rootVisualElement;
 
         if (root == null) return;
@@ -90,7 +88,7 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
     private IEnumerator EnableTimer()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForEndOfFrame();
         uidoc.enabled = false;
     }
 
