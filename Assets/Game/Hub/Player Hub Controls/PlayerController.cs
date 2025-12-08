@@ -558,11 +558,11 @@ public class PlayerController : MonoBehaviour
 
             if (pressSprint)
             {
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.3f);
             }
             else 
             {
-                yield return new WaitForSeconds(0.8f);
+                yield return new WaitForSeconds(0.7f);
             }
         }
     }
