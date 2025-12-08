@@ -19,9 +19,10 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
+        StartCoroutine(DestroySelf());
+
         if (!TriggerEffect(p)) return;
 
-        StartCoroutine(DestroySelf());
         var vfx = Instantiate(vfxPrefab, transform.position, Quaternion.identity);
         vfx.transform.parent = null;
         vfx.SetActive(true);

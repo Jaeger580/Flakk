@@ -22690,6 +22690,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4129925179423648591, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_RotationOffsets.Array.data[0].x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129925179423648591, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129925179423648591, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].y
+      value: -14.6029625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129925179423648591, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_TranslationOffsets.Array.data[0].z
+      value: -6.497753
+      objectReference: {fileID: 0}
     - target: {fileID: 5055916177292082468, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -22705,6 +22721,18 @@ PrefabInstance:
     - target: {fileID: 5055916177292082468, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.000000066204116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599072534647908862, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599072534647908862, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5599072534647908862, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6083009513345767736, guid: d48a652ccbbb946779bc2bf5bf89cc2e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -41585,71 +41613,6 @@ PrefabInstance:
     - target: {fileID: 5954658214758592300, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
       propertyPath: m_Name
       value: Mission Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[0].name
-      value: First Strike
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[1].name
-      value: Second Contact
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[2].name
-      value: Third Assault
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[3].name
-      value: Fourth Attack
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[4].name
-      value: Fifth Attempt
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[0].cashReward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[1].cashReward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[2].cashReward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[3].cashReward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[4].cashReward
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[0].description
-      value: A simple level that gives you breathing room between waves.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[1].description
-      value: A much harder level that challenges the gunner. Upgrades recommended.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[2].description
-      value: An even more difficult mission. The enemy is upping their arsenal. Upgrades
-        recommended.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[3].description
-      value: A large number of bombers are on the way. Prepare yourself!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7455767033061722227, guid: cca25509442cc1c428c21d6661cd8d05, type: 3}
-      propertyPath: missions.Array.data[4].description
-      value: Our most challenging mission. Bring your A game!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

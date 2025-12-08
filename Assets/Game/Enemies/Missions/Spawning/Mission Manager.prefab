@@ -45,10 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missions:
-  - name: O_BasicLevel_1.0
-    description: Allan wrote this for demonstration.
-    cashReward: 0
-  - name: O_BasicLevel_1.0
-    description: Allan wrote this one too.
-    cashReward: 0
+  - name: First Strike
+    description: A simple level that gives you breathing room between waves.
+    cashReward: 10
+  - name: Second Contact
+    description: A much harder level that challenges the gunner. Upgrades recommended.
+    cashReward: 20
+  - name: Third Assault
+    description: An even more difficult mission. The enemy is upping their arsenal.
+      Upgrades recommended.
+    cashReward: 35
+  - name: Fourth Attack
+    description: A large number of bombers are on the way. Prepare yourself!
+    cashReward: 45
+  - name: Fifth Attempt
+    description: Our most challenging mission. Bring your A game!
+    cashReward: 50
   levelEndEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
