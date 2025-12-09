@@ -6898,11 +6898,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363188240}
   m_Mesh: {fileID: 866774928942665137, guid: 5c4b859375175d64fb3d6fec07e10e29, type: 3}
---- !u!4 &365805849 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3511983086066929334, guid: 254df076a26764a888802cf86d1dea00, type: 3}
-  m_PrefabInstance: {fileID: 2066696253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &366692713
 GameObject:
   m_ObjectHideFlags: 0
@@ -12064,11 +12059,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &603379282 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9154730785738661458, guid: 36e147b1931fc4f6b9b1dc228acc0410, type: 3}
-  m_PrefabInstance: {fileID: 727214049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604969523
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,11 +13782,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4593913344031260949, guid: c4acc348cd5af7c4cacd7fecebe4aa63, type: 3}
---- !u!4 &674285030 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5840315342342784817, guid: 36e147b1931fc4f6b9b1dc228acc0410, type: 3}
-  m_PrefabInstance: {fileID: 727214049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &680331267
 GameObject:
   m_ObjectHideFlags: 0
@@ -40021,6 +40006,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696460981}
   m_Mesh: {fileID: 4684727780812232963, guid: 0a1f4f0adef9eba48b8b2883cb117f26, type: 3}
+--- !u!4 &1701322237 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3902192624577032645, guid: 656aba4c8390b4d809b6dab2d131522d, type: 3}
+  m_PrefabInstance: {fileID: 1266369597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1703490733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40666,62 +40656,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basic Tutorial Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1772360804}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1772360804}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 6675e747a5140534da425deb005c3285, type: 2}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetTutorial
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: EndChoice
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: Trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BasicTutorialManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: BasicTutorialManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: GeneralUtility.GameEventSystem.GameEvent, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194358180461986154, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7691803878566758414, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -40779,60 +40713,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1384943475}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: startTutorialEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ff1cccf11cbc4bb2a29b67cd88ce814, type: 2}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].text
-      value: Press F on the terminals to interact with them.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[0].text
-      value: 'While in the gun, use your mouse to aim.
-
-        Press Left Click
-        to shoot.
-
-        Hold R to reload.
-
-        Press Tab to swap magazines.
-
-        Hold
-        W / S to raise / lower the gun.'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[2].text
-      value: As your mother ship takes enemy attacks, the heat level will rise. When
-        heat levels are too high, the integrity of the mothership's hull will begins
-        to decrease.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[4].tutorials.Array.data[3].text
-      value: When hull integrity reaches 0%, you lose the game! Hull integrity is
-        represented by the red bar near the buttom of the HUD.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[6].tutorials.Array.data[0].text
-      value: Starting a contract will immediately begin to spawn in hostile enemies.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.data[0]
-      value: 
-      objectReference: {fileID: 365805849}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.data[1]
-      value: 
-      objectReference: {fileID: 674285030}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[1].highlightTargets.Array.data[2]
-      value: 
-      objectReference: {fileID: 603379282}
-    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].highlightTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1412541620}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].highlightTargets.Array.data[1]
+      value: 
+      objectReference: {fileID: 1458673547}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[2].highlightTargets.Array.data[2]
+      value: 
+      objectReference: {fileID: 1701322237}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
       propertyPath: tutorialList.Array.data[0].tutorials.Array.data[3].highlightTargets.Array.data[0]
+      value: 
+      objectReference: {fileID: 1412541620}
+    - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+      propertyPath: tutorialList.Array.data[0].tutorials.Array.data[4].highlightTargets.Array.data[0]
       value: 
       objectReference: {fileID: 1458673547}
     - target: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
@@ -40868,22 +40765,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1265492037}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3149509753813690693, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
---- !u!114 &1772360804 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7981904047638503118, guid: 64e9b0fedbf5b1f49be09686a8e650c2, type: 3}
-  m_PrefabInstance: {fileID: 1772360802}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076c17b446839f640a14f369e6b389f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1776156959
 GameObject:
   m_ObjectHideFlags: 0
