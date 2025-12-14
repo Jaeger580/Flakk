@@ -56,7 +56,6 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Door Triggered");
         Open();
     }
 

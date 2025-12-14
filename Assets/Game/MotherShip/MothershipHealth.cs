@@ -169,6 +169,9 @@ public class MothershipHealth : Damageable<MothershipHealth>
 
     private IEnumerator CoolDownTracker(float heatCoolDownRate) 
     {
+        // Variable should always be between 0 - 1. The lower the value, the faster heat will decrease.
+        float coolDownRateMulti = 1.0f;
+
         while (true) 
         {
             // If the cool down delay time has passed, cool down at set rate.
@@ -180,10 +183,15 @@ public class MothershipHealth : Damageable<MothershipHealth>
                 heatText.text = "HEAT: " + currentHeatPercent + "%";
                 heatBar.fillAmount = currentHeatPercent / 100f;
 
-                yield return new WaitForSeconds(heatCoolDownRate);
+                yield return new WaitForSeconds(heatCoolDownRate * coolDownRateMulti);
+
+                // Reduce coolDownRateMulti, unless we are getting to low.
+                if(coolDownRateMulti > 0.1f)
+                    coolDownRateMulti -= 0.01f;
             }
             else
             {
+                coolDownRateMulti = 1.0f;
                 yield return null;
             }
         }

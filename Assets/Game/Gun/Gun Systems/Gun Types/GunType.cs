@@ -132,6 +132,11 @@ public abstract class GunType : MonoBehaviour
 
     protected GunTypeSetup gunSetup;
 
+    [SerializeField]
+    protected GameEvent PrimaryStockUpdate;
+    [SerializeField]
+    protected GameEvent SecondaryStockUpdate;
+
     protected void Awake()
     {//When the scene starts, refill the mags (player shouldn't need to know how mags work yet)
 
@@ -429,12 +434,16 @@ public abstract class GunType : MonoBehaviour
             PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
             PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
             primaryStockpileAmmoChanged?.Trigger();
+            PrimaryStockUpdate.Trigger();
+
         }
         else
         {
             SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
             SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
             secondaryStockpileAmmoChanged?.Trigger();
+            SecondaryStockUpdate.Trigger();
+
         }
 
         return true;
