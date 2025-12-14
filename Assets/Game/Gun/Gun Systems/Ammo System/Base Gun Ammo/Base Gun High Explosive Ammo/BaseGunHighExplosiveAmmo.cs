@@ -21,7 +21,7 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
     {
         StartCoroutine(DestroySelf());
 
-        if (!TriggerEffect(p)) return;
+        //if (!TriggerEffect(p)) return;
 
         var vfx = Instantiate(vfxPrefab, transform.position, Quaternion.identity);
         vfx.transform.parent = null;
@@ -32,18 +32,19 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
         //var newPos = p.HitCollider.ClosestPointOnBounds(transform.position);
         Collider[] affectedColliders = Physics.OverlapSphere(transform.position, explosionRadius.Value, affectableMask);
         List<GameObject> affectedObjs = new();
-        List<GameObject> objsParents = new();
+        List<GameObject> parentObjs = new();
+
 
 
         foreach (var c in affectedColliders)
         {//For each collider, remove duplicate object hits (such as objects with multiple colliders)
-            if (objsParents.Contains(c.gameObject.transform.parent.gameObject)) continue;
+            if (affectedObjs.Contains(c.gameObject)) continue;
             affectedObjs.Add(c.gameObject);
-            objsParents.Add(c.gameObject.transform.parent.gameObject);
         }
 
         for (int i = 0; i < affectedObjs.Count; i++)
         {
+            Debug.Log("AFFECTED OBJECT: " + affectedObjs[i].name);
             //For each affected object,
             if (affectedObjs[i].TryGetComponent<IDamageable>(out var d))
             {//If that object implements the IDamageable interface
