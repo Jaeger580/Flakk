@@ -68,9 +68,13 @@ public class GunRotationControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         CamLook(mouseInput);
+    }
+
+    private void FixedUpdate()
+    {
 
         if (playAudio && !rotateSFX.isPlaying)
         {
