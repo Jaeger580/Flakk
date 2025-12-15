@@ -19,6 +19,7 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
+        //print("Impacting.");
         StartCoroutine(DestroySelf());
 
         //if (!TriggerEffect(p)) return;
@@ -31,38 +32,25 @@ public class BaseGunHighExplosiveAmmo : BaseGunAmmo, IEffect
         //Check for enemies
         //var newPos = p.HitCollider.ClosestPointOnBounds(transform.position);
         Collider[] affectedColliders = Physics.OverlapSphere(transform.position, explosionRadius.Value, affectableMask);
-        List<GameObject> affectedObjs = new();
-        List<GameObject> parentObjs = new();
-
-
+        List<Enemy> affectedEnemies = new();
+        List<DestructablePart> damagedParts = new();
 
         foreach (var c in affectedColliders)
         {//For each collider, remove duplicate object hits (such as objects with multiple colliders)
-            if (affectedObjs.Contains(c.gameObject)) continue;
-            affectedObjs.Add(c.gameObject);
+            if (!c.TryGetComponent<DestructablePart>(out var d)) continue;
+            if (affectedEnemies.Contains(d.MainBody)) continue;
+
+            affectedEnemies.Add(d.MainBody);
+            damagedParts.Add(d);
         }
 
-        for (int i = 0; i < affectedObjs.Count; i++)
+        for (int i = 0; i < damagedParts.Count; i++)
         {
-            Debug.Log("AFFECTED OBJECT: " + affectedObjs[i].name);
-            //For each affected object,
-            if (affectedObjs[i].TryGetComponent<IDamageable>(out var d))
-            {//If that object implements the IDamageable interface
-                if (d is DestructablePart part)
-                {//If it's an enemy,
-                    CombatPacket explosivePacket = new(p);
-                    explosivePacket.SetTarget(part, this);
-                    explosivePacket.SetHitCollider(part.GetComponent<Collider>(), this);
+            CombatPacket explosivePacket = new(p);
+            explosivePacket.SetTarget(damagedParts[i], this);
+            explosivePacket.SetHitCollider(damagedParts[i].GetComponent<Collider>(), this);
 
-                    TriggerEffect(explosivePacket);
-                }
-                else
-                {//Otherwise it's not an enemy, just get any collider
-                    CombatPacket explosivePacket = new(p);
-                    explosivePacket.SetTarget(d, this);
-                    explosivePacket.SetHitCollider(affectedObjs[i].GetComponent<Collider>(), this);
-                }
-            }
+            TriggerEffect(explosivePacket);
         }
 
         //if (triggered)

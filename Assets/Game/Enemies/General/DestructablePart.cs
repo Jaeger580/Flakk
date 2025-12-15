@@ -28,6 +28,7 @@ abstract public class DestructablePart : Damageable<DestructablePart>
 
     [SerializeField]
     protected Enemy mainBody;
+    public Enemy MainBody => mainBody;
 
     [SerializeField]
     protected GameObject partFixed;

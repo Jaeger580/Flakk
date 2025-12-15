@@ -414,9 +414,12 @@ public class DoT_Uranium : DEBUFF_DamageOverTime
 
 abstract public class BaseGunAmmo : ImpactBehavior
 {
+    private bool alreadyCollided = false;
     abstract public override void OnImpact(CombatPacket p);
     protected void OnCollisionEnter(Collision collision)
     {
+        if (alreadyCollided) return;
+        alreadyCollided = true;
         var collided = collision.gameObject;
         if (!((affectableMask & 1 << collided.layer) > 0))
         {
@@ -471,17 +474,16 @@ public abstract class ImpactBehavior : MonoBehaviour
 
     protected private IEnumerator DestroySelf()
     {
-        this.gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
         bulletGraphic.enabled = false;
-        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+        Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.isKinematic = true;
-
 
         sonicVFX.GetComponent<ParticleSystem>().Stop();
 
         yield return new WaitForSeconds(1f);
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
 
