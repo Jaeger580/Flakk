@@ -188,14 +188,11 @@ public abstract class Enemy : Damageable<Enemy>
     {
         //Deal damage to the enemy
         int finalDamage = CombatManager.DamageCalculator(packet);
-
-        Debug.Log("Final Damage: " + finalDamage);
-        
         currenthealth -= finalDamage;
         OnDamage?.Invoke();
         OnHit();
 
-        //Debug.Log(finalDamage + " final damage taken.");
+        //Debug.Log($"{finalDamage} damage taken.");
         //Debug.Log("Current Health " + currenthealth);
         if (currenthealth <= 0)
         {

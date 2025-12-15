@@ -1,20 +1,39 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:Template name="UI Terminal OPTIONS UXML" src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/Options%20Terminal/UI%20Terminal%20OPTIONS%20UXML.uxml?fileID=9197481963319205126&amp;guid=bfdff6c542bd74becac605d138651f84&amp;type=3#UI Terminal OPTIONS UXML" />
     <Style src="project://database/Assets/Infrastructure/UIToolkit%20Stuff/TerminalStyleSheet.uss?fileID=7433441132597879392&amp;guid=96d5bf98c481b49caa12dd0ff60b4887&amp;type=3#TerminalStyleSheet" />
-    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/Start%20Terminal/britt_bg.png?fileID=2800000&amp;guid=6cdfcd51fdf254f0893abad1721a741c&amp;type=3#britt_bg&quot;); -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/Oxanium-VariableFont_wght.ttf?fileID=12800000&amp;guid=18af7650e00930b48b048a87fcc0a4d3&amp;type=3#Oxanium-VariableFont_wght&quot;); -unity-font-definition: initial; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+    <ui:VisualElement name="TerminalView" style="width: 100%; height: 100%; background-image: url(&quot;project://database/Assets/Infrastructure/UIToolkit%20Stuff/Start%20Terminal/britt_bg.png?fileID=2800000&amp;guid=6cdfcd51fdf254f0893abad1721a741c&amp;type=3#britt_bg&quot;); -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/Oxanium-VariableFont_wght.ttf?fileID=12800000&amp;guid=18af7650e00930b48b048a87fcc0a4d3&amp;type=3#Oxanium-VariableFont_wght&quot;); -unity-font-definition: initial; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;">
         <ui:VisualElement name="ScreenParent" class="screenParent">
             <ui:VisualElement name="LeftAnchor" class="ltrAnchors" style="width: 20%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors">
-                    <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-font-style: bold; padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px; font-size: 24px;" />
+                    <ui:Button text="Exit Terminal" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="text-only-button" />
                 </ui:VisualElement>
                 <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" />
                 <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
             </ui:VisualElement>
-            <ui:VisualElement name="CenterAnchor" class="ltrAnchors" style="width: 80%; position: absolute; height: 100%; align-self: center; left: 10%;">
-                <ui:VisualElement name="TopAnchor" class="ttbAnchors" />
-                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgba(0, 0, 0, 0.5); border-left-color: rgb(0, 227, 255); border-right-color: rgb(0, 227, 255); border-top-color: rgb(0, 227, 255); border-bottom-color: rgb(0, 227, 255); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around; overflow: hidden;">
-                    <ui:VisualElement>
-                        <ui:Label tabindex="-1" text="F.L.A.K.K." parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" style="font-size: 64px; -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/Oxanium-VariableFont_wght.ttf?fileID=12800000&amp;guid=18af7650e00930b48b048a87fcc0a4d3&amp;type=3#Oxanium-VariableFont_wght&quot;); -unity-font-definition: initial;" />
+            <ui:VisualElement name="CenterAnchor" picking-mode="Ignore" class="ltrAnchors" style="width: 95%; position: absolute; height: 85%; align-self: center; left: 2.5%;">
+                <ui:VisualElement name="MiddleAnchor" class="ttbAnchors" style="height: 100%; flex-wrap: wrap; flex-direction: column; align-items: center; background-color: rgba(0, 0, 0, 0.5); border-left-color: rgba(0, 227, 255, 0.5); border-right-color: rgba(0, 227, 255, 0.5); border-top-color: rgba(0, 227, 255, 0.5); border-bottom-color: rgba(0, 227, 255, 0.5); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; justify-content: space-around; overflow: hidden;">
+                    <ui:VisualElement name="FLAKK" focusable="true" class="flakkTitleHoverable" style="flex-direction: row; overflow: hidden; width: 100%; justify-content: center; align-items: center; align-self: center;">
+                        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" class="contentTitle" style="font-size: 64px; -unity-font: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/Oxanium-VariableFont_wght.ttf?fileID=12800000&amp;guid=18af7650e00930b48b048a87fcc0a4d3&amp;type=3#Oxanium-VariableFont_wght&quot;); -unity-font-definition: initial; width: 100%; display: none;" />
+                        <ui:VisualElement class="flakkTitleFull" style="align-items: center; align-self: center;">
+                            <ui:Label tabindex="-1" text="Fortified" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Fortified" class="contentTitle flakkTitleWords" style="display: flex; overflow: hidden;" />
+                        </ui:VisualElement>
+                        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dot" class="contentTitle flakkDots" />
+                        <ui:VisualElement class="flakkTitleFull" style="align-items: center; align-self: center;">
+                            <ui:Label tabindex="-1" text="Lunar" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Lunar" class="contentTitle flakkTitleWords" style="display: flex; overflow: hidden;" />
+                        </ui:VisualElement>
+                        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dot" class="contentTitle flakkDots" />
+                        <ui:VisualElement class="flakkTitleFull" style="align-items: center; align-self: center;">
+                            <ui:Label tabindex="-1" text="Artillery" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Artillery" class="contentTitle flakkTitleWords" style="display: flex; overflow: hidden;" />
+                        </ui:VisualElement>
+                        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dot" class="contentTitle flakkDots" />
+                        <ui:VisualElement class="flakkTitleFull" style="align-items: center; align-self: center;">
+                            <ui:Label tabindex="-1" text="Konflict" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Konflict" class="contentTitle flakkTitleWords" style="display: flex; overflow: hidden;" />
+                        </ui:VisualElement>
+                        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dot" class="contentTitle flakkDots" />
+                        <ui:VisualElement class="flakkTitleFull" style="align-items: center; align-self: center;">
+                            <ui:Label tabindex="-1" text="Kannon" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Kannon" class="contentTitle flakkTitleWords" style="display: flex; overflow: hidden;" />
+                        </ui:VisualElement>
+                        <ui:Label tabindex="-1" text="." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dot" class="contentTitle flakkDots" />
                     </ui:VisualElement>
                     <ui:VisualElement style="flex-direction: row; width: 100%; justify-content: space-between;">
                         <ui:VisualElement style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; visibility: hidden; width: 30%;">
@@ -28,11 +47,11 @@
                             <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                             <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                         </ui:VisualElement>
-                        <ui:VisualElement name="MainMenuButtons" style="flex-grow: 1; justify-content: space-around; width: 30%;">
-                            <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartGameButton" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
-                            <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
-                            <ui:Button text="Credits" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Credits" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
-                            <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; width: 50%; align-self: center; font-size: 24px;" />
+                        <ui:VisualElement name="MainMenuButtons" style="justify-content: space-around; width: 30%; align-self: center; align-items: center; height: 100%;">
+                            <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartGameButton" class="text-only-button" style="width: 50%;" />
+                            <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options" class="text-only-button" style="width: 50%;" />
+                            <ui:Button text="Credits" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Credits" class="text-only-button" style="width: 50%;" />
+                            <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" class="text-only-button" style="width: 50%;" />
                         </ui:VisualElement>
                         <ui:VisualElement style="justify-content: space-around; align-items: flex-end; align-self: auto; height: 100%; width: 30%;">
                             <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%; display: none;" />
@@ -68,10 +87,9 @@
                                 <ui:Label tabindex="-1" text="UX UI Design" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CreditTitle" class="creditsTitle" />
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" />
+                        <ui:Button text="Back" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Exit" class="text-only-button" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="BottomAnchor" class="ttbAnchors" />
             </ui:VisualElement>
             <ui:VisualElement name="RightAnchor" class="ltrAnchors" style="width: 20%;">
                 <ui:VisualElement name="TopAnchor" class="ttbAnchors" />

@@ -34,6 +34,7 @@ public class ButtonSFXHookup : MonoBehaviour, IUIScreenRefresh
 
     [SerializeField]
     private AudioSource sfxSource;
+    [SerializeField] private UIDocument uidoc;
 
     private void Start()
     {
@@ -43,9 +44,9 @@ public class ButtonSFXHookup : MonoBehaviour, IUIScreenRefresh
     private IEnumerator AttachSounds()
     {
         yield return null;
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        if(root != null)
-            root.Query<Button>().ForEach(AddSFX);
+        var root = uidoc != null ? uidoc.rootVisualElement : GetComponent<UIDocument>().rootVisualElement;
+        //if(root != null)
+        root.Query<Button>().ForEach(AddSFX);
     }
 
     private void AddSFX(Button btn)

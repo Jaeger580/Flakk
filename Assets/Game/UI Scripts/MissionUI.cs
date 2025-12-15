@@ -71,6 +71,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         missionDesc.text = "";
         var missionReward = root.Q<Label>($"MissionReward");
         missionReward.text = "";
+        missionReward.style.display = DisplayStyle.None;
 
         var startMissionButton = root.Q<Button>($"StartMission");
         startMissionButton.SetEnabled(false);
@@ -84,6 +85,8 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         {
             descLabel.text = mis.Description();
             rewardLabel.text = $"REWARD: ${mis.CashReward()}";
+            rewardLabel.style.display = DisplayStyle.Flex;
+
             chosenMission = index;
             startMissionButton.SetEnabled(true);
         }
