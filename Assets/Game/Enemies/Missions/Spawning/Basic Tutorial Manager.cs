@@ -102,7 +102,8 @@ public class BasicTutorialManager : MonoBehaviour
 
         skipScreen.SetActive(true);
         UnityEngine.Cursor.lockState = CursorLockMode.Confined;
-        playerInput.SwitchCurrentActionMap("UI");
+        //playerInput.SwitchCurrentActionMap("UI");
+        playerInput.enabled = false;
     }
 
     // Close skip UI and return control to player.
@@ -110,7 +111,8 @@ public class BasicTutorialManager : MonoBehaviour
     {
         skipScreen.SetActive(false);
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-        playerInput.SwitchCurrentActionMap("Hub");
+        //playerInput.SwitchCurrentActionMap("Hub");
+        playerInput.enabled = true;
     }
 
     private void NextTutorial() 
