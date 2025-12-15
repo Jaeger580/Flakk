@@ -783,9 +783,9 @@ MonoBehaviour:
   ySens: 1
   sensitivityChangedEvent: {fileID: 11400000, guid: 7806ad284f4924c9fb00ed821ba980c2, type: 2}
   gunRotateSpeed:
-    UseConstant: 1
-    ConstantValue: 21
-    Variable: {fileID: 0}
+    UseConstant: 0
+    ConstantValue: 120
+    Variable: {fileID: 11400000, guid: d1df466cef7624de385a7069034bf54f, type: 2}
   inputEvLook: {fileID: 11400000, guid: 695f755a74be94c068f3cc87e89ca99e, type: 2}
   angleClamp: 55
   gunCamera: {fileID: 9170858499426201412}
@@ -5196,7 +5196,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winEvent: {fileID: 11400000, guid: e35f1238ffc9348dab8e7b089aa4747c, type: 2}
   hideEvent: {fileID: 11400000, guid: 0800cd0e03fe1430cba804ecc364153a, type: 2}
-  winBG: {fileID: 4814529635047568824}
+  uidoc: {fileID: 0}
+  opacityTimer: 0
+  textTimer: 0
+  opacityCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  posCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  missionLabelStartOffset: {x: 0, y: 0}
+  missionLabelEndOffset: {x: 0, y: 0}
+  completeLabelStartOffset: {x: 0, y: 0}
+  completeLabelEndOffset: {x: 0, y: 0}
+  missionLabelStartSize: {x: 0, y: 0}
+  missionLabelEndSize: {x: 0, y: 0}
+  completeLabelStartSize: {x: 0, y: 0}
+  completeLabelEndSize: {x: 0, y: 0}
+  missionLabelStartGlowPos: {x: 0, y: 0}
+  missionLabelEndGlowPos: {x: 0, y: 0}
+  completeLabelStartGlowPos: {x: 0, y: 0}
+  completeLabelEndGlowPos: {x: 0, y: 0}
+  missionManager: {fileID: 0}
 --- !u!1 &2832561503519303553
 GameObject:
   m_ObjectHideFlags: 0

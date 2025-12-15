@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Upgrade - Base Gun Special Reload
   m_EditorClassIdentifier: 
   statToIncrease: {fileID: 11400000, guid: 628b949b9d0c7420d9721b22942dfd36, type: 2}
-  initialStatValue: 2
+  initialStatValue: 0
   currentUpgradeIndex: 0
   upgrades:
   - upgradeName: Multi-Mag Reload
     upgradeDesc: While actively reloading, reload both magazines at once.
     amtToAugmentBy: 1
     augmentType: 0
-    cost: 10
+    cost: 20
   - upgradeName: Passive Reload
     upgradeDesc: While below 25% capacity, your inactive magazine passively reloads.
     amtToAugmentBy: 1
     augmentType: 0
-    cost: 20
+    cost: 40
