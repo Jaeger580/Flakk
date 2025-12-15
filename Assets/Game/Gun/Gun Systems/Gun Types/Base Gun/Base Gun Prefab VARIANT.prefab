@@ -11926,19 +11926,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3997291209744646958, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.70727944
       objectReference: {fileID: 0}
     - target: {fileID: 3997291209744646958, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.7071068
+      value: 0.70693415
       objectReference: {fileID: 0}
     - target: {fileID: 3997291209744646958, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000066204116
+      value: -0.00000006618795
       objectReference: {fileID: 0}
     - target: {fileID: 3997291209744646958, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000066204116
+      value: 0.00000006622028
       objectReference: {fileID: 0}
     - target: {fileID: 4068858301456194895, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}
       propertyPath: m_RenderingLayerMask
@@ -12793,6 +12793,20 @@ MonoBehaviour:
   sfxSwapMag: {fileID: 3933303781945557020}
   primaryStockpileAmmoChanged: {fileID: 0}
   secondaryStockpileAmmoChanged: {fileID: 0}
+  PrimaryStockUpdate: {fileID: 0}
+  SecondaryStockUpdate: {fileID: 0}
+  specialReloadAugment:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 628b949b9d0c7420d9721b22942dfd36, type: 2}
+  passiveReloadRate:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 56330cea3183744bb8f784f4d9c7f78f, type: 2}
+  passiveReloadThreshold:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 5a966f234ff9b4be7a4a083b3d1ff5f2, type: 2}
 --- !u!4 &9187230156316938701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1021361581226536903, guid: 611314a9dca61ed49bf810d0f46d1bda, type: 3}

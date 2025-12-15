@@ -69,6 +69,8 @@ abstract public class DestructablePart : Damageable<DestructablePart>
         p.AddResistance(localResistance, this);
         var finalDamage = CombatManager.DamageCalculator(p);                    //Calculate the actual damage
 
+        if (finalDamage <= 0) return false;
+
         localHealth -= finalDamage; //Apply that damage locally
         OnDamage?.Invoke();
 

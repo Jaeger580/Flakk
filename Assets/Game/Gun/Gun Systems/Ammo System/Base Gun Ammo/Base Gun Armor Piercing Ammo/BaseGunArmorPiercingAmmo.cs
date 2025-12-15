@@ -18,7 +18,6 @@ public class BaseGunArmorPiercingAmmo : BaseGunAmmo, IEffect
 
     public override void OnImpact(CombatPacket p)
     {
-
         StartCoroutine(DestroySelf());
         if (!TriggerEffect(p)) return;
 
@@ -35,6 +34,11 @@ public class BaseGunArmorPiercingAmmo : BaseGunAmmo, IEffect
         if (p.Target is not DestructablePart d) return false;
 
         p.SetDamage(Mathf.CeilToInt(effectValue), this);
+        if (armorPierceValue.Value > 0f)
+        {
+            p.SetIgnoreLocalResistance(true, this);
+            p.SetIgnoreMainResistance(true, this);
+        }
         return d.ApplyDamage(p);
     }
 }
