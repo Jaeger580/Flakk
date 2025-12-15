@@ -45,7 +45,15 @@ public class AmmoTerminalHandler : MonoBehaviour, IUIScreenRefresh
 
         buyBtn.clicked += () =>
         {
+            if(currentCurrency.Value < ammo.crateCost)
+            {
+                currencyChangedEvent?.Trigger();
+                buyBtn.SetEnabled(false);
+                return;
+            }
+
             currentCurrency.Value -= ammo.crateCost;
+            currencyChangedEvent?.Trigger();
             crateSpawner.SpawnCrate(ammo.cratePrefab);
             if (!CheckBuyable()) return;
             buyBtn.SetEnabled(true);
