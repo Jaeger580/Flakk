@@ -47,11 +47,11 @@
                             <ui:Label tabindex="-1" text="Exit Gun : E" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                             <ui:Label tabindex="-1" text="Reload : R" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" class="contentBody" />
                         </ui:VisualElement>
-                        <ui:VisualElement name="MainMenuButtons" style="justify-content: space-around; width: 30%; align-self: center; align-items: center; height: 100%;">
+                        <ui:VisualElement name="MainMenuButtons" class="mainMenuButtons" style="justify-content: space-around; width: 30%; align-self: center; align-items: center; height: 100%;">
                             <ui:Button text="Play" parse-escape-sequences="true" display-tooltip-when-elided="true" name="StartGameButton" class="text-only-button" style="width: 50%;" />
                             <ui:Button text="Options" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Options" class="text-only-button" style="width: 50%;" />
                             <ui:Button text="Credits" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Credits" class="text-only-button" style="width: 50%;" />
-                            <ui:Button text="Quit Game" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" class="text-only-button" style="width: 50%;" />
+                            <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuitGame" class="text-only-button" style="width: 50%;" />
                         </ui:VisualElement>
                         <ui:VisualElement style="justify-content: space-around; align-items: flex-end; align-self: auto; height: 100%; width: 30%;">
                             <ui:Button text="Manual" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ManualTab" class="manualTab" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; rotate: -90deg; translate: 106px 0; width: 100%; display: none;" />
