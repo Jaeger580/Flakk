@@ -436,10 +436,6 @@
     flex-direction: row;
 }
 
-MainMenuButtons .unity-button {
-    background-color: rgba(0, 0, 0, 0);
-}
-
 .text-only-button {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
@@ -729,4 +725,27 @@ MainMenuButtons .unity-button {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+.mainMenuButtons {
+}
+
+.mainMenuButtons .text-only-button {
+    background-image: url("project://database/Assets/Infrastructure/UIToolkit%20Stuff/flakk-ui-buttons.png?fileID=-373005119&guid=17572fe3e8d564de89d058b80d2ed1b0&type=3#flakk-ui-buttons_0");
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+
+.mainMenuButtons .text-only-button:hover {
+    background-image: url("project://database/Assets/Infrastructure/UIToolkit%20Stuff/flakk-ui-buttons.png?fileID=-896679724&guid=17572fe3e8d564de89d058b80d2ed1b0&type=3#flakk-ui-buttons_8");
+    scale: 1.02 1.02;
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.5);
+}
+
+.mainMenuButtons .text-only-button:focus {
+    background-image: url("project://database/Assets/Infrastructure/UIToolkit%20Stuff/flakk-ui-buttons.png?fileID=-1014727798&guid=17572fe3e8d564de89d058b80d2ed1b0&type=3#flakk-ui-buttons_5");
 }
