@@ -410,8 +410,10 @@ public abstract class GunType : MonoBehaviour
         {
             if(specialReloadAugment.Value >= 1)
             {
-                ReloadInputIntake(TryReload(primaryStockpile, primaryMag));
-                ReloadInputIntake(TryReload(secondaryStockpile, secondaryMag));
+                bool canContinueReloadPrimary = TryReload(primaryStockpile, primaryMag);
+                bool canContinueReloadSecondary = TryReload(secondaryStockpile, secondaryMag);
+                ReloadInputIntake(canContinueReloadPrimary || canContinueReloadSecondary);
+                //DO NOT COMPRESS; both TryReloads need to trigger first, and their results taken for the bool
 
                 reloadTimer = 0f;
                 ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
