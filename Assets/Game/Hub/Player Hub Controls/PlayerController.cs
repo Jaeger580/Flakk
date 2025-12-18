@@ -419,7 +419,6 @@ public class PlayerController : MonoBehaviour
         //well I guess there's something, so I better check to make sure it's close enough in the direction I'm moving before trying to adjust
         if (!Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(rawMove), out RaycastHit hit, 0.75f, groundMask))
         {
-            Debug.Log("Stepping Up");
             //rb.position -= new Vector3(0f, -stepSmooth, 0f);
             rb.AddForce(Vector3.up, ForceMode.Impulse);
         }
@@ -558,11 +557,11 @@ public class PlayerController : MonoBehaviour
 
             if (pressSprint)
             {
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.3f);
             }
             else 
             {
-                yield return new WaitForSeconds(0.8f);
+                yield return new WaitForSeconds(0.7f);
             }
         }
     }

@@ -6,25 +6,15 @@ public class CurrencyGainer : MonoBehaviour
 {
     [SerializeField] private GameEvent levelEndEvent, currencyChangedEvent;
     [SerializeField] private IntReference currency;
-    [SerializeField] private int gainPerLevel;
-
-    private void Start()
-    {
-        var levelEndListener = gameObject.AddComponent<GameEventListener>();
-        levelEndListener.Events.Add(levelEndEvent);
-        levelEndListener.Response = new();
-        levelEndListener.Response.AddListener(() => GainCurrency());
-        levelEndEvent.RegisterListener(levelEndListener);
-    }
 
     private void OnDisable()
     {
         ResetCurrency();
     }
 
-    private void GainCurrency()
+    public void GainCurrency(int val)
     {
-        currency.Value += gainPerLevel;
+        currency.Value += val;
         currencyChangedEvent?.Trigger();
     }
 

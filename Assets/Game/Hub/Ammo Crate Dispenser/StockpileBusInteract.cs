@@ -76,16 +76,16 @@ public class StockpileBusInteract : MonoBehaviour, IInteractable
 
         while (ammoInCrate > 0)
         {//While there's still ammo in this crate,
-            print("Still have ammo in the crate!");
+            //print("Still have ammo in the crate!");
             if (stockpileToLoad.TryPush(ammoCrate.Peek()))
             {//If I can fit it, try pushing ammo into the stockpile
-                print("Loaded!");
+                //print("Loaded!");
                 ammoInCrate--;  //If you did, register that you did
                 stockpileAmmoChanged?.Trigger();
             }
             else
             {//otherwise, wait until I CAN fit ammo into the stockpile
-                print("Waiting!");
+                //print("Waiting!");
                 yield return new WaitUntil(() => stockpileToLoad.stack.Count < stockpileToLoad.maxStackSize.Value);
             }
 

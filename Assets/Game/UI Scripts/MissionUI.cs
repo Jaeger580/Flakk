@@ -69,6 +69,10 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         missionList.Clear();
         var missionDesc = root.Q<Label>($"MissionDesc");
         missionDesc.text = "";
+        var missionReward = root.Q<Label>($"MissionReward");
+        missionReward.text = "";
+        missionReward.style.display = DisplayStyle.None;
+
         var startMissionButton = root.Q<Button>($"StartMission");
         startMissionButton.SetEnabled(false);
 
@@ -77,9 +81,12 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
         if (missionStartedScreen != null)
             missionStartedScreen.style.display = inMission ? DisplayStyle.Flex : DisplayStyle.None;
 
-        void SwapChosenMission(int index, Mission mis, Label descLabel)
+        void SwapChosenMission(int index, Mission mis, Label descLabel, Label rewardLabel)
         {
             descLabel.text = mis.Description();
+            rewardLabel.text = $"REWARD: ${mis.CashReward()}";
+            rewardLabel.style.display = DisplayStyle.Flex;
+
             chosenMission = index;
             startMissionButton.SetEnabled(true);
         }
@@ -93,7 +100,7 @@ public class MissionUI : MonoBehaviour, IUIScreenRefresh
             misButton.AddToClassList("textButton");
             misButton.AddToClassList("statText");
             int index = i;
-            misButton.clicked += () => SwapChosenMission(index, mis, missionDesc);
+            misButton.clicked += () => SwapChosenMission(index, mis, missionDesc, missionReward);
             missionList.Add(misButton);
         }
 

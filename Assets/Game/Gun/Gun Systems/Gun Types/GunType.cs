@@ -132,6 +132,15 @@ public abstract class GunType : MonoBehaviour
 
     protected GunTypeSetup gunSetup;
 
+    [SerializeField]
+    protected GameEvent PrimaryStockUpdate;
+    [SerializeField]
+    protected GameEvent SecondaryStockUpdate;
+
+    [SerializeField] private IntReference specialReloadAugment;
+    [SerializeField] private FloatReference passiveReloadRate, passiveReloadThreshold;
+    private float passiveReloadTimer;
+
     protected void Awake()
     {//When the scene starts, refill the mags (player shouldn't need to know how mags work yet)
 
@@ -270,6 +279,15 @@ public abstract class GunType : MonoBehaviour
             fireTimer += Time.deltaTime;
         }
 
+        if (!isReloading.Value && specialReloadAugment.Value >= 2)
+        {
+            HandlePassiveReload();
+            if (!sfxDuringReload.isPlaying)
+            {
+                sfxDuringReload.Play();
+            }
+        }
+            
         if (isReloading.Value)
         {//if I'm pressing reload, handle that
             HandleReload();
@@ -390,11 +408,37 @@ public abstract class GunType : MonoBehaviour
         }
         else
         {
-            ReloadInputIntake(TryReload());
-            reloadTimer = 0f;
-            ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
-        }
+            if(specialReloadAugment.Value >= 1)
+            {
+                ReloadInputIntake(TryReload(primaryStockpile, primaryMag));
+                ReloadInputIntake(TryReload(secondaryStockpile, secondaryMag));
 
+                reloadTimer = 0f;
+                ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
+            }
+            else
+            {
+                ReloadInputIntake(TryReload());
+                reloadTimer = 0f;
+                ReloadTimerChangeEvent?.Invoke(reloadTimer, 1f / reloadRate.Value);
+            }
+        }
+    }
+
+    protected void HandlePassiveReload()
+    {
+        if (isReloading.Value) return;
+        passiveReloadTimer += Time.deltaTime;
+        if (passiveReloadTimer < 1f / passiveReloadRate.Value) return;
+        passiveReloadTimer = 0;
+
+        var oppositeMag = currentMag != primaryMag ? primaryMag : secondaryMag;
+        if (((float)oppositeMag.stack.Count)/oppositeMag.maxStackSize.Value >= passiveReloadThreshold.Value) return;
+
+        if (currentMag != primaryMag)  //use the opposite stockpile
+            TryReload(primaryStockpile, primaryMag);
+        else
+            TryReload(secondaryStockpile, secondaryMag);
     }
 
     protected void ReloadInputIntake(bool pressedReload)
@@ -429,12 +473,47 @@ public abstract class GunType : MonoBehaviour
             PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
             PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
             primaryStockpileAmmoChanged?.Trigger();
+            PrimaryStockUpdate.Trigger();
+
         }
         else
         {
             SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
             SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
             secondaryStockpileAmmoChanged?.Trigger();
+            SecondaryStockUpdate.Trigger();
+
+        }
+
+        return true;
+    }
+
+    protected bool TryReload(AmmoStack stockpile, AmmoStack mag)
+    {
+        if (!stockpile.TryPeek(out var bullet)) { Editor_Utility.ThrowWarning("ERR: Chosen stockpile empty!", this); return false; }
+        if (!mag.TryPush(bullet)) { Editor_Utility.ThrowWarning("ERR: Chosen mag full!", this); return false; }
+
+        //Handle reload sound
+        if (sfxOnReload != null)
+        {
+            CustomAudio.PlayOnceWithPitch(sfxOnReload, onReloadStartPitch);
+        }
+
+        stockpile.Pop(); //Stockpile DOES have ammo, and current mag DID take from it, so pop
+
+        if (mag == primaryMag)
+        {
+            PrimaryMagAmmoChangeEvent?.Invoke(primaryMag.stack.Count, primaryMag.maxStackSize.Value);
+            PrimaryStockpileAmmoChangeEvent?.Invoke(primaryStockpile.stack.Count, primaryStockpile.maxStackSize.Value);
+            primaryStockpileAmmoChanged?.Trigger();
+            PrimaryStockUpdate.Trigger();
+        }
+        else
+        {
+            SecondaryMagAmmoChangeEvent?.Invoke(secondaryMag.stack.Count, secondaryMag.maxStackSize.Value);
+            SecondaryStockpileAmmoChangeEvent?.Invoke(secondaryStockpile.stack.Count, secondaryStockpile.maxStackSize.Value);
+            secondaryStockpileAmmoChanged?.Trigger();
+            SecondaryStockUpdate.Trigger();
         }
 
         return true;
@@ -445,7 +524,7 @@ public abstract class GunType : MonoBehaviour
     #region Misc. Mechanics
     public void Zoom(bool zoomEnter)
     {
-        vCam.m_Lens.FieldOfView = zoomEnter ? 30f : 59f;
+        vCam.m_Lens.FieldOfView = zoomEnter ? 24f : 59f;
         Vector3 camPos = gunCamera.transform.localPosition;
         //gunCamera.transform.localPosition = new Vector3(camPos.x, camPos.y, camPos.z + (zoomEnter ? 2f : -2f));
     }

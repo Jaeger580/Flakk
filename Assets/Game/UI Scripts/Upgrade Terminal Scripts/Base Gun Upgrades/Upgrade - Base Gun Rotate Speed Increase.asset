@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1acf5ac8e1340539fe6ec10b7d98d8, type: 3}
+  m_Name: Upgrade - Base Gun Rotate Speed Increase
+  m_EditorClassIdentifier: 
+  statToIncrease: {fileID: 11400000, guid: d1df466cef7624de385a7069034bf54f, type: 2}
+  initialStatValue: 120
+  currentUpgradeIndex: 0
+  upgrades:
+  - upgradeName: Rotation Speed Increase 1
+    upgradeDesc: Increases the gun's rotational speed, i.e. the speed at which the
+      gun catches up to your aiming (120 -> 160).
+    amtToAugmentBy: 40
+    augmentType: 0
+    cost: 5
+  - upgradeName: Rotation Speed Increase 2
+    upgradeDesc: Further increases the gun's rotational speed (160 -> 200).
+    amtToAugmentBy: 40
+    augmentType: 0
+    cost: 15
+  - upgradeName: Rotation Speed Increase 3
+    upgradeDesc: Further increases the gun's rotational speed (200 -> 240).
+    amtToAugmentBy: 40
+    augmentType: 0
+    cost: 20

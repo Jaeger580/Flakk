@@ -67,10 +67,10 @@ namespace GeneralUtility
                 var exitListener = gameObject.AddComponent<GameEventListener>();
                 exitListener.Events.Add(exitOptionsEvent);
                 exitListener.Response = new();
-                exitListener.Response.AddListener(() => RevertVSync());
-                exitListener.Response.AddListener(() => RevertFullScreen());
-                exitListener.Response.AddListener(() => RevertResolution());
-                exitListener.Response.AddListener(() => RevertFOV());
+                exitListener.Response.AddListener(() => SetVSync());
+                exitListener.Response.AddListener(() => SetFullScreen());
+                //exitListener.Response.AddListener(() => SetResolution());
+                exitListener.Response.AddListener(() => SetFOV());
                 exitOptionsEvent.RegisterListener(exitListener);
             }
 

@@ -21,8 +21,17 @@ public class MonitorInteract : MonoBehaviour, IInteractable
     private UI_InputMapper mapper;
     private List<IUIScreenRefresh> toRefresh = new();
 
+    private void Awake()
+    {
+        foreach (var refresh in GetComponents<IUIScreenRefresh>())
+        {
+            toRefresh.Add(refresh);
+        }
+    }
     private IEnumerator Start()
     {
+        yield return null;
+        yield return null;
         playInput = FindObjectOfType<PlayerInput>();
         doc = GetComponent<UIDocument>();
         mapper = GetComponent<UI_InputMapper>();
@@ -32,29 +41,26 @@ public class MonitorInteract : MonoBehaviour, IInteractable
         exitMonitorListener.Response.AddListener(() => TryExitMonitor());
         inputEventExitMonitor.RegisterListener(exitMonitorListener);
 
-        foreach (var refresh in GetComponents<IUIScreenRefresh>())
-        {
-            toRefresh.Add(refresh);
-        }
-
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
 
         if (!startInTerminal)
             DisableMonitor();
         else
             Interact(this);
+
+        yield return null;
     }
 
     private void EnableMonitor()
     {
-        tutorialEvent.Trigger();
+        tutorialEvent?.Trigger();
 
         doc.enabled = true;
         mapper.enabled = true;
 
         var root = doc.rootVisualElement;
         var exitBtn = root.Q<Button>("Exit");
-        exitBtn.clickable.clicked += TryExitMonitor;
+        exitBtn.clicked += TryExitMonitor;
 
         foreach(var refresh in toRefresh)
         {

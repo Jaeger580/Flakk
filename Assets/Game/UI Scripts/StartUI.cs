@@ -19,8 +19,12 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
     }
     [EnumFlag] [SerializeField] [ReadOnly] private VoiceOverBitFlag voFlags;
 
+    private MonitorInteract monitorInteract;
+
     private IEnumerator Start()
     {
+        TryGetComponent(out monitorInteract);
+
         var monitorExitListener = gameObject.AddComponent<GameEventListener>();
         monitorExitListener.Events.Add(exitMonitorEvent);
         monitorExitListener.Response = new();
@@ -42,18 +46,19 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
 
         RefreshUI();
 
-        yield return new WaitForSeconds(0.01f);
-
+        //yield return new WaitForSeconds(0.01f);
+        yield return null;
         startEvent?.Trigger();
         StartCoroutine(nameof(ManualTutorial));
     }
 
     private IEnumerator ManualTutorial()
     {//Wait for a few seconds to let the previous voice clip end, then if they haven't already checked the manual, tell them to
-        yield return new WaitForSeconds(11f);
-        if (!voFlags.HasFlag(VoiceOverBitFlag.MANUAL_CHECKED) &&
-            !voFlags.HasFlag(VoiceOverBitFlag.CONTRACT_STARTED)) manualEvent?.Trigger();
-        StartCoroutine(nameof(ExitPrompt));
+        yield return null;
+        //yield return new WaitForSeconds(11f);
+        //if (!voFlags.HasFlag(VoiceOverBitFlag.MANUAL_CHECKED) &&
+        //    !voFlags.HasFlag(VoiceOverBitFlag.CONTRACT_STARTED)) manualEvent?.Trigger();
+        //StartCoroutine(nameof(ExitPrompt));
     }
 
     private IEnumerator ExitPrompt()
@@ -100,5 +105,14 @@ public class StartUI : MonoBehaviour, IUIScreenRefresh
 
         var quitBtn = root.Q<Button>("QuitGame");
         quitBtn.clicked += Application.Quit;
+
+        var playBtn = root.Q<Button>("StartGameButton");
+        playBtn.clicked += monitorInteract.ForceExitMonitor;
+
+        var creditsScreen = root.Q<VisualElement>("CreditsScreen");
+        var creditsBtn = root.Q<Button>("Credits");
+        creditsBtn.clicked += () => { UI_Utility.ToggleContainer(creditsScreen, true); };
+        var creditsExit = creditsScreen.Q<Button>("Exit");
+        creditsExit.clicked += () => { UI_Utility.ToggleContainer(creditsScreen, false); };
     }
 }

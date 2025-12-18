@@ -68,9 +68,13 @@ public class GunRotationControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         CamLook(mouseInput);
+    }
+
+    private void FixedUpdate()
+    {
 
         if (playAudio && !rotateSFX.isPlaying)
         {
@@ -92,7 +96,7 @@ public class GunRotationControl : MonoBehaviour
         input.x = Mathf.Clamp(input.x, -120f, 120f);
         pivotRotation.x += input.x * xSens * sensitivityScaler * Time.fixedDeltaTime;
 
-        pivotRotation.y -= input.y * ySens * sensitivityScaler *  Time.fixedDeltaTime;
+        pivotRotation.y -= input.y * ySens * sensitivityScaler * Time.fixedDeltaTime;
         pivotRotation.y = Mathf.Clamp(pivotRotation.y, -85f, 15f);
 
         var pivotRot = Quaternion.Euler(pivotRotation.y, pivotRotation.x, 0f);
@@ -104,7 +108,7 @@ public class GunRotationControl : MonoBehaviour
     private void GunLook()
     {//bases its catchup on angular distance from the gun
         var angle = Quaternion.Angle(gunBase.transform.rotation, pivotPoint.transform.rotation);
-        var speed = gunCatchUpCurve.Value.Evaluate(angle / angleClamp);
+        var speed = gunCatchUpCurve.Value.Evaluate((angle / angleClamp));
 
         float deadZone = 0.05f;
 
@@ -130,10 +134,10 @@ public class GunRotationControl : MonoBehaviour
         if (yInDeadZone) tempDirection.y = 0f;
         
 
-        gunRotation.x += tempDirection.x * xSens * sensitivityScaler * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunRotation.x += tempDirection.x * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunRotation.x = Mathf.Clamp(gunRotation.x, pivotRotation.x - angleClamp, pivotRotation.x + angleClamp);
 
-        gunRotation.y += tempDirection.y * ySens * sensitivityScaler * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
+        gunRotation.y += tempDirection.y * Time.fixedDeltaTime * gunRotateSpeed.Value * speed;
         gunRotation.y = Mathf.Clamp(gunRotation.y, -85f, 15f);
 
         var gunRot = Quaternion.Euler(gunRotation.y, gunRotation.x, 0f);
